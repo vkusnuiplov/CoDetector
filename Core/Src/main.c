@@ -4,16 +4,6 @@
   * @file           : main.c
   * @brief          : Main program body
   ******************************************************************************
-  * @attention
-  *
-  * Copyright (c) 2025 STMicroelectronics.
-  * All rights reserved.
-  *
-  * This software is licensed under terms that can be found in the LICENSE file
-  * in the root directory of this software component.
-  * If no LICENSE file comes with this software, it is provided AS-IS.
-  *
-  ******************************************************************************
   */
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
@@ -21,7 +11,10 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "mq7.h" // <--- ПІДКЛЮЧАЄМО НОВУ ЛІБУ
+#include "led.h"
+#include "buzzer.h"
+#include "application.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -41,21 +34,28 @@
 
 /* Private variables ---------------------------------------------------------*/
 ADC_HandleTypeDef hadc1;
+DMA_HandleTypeDef hdma_adc1;
 
 TIM_HandleTypeDef htim1;
 TIM_HandleTypeDef htim14;
 
 /* USER CODE BEGIN PV */
+// --- СТВОРЮЄМО ОБ'ЄКТ НОВОГО ДРАЙВЕРА ---
+mq7_t h_sensor;          // Об'єкт датчика
+led_t h_led_green;       // Об'єкт зеленого діода
+led_t h_led_red;         // Об'єкт червоного діода
+buzzer_t h_buzzer;       // Об'єкт базера
+application_t h_app;     // Об'єкт головної логіки (App)
 
-uint32_t adc_raw = 0;
-uint32_t debug_ppm_view = 0;
+//volatile uint32_t debug_adc_raw = 0; // Для перегляду в Live Watch
 
-
+volatile uint8_t debug_alarm_active = 0;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
+static void MX_DMA_Init(void);
 static void MX_ADC1_Init(void);
 static void MX_TIM14_Init(void);
 static void MX_TIM1_Init(void);
@@ -76,7 +76,6 @@ int main(void)
 {
 
   /* USER CODE BEGIN 1 */
-
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -97,20 +96,39 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
+  MX_DMA_Init();
   MX_ADC1_Init();
   MX_TIM14_Init();
   MX_TIM1_Init();
   /* USER CODE BEGIN 2 */
 
-  HAL_TIM_Base_Start_IT(&htim14);
+ // HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
 
-  HAL_ADCEx_Calibration_Start(&hadc1);
-  HAL_ADC_Start_IT(&hadc1);
+  //buzzer_init(&h_buzzer, &htim1, TIM_CHANNEL_1);
 
-  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6, GPIO_PIN_SET);
+  led_init(&h_led_green, GPIOB, GPIO_PIN_3, LED_ACTIVE_HIGH);
+  led_init(&h_led_red, GPIOB, GPIO_PIN_5, LED_ACTIVE_HIGH);
+  buzzer_init(&h_buzzer, &htim1, TIM_CHANNEL_1);
+  mq7_sensor_init(&h_sensor, GPIOA, GPIO_PIN_6, &hadc1);
+  app_init(&h_app, &h_sensor, &h_led_green, &h_led_red, &h_buzzer);
 
-  //HAL_GPIO_WritePin(GPIOB, GPIO_PIN_3, GPIO_PIN_RESET); // green led
-  //HAL_GPIO_WritePin(GPIOB, GPIO_PIN_5, GPIO_PIN_RESET); // red led
+
+ // HAL_NVIC_DisableIRQ(DMA1_Channel1_IRQn);
+
+
+  // --- НАЛАШТУВАННЯ ДРАЙВЕРА ДЛЯ ТЕСТУ ---
+
+
+  //led_init(&h_led_green, GPIOB, GPIO_PIN_3, LED_ACTIVE_HIGH);
+  //led_init(&h_led_red, GPIOB, GPIO_PIN_5, LED_ACTIVE_HIGH);
+
+  //led_set_mode(&h_led_green, LED_BLINK_HEARTBEAT);
+  //led_set_mode(&h_led_red, LED_BLINK_SLOW);
+  // Ініціалізація
+
+
+  // Калібрування АЦП
+ // HAL_ADCEx_Calibration_Start(&hadc1);
 
   /* USER CODE END 2 */
 
@@ -118,49 +136,15 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+	  app_process(&h_app, HAL_GetTick());
+
+
+
+
+
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-
-
-	  // HAL_ADC_IRQHandler(&hadc1);
-
-
-	  /*
-
-	  if (adc_raw > 1200)
-	  {
-		  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_3, GPIO_PIN_RESET); // green led
-
-
-		  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_5, GPIO_PIN_SET); // red led
-
-
-
-	  }
-
-
-	  else if (adc_raw < 1150)
-	  {
-		  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_5, GPIO_PIN_RESET); // red led
-		  		  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_3, GPIO_PIN_SET); // green led
-	  }
-   	   	   	   */
-
-
-//	  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_5, GPIO_PIN_RESET);
-//	  HAL_Delay(60000);
-
-
-	  //HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6, GPIO_PIN_RESET);
-
-	  //HAL_GPIO_WritePin(GPIOB, GPIO_PIN_3, GPIO_PIN_RESET);
-	  //HAL_GPIO_WritePin(GPIOB, GPIO_PIN_5, GPIO_PIN_SET);
-	  //HAL_Delay(90000);
-
-
-
-
   }
   /* USER CODE END 3 */
 }
@@ -233,15 +217,14 @@ static void MX_ADC1_Init(void)
   hadc1.Init.EOCSelection = ADC_EOC_SINGLE_CONV;
   hadc1.Init.LowPowerAutoWait = DISABLE;
   hadc1.Init.LowPowerAutoPowerOff = DISABLE;
-  hadc1.Init.ContinuousConvMode = DISABLE;
+  hadc1.Init.ContinuousConvMode = ENABLE;
   hadc1.Init.NbrOfConversion = 1;
-  hadc1.Init.DiscontinuousConvMode = DISABLE;
   hadc1.Init.ExternalTrigConv = ADC_SOFTWARE_START;
   hadc1.Init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_NONE;
-  hadc1.Init.DMAContinuousRequests = DISABLE;
-  hadc1.Init.Overrun = ADC_OVR_DATA_PRESERVED;
+  hadc1.Init.DMAContinuousRequests = ENABLE;
+  hadc1.Init.Overrun = ADC_OVR_DATA_OVERWRITTEN;
   hadc1.Init.SamplingTimeCommon1 = ADC_SAMPLETIME_160CYCLES_5;
-  hadc1.Init.SamplingTimeCommon2 = ADC_SAMPLETIME_160CYCLES_5;
+  hadc1.Init.SamplingTimeCommon2 = ADC_SAMPLETIME_12CYCLES_5;
   hadc1.Init.OversamplingMode = DISABLE;
   hadc1.Init.TriggerFrequencyMode = ADC_TRIGGER_FREQ_HIGH;
   if (HAL_ADC_Init(&hadc1) != HAL_OK)
@@ -289,7 +272,7 @@ static void MX_TIM1_Init(void)
   htim1.Init.Period = 999;
   htim1.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim1.Init.RepetitionCounter = 0;
-  htim1.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+  htim1.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_ENABLE;
   if (HAL_TIM_PWM_Init(&htim1) != HAL_OK)
   {
     Error_Handler();
@@ -302,7 +285,7 @@ static void MX_TIM1_Init(void)
     Error_Handler();
   }
   sConfigOC.OCMode = TIM_OCMODE_PWM1;
-  sConfigOC.Pulse = 500;
+  sConfigOC.Pulse = 0;
   sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
   sConfigOC.OCNPolarity = TIM_OCNPOLARITY_HIGH;
   sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
@@ -368,6 +351,17 @@ static void MX_TIM14_Init(void)
 }
 
 /**
+  * Enable DMA controller clock
+  */
+static void MX_DMA_Init(void)
+{
+
+  /* DMA controller clock enable */
+  __HAL_RCC_DMA1_CLK_ENABLE();
+
+}
+
+/**
   * @brief GPIO Initialization Function
   * @param None
   * @retval None
@@ -407,38 +401,8 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
-
-
-
-// --- ОБРОБНИК ТАЙМЕРА (Тікає 10 разів на секунду) ---
-void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
-{
-    if (htim->Instance == TIM14)
-    {
-        // Ця функція рахує час, перемикає 5В/1.4В і запускає АЦП раз на секунду
-    	MQ7_Timer();
-    }
-}
-
-
-
-// --- ОБРОБНИК АЦП (Спрацьовує 1 раз на секунду, коли є дані) ---
-void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc)
-{
-
-        uint32_t raw_adc_value = HAL_ADC_GetValue(hadc);
-        MQ7_ppm_calculation (raw_adc_value);
-
-
-
-
-
-
-}
-
-
-
-
+// --- ТУТ Я ВИДАЛИВ СТАРІ КОЛБЕКИ, ВОНИ БІЛЬШЕ НЕ ПОТРІБНІ ---
+// Новий драйвер працює в while(1) через mq7_process
 /* USER CODE END 4 */
 
 /**
