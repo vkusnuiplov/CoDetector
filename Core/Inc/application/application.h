@@ -14,10 +14,10 @@
 #include "led.h"
 #include "buzzer.h"
 
-#define DEFAULT_LEVEL_PPM 20.0f
-#define WARNING_LEVEL_PPM 40.0f
-#define ALARM_LEVEL_PPM 60.0f
-#define HYSTERESIS_PPM  5.0f
+#define DEFAULT_LEVEL_PPM 5.0f
+#define WARNING_LEVEL_PPM 10.0f
+#define ALARM_LEVEL_PPM 15.0f
+
 
 #define APP_WARMUP_TIME_MS      SENSOR_INITIAL_CLEANING_TIME
 
@@ -41,8 +41,13 @@ typedef struct {
 
 } application_t;
 
+typedef struct {
+    led_mode_e      green_mode;
+    led_mode_e      red_mode;
+    buzzer_state_e  buzzer_state;
+} indication_cfg_t;
+
 void app_init(application_t *app, mq7_t *sensor, led_t *green, led_t* red, buzzer_t *buzzer);
 void app_process(application_t *app, uint32_t now);
-
 
 #endif

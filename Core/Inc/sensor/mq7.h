@@ -19,10 +19,10 @@
 #define SENSOR_R0_RESISTANSE     920.0f
 #define SENSOR_RL_RESISTASE      2000.0f
 
-#define SENSOR_INITIAL_CLEANING_TIME    180000U
-#define SENSOR_HEATING_HIGH_TIME 60000U
-#define SENSOR_HEATING_LOW_TIME  85000U
-#define SENSOR_MEASURE_TIME      50000U
+#define SENSOR_INITIAL_CLEANING_TIME    18000U
+#define SENSOR_HEATING_HIGH_TIME 6000U
+#define SENSOR_HEATING_LOW_TIME  8500U
+#define SENSOR_MEASURE_TIME      500U
 
 #define SENSOR_EMERGENCY_RAW_ADC_THRESHOLD 3900U
 
@@ -45,6 +45,12 @@ typedef enum {
 } mq7_state_e;
 
 typedef struct {
+    uint32_t duration_ms;
+    uint8_t heater_on;
+    mq7_state_e next_state;
+} mq7_cycle_step_t;
+
+typedef struct {
     GPIO_TypeDef* heater_port;
     uint16_t      heater_pin;
     ADC_HandleTypeDef* hadc;
@@ -57,6 +63,5 @@ typedef struct {
 
 void mq7_sensor_init (mq7_t *handle, GPIO_TypeDef* port, uint16_t pin, ADC_HandleTypeDef* hadc);
 void mq7_process (mq7_t *handle, uint32_t current_time_ms);
-uint8_t mq7_danger_adc_check (mq7_t *handle);
 
 #endif

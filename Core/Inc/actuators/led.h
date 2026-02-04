@@ -39,6 +39,11 @@ typedef enum {
 } led_polarity_e;
 
 typedef struct {
+    uint16_t on_ms;
+    uint16_t off_ms;
+} blink_timing_t;
+
+typedef struct {
 
     GPIO_TypeDef* port;
     uint16_t      pin;
@@ -52,14 +57,12 @@ typedef struct {
     uint32_t      timer_on_ms;
     uint32_t      timer_off_ms;
 
-    //uint32_t      blink_period_ms;
     uint32_t      last_toggle_time;
 } led_t;
 
 void led_init(led_t *handle, GPIO_TypeDef* port, uint16_t pin, led_polarity_e polarity);
 void led_on(led_t *handle);
 void led_off(led_t *handle);
-void led_toggle(led_t *handle);
 void led_set_mode(led_t *handle, led_mode_e mode);
 void led_process(led_t *handle, uint32_t current_time_ms);
 

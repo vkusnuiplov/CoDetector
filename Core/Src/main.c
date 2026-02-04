@@ -11,9 +11,6 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "mq7.h" // <--- ПІДКЛЮЧАЄМО НОВУ ЛІБУ
-#include "led.h"
-#include "buzzer.h"
 #include "application.h"
 /* USER CODE END Includes */
 

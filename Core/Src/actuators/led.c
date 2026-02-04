@@ -7,7 +7,16 @@
   */
 
 #include "led.h"
-// Вмикає лед з урахуванням який потенціал повинен бути на піні
+
+static const blink_timing_t blink_table[] = {
+    [LED_OFF]             = {0, 0},
+    [LED_ON]              = {0, 0},
+    [LED_BLINK_SLOW]      = {LED_TIME_SLOW_ON_MS,    LED_TIME_SLOW_OFF_MS},
+    [LED_BLINK_MEDIUM]    = {LED_TIME_MED_ON_MS,     LED_TIME_MED_OFF_MS},
+    [LED_BLINK_FAST]      = {LED_TIME_FAST_ON_MS,    LED_TIME_FAST_OFF_MS},
+    [LED_BLINK_HEARTBEAT] = {LED_TIME_DEFAULT_ON_MS, LED_TIME_DEFAULT_OFF_MS},
+};
+//-------------------------------------------------------------------------
 static void _hw_write(led_t *handle, uint8_t want_turn_on) {
     GPIO_PinState level_to_write;
 
@@ -25,12 +34,11 @@ static void _hw_write(led_t *handle, uint8_t want_turn_on) {
     HAL_GPIO_WritePin(handle->port, handle->pin, level_to_write);
     handle->is_on = want_turn_on;
 }
-
-// Інвертує поточний стан
+//-------------------------------------------------------------------------
 static void _hw_toggle(led_t *handle) {
     _hw_write(handle, !handle->is_on);
 }
-
+//-------------------------------------------------------------------------
 void led_init(led_t *handle, GPIO_TypeDef* port, uint16_t pin, led_polarity_e polarity) {
     if (handle == NULL) return;
 
@@ -46,76 +54,47 @@ void led_init(led_t *handle, GPIO_TypeDef* port, uint16_t pin, led_polarity_e po
 
     handle->mode = LED_OFF;
     handle->is_on = 0;
-    handle->timer_on_ms = LED_TIME_SLOW_ON_MS;
-    handle->timer_off_ms = LED_TIME_SLOW_OFF_MS;
+    handle->timer_on_ms = 0;
+    handle->timer_off_ms = 0;
 
     handle->last_toggle_time = HAL_GetTick();
 
     _hw_write(handle, 0);
 }
-
+//-------------------------------------------------------------------------
 void led_on(led_t *handle) {
-    handle->mode = LED_ON;
-    _hw_write(handle, 1);
+    led_set_mode(handle, LED_ON);
 }
-
+//-------------------------------------------------------------------------
 void led_off(led_t *handle) {
-    handle->mode = LED_OFF;
-    _hw_write(handle, 0);
+    led_set_mode(handle, LED_OFF);
 }
-
-void led_toggle(led_t *handle) {
-    _hw_toggle(handle);
-    if (handle->is_on) {
-        handle->mode = LED_ON;
-    } else {
-        handle->mode = LED_OFF;
-    }
-}
-
+//-------------------------------------------------------------------------
 void led_set_mode(led_t *handle, led_mode_e mode) {
 
 	if (handle->mode == mode) return;
     handle->mode = mode;
     handle->last_toggle_time = HAL_GetTick();
 
-    switch (mode) {
-        case LED_OFF:
-            _hw_write(handle, 0);
-            break;
 
-        case LED_ON:
-            _hw_write(handle, 1);
-            break;
-
-        case LED_BLINK_FAST:
-            handle->timer_on_ms = LED_TIME_FAST_ON_MS;
-            handle->timer_off_ms = LED_TIME_FAST_OFF_MS;
-            _hw_write(handle, 1);
-            break;
-
-        case LED_BLINK_MEDIUM:
-            handle->timer_on_ms = LED_TIME_MED_ON_MS;
-            handle->timer_off_ms = LED_TIME_MED_OFF_MS;
-            _hw_write(handle, 1);
-            break;
-
-        case LED_BLINK_SLOW:
-            handle->timer_on_ms = LED_TIME_SLOW_ON_MS;
-            handle->timer_off_ms = LED_TIME_SLOW_OFF_MS;
-            _hw_write(handle, 1);
-            break;
-
-        case LED_BLINK_HEARTBEAT:
-            handle->timer_on_ms = LED_TIME_DEFAULT_ON_MS;
-            handle->timer_off_ms = LED_TIME_DEFAULT_OFF_MS;
-            _hw_write(handle, 1);
-            break;
+    if (mode == LED_OFF) {
+        _hw_write(handle, 0);
+        return;
     }
-}
 
+    if (mode == LED_ON) {
+        _hw_write(handle, 1);
+        return;
+    }
+
+    const blink_timing_t *cfg = &blink_table[mode];
+    handle->timer_on_ms = cfg->on_ms;
+    handle->timer_off_ms = cfg->off_ms;
+    _hw_write(handle, 1);
+}
+//-------------------------------------------------------------------------
 void led_process(led_t *handle, uint32_t current_time_ms) {
-    if (handle->mode < LED_BLINK_FAST) return;
+    if (handle->mode == LED_OFF || handle->mode == LED_ON) return;
 
     uint32_t time_diff = current_time_ms - handle->last_toggle_time;
     uint32_t wait_time;
