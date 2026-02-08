@@ -9,15 +9,14 @@
 #ifndef APPLICATION_H
 #define APPLICATION_H
 
-#include "main.h"
+
 #include "mq7.h"
 #include "led.h"
 #include "buzzer.h"
 
-#define DEFAULT_LEVEL_PPM 5.0f
-#define WARNING_LEVEL_PPM 10.0f
-#define ALARM_LEVEL_PPM 15.0f
-
+#define DEFAULT_LEVEL_PPM 20.0f
+#define WARNING_LEVEL_PPM 40.0f
+#define ALARM_LEVEL_PPM 60.0f
 
 #define APP_WARMUP_TIME_MS      SENSOR_INITIAL_CLEANING_TIME
 
@@ -47,7 +46,7 @@ typedef struct {
     buzzer_state_e  buzzer_state;
 } indication_cfg_t;
 
-void app_init(application_t *app, mq7_t *sensor, led_t *green, led_t* red, buzzer_t *buzzer);
+void app_init(application_t *app);
 void app_process(application_t *app, uint32_t now);
 
 #endif

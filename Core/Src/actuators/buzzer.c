@@ -7,6 +7,7 @@
   */
 
 #include "buzzer.h"
+#include <stdint.h>
 
   static const buzzer_setting_t buzz_setting_table [] = {
       [BUZZER_OFF]          = {0, 0, 0, 0},
@@ -18,41 +19,28 @@
   };
 //-------------------------------------------------------------------------
   static void _hw_buzzer_stop (buzzer_t *handle){
-    __HAL_TIM_SET_COMPARE(handle->htim, handle->channel, 0);
+    if (handle->io.stop) handle->io.stop();
   }
 
 //-------------------------------------------------------------------------
   static void _hw_buzzer_set_freq (buzzer_t *handle, uint16_t freq_hz) {
-    uint32_t arr_value = 0;
 
-    if(freq_hz == 0){
-        _hw_buzzer_stop (handle);
-        return;
-    }
-
-    arr_value = (BUZZER_TIMER_FREQ / freq_hz) - 1;
-    if (arr_value > BUZZER_ARR_MAX) arr_value = BUZZER_ARR_MAX;
-
-    __HAL_TIM_SET_AUTORELOAD(handle->htim, arr_value);
-    __HAL_TIM_SET_COMPARE (handle->htim, handle->channel, arr_value / PWM_DUTY);
-
-    HAL_TIM_PWM_Start(handle->htim, handle->channel);
+    if (handle->io.set_freq) handle->io.set_freq(freq_hz);
   }
 
 //-------------------------------------------------------------------------
-  void buzzer_init (buzzer_t *handle, TIM_HandleTypeDef *htim, uint32_t channel) {
-    handle->htim = htim;
-    handle->channel = channel;
+  void buzzer_init (buzzer_t *handle, buzzer_io_t hw_io) {
+    handle->io = hw_io;
+
     handle->state = BUZZER_OFF;
 
     handle->current_setting = &buzz_setting_table[BUZZER_OFF];
 
     handle->current_freq = 0;
     handle->current_delta = 0;
-    handle->last_update_time = HAL_GetTick();
+    handle->last_update_time = 0;
     handle->beep_start_time = 0;
 
-    HAL_TIM_PWM_Start(handle->htim, handle->channel);
     _hw_buzzer_stop(handle);
   }
 //-------------------------------------------------------------------------
@@ -61,7 +49,7 @@ void buzzer_beep (buzzer_t *handle) {
          handle->state == BUZZER_DANGER_ALARM) {
           return;
     }
-    handle->beep_start_time = HAL_GetTick();
+    handle->beep_start_time = 0;
     handle->beep_duration_ms = BUZZER_BEEP_TIME;
     buzzer_set_state(handle, BUZZER_BEEP);
   }
@@ -75,7 +63,7 @@ void buzzer_set_state(buzzer_t *handle, buzzer_state_e state) {
 
     handle->current_freq = handle->current_setting->min_freq;
     handle->current_delta = (int16_t)handle->current_setting->step_size;
-    handle->last_update_time = HAL_GetTick();
+    handle->last_update_time = 0;
 
     if (state == BUZZER_OFF) {
       _hw_buzzer_stop(handle);
@@ -86,6 +74,10 @@ void buzzer_set_state(buzzer_t *handle, buzzer_state_e state) {
 }
 //-------------------------------------------------------------------------
   void buzzer_process(buzzer_t *handle, uint32_t current_time_ms) {
+    if (handle->state == BUZZER_BEEP && handle->beep_start_time == 0) {
+      handle->beep_start_time = current_time_ms;
+    }
+
     if(handle->state == BUZZER_BEEP) {
         if (current_time_ms - handle->beep_start_time >= handle->beep_duration_ms){
             buzzer_set_state(handle,BUZZER_OFF);

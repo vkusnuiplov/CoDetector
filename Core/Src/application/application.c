@@ -7,6 +7,13 @@
   */
 
 #include "application.h"
+#include "bsp.h"
+
+static led_t h_led_green;
+static led_t h_led_red;
+static mq7_t h_sensor;
+static buzzer_t h_buzzer;
+
 //-------------------------------------------------------------------------
 static const indication_cfg_t indication_table[] = {
     [APP_STATE_WARMUP] =   {LED_BLINK_SLOW,      LED_OFF,        BUZZER_OFF},
@@ -55,21 +62,27 @@ static void _app_check_levels(application_t *app) {
 
         switch (app->state) {
             case APP_STATE_DEFAULT:
-                if (current_ppm > DEFAULT_LEVEL_PPM) app->state = APP_STATE_WARNING;
+                if (current_ppm > ALARM_LEVEL_PPM) app->state = APP_STATE_CRITICAL;
+                else if (current_ppm > WARNING_LEVEL_PPM) app->state = APP_STATE_ALARM;
+                else if (current_ppm > DEFAULT_LEVEL_PPM) app->state = APP_STATE_WARNING;
                 break;
 
             case APP_STATE_WARNING:
-                if (current_ppm > WARNING_LEVEL_PPM) app->state = APP_STATE_ALARM;
+                if (current_ppm > ALARM_LEVEL_PPM) app->state = APP_STATE_CRITICAL;
+                else if (current_ppm > WARNING_LEVEL_PPM) app->state = APP_STATE_ALARM;
                 else if (current_ppm < DEFAULT_LEVEL_PPM) app->state = APP_STATE_DEFAULT;
                 break;
 
             case APP_STATE_ALARM:
                 if (current_ppm > ALARM_LEVEL_PPM) app->state = APP_STATE_CRITICAL;
+                else if (current_ppm < DEFAULT_LEVEL_PPM) app->state = APP_STATE_DEFAULT;
                 else if (current_ppm < WARNING_LEVEL_PPM) app->state = APP_STATE_WARNING;
                 break;
 
             case APP_STATE_CRITICAL:
-                if (current_ppm < ALARM_LEVEL_PPM) app->state = APP_STATE_ALARM;
+                if (current_ppm < DEFAULT_LEVEL_PPM) app->state = APP_STATE_DEFAULT;
+                else if (current_ppm < WARNING_LEVEL_PPM) app->state = APP_STATE_WARNING;
+                else if (current_ppm < ALARM_LEVEL_PPM) app->state = APP_STATE_ALARM;
                 break;
 
             default: break;
@@ -81,11 +94,27 @@ static void _app_check_levels(application_t *app) {
 }
 
 //-------------------------------------------------------------------------
-void app_init(application_t *app, mq7_t *sensor, led_t *green, led_t* red, buzzer_t *buzzer) {
-    app->sensor = sensor;
-    app->led_green = green;
-    app->led_red = red;
-    app->buzzer = buzzer;
+void app_init(application_t *app) {
+    BSP_Init();
+    mq7_io_t mq_io = {
+        .set_heater = BSP_MQ7_Heater_Set,
+        .get_adc_data = BSP_MQ7_Get_ADC_value
+    };
+    mq7_sensor_init (&h_sensor, mq_io);
+
+    led_init (&h_led_green, BSP_LED_Green_Set, LED_ACTIVE_HIGH);
+    led_init (&h_led_red, BSP_LED_Red_Set, LED_ACTIVE_HIGH);
+
+    buzzer_io_t buzz_io = {
+        .set_freq = BSP_Buzzer_SetFreq,
+        .stop = BSP_Buzzer_Stop
+    };
+    buzzer_init (&h_buzzer, buzz_io);
+
+    app->sensor = &h_sensor;
+    app->led_green = &h_led_green;
+    app->led_red = &h_led_red;
+    app->buzzer = &h_buzzer;
 
     app->state = APP_STATE_WARMUP;
     _app_update_indication(app);

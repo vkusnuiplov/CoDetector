@@ -37,16 +37,7 @@ TIM_HandleTypeDef htim1;
 TIM_HandleTypeDef htim14;
 
 /* USER CODE BEGIN PV */
-// --- СТВОРЮЄМО ОБ'ЄКТ НОВОГО ДРАЙВЕРА ---
-mq7_t h_sensor;          // Об'єкт датчика
-led_t h_led_green;       // Об'єкт зеленого діода
-led_t h_led_red;         // Об'єкт червоного діода
-buzzer_t h_buzzer;       // Об'єкт базера
-application_t h_app;     // Об'єкт головної логіки (App)
-
-//volatile uint32_t debug_adc_raw = 0; // Для перегляду в Live Watch
-
-volatile uint8_t debug_alarm_active = 0;
+application_t h_app;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -98,34 +89,7 @@ int main(void)
   MX_TIM14_Init();
   MX_TIM1_Init();
   /* USER CODE BEGIN 2 */
-
- // HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
-
-  //buzzer_init(&h_buzzer, &htim1, TIM_CHANNEL_1);
-
-  led_init(&h_led_green, GPIOB, GPIO_PIN_3, LED_ACTIVE_HIGH);
-  led_init(&h_led_red, GPIOB, GPIO_PIN_5, LED_ACTIVE_HIGH);
-  buzzer_init(&h_buzzer, &htim1, TIM_CHANNEL_1);
-  mq7_sensor_init(&h_sensor, GPIOA, GPIO_PIN_6, &hadc1);
-  app_init(&h_app, &h_sensor, &h_led_green, &h_led_red, &h_buzzer);
-
-
- // HAL_NVIC_DisableIRQ(DMA1_Channel1_IRQn);
-
-
-  // --- НАЛАШТУВАННЯ ДРАЙВЕРА ДЛЯ ТЕСТУ ---
-
-
-  //led_init(&h_led_green, GPIOB, GPIO_PIN_3, LED_ACTIVE_HIGH);
-  //led_init(&h_led_red, GPIOB, GPIO_PIN_5, LED_ACTIVE_HIGH);
-
-  //led_set_mode(&h_led_green, LED_BLINK_HEARTBEAT);
-  //led_set_mode(&h_led_red, LED_BLINK_SLOW);
-  // Ініціалізація
-
-
-  // Калібрування АЦП
- // HAL_ADCEx_Calibration_Start(&hadc1);
+  app_init(&h_app);
 
   /* USER CODE END 2 */
 
@@ -134,11 +98,6 @@ int main(void)
   while (1)
   {
 	  app_process(&h_app, HAL_GetTick());
-
-
-
-
-
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

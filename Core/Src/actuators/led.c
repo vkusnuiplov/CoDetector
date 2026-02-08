@@ -7,6 +7,9 @@
   */
 
 #include "led.h"
+#include <stdint.h>
+#include <stddef.h>
+
 
 static const blink_timing_t blink_table[] = {
     [LED_OFF]             = {0, 0},
@@ -18,20 +21,19 @@ static const blink_timing_t blink_table[] = {
 };
 //-------------------------------------------------------------------------
 static void _hw_write(led_t *handle, uint8_t want_turn_on) {
-    GPIO_PinState level_to_write;
+    uint8_t pin_state;
 
-    if (want_turn_on != 0) {
-        level_to_write = handle->pin_active_state;
+    if (want_turn_on) {
+        pin_state = (handle->polarity == LED_ACTIVE_HIGH) ? 1 : 0;
     }
     else {
-        if (handle->pin_active_state == GPIO_PIN_SET) {
-            level_to_write = GPIO_PIN_RESET;
-        }
-        else {
-            level_to_write = GPIO_PIN_SET;
-        }
+        pin_state = (handle->polarity == LED_ACTIVE_HIGH) ? 0 : 1;
     }
-    HAL_GPIO_WritePin(handle->port, handle->pin, level_to_write);
+
+    if (handle->hw_control != NULL) {
+        handle->hw_control(pin_state);
+    }
+
     handle->is_on = want_turn_on;
 }
 //-------------------------------------------------------------------------
@@ -39,25 +41,16 @@ static void _hw_toggle(led_t *handle) {
     _hw_write(handle, !handle->is_on);
 }
 //-------------------------------------------------------------------------
-void led_init(led_t *handle, GPIO_TypeDef* port, uint16_t pin, led_polarity_e polarity) {
+void led_init(led_t *handle, bsp_led_control control_fn, led_polarity_e polarity) {
     if (handle == NULL) return;
 
-    handle->port = port;
-    handle->pin  = pin;
-
-    if (polarity == LED_ACTIVE_HIGH) {
-    	handle->pin_active_state = GPIO_PIN_SET;
-    }
-    else {
-    	handle->pin_active_state = GPIO_PIN_RESET;
-    }
+    handle->hw_control = control_fn;
+    handle->polarity  = polarity;
 
     handle->mode = LED_OFF;
     handle->is_on = 0;
     handle->timer_on_ms = 0;
     handle->timer_off_ms = 0;
-
-    handle->last_toggle_time = HAL_GetTick();
 
     _hw_write(handle, 0);
 }
@@ -74,7 +67,7 @@ void led_set_mode(led_t *handle, led_mode_e mode) {
 
 	if (handle->mode == mode) return;
     handle->mode = mode;
-    handle->last_toggle_time = HAL_GetTick();
+    handle->last_toggle_time = 0;
 
 
     if (mode == LED_OFF) {

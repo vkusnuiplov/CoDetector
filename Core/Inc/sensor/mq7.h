@@ -12,17 +12,17 @@
 #ifndef MQ7_H
 #define MQ7_H
 
-#include "main.h"
+//#include "main.h"
 #include <stdint.h>
 
 #define SENSOR_VCC_V             5.0f
 #define SENSOR_R0_RESISTANSE     920.0f
 #define SENSOR_RL_RESISTASE      2000.0f
 
-#define SENSOR_INITIAL_CLEANING_TIME    18000U
-#define SENSOR_HEATING_HIGH_TIME 6000U
-#define SENSOR_HEATING_LOW_TIME  8500U
-#define SENSOR_MEASURE_TIME      500U
+#define SENSOR_INITIAL_CLEANING_TIME    180000U
+#define SENSOR_HEATING_HIGH_TIME 60000U
+#define SENSOR_HEATING_LOW_TIME  85000U
+#define SENSOR_MEASURE_TIME      5000U
 
 #define SENSOR_EMERGENCY_RAW_ADC_THRESHOLD 3900U
 
@@ -50,10 +50,17 @@ typedef struct {
     mq7_state_e next_state;
 } mq7_cycle_step_t;
 
+typedef void (*mq7_set_heater_fn)(uint8_t state);
+typedef uint32_t (*mq7_get_adc_fn)(void);
+
 typedef struct {
-    GPIO_TypeDef* heater_port;
-    uint16_t      heater_pin;
-    ADC_HandleTypeDef* hadc;
+    mq7_set_heater_fn   set_heater;
+    mq7_get_adc_fn      get_adc_data;
+} mq7_io_t;
+
+typedef struct {
+
+    mq7_io_t io;
 
     volatile uint32_t raw_adc_value;
     float             current_ppm;
@@ -61,7 +68,7 @@ typedef struct {
     uint32_t          timer_start_ms;
 } mq7_t;
 
-void mq7_sensor_init (mq7_t *handle, GPIO_TypeDef* port, uint16_t pin, ADC_HandleTypeDef* hadc);
+void mq7_sensor_init (mq7_t *handle, mq7_io_t io);
 void mq7_process (mq7_t *handle, uint32_t current_time_ms);
 
 #endif

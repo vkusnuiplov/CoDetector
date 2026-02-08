@@ -9,7 +9,8 @@
 #ifndef LED_H
 #define LED_H
 
-#include "main.h"
+//#include "main.h"
+#include <stdint.h>
 
 
 #define LED_TIME_FAST_ON_MS         200U
@@ -43,12 +44,11 @@ typedef struct {
     uint16_t off_ms;
 } blink_timing_t;
 
+typedef void (*bsp_led_control)(uint8_t state);
+
 typedef struct {
 
-    GPIO_TypeDef* port;
-    uint16_t      pin;
-
-    GPIO_PinState pin_active_state;
+    bsp_led_control hw_control;
 
     led_mode_e    mode;
     led_polarity_e polarity;
@@ -60,7 +60,7 @@ typedef struct {
     uint32_t      last_toggle_time;
 } led_t;
 
-void led_init(led_t *handle, GPIO_TypeDef* port, uint16_t pin, led_polarity_e polarity);
+void led_init(led_t *handle, bsp_led_control control_fn, led_polarity_e polarity);
 void led_on(led_t *handle);
 void led_off(led_t *handle);
 void led_set_mode(led_t *handle, led_mode_e mode);
