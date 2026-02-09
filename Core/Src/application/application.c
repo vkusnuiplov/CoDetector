@@ -4,6 +4,62 @@
   * @author  vkusnuiplov
   * @brief   Реалізація бізнес логіки
   ******************************************************************************
+
+ 	@section Application Architecture
+
+	Архітектура базується на циклічному опитуванні (Polling) та подієвій моделі:
+
+	1. Initialization (app_init)
+		Ініціалізація BSP
+		Зв'язування абстрактних драйверів з функціями BSP.
+		Встановлення початкового стану APP_STATE_WARMUP.
+
+	2. Processing Loop (app_process)
+		Оновлення таймерів драйверів
+		Перевірка умов переходу FSM
+
+  ******************************************************************************
+	@section FSM States & Indication Logic
+
+	Поведінка пристрою визначається таблицею індикації
+
+	1. APP_STATE_WARMUP
+		Indication: Green SLOW Blink | Red OFF | Silent
+		Старт системи. Очікування виходу сенсора на робочий режим (MEASURE)
+
+	2. APP_STATE_DEFAULT
+		Indication: Green HEARTBEAT | Red OFF | Silent
+		Рівень CO в межах норми < DEFAULT_LEVEL_PPM
+
+	3. APP_STATE_WARNING
+		Indication: Green OFF | Red FAST Blink | Silent
+		Рівень CO підвищений > DEFAULT_LEVEL_PPM, але не критичний
+
+	4. APP_STATE_ALARM
+		Indication: Green OFF | Red FAST Blink | Siren Sound
+		Критичний рівень CO > WARNING_LEVEL_PPM або аварійний стрибок поза фазою вимірювання
+
+	5. APP_STATE_ERROR
+		Indication: Green OFF | Red ON | Silent
+		Виявлено обрив сенсора або некоректні дані АЦП < Min Threshold
+
+  ******************************************************************************
+	@section Safety & Hysteresis Logic
+
+	Алгоритм запобігання хибним спрацьовуванням та мерехтіння станів:
+
+		Emergency Check: Під час фази Low Heating (1.4V) перевіряється сире
+	  	значення АЦП. Якщо воно перевищує критичний поріг -> миттєва тривога
+	    ALARM, ігноруючи розрахунок PPM
+
+	    PPM Measurement: Під час фази Measure аналізується розрахований PPM.
+	    Переходи між станами Default <-> Warning <-> Alarm мають гістерезис
+	    у вигляді власного діапазону станів, для стабільності роботи
+
+		Реалізовано механізм швидкого скидання тривоги Alarm -> Default,
+	  	якщо концентрація газу різко впала, минаючи проміжні стани
+
+  ******************************************************************************
   */
 
 #include "application.h"
