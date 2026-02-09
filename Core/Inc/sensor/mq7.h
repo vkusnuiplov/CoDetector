@@ -2,9 +2,9 @@
   ******************************************************************************
   * @file    mq7.h
   * @author  vkusnuiplov
-  * @brief   Заголовочний файл для роботи з датчиком CO MQ-7.
+  * @brief   Заголовочний файл для роботи з датчиком CO MQ-7
   * * Файл містить кінцевий автомат станів для керування датчиком MQ-7,
-  * а також функції ініціалізації та обчислення результатів вимірювань.
+  * а також функції ініціалізації та обчислення результатів вимірювань
   *
   ******************************************************************************
   */
@@ -12,29 +12,30 @@
 #ifndef MQ7_H
 #define MQ7_H
 
-//#include "main.h"
 #include <stdint.h>
 
-#define SENSOR_VCC_V             5.0f
-#define SENSOR_R0_RESISTANSE     920.0f
-#define SENSOR_RL_RESISTASE      2000.0f
+#define SENSOR_VCC_V                        5.0f
+#define SENSOR_R0_RESISTANSE                920.0f
+#define SENSOR_RL_RESISTASE                 2000.0f
 
-#define SENSOR_INITIAL_CLEANING_TIME    180000U
-#define SENSOR_HEATING_HIGH_TIME 60000U
-#define SENSOR_HEATING_LOW_TIME  85000U
-#define SENSOR_MEASURE_TIME      5000U
+#define SENSOR_INITIAL_CLEANING_TIME        180000U
+#define SENSOR_HEATING_HIGH_TIME            60000U
+#define SENSOR_HEATING_LOW_TIME             85000U
+#define SENSOR_MEASURE_TIME                 5000U
 
-#define SENSOR_EMERGENCY_RAW_ADC_THRESHOLD 3900U
+#define HEATER_ON                           1U
+#define HEATER_OFF                          0U
 
+#define SENSOR_EMERGENCY_RAW_ADC_THRESHOLD  3900U
 
 // ------- [MATH] Коефіцієнти кривої (PPM = a * ratio^b) -------
-#define SENSOR_COEFF_A 100.0f
-#define SENSOR_COEFF_B -1.43f
+#define SENSOR_COEFF_A                      100.0f
+#define SENSOR_COEFF_B                      -1.43f
 
-#define ADC_REFF_VCC 3.3f
-#define ADC_MAX_VALUE 4095.f
+#define ADC_REFF_VCC                        3.3f
+#define ADC_MAX_VALUE                       4095.f
 
-#define ADC_ERROR_VALUE 10U
+#define ADC_ERROR_VALUE                     10U
 
 
 typedef enum {
@@ -59,9 +60,7 @@ typedef struct {
 } mq7_io_t;
 
 typedef struct {
-
     mq7_io_t io;
-
     volatile uint32_t raw_adc_value;
     float             current_ppm;
     mq7_state_e       state;

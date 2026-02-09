@@ -2,16 +2,20 @@
   ******************************************************************************
   * @file    led.h
   * @author  vkusnuiplov
-  * @brief   Заголовочний файл для роботи зі світлодіодом.
+  * @brief   Заголовочний файл для роботи зі світлодіодом
   ******************************************************************************
   */
 
 #ifndef LED_H
 #define LED_H
 
-//#include "main.h"
 #include <stdint.h>
 
+#define LED_TIME_ON_PATTERN_ON_MS   0U
+#define LED_TIME_ON_PATTERN_OFF_MS  0U
+
+#define LED_TIME_OFF_PATTERN_ON_MS  0U
+#define LED_TIME_OFF_PATTERN_OFF_MS 0U
 
 #define LED_TIME_FAST_ON_MS         200U
 #define LED_TIME_FAST_OFF_MS        200U
@@ -24,6 +28,9 @@
 
 #define LED_TIME_DEFAULT_ON_MS      300U
 #define LED_TIME_DEFAULT_OFF_MS     4700U
+
+#define LED_ACTIVE_POT_HIGH         1U
+#define LED_ACTIVE_POT_LOW          0U
 
 typedef enum {
     LED_OFF,
@@ -47,16 +54,12 @@ typedef struct {
 typedef void (*bsp_led_control)(uint8_t state);
 
 typedef struct {
-
     bsp_led_control hw_control;
-
     led_mode_e    mode;
     led_polarity_e polarity;
     uint8_t       is_on;
-
     uint32_t      timer_on_ms;
     uint32_t      timer_off_ms;
-
     uint32_t      last_toggle_time;
 } led_t;
 

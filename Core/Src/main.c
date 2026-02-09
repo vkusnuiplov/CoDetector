@@ -3,6 +3,27 @@
   ******************************************************************************
   * @file           : main.c
   * @brief          : Main program body
+  * @section Codestyle & Naming Conventions
+  *
+  * Для покращення читабельності та уніфікації коду використовуються такі суфікси:
+  * _t [type] Оголошення типів структур (struct)
+  * _e [enum] Типи перерахувань, використовується для станів та режимів
+  * _h [handle] Позначає конкретний екземпляр (об'єкт) структури в пам'яті.
+  * _hw [hardware/internal] : Позначає функції, що напряму взаємодіють із HAL/registers
+  * або є внутрішніми (static) для модуля. Не для виклику з application.
+  *
+  ******************************************************************************
+  ----- CO_Detector -----
+  -> main.c/h               // Ініціалізація та головний цикл
+		-> application/         // Високорівнева бізнес-логіка
+			   application.c/h
+		-> actuators/           // Платформонезалежні драйвери для роботи з пристроями виводу
+			   led.c/h
+			   buzzer.c/h
+		-> sensor/              // Драйвер для роботи з датчиком MQ7
+			   mq7.c/h
+		-> bsp/                 // Прив'язка логічних драйверів до фізичних ресурсів
+			   bsp.c/h
   ******************************************************************************
   */
 /* USER CODE END Header */
@@ -62,26 +83,17 @@ static void MX_TIM1_Init(void);
   */
 int main(void)
 {
-
   /* USER CODE BEGIN 1 */
   /* USER CODE END 1 */
-
   /* MCU Configuration--------------------------------------------------------*/
-
   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
   HAL_Init();
-
   /* USER CODE BEGIN Init */
-
   /* USER CODE END Init */
-
   /* Configure the system clock */
   SystemClock_Config();
-
   /* USER CODE BEGIN SysInit */
-
   /* USER CODE END SysInit */
-
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_DMA_Init();
@@ -90,21 +102,17 @@ int main(void)
   MX_TIM1_Init();
   /* USER CODE BEGIN 2 */
   app_init(&h_app);
-
   /* USER CODE END 2 */
-
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
 	  app_process(&h_app, HAL_GetTick());
     /* USER CODE END WHILE */
-
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
 }
-
 /**
   * @brief System Clock Configuration
   * @retval None
@@ -121,10 +129,8 @@ void SystemClock_Config(void)
   /** Initializes the RCC Oscillators according to the specified parameters
   * in the RCC_OscInitTypeDef structure.
   */
-  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI;
-  RCC_OscInitStruct.HSIState = RCC_HSI_ON;
-  RCC_OscInitStruct.HSIDiv = RCC_HSI_DIV2;
-  RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE;
+  RCC_OscInitStruct.HSEState = RCC_HSE_ON;
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_NONE;
   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
   {
@@ -135,7 +141,7 @@ void SystemClock_Config(void)
   */
   RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
                               |RCC_CLOCKTYPE_PCLK1;
-  RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_HSI;
+  RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_HSE;
   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
 
@@ -329,6 +335,7 @@ static void MX_GPIO_Init(void)
 /* USER CODE END MX_GPIO_Init_1 */
 
   /* GPIO Ports Clock Enable */
+  __HAL_RCC_GPIOF_CLK_ENABLE();
   __HAL_RCC_GPIOA_CLK_ENABLE();
   __HAL_RCC_GPIOB_CLK_ENABLE();
 

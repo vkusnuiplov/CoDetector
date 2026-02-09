@@ -10,15 +10,15 @@
 #include <stdint.h>
 
   static const buzzer_setting_t buzz_setting_table [] = {
-      [BUZZER_OFF]          = {0, 0, 0, 0},
-      [BUZZER_ON]           = {BUZZER_ON_FREQ,    BUZZER_ON_FREQ,     0,    0},
-      [BUZZER_BEEP]         = {BUZZER_ON_FREQ,    BUZZER_ON_FREQ,     0,    0},
-      [BUZZER_WARN_ALARM]   = {WARN_ALARM_MIN_FREQ,   WARN_ALARM_MAX_FREQ,   WARN_ALARM_STEP,   WARN_ALARM_SPEED_MS},
-      [BUZZER_DANGER_ALARM] = {DANGER_ALARM_MIN_FREQ, DANGER_ALARM_MAX_FREQ, DANGER_ALARM_STEP, DANGER_ALARM_SPEED_MS},
+      [BUZZER_OFF]          = {BUZZER_OFF_FREQ,         BUZZER_OFF_FREQ,        BUZZER_OFF_STEP,    BUZZER_OFF_SPEED},
+      [BUZZER_ON]           = {BUZZER_ON_FREQ,          BUZZER_ON_FREQ,         BUZZER_ON_STEP,     BUZZER_ON_SPEED},
+      [BUZZER_BEEP]         = {BUZZER_ON_FREQ,          BUZZER_ON_FREQ,         BUZER_BEEP_STEP,    BUZZER_BEEP_SPEED},
+      [BUZZER_WARN_ALARM]   = {WARN_ALARM_MIN_FREQ,     WARN_ALARM_MAX_FREQ,    WARN_ALARM_STEP,    WARN_ALARM_SPEED_MS},
+      [BUZZER_DANGER_ALARM] = {DANGER_ALARM_MIN_FREQ,   DANGER_ALARM_MAX_FREQ,  DANGER_ALARM_STEP,  DANGER_ALARM_SPEED_MS},
 
   };
 //-------------------------------------------------------------------------
-  static void _hw_buzzer_stop (buzzer_t *handle){
+  static void _hw_buzzer_stop (buzzer_t *handle) {
     if (handle->io.stop) handle->io.stop();
   }
 
@@ -43,6 +43,7 @@
 
     _hw_buzzer_stop(handle);
   }
+
 //-------------------------------------------------------------------------
 void buzzer_beep (buzzer_t *handle) {
     if(handle->state == BUZZER_WARN_ALARM ||
@@ -53,6 +54,7 @@ void buzzer_beep (buzzer_t *handle) {
     handle->beep_duration_ms = BUZZER_BEEP_TIME;
     buzzer_set_state(handle, BUZZER_BEEP);
   }
+
 //-------------------------------------------------------------------------
 void buzzer_set_state(buzzer_t *handle, buzzer_state_e state) {
 
@@ -72,6 +74,7 @@ void buzzer_set_state(buzzer_t *handle, buzzer_state_e state) {
       _hw_buzzer_set_freq(handle, handle->current_freq);
     }
 }
+
 //-------------------------------------------------------------------------
   void buzzer_process(buzzer_t *handle, uint32_t current_time_ms) {
     if (handle->state == BUZZER_BEEP && handle->beep_start_time == 0) {
@@ -109,4 +112,5 @@ void buzzer_set_state(buzzer_t *handle, buzzer_state_e state) {
         _hw_buzzer_set_freq(handle, handle->current_freq);
     }
   }
+  //-------------------------------------------------------------------------
 

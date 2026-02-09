@@ -11,7 +11,16 @@
   //#include "main.h"
   #include <stdint.h>
 
+  #define BUZZER_OFF_FREQ         0U
+  #define BUZZER_OFF_STEP         0U
+  #define BUZZER_OFF_SPEED        0U
+
   #define BUZZER_ON_FREQ          2000U
+  #define BUZZER_ON_STEP          0U
+  #define BUZZER_ON_SPEED         0U
+
+  #define BUZER_BEEP_STEP         0U
+  #define BUZZER_BEEP_SPEED       0U
   #define BUZZER_BEEP_TIME        200U
 
   #define WARN_ALARM_MIN_FREQ     500U
@@ -23,7 +32,6 @@
   #define DANGER_ALARM_MAX_FREQ   2000U
   #define DANGER_ALARM_STEP       100U
   #define DANGER_ALARM_SPEED_MS   10U
-
 
 
 

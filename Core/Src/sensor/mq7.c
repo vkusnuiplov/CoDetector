@@ -2,9 +2,9 @@
   ******************************************************************************
   * @file    mq7.c
   * @author  vkusnuiplov
-  * @brief   Драйвер для роботи з датчиком CO MQ-7.
+  * @brief   Драйвер для роботи з датчиком CO MQ-7
   * * Файл містить кінцевий автомат станів для керування датчиком MQ-7,
-  * а також функції ініціалізації та обчислення результатів вимірювань.
+  * а також функції ініціалізації та обчислення результатів вимірювань
   *
   ******************************************************************************
   */
@@ -12,15 +12,16 @@
 #include "mq7.h"
 #include <math.h>
 #include <stddef.h>
+
 //-------------------------------------------------------------------------
 static const mq7_cycle_step_t mq7_cycle [] = {
-    [MQ7_STATE_INIT_CLEANING] = {SENSOR_INITIAL_CLEANING_TIME,  1,  MQ7_STATE_HEATING_HIGH},
+    [MQ7_STATE_INIT_CLEANING] = {SENSOR_INITIAL_CLEANING_TIME,  HEATER_ON,  MQ7_STATE_HEATING_HIGH},
 
-    [MQ7_STATE_HEATING_HIGH] = {SENSOR_HEATING_HIGH_TIME,   1,  MQ7_STATE_HEATING_LOW},
+    [MQ7_STATE_HEATING_HIGH]  = {SENSOR_HEATING_HIGH_TIME,      HEATER_ON,  MQ7_STATE_HEATING_LOW},
 
-    [MQ7_STATE_HEATING_LOW] = {SENSOR_HEATING_LOW_TIME, 0, MQ7_STATE_MEASURE},
+    [MQ7_STATE_HEATING_LOW]   = {SENSOR_HEATING_LOW_TIME,       HEATER_OFF, MQ7_STATE_MEASURE},
 
-    [MQ7_STATE_MEASURE] = {SENSOR_MEASURE_TIME, 0, MQ7_STATE_HEATING_HIGH },
+    [MQ7_STATE_MEASURE]       = {SENSOR_MEASURE_TIME,           HEATER_OFF, MQ7_STATE_HEATING_HIGH },
 };
 //-------------------------------------------------------------------------
 static void _hw_set_heater(mq7_t *handle, uint8_t heater_on) {
@@ -29,7 +30,7 @@ static void _hw_set_heater(mq7_t *handle, uint8_t heater_on) {
     }
 }
 //-------------------------------------------------------------------------
-static void _hw_calculate_ppm(mq7_t *handle){
+static void _hw_calculate_ppm(mq7_t *handle) {
     float adc_step_voltage = 0.0f;
     float adc_value_voltage = 0.0f;
     float sensor_resistanse = 0.0f;
@@ -39,7 +40,7 @@ static void _hw_calculate_ppm(mq7_t *handle){
         handle->raw_adc_value = handle->io.get_adc_data();
     }
 
-    if(handle->raw_adc_value == 0){
+    if(handle->raw_adc_value == 0) {
         handle->current_ppm = 0.0f;
         return;
     }
@@ -67,8 +68,7 @@ void mq7_sensor_init (mq7_t *handle, mq7_io_t io) {
     handle->state = MQ7_STATE_INIT_CLEANING;
     handle->timer_start_ms = 0;
 
-
-    _hw_set_heater(handle, mq7_cycle[MQ7_STATE_INIT_CLEANING].heater_on);
+    _hw_set_heater (handle, mq7_cycle[MQ7_STATE_INIT_CLEANING].heater_on);
 
 }
 //-------------------------------------------------------------------------
@@ -93,5 +93,5 @@ void mq7_process (mq7_t *handle, uint32_t current_time_ms) {
 
         _hw_set_heater(handle, mq7_cycle[handle->state].heater_on);
     }
-
 }
+//-------------------------------------------------------------------------
