@@ -2,12 +2,9 @@
 # STM32CubeIDE / Eclipse
 ######################################
 .metadata/
-.settings/
 *.launch
 *.swp
 *~
-.project
-.cproject
 
 ######################################
 # Build folders
@@ -35,7 +32,6 @@ build/
 # STM32CubeMX generated
 ######################################
 *.ioc.autosave
-
 ######################################
 # Linker & compiler temp files
 ######################################
@@ -50,7 +46,4 @@ Thumbs.db
 .vscode/
 .idea/
 
-######################################
-# CubeIDE internal
-######################################
-.mxproject
+
