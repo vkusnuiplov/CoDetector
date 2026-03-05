@@ -46,4 +46,8 @@ Thumbs.db
 .vscode/
 .idea/
 
+# Doxygen generated docs
+html/
+latex/
+
 
