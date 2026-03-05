@@ -1,0 +1,183 @@
+\doxysubsubsubsection{IOPORT Clock Enable Disable }
+\hypertarget{group___r_c_c___i_o_p_o_r_t___clock___enable___disable}{}\label{group___r_c_c___i_o_p_o_r_t___clock___enable___disable}\index{IOPORT Clock Enable Disable@{IOPORT Clock Enable Disable}}
+
+
+Enable or disable the IO Ports clock.  
+
+
+\doxysubsubsubsubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\+\#define \doxymbox{\hyperlink{group___r_c_c___i_o_p_o_r_t___clock___enable___disable_ga1fde58d775fd2458002df817a68f486e}{\+\_\+\+\_\+\+HAL\+\_\+\+RCC\+\_\+\+GPIOA\+\_\+\+CLK\+\_\+\+ENABLE}}()
+\item 
+\+\#define \doxymbox{\hyperlink{group___r_c_c___i_o_p_o_r_t___clock___enable___disable_ga5ad43f3f4d8163d40f7d402ef75d27c5}{\+\_\+\+\_\+\+HAL\+\_\+\+RCC\+\_\+\+GPIOB\+\_\+\+CLK\+\_\+\+ENABLE}}()
+\item 
+\+\#define \doxymbox{\hyperlink{group___r_c_c___i_o_p_o_r_t___clock___enable___disable_ga5ebfeb136612f370950f52306d29b6fd}{\+\_\+\+\_\+\+HAL\+\_\+\+RCC\+\_\+\+GPIOC\+\_\+\+CLK\+\_\+\+ENABLE}}()
+\item 
+\+\#define \doxymbox{\hyperlink{group___r_c_c___i_o_p_o_r_t___clock___enable___disable_ga74340ce0f556e370aafc2b8ecdf2dd31}{\+\_\+\+\_\+\+HAL\+\_\+\+RCC\+\_\+\+GPIOD\+\_\+\+CLK\+\_\+\+ENABLE}}()
+\item 
+\+\#define \doxymbox{\hyperlink{group___r_c_c___i_o_p_o_r_t___clock___enable___disable_ga84098c3c8735d401024a1fb762e9527f}{\+\_\+\+\_\+\+HAL\+\_\+\+RCC\+\_\+\+GPIOF\+\_\+\+CLK\+\_\+\+ENABLE}}()
+\item 
+\+\#define \doxymbox{\hyperlink{group___r_c_c___i_o_p_o_r_t___clock___enable___disable_ga7083e491e6a1e165d064d199304bd2f0}{\+\_\+\+\_\+\+HAL\+\_\+\+RCC\+\_\+\+GPIOA\+\_\+\+CLK\+\_\+\+DISABLE}}()
+\item 
+\+\#define \doxymbox{\hyperlink{group___r_c_c___i_o_p_o_r_t___clock___enable___disable_ga60be1be419b57dafbbb93df67d68a424}{\+\_\+\+\_\+\+HAL\+\_\+\+RCC\+\_\+\+GPIOB\+\_\+\+CLK\+\_\+\+DISABLE}}()
+\item 
+\+\#define \doxymbox{\hyperlink{group___r_c_c___i_o_p_o_r_t___clock___enable___disable_ga0fc90c25d35f9b5b5f66961505de1cd4}{\+\_\+\+\_\+\+HAL\+\_\+\+RCC\+\_\+\+GPIOC\+\_\+\+CLK\+\_\+\+DISABLE}}()
+\item 
+\+\#define \doxymbox{\hyperlink{group___r_c_c___i_o_p_o_r_t___clock___enable___disable_gaeaefe364dafdc0c22353969595421422}{\+\_\+\+\_\+\+HAL\+\_\+\+RCC\+\_\+\+GPIOD\+\_\+\+CLK\+\_\+\+DISABLE}}()
+\item 
+\+\#define \doxymbox{\hyperlink{group___r_c_c___i_o_p_o_r_t___clock___enable___disable_ga84c2248eab0a30bd8f4912233abbf34a}{\+\_\+\+\_\+\+HAL\+\_\+\+RCC\+\_\+\+GPIOF\+\_\+\+CLK\+\_\+\+DISABLE}}()
+\end{DoxyCompactItemize}
+
+
+\doxysubsubsubsubsection{Detailed Description}
+Enable or disable the IO Ports clock. 
+
+\begin{DoxyNote}{Note}
+After reset, the IO ports clock (used for registers read/\+write access) is disabled and the application software has to enable this clock before using it. 
+\end{DoxyNote}
+
+
+\label{doc-define-members}
+\Hypertarget{group___r_c_c___i_o_p_o_r_t___clock___enable___disable_doc-define-members}
+\doxysubsubsubsubsection{Macro Definition Documentation}
+\Hypertarget{group___r_c_c___i_o_p_o_r_t___clock___enable___disable_ga7083e491e6a1e165d064d199304bd2f0}\index{IOPORT Clock Enable Disable@{IOPORT Clock Enable Disable}!\_\_HAL\_RCC\_GPIOA\_CLK\_DISABLE@{\_\_HAL\_RCC\_GPIOA\_CLK\_DISABLE}}
+\index{\_\_HAL\_RCC\_GPIOA\_CLK\_DISABLE@{\_\_HAL\_RCC\_GPIOA\_CLK\_DISABLE}!IOPORT Clock Enable Disable@{IOPORT Clock Enable Disable}}
+\doxysubsubsubsubsubsection{\texorpdfstring{\_\_HAL\_RCC\_GPIOA\_CLK\_DISABLE}{\_\_HAL\_RCC\_GPIOA\_CLK\_DISABLE}}
+{\footnotesize\ttfamily \label{group___r_c_c___i_o_p_o_r_t___clock___enable___disable_ga7083e491e6a1e165d064d199304bd2f0} 
+\+\#define \+\_\+\+\_\+\+HAL\+\_\+\+RCC\+\_\+\+GPIOA\+\_\+\+CLK\+\_\+\+DISABLE(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{CLEAR\_BIT(RCC-\/>IOPENR,\ RCC\_IOPENR\_GPIOAEN)}
+
+\end{DoxyCode}
+\Hypertarget{group___r_c_c___i_o_p_o_r_t___clock___enable___disable_ga1fde58d775fd2458002df817a68f486e}\index{IOPORT Clock Enable Disable@{IOPORT Clock Enable Disable}!\_\_HAL\_RCC\_GPIOA\_CLK\_ENABLE@{\_\_HAL\_RCC\_GPIOA\_CLK\_ENABLE}}
+\index{\_\_HAL\_RCC\_GPIOA\_CLK\_ENABLE@{\_\_HAL\_RCC\_GPIOA\_CLK\_ENABLE}!IOPORT Clock Enable Disable@{IOPORT Clock Enable Disable}}
+\doxysubsubsubsubsubsection{\texorpdfstring{\_\_HAL\_RCC\_GPIOA\_CLK\_ENABLE}{\_\_HAL\_RCC\_GPIOA\_CLK\_ENABLE}}
+{\footnotesize\ttfamily \label{group___r_c_c___i_o_p_o_r_t___clock___enable___disable_ga1fde58d775fd2458002df817a68f486e} 
+\+\#define \+\_\+\+\_\+\+HAL\+\_\+\+RCC\+\_\+\+GPIOA\+\_\+\+CLK\+\_\+\+ENABLE(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{do}\ \{\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}}\ uint32\_t\ tmpreg;\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SET\_BIT(RCC-\/>IOPENR,\ RCC\_IOPENR\_GPIOAEN);\ \(\backslash\)}
+\DoxyCodeLine{\textcolor{comment}{/*\ Delay\ after\ an\ RCC\ peripheral\ clock\ enabling\ */}\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ tmpreg\ =\ READ\_BIT(RCC-\/>IOPENR,\ RCC\_IOPENR\_GPIOAEN);\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ UNUSED(tmpreg);\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{while}(0U)}
+
+\end{DoxyCode}
+\Hypertarget{group___r_c_c___i_o_p_o_r_t___clock___enable___disable_ga60be1be419b57dafbbb93df67d68a424}\index{IOPORT Clock Enable Disable@{IOPORT Clock Enable Disable}!\_\_HAL\_RCC\_GPIOB\_CLK\_DISABLE@{\_\_HAL\_RCC\_GPIOB\_CLK\_DISABLE}}
+\index{\_\_HAL\_RCC\_GPIOB\_CLK\_DISABLE@{\_\_HAL\_RCC\_GPIOB\_CLK\_DISABLE}!IOPORT Clock Enable Disable@{IOPORT Clock Enable Disable}}
+\doxysubsubsubsubsubsection{\texorpdfstring{\_\_HAL\_RCC\_GPIOB\_CLK\_DISABLE}{\_\_HAL\_RCC\_GPIOB\_CLK\_DISABLE}}
+{\footnotesize\ttfamily \label{group___r_c_c___i_o_p_o_r_t___clock___enable___disable_ga60be1be419b57dafbbb93df67d68a424} 
+\+\#define \+\_\+\+\_\+\+HAL\+\_\+\+RCC\+\_\+\+GPIOB\+\_\+\+CLK\+\_\+\+DISABLE(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{CLEAR\_BIT(RCC-\/>IOPENR,\ RCC\_IOPENR\_GPIOBEN)}
+
+\end{DoxyCode}
+\Hypertarget{group___r_c_c___i_o_p_o_r_t___clock___enable___disable_ga5ad43f3f4d8163d40f7d402ef75d27c5}\index{IOPORT Clock Enable Disable@{IOPORT Clock Enable Disable}!\_\_HAL\_RCC\_GPIOB\_CLK\_ENABLE@{\_\_HAL\_RCC\_GPIOB\_CLK\_ENABLE}}
+\index{\_\_HAL\_RCC\_GPIOB\_CLK\_ENABLE@{\_\_HAL\_RCC\_GPIOB\_CLK\_ENABLE}!IOPORT Clock Enable Disable@{IOPORT Clock Enable Disable}}
+\doxysubsubsubsubsubsection{\texorpdfstring{\_\_HAL\_RCC\_GPIOB\_CLK\_ENABLE}{\_\_HAL\_RCC\_GPIOB\_CLK\_ENABLE}}
+{\footnotesize\ttfamily \label{group___r_c_c___i_o_p_o_r_t___clock___enable___disable_ga5ad43f3f4d8163d40f7d402ef75d27c5} 
+\+\#define \+\_\+\+\_\+\+HAL\+\_\+\+RCC\+\_\+\+GPIOB\+\_\+\+CLK\+\_\+\+ENABLE(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{do}\ \{\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}}\ uint32\_t\ tmpreg;\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SET\_BIT(RCC-\/>IOPENR,\ RCC\_IOPENR\_GPIOBEN);\ \(\backslash\)}
+\DoxyCodeLine{\textcolor{comment}{/*\ Delay\ after\ an\ RCC\ peripheral\ clock\ enabling\ */}\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ tmpreg\ =\ READ\_BIT(RCC-\/>IOPENR,\ RCC\_IOPENR\_GPIOBEN);\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ UNUSED(tmpreg);\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{while}(0U)}
+
+\end{DoxyCode}
+\Hypertarget{group___r_c_c___i_o_p_o_r_t___clock___enable___disable_ga0fc90c25d35f9b5b5f66961505de1cd4}\index{IOPORT Clock Enable Disable@{IOPORT Clock Enable Disable}!\_\_HAL\_RCC\_GPIOC\_CLK\_DISABLE@{\_\_HAL\_RCC\_GPIOC\_CLK\_DISABLE}}
+\index{\_\_HAL\_RCC\_GPIOC\_CLK\_DISABLE@{\_\_HAL\_RCC\_GPIOC\_CLK\_DISABLE}!IOPORT Clock Enable Disable@{IOPORT Clock Enable Disable}}
+\doxysubsubsubsubsubsection{\texorpdfstring{\_\_HAL\_RCC\_GPIOC\_CLK\_DISABLE}{\_\_HAL\_RCC\_GPIOC\_CLK\_DISABLE}}
+{\footnotesize\ttfamily \label{group___r_c_c___i_o_p_o_r_t___clock___enable___disable_ga0fc90c25d35f9b5b5f66961505de1cd4} 
+\+\#define \+\_\+\+\_\+\+HAL\+\_\+\+RCC\+\_\+\+GPIOC\+\_\+\+CLK\+\_\+\+DISABLE(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{CLEAR\_BIT(RCC-\/>IOPENR,\ RCC\_IOPENR\_GPIOCEN)}
+
+\end{DoxyCode}
+\Hypertarget{group___r_c_c___i_o_p_o_r_t___clock___enable___disable_ga5ebfeb136612f370950f52306d29b6fd}\index{IOPORT Clock Enable Disable@{IOPORT Clock Enable Disable}!\_\_HAL\_RCC\_GPIOC\_CLK\_ENABLE@{\_\_HAL\_RCC\_GPIOC\_CLK\_ENABLE}}
+\index{\_\_HAL\_RCC\_GPIOC\_CLK\_ENABLE@{\_\_HAL\_RCC\_GPIOC\_CLK\_ENABLE}!IOPORT Clock Enable Disable@{IOPORT Clock Enable Disable}}
+\doxysubsubsubsubsubsection{\texorpdfstring{\_\_HAL\_RCC\_GPIOC\_CLK\_ENABLE}{\_\_HAL\_RCC\_GPIOC\_CLK\_ENABLE}}
+{\footnotesize\ttfamily \label{group___r_c_c___i_o_p_o_r_t___clock___enable___disable_ga5ebfeb136612f370950f52306d29b6fd} 
+\+\#define \+\_\+\+\_\+\+HAL\+\_\+\+RCC\+\_\+\+GPIOC\+\_\+\+CLK\+\_\+\+ENABLE(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{do}\ \{\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}}\ uint32\_t\ tmpreg;\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SET\_BIT(RCC-\/>IOPENR,\ RCC\_IOPENR\_GPIOCEN);\ \(\backslash\)}
+\DoxyCodeLine{\textcolor{comment}{/*\ Delay\ after\ an\ RCC\ peripheral\ clock\ enabling\ */}\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ tmpreg\ =\ READ\_BIT(RCC-\/>IOPENR,\ RCC\_IOPENR\_GPIOCEN);\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ UNUSED(tmpreg);\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{while}(0U)}
+
+\end{DoxyCode}
+\Hypertarget{group___r_c_c___i_o_p_o_r_t___clock___enable___disable_gaeaefe364dafdc0c22353969595421422}\index{IOPORT Clock Enable Disable@{IOPORT Clock Enable Disable}!\_\_HAL\_RCC\_GPIOD\_CLK\_DISABLE@{\_\_HAL\_RCC\_GPIOD\_CLK\_DISABLE}}
+\index{\_\_HAL\_RCC\_GPIOD\_CLK\_DISABLE@{\_\_HAL\_RCC\_GPIOD\_CLK\_DISABLE}!IOPORT Clock Enable Disable@{IOPORT Clock Enable Disable}}
+\doxysubsubsubsubsubsection{\texorpdfstring{\_\_HAL\_RCC\_GPIOD\_CLK\_DISABLE}{\_\_HAL\_RCC\_GPIOD\_CLK\_DISABLE}}
+{\footnotesize\ttfamily \label{group___r_c_c___i_o_p_o_r_t___clock___enable___disable_gaeaefe364dafdc0c22353969595421422} 
+\+\#define \+\_\+\+\_\+\+HAL\+\_\+\+RCC\+\_\+\+GPIOD\+\_\+\+CLK\+\_\+\+DISABLE(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{CLEAR\_BIT(RCC-\/>IOPENR,\ RCC\_IOPENR\_GPIODEN)}
+
+\end{DoxyCode}
+\Hypertarget{group___r_c_c___i_o_p_o_r_t___clock___enable___disable_ga74340ce0f556e370aafc2b8ecdf2dd31}\index{IOPORT Clock Enable Disable@{IOPORT Clock Enable Disable}!\_\_HAL\_RCC\_GPIOD\_CLK\_ENABLE@{\_\_HAL\_RCC\_GPIOD\_CLK\_ENABLE}}
+\index{\_\_HAL\_RCC\_GPIOD\_CLK\_ENABLE@{\_\_HAL\_RCC\_GPIOD\_CLK\_ENABLE}!IOPORT Clock Enable Disable@{IOPORT Clock Enable Disable}}
+\doxysubsubsubsubsubsection{\texorpdfstring{\_\_HAL\_RCC\_GPIOD\_CLK\_ENABLE}{\_\_HAL\_RCC\_GPIOD\_CLK\_ENABLE}}
+{\footnotesize\ttfamily \label{group___r_c_c___i_o_p_o_r_t___clock___enable___disable_ga74340ce0f556e370aafc2b8ecdf2dd31} 
+\+\#define \+\_\+\+\_\+\+HAL\+\_\+\+RCC\+\_\+\+GPIOD\+\_\+\+CLK\+\_\+\+ENABLE(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{do}\ \{\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}}\ uint32\_t\ tmpreg;\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SET\_BIT(RCC-\/>IOPENR,\ RCC\_IOPENR\_GPIODEN);\ \(\backslash\)}
+\DoxyCodeLine{\textcolor{comment}{/*\ Delay\ after\ an\ RCC\ peripheral\ clock\ enabling\ */}\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ tmpreg\ =\ READ\_BIT(RCC-\/>IOPENR,\ RCC\_IOPENR\_GPIODEN);\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ UNUSED(tmpreg);\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{while}(0U)}
+
+\end{DoxyCode}
+\Hypertarget{group___r_c_c___i_o_p_o_r_t___clock___enable___disable_ga84c2248eab0a30bd8f4912233abbf34a}\index{IOPORT Clock Enable Disable@{IOPORT Clock Enable Disable}!\_\_HAL\_RCC\_GPIOF\_CLK\_DISABLE@{\_\_HAL\_RCC\_GPIOF\_CLK\_DISABLE}}
+\index{\_\_HAL\_RCC\_GPIOF\_CLK\_DISABLE@{\_\_HAL\_RCC\_GPIOF\_CLK\_DISABLE}!IOPORT Clock Enable Disable@{IOPORT Clock Enable Disable}}
+\doxysubsubsubsubsubsection{\texorpdfstring{\_\_HAL\_RCC\_GPIOF\_CLK\_DISABLE}{\_\_HAL\_RCC\_GPIOF\_CLK\_DISABLE}}
+{\footnotesize\ttfamily \label{group___r_c_c___i_o_p_o_r_t___clock___enable___disable_ga84c2248eab0a30bd8f4912233abbf34a} 
+\+\#define \+\_\+\+\_\+\+HAL\+\_\+\+RCC\+\_\+\+GPIOF\+\_\+\+CLK\+\_\+\+DISABLE(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{CLEAR\_BIT(RCC-\/>IOPENR,\ RCC\_IOPENR\_GPIOFEN)}
+
+\end{DoxyCode}
+\Hypertarget{group___r_c_c___i_o_p_o_r_t___clock___enable___disable_ga84098c3c8735d401024a1fb762e9527f}\index{IOPORT Clock Enable Disable@{IOPORT Clock Enable Disable}!\_\_HAL\_RCC\_GPIOF\_CLK\_ENABLE@{\_\_HAL\_RCC\_GPIOF\_CLK\_ENABLE}}
+\index{\_\_HAL\_RCC\_GPIOF\_CLK\_ENABLE@{\_\_HAL\_RCC\_GPIOF\_CLK\_ENABLE}!IOPORT Clock Enable Disable@{IOPORT Clock Enable Disable}}
+\doxysubsubsubsubsubsection{\texorpdfstring{\_\_HAL\_RCC\_GPIOF\_CLK\_ENABLE}{\_\_HAL\_RCC\_GPIOF\_CLK\_ENABLE}}
+{\footnotesize\ttfamily \label{group___r_c_c___i_o_p_o_r_t___clock___enable___disable_ga84098c3c8735d401024a1fb762e9527f} 
+\+\#define \+\_\+\+\_\+\+HAL\+\_\+\+RCC\+\_\+\+GPIOF\+\_\+\+CLK\+\_\+\+ENABLE(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{do}\ \{\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{core__armv81mml_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}}\ uint32\_t\ tmpreg;\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SET\_BIT(RCC-\/>IOPENR,\ RCC\_IOPENR\_GPIOFEN);\ \(\backslash\)}
+\DoxyCodeLine{\textcolor{comment}{/*\ Delay\ after\ an\ RCC\ peripheral\ clock\ enabling\ */}\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ tmpreg\ =\ READ\_BIT(RCC-\/>IOPENR,\ RCC\_IOPENR\_GPIOFEN);\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ UNUSED(tmpreg);\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{while}(0U)}
+
+\end{DoxyCode}

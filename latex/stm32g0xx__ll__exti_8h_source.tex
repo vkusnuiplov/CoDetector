@@ -1,0 +1,465 @@
+\doxysection{stm32g0xx\+\_\+ll\+\_\+exti.\+h}
+\hypertarget{stm32g0xx__ll__exti_8h_source}{}\label{stm32g0xx__ll__exti_8h_source}\index{Drivers/STM32G0xx\_HAL\_Driver/Inc/stm32g0xx\_ll\_exti.h@{Drivers/STM32G0xx\_HAL\_Driver/Inc/stm32g0xx\_ll\_exti.h}}
+\doxymbox{\hyperlink{stm32g0xx__ll__exti_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{comment}{/*\ Define\ to\ prevent\ recursive\ inclusion\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#ifndef\ STM32G0xx\_LL\_EXTI\_H}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#define\ STM32G0xx\_LL\_EXTI\_H}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00024\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{comment}{/*\ Includes\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{stm32g0xx_8h}{stm32g0xx.h}}"{}}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#if\ defined\ (EXTI)}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \textcolor{comment}{/*\ Private\ types\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{00041\ \textcolor{comment}{/*\ Private\ variables\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{00042\ \textcolor{comment}{/*\ Private\ constants\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#define\ LL\_EXTI\_REGISTER\_PINPOS\_SHFT\ \ \ \ \ \ \ \ 16u\ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \textcolor{comment}{/*\ Private\ Macros\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#if\ defined(USE\_FULL\_LL\_DRIVER)}\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*USE\_FULL\_LL\_DRIVER*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00054\ \textcolor{comment}{/*\ Exported\ types\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{00055\ \textcolor{preprocessor}{\#if\ defined(USE\_FULL\_LL\_DRIVER)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00059\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00060\ \{}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ uint32\_t\ Line\_0\_31;\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00064\ \textcolor{preprocessor}{\#if\ defined(STM32G081xx)\ ||\ defined(STM32G071xx)\ ||\ defined(STM32G0C1xx)\ ||\ defined(STM32G0B1xx)\ ||\ defined(STM32G0B0xx)}}
+\DoxyCodeLine{00065\ \ \ uint32\_t\ Line\_32\_63;\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00067\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ STM32G081xx\ ||\ STM32G071xx\ ||\ STM32G0C1xx\ ||\ STM32G0B1xx\ ||\ STM32G0B0xx\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00068\ \ \ FunctionalState\ LineCommand;\ \ }
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ uint8\_t\ Mode;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \ \ uint8\_t\ Trigger;\ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00076\ \}\ LL\_EXTI\_InitTypeDef;}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00081\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*USE\_FULL\_LL\_DRIVER*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \textcolor{comment}{/*\ Exported\ constants\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00091\ \textcolor{preprocessor}{\#define\ LL\_EXTI\_LINE\_0\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXTI\_IMR1\_IM0\ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00092\ \textcolor{preprocessor}{\#define\ LL\_EXTI\_LINE\_1\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXTI\_IMR1\_IM1\ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00093\ \textcolor{preprocessor}{\#define\ LL\_EXTI\_LINE\_2\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXTI\_IMR1\_IM2\ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00094\ \textcolor{preprocessor}{\#define\ LL\_EXTI\_LINE\_3\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXTI\_IMR1\_IM3\ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00095\ \textcolor{preprocessor}{\#define\ LL\_EXTI\_LINE\_4\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXTI\_IMR1\_IM4\ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00096\ \textcolor{preprocessor}{\#define\ LL\_EXTI\_LINE\_5\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXTI\_IMR1\_IM5\ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00097\ \textcolor{preprocessor}{\#define\ LL\_EXTI\_LINE\_6\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXTI\_IMR1\_IM6\ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00098\ \textcolor{preprocessor}{\#define\ LL\_EXTI\_LINE\_7\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXTI\_IMR1\_IM7\ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00099\ \textcolor{preprocessor}{\#define\ LL\_EXTI\_LINE\_8\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXTI\_IMR1\_IM8\ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00100\ \textcolor{preprocessor}{\#define\ LL\_EXTI\_LINE\_9\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXTI\_IMR1\_IM9\ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00101\ \textcolor{preprocessor}{\#define\ LL\_EXTI\_LINE\_10\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXTI\_IMR1\_IM10\ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00102\ \textcolor{preprocessor}{\#define\ LL\_EXTI\_LINE\_11\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXTI\_IMR1\_IM11\ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00103\ \textcolor{preprocessor}{\#define\ LL\_EXTI\_LINE\_12\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXTI\_IMR1\_IM12\ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00104\ \textcolor{preprocessor}{\#define\ LL\_EXTI\_LINE\_13\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXTI\_IMR1\_IM13\ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00105\ \textcolor{preprocessor}{\#define\ LL\_EXTI\_LINE\_14\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXTI\_IMR1\_IM14\ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00106\ \textcolor{preprocessor}{\#define\ LL\_EXTI\_LINE\_15\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXTI\_IMR1\_IM15\ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00107\ \textcolor{preprocessor}{\#if\ defined(EXTI\_IMR1\_IM16)}}
+\DoxyCodeLine{00108\ \textcolor{preprocessor}{\#define\ LL\_EXTI\_LINE\_16\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXTI\_IMR1\_IM16\ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00109\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ EXTI\_IMR1\_IM16\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00110\ \textcolor{preprocessor}{\#if\ defined(EXTI\_IMR1\_IM17)}}
+\DoxyCodeLine{00111\ \textcolor{preprocessor}{\#define\ LL\_EXTI\_LINE\_17\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXTI\_IMR1\_IM17\ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00112\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ EXTI\_IMR1\_IM17\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00113\ \textcolor{preprocessor}{\#if\ defined(EXTI\_IMR1\_IM18)}}
+\DoxyCodeLine{00114\ \textcolor{preprocessor}{\#define\ LL\_EXTI\_LINE\_18\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXTI\_IMR1\_IM18\ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00115\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ EXTI\_IMR1\_IM18\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00116\ \textcolor{preprocessor}{\#define\ LL\_EXTI\_LINE\_19\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXTI\_IMR1\_IM19\ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00117\ \textcolor{preprocessor}{\#if\ defined(EXTI\_IMR1\_IM20)}}
+\DoxyCodeLine{00118\ \textcolor{preprocessor}{\#define\ LL\_EXTI\_LINE\_20\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXTI\_IMR1\_IM20\ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00119\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ EXTI\_IMR1\_IM20\ */}\textcolor{preprocessor}{\ }}
+\DoxyCodeLine{00120\ \textcolor{preprocessor}{\#if\ defined(EXTI\_IMR1\_IM21)}}
+\DoxyCodeLine{00121\ \textcolor{preprocessor}{\#define\ LL\_EXTI\_LINE\_21\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXTI\_IMR1\_IM21\ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00122\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ EXTI\_IMR1\_IM21\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00123\ \textcolor{preprocessor}{\#if\ defined(EXTI\_IMR1\_IM22)}}
+\DoxyCodeLine{00124\ \textcolor{preprocessor}{\#define\ LL\_EXTI\_LINE\_22\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXTI\_IMR1\_IM22\ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00125\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ EXTI\_IMR1\_IM22\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00126\ \textcolor{preprocessor}{\#define\ LL\_EXTI\_LINE\_23\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXTI\_IMR1\_IM23\ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00127\ \textcolor{preprocessor}{\#if\ defined(EXTI\_IMR1\_IM24)}}
+\DoxyCodeLine{00128\ \textcolor{preprocessor}{\#define\ LL\_EXTI\_LINE\_24\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXTI\_IMR1\_IM24\ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00129\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ EXTI\_IMR1\_IM24\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00130\ \textcolor{preprocessor}{\#if\ defined(EXTI\_IMR1\_IM25)}}
+\DoxyCodeLine{00131\ \textcolor{preprocessor}{\#define\ LL\_EXTI\_LINE\_25\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXTI\_IMR1\_IM25\ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00132\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ EXTI\_IMR1\_IM25\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00133\ \textcolor{preprocessor}{\#if\ defined(EXTI\_IMR1\_IM26)}}
+\DoxyCodeLine{00134\ \textcolor{preprocessor}{\#define\ LL\_EXTI\_LINE\_26\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXTI\_IMR1\_IM26\ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00135\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ EXTI\_IMR1\_IM26\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00136\ \textcolor{preprocessor}{\#if\ defined(EXTI\_IMR1\_IM27)}}
+\DoxyCodeLine{00137\ \textcolor{preprocessor}{\#define\ LL\_EXTI\_LINE\_27\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXTI\_IMR1\_IM27\ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00138\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ EXTI\_IMR1\_IM27\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00139\ \textcolor{preprocessor}{\#if\ defined(EXTI\_IMR1\_IM28)}}
+\DoxyCodeLine{00140\ \textcolor{preprocessor}{\#define\ LL\_EXTI\_LINE\_28\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXTI\_IMR1\_IM28\ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00141\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ EXTI\_IMR1\_IM28\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00142\ \textcolor{preprocessor}{\#if\ defined(EXTI\_IMR1\_IM29)}}
+\DoxyCodeLine{00143\ \textcolor{preprocessor}{\#define\ LL\_EXTI\_LINE\_29\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXTI\_IMR1\_IM29\ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00144\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ EXTI\_IMR1\_IM29\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00145\ \textcolor{preprocessor}{\#if\ defined(EXTI\_IMR1\_IM30)}}
+\DoxyCodeLine{00146\ \textcolor{preprocessor}{\#define\ LL\_EXTI\_LINE\_30\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXTI\_IMR1\_IM30\ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00147\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ EXTI\_IMR1\_IM30\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00148\ \textcolor{preprocessor}{\#if\ defined(EXTI\_IMR1\_IM31)}}
+\DoxyCodeLine{00149\ \textcolor{preprocessor}{\#define\ LL\_EXTI\_LINE\_31\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXTI\_IMR1\_IM31\ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00150\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ EXTI\_IMR1\_IM31\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00151\ \textcolor{preprocessor}{\#define\ LL\_EXTI\_LINE\_ALL\_0\_31\ \ \ \ \ \ \ \ \ \ EXTI\_IMR1\_IM\ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00152\ }
+\DoxyCodeLine{00153\ \textcolor{preprocessor}{\#if\ defined(EXTI\_IMR2\_IM32)}}
+\DoxyCodeLine{00154\ \textcolor{preprocessor}{\#define\ LL\_EXTI\_LINE\_32\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXTI\_IMR2\_IM32\ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00155\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ EXTI\_IMR2\_IM32\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00156\ \textcolor{preprocessor}{\#if\ defined(EXTI\_IMR2\_IM33)}}
+\DoxyCodeLine{00157\ \textcolor{preprocessor}{\#define\ LL\_EXTI\_LINE\_33\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXTI\_IMR2\_IM33\ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00158\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ EXTI\_IMR2\_IM33\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00159\ \textcolor{preprocessor}{\#if\ defined(EXTI\_IMR2\_IM34)}}
+\DoxyCodeLine{00160\ \textcolor{preprocessor}{\#define\ LL\_EXTI\_LINE\_34\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXTI\_IMR2\_IM34\ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00161\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ EXTI\_IMR2\_IM34\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00162\ \textcolor{preprocessor}{\#if\ defined(EXTI\_IMR2\_IM35)}}
+\DoxyCodeLine{00163\ \textcolor{preprocessor}{\#define\ LL\_EXTI\_LINE\_35\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXTI\_IMR2\_IM35\ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00164\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ EXTI\_IMR2\_IM35\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00165\ \textcolor{preprocessor}{\#if\ defined(EXTI\_IMR2\_IM36)}}
+\DoxyCodeLine{00166\ \textcolor{preprocessor}{\#define\ LL\_EXTI\_LINE\_36\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXTI\_IMR2\_IM36\ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00167\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ EXTI\_IMR2\_IM36\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00168\ \textcolor{preprocessor}{\#if\ defined(EXTI\_IMR2\_IM32)\ ||\ defined(EXTI\_IMR2\_IM33)\ ||\ defined(EXTI\_IMR2\_IM34)\ ||\ defined(EXTI\_IMR2\_IM35)\ ||\ defined(EXTI\_IMR2\_IM36)}}
+\DoxyCodeLine{00169\ \textcolor{preprocessor}{\#define\ LL\_EXTI\_LINE\_ALL\_32\_63\ \ \ \ \ \ \ \ \ EXTI\_IMR2\_IM\ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00170\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ EXTI\_IMR2\_IM32\ ||\ EXTI\_IMR2\_IM33\ ||\ EXTI\_IMR2\_IM34\ ||\ EXTI\_IMR2\_IM35\ ||\ EXTI\_IMR2\_IM36\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00171\ }
+\DoxyCodeLine{00172\ \textcolor{preprocessor}{\#define\ LL\_EXTI\_LINE\_ALL\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0xFFFFFFFFU\ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00173\ }
+\DoxyCodeLine{00174\ \textcolor{preprocessor}{\#if\ defined(USE\_FULL\_LL\_DRIVER)}}
+\DoxyCodeLine{00175\ \textcolor{preprocessor}{\#define\ LL\_EXTI\_LINE\_NONE\ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000000U\ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00176\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*USE\_FULL\_LL\_DRIVER*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00177\ }
+\DoxyCodeLine{00181\ \textcolor{preprocessor}{\#define\ LL\_EXTI\_CONFIG\_PORTA\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0U\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00182\ \textcolor{preprocessor}{\#define\ LL\_EXTI\_CONFIG\_PORTB\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXTI\_EXTICR1\_EXTI0\_0\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00183\ \textcolor{preprocessor}{\#define\ LL\_EXTI\_CONFIG\_PORTC\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXTI\_EXTICR1\_EXTI0\_1\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00184\ \textcolor{preprocessor}{\#if\ defined(GPIOD\_BASE)}}
+\DoxyCodeLine{00185\ \textcolor{preprocessor}{\#define\ LL\_EXTI\_CONFIG\_PORTD\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (EXTI\_EXTICR1\_EXTI0\_1|EXTI\_EXTICR1\_EXTI0\_0)\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00186\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*GPIOD\_BASE*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00187\ \textcolor{preprocessor}{\#if\ defined(GPIOE\_BASE)}}
+\DoxyCodeLine{00188\ \textcolor{preprocessor}{\#define\ LL\_EXTI\_CONFIG\_PORTE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ EXTI\_EXTICR1\_EXTI0\_2\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00189\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*GPIOE\_BASE*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00190\ \textcolor{preprocessor}{\#define\ LL\_EXTI\_CONFIG\_PORTF\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (EXTI\_EXTICR1\_EXTI0\_2|EXTI\_EXTICR1\_EXTI0\_0)\ }\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00194\ }
+\DoxyCodeLine{00198\ \textcolor{preprocessor}{\#define\ LL\_EXTI\_CONFIG\_LINE0\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((0uL\ <<\ LL\_EXTI\_REGISTER\_PINPOS\_SHFT)\ \ |\ 0U)\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00199\ \textcolor{preprocessor}{\#define\ LL\_EXTI\_CONFIG\_LINE1\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((8uL\ <<\ LL\_EXTI\_REGISTER\_PINPOS\_SHFT)\ \ |\ 0U)\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00200\ \textcolor{preprocessor}{\#define\ LL\_EXTI\_CONFIG\_LINE2\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((16uL\ <<\ LL\_EXTI\_REGISTER\_PINPOS\_SHFT)\ |\ 0U)\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00201\ \textcolor{preprocessor}{\#define\ LL\_EXTI\_CONFIG\_LINE3\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((24uL\ <<\ LL\_EXTI\_REGISTER\_PINPOS\_SHFT)\ |\ 0U)\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00202\ \textcolor{preprocessor}{\#define\ LL\_EXTI\_CONFIG\_LINE4\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((0uL\ <<\ LL\_EXTI\_REGISTER\_PINPOS\_SHFT)\ \ |\ 1U)\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00203\ \textcolor{preprocessor}{\#define\ LL\_EXTI\_CONFIG\_LINE5\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((8uL\ <<\ LL\_EXTI\_REGISTER\_PINPOS\_SHFT)\ \ |\ 1U)\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00204\ \textcolor{preprocessor}{\#define\ LL\_EXTI\_CONFIG\_LINE6\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((16uL\ <<\ LL\_EXTI\_REGISTER\_PINPOS\_SHFT)\ |\ 1U)\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00205\ \textcolor{preprocessor}{\#define\ LL\_EXTI\_CONFIG\_LINE7\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((24uL\ <<\ LL\_EXTI\_REGISTER\_PINPOS\_SHFT)\ |\ 1U)\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00206\ \textcolor{preprocessor}{\#define\ LL\_EXTI\_CONFIG\_LINE8\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((0uL\ <<\ LL\_EXTI\_REGISTER\_PINPOS\_SHFT)\ \ |\ 2U)\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00207\ \textcolor{preprocessor}{\#define\ LL\_EXTI\_CONFIG\_LINE9\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((8uL\ <<\ LL\_EXTI\_REGISTER\_PINPOS\_SHFT)\ \ |\ 2U)\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00208\ \textcolor{preprocessor}{\#define\ LL\_EXTI\_CONFIG\_LINE10\ \ \ \ \ \ \ \ \ \ \ \ \ \ ((16uL\ <<\ LL\_EXTI\_REGISTER\_PINPOS\_SHFT)\ |\ 2U)\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00209\ \textcolor{preprocessor}{\#define\ LL\_EXTI\_CONFIG\_LINE11\ \ \ \ \ \ \ \ \ \ \ \ \ \ ((24uL\ <<\ LL\_EXTI\_REGISTER\_PINPOS\_SHFT)\ |\ 2U)\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00210\ \textcolor{preprocessor}{\#define\ LL\_EXTI\_CONFIG\_LINE12\ \ \ \ \ \ \ \ \ \ \ \ \ \ ((0uL\ <<\ LL\_EXTI\_REGISTER\_PINPOS\_SHFT)\ \ |\ 3U)\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00211\ \textcolor{preprocessor}{\#define\ LL\_EXTI\_CONFIG\_LINE13\ \ \ \ \ \ \ \ \ \ \ \ \ \ ((8uL\ <<\ LL\_EXTI\_REGISTER\_PINPOS\_SHFT)\ \ |\ 3U)\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00212\ \textcolor{preprocessor}{\#define\ LL\_EXTI\_CONFIG\_LINE14\ \ \ \ \ \ \ \ \ \ \ \ \ \ ((16uL\ <<\ LL\_EXTI\_REGISTER\_PINPOS\_SHFT)\ |\ 3U)\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00213\ \textcolor{preprocessor}{\#define\ LL\_EXTI\_CONFIG\_LINE15\ \ \ \ \ \ \ \ \ \ \ \ \ \ ((24uL\ <<\ LL\_EXTI\_REGISTER\_PINPOS\_SHFT)\ |\ 3U)\ \ }\textcolor{preprocessor}{}\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00220\ \textcolor{preprocessor}{\#if\ defined(USE\_FULL\_LL\_DRIVER)}}
+\DoxyCodeLine{00221\ }
+\DoxyCodeLine{00225\ \textcolor{preprocessor}{\#define\ LL\_EXTI\_MODE\_IT\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((uint8\_t)0x00U)\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00226\ \textcolor{preprocessor}{\#define\ LL\_EXTI\_MODE\_EVENT\ \ \ \ \ \ \ \ \ \ \ \ \ \ ((uint8\_t)0x01U)\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00227\ \textcolor{preprocessor}{\#define\ LL\_EXTI\_MODE\_IT\_EVENT\ \ \ \ \ \ \ \ \ \ \ ((uint8\_t)0x02U)\ }\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00231\ }
+\DoxyCodeLine{00235\ \textcolor{preprocessor}{\#define\ LL\_EXTI\_TRIGGER\_NONE\ \ \ \ \ \ \ \ \ \ \ \ ((uint8\_t)0x00U)\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00236\ \textcolor{preprocessor}{\#define\ LL\_EXTI\_TRIGGER\_RISING\ \ \ \ \ \ \ \ \ \ ((uint8\_t)0x01U)\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00237\ \textcolor{preprocessor}{\#define\ LL\_EXTI\_TRIGGER\_FALLING\ \ \ \ \ \ \ \ \ ((uint8\_t)0x02U)\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00238\ \textcolor{preprocessor}{\#define\ LL\_EXTI\_TRIGGER\_RISING\_FALLING\ \ ((uint8\_t)0x03U)\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00239\ }
+\DoxyCodeLine{00243\ }
+\DoxyCodeLine{00244\ }
+\DoxyCodeLine{00245\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*USE\_FULL\_LL\_DRIVER*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00246\ }
+\DoxyCodeLine{00247\ }
+\DoxyCodeLine{00251\ }
+\DoxyCodeLine{00252\ \textcolor{comment}{/*\ Exported\ macro\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{00256\ }
+\DoxyCodeLine{00260\ }
+\DoxyCodeLine{00267\ \textcolor{preprocessor}{\#define\ LL\_EXTI\_WriteReg(\_\_REG\_\_,\ \_\_VALUE\_\_)\ WRITE\_REG(EXTI-\/>\_\_REG\_\_,\ (\_\_VALUE\_\_))}}
+\DoxyCodeLine{00268\ }
+\DoxyCodeLine{00274\ \textcolor{preprocessor}{\#define\ LL\_EXTI\_ReadReg(\_\_REG\_\_)\ READ\_REG(EXTI-\/>\_\_REG\_\_)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00278\ }
+\DoxyCodeLine{00279\ }
+\DoxyCodeLine{00283\ }
+\DoxyCodeLine{00284\ }
+\DoxyCodeLine{00285\ }
+\DoxyCodeLine{00286\ \textcolor{comment}{/*\ Exported\ functions\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{00293\ }
+\DoxyCodeLine{00334\ \_\_STATIC\_INLINE\ \textcolor{keywordtype}{void}\ LL\_EXTI\_EnableIT\_0\_31(uint32\_t\ ExtiLine)}
+\DoxyCodeLine{00335\ \{}
+\DoxyCodeLine{00336\ \ \ SET\_BIT(EXTI-\/>IMR1,\ ExtiLine);}
+\DoxyCodeLine{00337\ \}}
+\DoxyCodeLine{00338\ }
+\DoxyCodeLine{00339\ \textcolor{preprocessor}{\#if\ defined(STM32G081xx)\ ||\ defined(STM32G071xx)\ ||\ defined(STM32G0C1xx)\ ||\ defined(STM32G0B1xx)\ ||\ defined(STM32G0B0xx)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00356\ \_\_STATIC\_INLINE\ \textcolor{keywordtype}{void}\ LL\_EXTI\_EnableIT\_32\_63(uint32\_t\ ExtiLine)}
+\DoxyCodeLine{00357\ \{}
+\DoxyCodeLine{00358\ \ \ SET\_BIT(EXTI-\/>IMR2,\ ExtiLine);}
+\DoxyCodeLine{00359\ \}}
+\DoxyCodeLine{00360\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ STM32G081xx\ ||\ STM32G071xx\ ||\ STM32G0C1xx\ ||\ STM32G0B1xx\ ||\ STM32G0B0xx\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00361\ }
+\DoxyCodeLine{00402\ \_\_STATIC\_INLINE\ \textcolor{keywordtype}{void}\ LL\_EXTI\_DisableIT\_0\_31(uint32\_t\ ExtiLine)}
+\DoxyCodeLine{00403\ \{}
+\DoxyCodeLine{00404\ \ \ CLEAR\_BIT(EXTI-\/>IMR1,\ ExtiLine);}
+\DoxyCodeLine{00405\ \}}
+\DoxyCodeLine{00406\ }
+\DoxyCodeLine{00407\ \textcolor{preprocessor}{\#if\ defined(STM32G081xx)\ ||\ defined(STM32G071xx)\ ||\ defined(STM32G0C1xx)\ ||\ defined(STM32G0B1xx)\ ||\ defined(STM32G0B0xx)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00424\ \_\_STATIC\_INLINE\ \textcolor{keywordtype}{void}\ LL\_EXTI\_DisableIT\_32\_63(uint32\_t\ ExtiLine)}
+\DoxyCodeLine{00425\ \{}
+\DoxyCodeLine{00426\ \ \ CLEAR\_BIT(EXTI-\/>IMR2,\ ExtiLine);}
+\DoxyCodeLine{00427\ \}}
+\DoxyCodeLine{00428\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ STM32G081xx\ ||\ STM32G071xx\ ||\ STM32G0C1xx\ ||\ STM32G0B1xx\ ||\ STM32G0B0xx\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00429\ }
+\DoxyCodeLine{00470\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_EXTI\_IsEnabledIT\_0\_31(uint32\_t\ ExtiLine)}
+\DoxyCodeLine{00471\ \{}
+\DoxyCodeLine{00472\ \ \ \textcolor{keywordflow}{return}\ ((READ\_BIT(EXTI-\/>IMR1,\ ExtiLine)\ ==\ (ExtiLine))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{00473\ \}}
+\DoxyCodeLine{00474\ }
+\DoxyCodeLine{00475\ \textcolor{preprocessor}{\#if\ defined(STM32G081xx)\ ||\ defined(STM32G071xx)\ ||\ defined(STM32G0C1xx)\ ||\ defined(STM32G0B1xx)\ ||\ defined(STM32G0B0xx)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00491\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_EXTI\_IsEnabledIT\_32\_63(uint32\_t\ ExtiLine)}
+\DoxyCodeLine{00492\ \{}
+\DoxyCodeLine{00493\ \ \ \textcolor{keywordflow}{return}\ ((READ\_BIT(EXTI-\/>IMR2,\ ExtiLine)\ ==\ (ExtiLine))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{00494\ \}}
+\DoxyCodeLine{00495\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ STM32G081xx\ ||\ STM32G071xx\ ||\ STM32G0C1xx\ ||\ STM32G0B1xx\ ||\ STM32G0B0xx\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00496\ }
+\DoxyCodeLine{00500\ }
+\DoxyCodeLine{00504\ }
+\DoxyCodeLine{00542\ \_\_STATIC\_INLINE\ \textcolor{keywordtype}{void}\ LL\_EXTI\_EnableEvent\_0\_31(uint32\_t\ ExtiLine)}
+\DoxyCodeLine{00543\ \{}
+\DoxyCodeLine{00544\ \ \ SET\_BIT(EXTI-\/>EMR1,\ ExtiLine);}
+\DoxyCodeLine{00545\ }
+\DoxyCodeLine{00546\ \}}
+\DoxyCodeLine{00547\ }
+\DoxyCodeLine{00548\ \textcolor{preprocessor}{\#if\ defined(STM32G081xx)\ ||\ defined(STM32G071xx)\ ||\ defined(STM32G0C1xx)\ ||\ defined(STM32G0B1xx)\ ||\ defined(STM32G0B0xx)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00562\ \_\_STATIC\_INLINE\ \textcolor{keywordtype}{void}\ LL\_EXTI\_EnableEvent\_32\_63(uint32\_t\ ExtiLine)}
+\DoxyCodeLine{00563\ \{}
+\DoxyCodeLine{00564\ \ \ SET\_BIT(EXTI-\/>EMR2,\ ExtiLine);}
+\DoxyCodeLine{00565\ \}}
+\DoxyCodeLine{00566\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ STM32G081xx\ ||\ STM32G071xx\ ||\ STM32G0C1xx\ ||\ STM32G0B1xx\ ||\ STM32G0B0xx\ */}\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00604\ \_\_STATIC\_INLINE\ \textcolor{keywordtype}{void}\ LL\_EXTI\_DisableEvent\_0\_31(uint32\_t\ ExtiLine)}
+\DoxyCodeLine{00605\ \{}
+\DoxyCodeLine{00606\ \ \ CLEAR\_BIT(EXTI-\/>EMR1,\ ExtiLine);}
+\DoxyCodeLine{00607\ \}}
+\DoxyCodeLine{00608\ }
+\DoxyCodeLine{00609\ \textcolor{preprocessor}{\#if\ defined(STM32G081xx)\ ||\ defined(STM32G071xx)\ ||\ defined(STM32G0C1xx)\ ||\ defined(STM32G0B1xx)\ ||\ defined(STM32G0B0xx)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00623\ \_\_STATIC\_INLINE\ \textcolor{keywordtype}{void}\ LL\_EXTI\_DisableEvent\_32\_63(uint32\_t\ ExtiLine)}
+\DoxyCodeLine{00624\ \{}
+\DoxyCodeLine{00625\ \ \ CLEAR\_BIT(EXTI-\/>EMR2,\ ExtiLine);}
+\DoxyCodeLine{00626\ \}}
+\DoxyCodeLine{00627\ \textcolor{preprocessor}{\#endif}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00665\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_EXTI\_IsEnabledEvent\_0\_31(uint32\_t\ ExtiLine)}
+\DoxyCodeLine{00666\ \{}
+\DoxyCodeLine{00667\ \ \ \textcolor{keywordflow}{return}\ ((READ\_BIT(EXTI-\/>EMR1,\ ExtiLine)\ ==\ (ExtiLine))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{00668\ \}}
+\DoxyCodeLine{00669\ }
+\DoxyCodeLine{00670\ \textcolor{preprocessor}{\#if\ defined(STM32G081xx)\ ||\ defined(STM32G071xx)\ ||\ defined(STM32G0C1xx)\ ||\ defined(STM32G0B1xx)\ ||\ defined(STM32G0B0xx)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00684\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_EXTI\_IsEnabledEvent\_32\_63(uint32\_t\ ExtiLine)}
+\DoxyCodeLine{00685\ \{}
+\DoxyCodeLine{00686\ \ \ \textcolor{keywordflow}{return}\ ((READ\_BIT(EXTI-\/>EMR2,\ ExtiLine)\ ==\ (ExtiLine))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{00687\ \}}
+\DoxyCodeLine{00688\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ STM32G081xx\ ||\ STM32G071xx\ ||\ STM32G0C1xx\ ||\ STM32G0B1xx\ ||\ STM32G0B0xx\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00689\ }
+\DoxyCodeLine{00693\ }
+\DoxyCodeLine{00697\ }
+\DoxyCodeLine{00732\ \_\_STATIC\_INLINE\ \textcolor{keywordtype}{void}\ LL\_EXTI\_EnableRisingTrig\_0\_31(uint32\_t\ ExtiLine)}
+\DoxyCodeLine{00733\ \{}
+\DoxyCodeLine{00734\ \ \ SET\_BIT(EXTI-\/>RTSR1,\ ExtiLine);}
+\DoxyCodeLine{00735\ }
+\DoxyCodeLine{00736\ \}}
+\DoxyCodeLine{00737\ \textcolor{preprocessor}{\#if\ defined(STM32G0C1xx)\ ||\ defined(STM32G0B1xx)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00753\ \_\_STATIC\_INLINE\ \textcolor{keywordtype}{void}\ LL\_EXTI\_EnableRisingTrig\_32\_63(uint32\_t\ ExtiLine)}
+\DoxyCodeLine{00754\ \{}
+\DoxyCodeLine{00755\ \ \ SET\_BIT(EXTI-\/>RTSR2,\ ExtiLine);}
+\DoxyCodeLine{00756\ }
+\DoxyCodeLine{00757\ \}}
+\DoxyCodeLine{00758\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ STM32G0C1xx\ ||\ STM32G0B1xx\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00759\ }
+\DoxyCodeLine{00794\ \_\_STATIC\_INLINE\ \textcolor{keywordtype}{void}\ LL\_EXTI\_DisableRisingTrig\_0\_31(uint32\_t\ ExtiLine)}
+\DoxyCodeLine{00795\ \{}
+\DoxyCodeLine{00796\ \ \ CLEAR\_BIT(EXTI-\/>RTSR1,\ ExtiLine);}
+\DoxyCodeLine{00797\ }
+\DoxyCodeLine{00798\ \}}
+\DoxyCodeLine{00799\ }
+\DoxyCodeLine{00800\ \textcolor{preprocessor}{\#if\ defined(STM32G0C1xx)\ ||\ defined(STM32G0B1xx)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00816\ \_\_STATIC\_INLINE\ \textcolor{keywordtype}{void}\ LL\_EXTI\_DisableRisingTrig\_32\_63(uint32\_t\ ExtiLine)}
+\DoxyCodeLine{00817\ \{}
+\DoxyCodeLine{00818\ \ \ CLEAR\_BIT(EXTI-\/>RTSR2,\ ExtiLine);}
+\DoxyCodeLine{00819\ }
+\DoxyCodeLine{00820\ \}}
+\DoxyCodeLine{00821\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ STM32G0C1xx\ ||\ STM32G0B1xx\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00822\ }
+\DoxyCodeLine{00849\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_EXTI\_IsEnabledRisingTrig\_0\_31(uint32\_t\ ExtiLine)}
+\DoxyCodeLine{00850\ \{}
+\DoxyCodeLine{00851\ \ \ \textcolor{keywordflow}{return}\ ((READ\_BIT(EXTI-\/>RTSR1,\ ExtiLine)\ ==\ (ExtiLine))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{00852\ \}}
+\DoxyCodeLine{00853\ }
+\DoxyCodeLine{00854\ \textcolor{preprocessor}{\#if\ defined(STM32G0C1xx)\ ||\ defined(STM32G0B1xx)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00863\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_EXTI\_IsEnabledRisingTrig\_32\_63(uint32\_t\ ExtiLine)}
+\DoxyCodeLine{00864\ \{}
+\DoxyCodeLine{00865\ \ \ \textcolor{keywordflow}{return}\ ((READ\_BIT(EXTI-\/>RTSR2,\ ExtiLine)\ ==\ (ExtiLine))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{00866\ \}}
+\DoxyCodeLine{00867\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ STM32G0C1xx\ ||\ STM32G0B1xx\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00868\ }
+\DoxyCodeLine{00872\ }
+\DoxyCodeLine{00876\ }
+\DoxyCodeLine{00911\ \_\_STATIC\_INLINE\ \textcolor{keywordtype}{void}\ LL\_EXTI\_EnableFallingTrig\_0\_31(uint32\_t\ ExtiLine)}
+\DoxyCodeLine{00912\ \{}
+\DoxyCodeLine{00913\ \ \ SET\_BIT(EXTI-\/>FTSR1,\ ExtiLine);}
+\DoxyCodeLine{00914\ \}}
+\DoxyCodeLine{00915\ }
+\DoxyCodeLine{00916\ \textcolor{preprocessor}{\#if\ defined(STM32G0C1xx)\ ||\ defined(STM32G0B1xx)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00932\ \_\_STATIC\_INLINE\ \textcolor{keywordtype}{void}\ LL\_EXTI\_EnableFallingTrig\_32\_63(uint32\_t\ ExtiLine)}
+\DoxyCodeLine{00933\ \{}
+\DoxyCodeLine{00934\ \ \ SET\_BIT(EXTI-\/>FTSR2,\ ExtiLine);}
+\DoxyCodeLine{00935\ \}}
+\DoxyCodeLine{00936\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ STM32G0C1xx\ ||\ STM32G0B1xx\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00937\ }
+\DoxyCodeLine{00971\ \_\_STATIC\_INLINE\ \textcolor{keywordtype}{void}\ LL\_EXTI\_DisableFallingTrig\_0\_31(uint32\_t\ ExtiLine)}
+\DoxyCodeLine{00972\ \{}
+\DoxyCodeLine{00973\ \ \ CLEAR\_BIT(EXTI-\/>FTSR1,\ ExtiLine);}
+\DoxyCodeLine{00974\ \}}
+\DoxyCodeLine{00975\ }
+\DoxyCodeLine{00976\ \textcolor{preprocessor}{\#if\ defined(STM32G0C1xx)\ ||\ defined(STM32G0B1xx)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00991\ \_\_STATIC\_INLINE\ \textcolor{keywordtype}{void}\ LL\_EXTI\_DisableFallingTrig\_32\_63(uint32\_t\ ExtiLine)}
+\DoxyCodeLine{00992\ \{}
+\DoxyCodeLine{00993\ \ \ CLEAR\_BIT(EXTI-\/>FTSR2,\ ExtiLine);}
+\DoxyCodeLine{00994\ \}}
+\DoxyCodeLine{00995\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ STM32G0C1xx\ ||\ STM32G0B1xx\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00996\ }
+\DoxyCodeLine{01024\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_EXTI\_IsEnabledFallingTrig\_0\_31(uint32\_t\ ExtiLine)}
+\DoxyCodeLine{01025\ \{}
+\DoxyCodeLine{01026\ \ \ \textcolor{keywordflow}{return}\ ((READ\_BIT(EXTI-\/>FTSR1,\ ExtiLine)\ ==\ (ExtiLine))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{01027\ \}}
+\DoxyCodeLine{01028\ }
+\DoxyCodeLine{01029\ \textcolor{preprocessor}{\#if\ defined(STM32G0C1xx)\ ||\ defined(STM32G0B1xx)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01038\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_EXTI\_IsEnabledFallingTrig\_32\_63(uint32\_t\ ExtiLine)}
+\DoxyCodeLine{01039\ \{}
+\DoxyCodeLine{01040\ \ \ \textcolor{keywordflow}{return}\ ((READ\_BIT(EXTI-\/>FTSR2,\ ExtiLine)\ ==\ (ExtiLine))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{01041\ \}}
+\DoxyCodeLine{01042\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ STM32G0C1xx\ ||\ STM32G0B1xx\ */}\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01046\ }
+\DoxyCodeLine{01050\ }
+\DoxyCodeLine{01083\ \_\_STATIC\_INLINE\ \textcolor{keywordtype}{void}\ LL\_EXTI\_GenerateSWI\_0\_31(uint32\_t\ ExtiLine)}
+\DoxyCodeLine{01084\ \{}
+\DoxyCodeLine{01085\ \ \ SET\_BIT(EXTI-\/>SWIER1,\ ExtiLine);}
+\DoxyCodeLine{01086\ \}}
+\DoxyCodeLine{01087\ }
+\DoxyCodeLine{01088\ \textcolor{preprocessor}{\#if\ defined(STM32G0C1xx)\ ||\ defined(STM32G0B1xx)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01102\ \_\_STATIC\_INLINE\ \textcolor{keywordtype}{void}\ LL\_EXTI\_GenerateSWI\_32\_63(uint32\_t\ ExtiLine)}
+\DoxyCodeLine{01103\ \{}
+\DoxyCodeLine{01104\ \ \ SET\_BIT(EXTI-\/>SWIER2,\ ExtiLine);}
+\DoxyCodeLine{01105\ \}}
+\DoxyCodeLine{01106\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ STM32G0C1xx\ ||\ STM32G0B1xx\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01107\ }
+\DoxyCodeLine{01111\ }
+\DoxyCodeLine{01115\ }
+\DoxyCodeLine{01145\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_EXTI\_IsActiveFallingFlag\_0\_31(uint32\_t\ ExtiLine)}
+\DoxyCodeLine{01146\ \{}
+\DoxyCodeLine{01147\ \ \ \textcolor{keywordflow}{return}\ ((READ\_BIT(EXTI-\/>FPR1,\ ExtiLine)\ ==\ (ExtiLine))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{01148\ \}}
+\DoxyCodeLine{01149\ }
+\DoxyCodeLine{01150\ \textcolor{preprocessor}{\#if\ defined(STM32G0C1xx)\ ||\ defined(STM32G0B1xx)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01161\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_EXTI\_IsActiveFallingFlag\_32\_63(uint32\_t\ ExtiLine)}
+\DoxyCodeLine{01162\ \{}
+\DoxyCodeLine{01163\ \ \ \textcolor{keywordflow}{return}\ ((READ\_BIT(EXTI-\/>FPR2,\ ExtiLine)\ ==\ (ExtiLine))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{01164\ \}}
+\DoxyCodeLine{01165\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ STM32G0C1xx\ ||\ STM32G0B1xx\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01166\ }
+\DoxyCodeLine{01196\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_EXTI\_ReadFallingFlag\_0\_31(uint32\_t\ ExtiLine)}
+\DoxyCodeLine{01197\ \{}
+\DoxyCodeLine{01198\ \ \ \textcolor{keywordflow}{return}\ (READ\_BIT(EXTI-\/>FPR1,\ ExtiLine));}
+\DoxyCodeLine{01199\ \}}
+\DoxyCodeLine{01200\ }
+\DoxyCodeLine{01201\ \textcolor{preprocessor}{\#if\ defined(STM32G0C1xx)\ ||\ defined(STM32G0B1xx)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01212\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_EXTI\_ReadFallingFlag\_32\_63(uint32\_t\ ExtiLine)}
+\DoxyCodeLine{01213\ \{}
+\DoxyCodeLine{01214\ \ \ \textcolor{keywordflow}{return}\ (READ\_BIT(EXTI-\/>FPR2,\ ExtiLine));}
+\DoxyCodeLine{01215\ \}}
+\DoxyCodeLine{01216\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ STM32G0C1xx\ ||\ STM32G0B1xx\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01217\ }
+\DoxyCodeLine{01247\ \_\_STATIC\_INLINE\ \textcolor{keywordtype}{void}\ LL\_EXTI\_ClearFallingFlag\_0\_31(uint32\_t\ ExtiLine)}
+\DoxyCodeLine{01248\ \{}
+\DoxyCodeLine{01249\ \ \ WRITE\_REG(EXTI-\/>FPR1,\ ExtiLine);}
+\DoxyCodeLine{01250\ \}}
+\DoxyCodeLine{01251\ }
+\DoxyCodeLine{01252\ \textcolor{preprocessor}{\#if\ defined(STM32G0C1xx)\ ||\ defined(STM32G0B1xx)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01263\ \_\_STATIC\_INLINE\ \textcolor{keywordtype}{void}\ LL\_EXTI\_ClearFallingFlag\_32\_63(uint32\_t\ ExtiLine)}
+\DoxyCodeLine{01264\ \{}
+\DoxyCodeLine{01265\ \ \ WRITE\_REG(EXTI-\/>FPR2,\ ExtiLine);}
+\DoxyCodeLine{01266\ \}}
+\DoxyCodeLine{01267\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ STM32G0C1xx\ ||\ STM32G0B1xx\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01268\ }
+\DoxyCodeLine{01298\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_EXTI\_IsActiveRisingFlag\_0\_31(uint32\_t\ ExtiLine)}
+\DoxyCodeLine{01299\ \{}
+\DoxyCodeLine{01300\ \ \ \textcolor{keywordflow}{return}\ ((READ\_BIT(EXTI-\/>RPR1,\ ExtiLine)\ ==\ (ExtiLine))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{01301\ \}}
+\DoxyCodeLine{01302\ }
+\DoxyCodeLine{01303\ \textcolor{preprocessor}{\#if\ defined(STM32G0C1xx)\ ||\ defined(STM32G0B1xx)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01314\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_EXTI\_IsActiveRisingFlag\_32\_63(uint32\_t\ ExtiLine)}
+\DoxyCodeLine{01315\ \{}
+\DoxyCodeLine{01316\ \ \ \textcolor{keywordflow}{return}\ ((READ\_BIT(EXTI-\/>RPR2,\ ExtiLine)\ ==\ (ExtiLine))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{01317\ \}}
+\DoxyCodeLine{01318\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ STM32G0C1xx\ ||\ STM32G0B1xx\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01319\ }
+\DoxyCodeLine{01349\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_EXTI\_ReadRisingFlag\_0\_31(uint32\_t\ ExtiLine)}
+\DoxyCodeLine{01350\ \{}
+\DoxyCodeLine{01351\ \ \ \textcolor{keywordflow}{return}\ (READ\_BIT(EXTI-\/>RPR1,\ ExtiLine));}
+\DoxyCodeLine{01352\ \}}
+\DoxyCodeLine{01353\ }
+\DoxyCodeLine{01354\ \textcolor{preprocessor}{\#if\ defined(STM32G0C1xx)\ ||\ defined(STM32G0B1xx)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01365\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_EXTI\_ReadRisingFlag\_32\_63(uint32\_t\ ExtiLine)}
+\DoxyCodeLine{01366\ \{}
+\DoxyCodeLine{01367\ \ \ \textcolor{keywordflow}{return}\ (READ\_BIT(EXTI-\/>RPR2,\ ExtiLine));}
+\DoxyCodeLine{01368\ \}}
+\DoxyCodeLine{01369\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ STM32G0C1xx\ ||\ STM32G0B1xx\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01370\ }
+\DoxyCodeLine{01400\ \_\_STATIC\_INLINE\ \textcolor{keywordtype}{void}\ LL\_EXTI\_ClearRisingFlag\_0\_31(uint32\_t\ ExtiLine)}
+\DoxyCodeLine{01401\ \{}
+\DoxyCodeLine{01402\ \ \ WRITE\_REG(EXTI-\/>RPR1,\ ExtiLine);}
+\DoxyCodeLine{01403\ \}}
+\DoxyCodeLine{01404\ }
+\DoxyCodeLine{01405\ \textcolor{preprocessor}{\#if\ defined(STM32G0C1xx)\ ||\ defined(STM32G0B1xx)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01416\ \_\_STATIC\_INLINE\ \textcolor{keywordtype}{void}\ LL\_EXTI\_ClearRisingFlag\_32\_63(uint32\_t\ ExtiLine)}
+\DoxyCodeLine{01417\ \{}
+\DoxyCodeLine{01418\ \ \ WRITE\_REG(EXTI-\/>RPR2,\ ExtiLine);}
+\DoxyCodeLine{01419\ \}}
+\DoxyCodeLine{01420\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ STM32G0C1xx\ ||\ STM32G0B1xx\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01421\ }
+\DoxyCodeLine{01428\ }
+\DoxyCodeLine{01470\ \_\_STATIC\_INLINE\ \textcolor{keywordtype}{void}\ LL\_EXTI\_SetEXTISource(uint32\_t\ Port,\ uint32\_t\ Line)}
+\DoxyCodeLine{01471\ \{}
+\DoxyCodeLine{01472\ \ \ MODIFY\_REG(EXTI-\/>EXTICR[Line\ \&\ 0x03u],\ \doxymbox{\hyperlink{group___peripheral___registers___bits___definition_ga7dc00bcbac5315cdbb1b71f519accae4}{EXTI\_EXTICR1\_EXTI0}}\ <<\ (Line\ >>\ LL\_EXTI\_REGISTER\_PINPOS\_SHFT),\ Port\ <<\ (Line\ >>\ LL\_EXTI\_REGISTER\_PINPOS\_SHFT));}
+\DoxyCodeLine{01473\ \}}
+\DoxyCodeLine{01474\ }
+\DoxyCodeLine{01515\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_EXTI\_GetEXTISource(uint32\_t\ Line)}
+\DoxyCodeLine{01516\ \{}
+\DoxyCodeLine{01517\ \ \ \textcolor{keywordflow}{return}\ (READ\_BIT(EXTI-\/>EXTICR[Line\ \&\ 0x03u],\ (\doxymbox{\hyperlink{group___peripheral___registers___bits___definition_ga7dc00bcbac5315cdbb1b71f519accae4}{EXTI\_EXTICR1\_EXTI0}}\ <<\ (Line\ >>\ LL\_EXTI\_REGISTER\_PINPOS\_SHFT)))\ >>\ (Line\ >>\ LL\_EXTI\_REGISTER\_PINPOS\_SHFT));}
+\DoxyCodeLine{01518\ \}}
+\DoxyCodeLine{01522\ }
+\DoxyCodeLine{01523\ \textcolor{preprocessor}{\#if\ defined(USE\_FULL\_LL\_DRIVER)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01527\ }
+\DoxyCodeLine{01528\ uint32\_t\ LL\_EXTI\_Init(LL\_EXTI\_InitTypeDef\ *EXTI\_InitStruct);}
+\DoxyCodeLine{01529\ uint32\_t\ LL\_EXTI\_DeInit(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{01530\ \textcolor{keywordtype}{void}\ LL\_EXTI\_StructInit(LL\_EXTI\_InitTypeDef\ *EXTI\_InitStruct);}
+\DoxyCodeLine{01531\ }
+\DoxyCodeLine{01532\ }
+\DoxyCodeLine{01536\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ USE\_FULL\_LL\_DRIVER\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01537\ }
+\DoxyCodeLine{01541\ }
+\DoxyCodeLine{01545\ }
+\DoxyCodeLine{01546\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ EXTI\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01547\ }
+\DoxyCodeLine{01551\ }
+\DoxyCodeLine{01552\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{01553\ \}}
+\DoxyCodeLine{01554\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{01555\ }
+\DoxyCodeLine{01556\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ STM32G0xx\_LL\_EXTI\_H\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01557\ }
+
+\end{DoxyCode}

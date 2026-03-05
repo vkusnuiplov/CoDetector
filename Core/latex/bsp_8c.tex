@@ -1,0 +1,179 @@
+\doxysection{Src/\+bsp/\+bsp.c File Reference}
+\hypertarget{bsp_8c}{}\label{bsp_8c}\index{Src/bsp/bsp.c@{Src/bsp/bsp.c}}
+
+
+Board Support Package (BSP) file for hardware abstraction.  
+
+
+{\ttfamily \+\#include "{}bsp.\+h"{}}\newline
+{\ttfamily \+\#include "{}main.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{bsp_8c_a7c3f1730d68ea5aa990ec47d5da7048d}\label{bsp_8c_a7c3f1730d68ea5aa990ec47d5da7048d} 
+void {\bfseries BSP\+\_\+\+Init} (void)
+\begin{DoxyCompactList}\small\item\em Initializes BSP hardware peripherals (PWM, ADC, DMA). \end{DoxyCompactList}\item 
+uint32\+\_\+t \doxymbox{\hyperlink{bsp_8c_a78420521159ada24f06adbc33b70bfe2}{BSP\+\_\+\+Get\+Tick}} (void)
+\begin{DoxyCompactList}\small\item\em Provides the current system tick value. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{bsp_8c_a08e9b82676d4e2c864d42bbed8b22c83}{BSP\+\_\+\+LED\+\_\+\+Green\+\_\+\+Set}} (uint8\+\_\+t state)
+\begin{DoxyCompactList}\small\item\em Sets the state of the Green LED. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{bsp_8c_ae922f8be5e8e2cb26274db441993c1e3}{BSP\+\_\+\+LED\+\_\+\+Red\+\_\+\+Set}} (uint8\+\_\+t state)
+\begin{DoxyCompactList}\small\item\em Sets the state of the Red LED. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{bsp_8c_a9a43be42132429d6f2c5aa5216009c3b}{BSP\+\_\+\+Buzzer\+\_\+\+Set\+Freq}} (uint16\+\_\+t freq\+\_\+hz)
+\begin{DoxyCompactList}\small\item\em Sets the buzzer PWM frequency. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{bsp_8c_a1b11cd67863e515bd66041b6feda5a6a}{BSP\+\_\+\+Buzzer\+\_\+\+Stop}} (void)
+\begin{DoxyCompactList}\small\item\em Stops the buzzer by setting the PWM duty cycle to 0. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{bsp_8c_af14a93f07d671db7c2dddab3d0bc310c}{BSP\+\_\+\+MQ7\+\_\+\+Heater\+\_\+\+Set}} (uint8\+\_\+t state)
+\begin{DoxyCompactList}\small\item\em Sets the state of the MQ-\/7 sensor heater. \end{DoxyCompactList}\item 
+uint32\+\_\+t \doxymbox{\hyperlink{bsp_8c_a866a01115f97d6a00d027571ecc7e773}{BSP\+\_\+\+MQ7\+\_\+\+Get\+\_\+\+ADC\+\_\+value}} (void)
+\begin{DoxyCompactList}\small\item\em Retrieves the averaged ADC value from the DMA buffer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{bsp_8c_a3f1db7abe33bfe13398e0fdf2a3a7222}\label{bsp_8c_a3f1db7abe33bfe13398e0fdf2a3a7222} 
+ADC\+\_\+\+Handle\+Type\+Def {\bfseries BSP\+\_\+\+ADC\+\_\+1\+\_\+\+HANDLE}
+\item 
+\Hypertarget{bsp_8c_a8dd2f48c2cbfdc24313e216eb0709cbb}\label{bsp_8c_a8dd2f48c2cbfdc24313e216eb0709cbb} 
+TIM\+\_\+\+Handle\+Type\+Def {\bfseries BSP\+\_\+\+TIM\+\_\+\+BUZZER\+\_\+\+HANDLE}
+\item 
+\Hypertarget{bsp_8c_a9c0309b26a41fa48196fec417e4e3407}\label{bsp_8c_a9c0309b26a41fa48196fec417e4e3407} 
+DMA\+\_\+\+Handle\+Type\+Def {\bfseries BSP\+\_\+\+DMA\+\_\+\+ADC\+\_\+\+HANDLE}
+\item 
+\Hypertarget{bsp_8c_a72f9729c94baa4412f218b26feaf45fc}\label{bsp_8c_a72f9729c94baa4412f218b26feaf45fc} 
+volatile uint32\+\_\+t {\bfseries bsp\+\_\+adc\+\_\+buffer} \+[BSP\+\_\+\+ADC\+\_\+\+BUFFER\+\_\+\+SIZE]\+
+\begin{DoxyCompactList}\small\item\em DMA buffer for ADC oversampling. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Board Support Package (BSP) file for hardware abstraction. 
+
+\begin{DoxyAuthor}{Author}
+vkusnuiplov
+\end{DoxyAuthor}
+This module acts as a hardware abstraction layer wrapper serving two main purposes:\+
+\begin{DoxyEnumerate}
+\item Binding logical drivers to physical MCU resources (Pins, Timers, ADC)
+\item Fully isolating business logic from STM32 HAL specific implementations
+\end{DoxyEnumerate}
+\begin{DoxyItemize}
+\item Logic Flow:\+ Application -\/\texorpdfstring{$>$}{>} Generic BSP API -\/\texorpdfstring{$>$}{>} Hardware-\/\+Specific HAL -\/\texorpdfstring{$>$}{>} Physical Pins Any schematic changes require modifications only in this file 
+\end{DoxyItemize}
+
+\label{doc-func-members}
+\Hypertarget{bsp_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{bsp_8c_a9a43be42132429d6f2c5aa5216009c3b}\index{bsp.c@{bsp.c}!BSP\_Buzzer\_SetFreq@{BSP\_Buzzer\_SetFreq}}
+\index{BSP\_Buzzer\_SetFreq@{BSP\_Buzzer\_SetFreq}!bsp.c@{bsp.c}}
+\doxysubsubsection{\texorpdfstring{BSP\_Buzzer\_SetFreq()}{BSP\_Buzzer\_SetFreq()}}
+{\footnotesize\ttfamily \label{bsp_8c_a9a43be42132429d6f2c5aa5216009c3b} 
+void BSP\+\_\+\+Buzzer\+\_\+\+Set\+Freq (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{freq\+\_\+hz}{}\end{DoxyParamCaption})}
+
+
+
+Sets the buzzer PWM frequency. 
+
+Sets buzzer frequency.
+
+
+\begin{DoxyParams}{Parameters}
+{\em freq\+\_\+hz} & Desired frequency in Hertz. Passing 0 stops the buzzer \\
+\hline
+\end{DoxyParams}
+\Hypertarget{bsp_8c_a1b11cd67863e515bd66041b6feda5a6a}\index{bsp.c@{bsp.c}!BSP\_Buzzer\_Stop@{BSP\_Buzzer\_Stop}}
+\index{BSP\_Buzzer\_Stop@{BSP\_Buzzer\_Stop}!bsp.c@{bsp.c}}
+\doxysubsubsection{\texorpdfstring{BSP\_Buzzer\_Stop()}{BSP\_Buzzer\_Stop()}}
+{\footnotesize\ttfamily \label{bsp_8c_a1b11cd67863e515bd66041b6feda5a6a} 
+void BSP\+\_\+\+Buzzer\+\_\+\+Stop (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Stops the buzzer by setting the PWM duty cycle to 0. 
+
+Stops the buzzer output. \Hypertarget{bsp_8c_a78420521159ada24f06adbc33b70bfe2}\index{bsp.c@{bsp.c}!BSP\_GetTick@{BSP\_GetTick}}
+\index{BSP\_GetTick@{BSP\_GetTick}!bsp.c@{bsp.c}}
+\doxysubsubsection{\texorpdfstring{BSP\_GetTick()}{BSP\_GetTick()}}
+{\footnotesize\ttfamily \label{bsp_8c_a78420521159ada24f06adbc33b70bfe2} 
+uint32\+\_\+t BSP\+\_\+\+Get\+Tick (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Provides the current system tick value. 
+
+Gets current system tick.
+
+
+\begin{DoxyRetVals}{Return values}
+{\em uint32\+\_\+t} & Current system time in milliseconds \\
+\hline
+\end{DoxyRetVals}
+\Hypertarget{bsp_8c_a08e9b82676d4e2c864d42bbed8b22c83}\index{bsp.c@{bsp.c}!BSP\_LED\_Green\_Set@{BSP\_LED\_Green\_Set}}
+\index{BSP\_LED\_Green\_Set@{BSP\_LED\_Green\_Set}!bsp.c@{bsp.c}}
+\doxysubsubsection{\texorpdfstring{BSP\_LED\_Green\_Set()}{BSP\_LED\_Green\_Set()}}
+{\footnotesize\ttfamily \label{bsp_8c_a08e9b82676d4e2c864d42bbed8b22c83} 
+void BSP\+\_\+\+LED\+\_\+\+Green\+\_\+\+Set (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{state}{}\end{DoxyParamCaption})}
+
+
+
+Sets the state of the Green LED. 
+
+Controls the green LED.
+
+
+\begin{DoxyParams}{Parameters}
+{\em state} & 1 to turn ON, 0 to turn OFF \\
+\hline
+\end{DoxyParams}
+\Hypertarget{bsp_8c_ae922f8be5e8e2cb26274db441993c1e3}\index{bsp.c@{bsp.c}!BSP\_LED\_Red\_Set@{BSP\_LED\_Red\_Set}}
+\index{BSP\_LED\_Red\_Set@{BSP\_LED\_Red\_Set}!bsp.c@{bsp.c}}
+\doxysubsubsection{\texorpdfstring{BSP\_LED\_Red\_Set()}{BSP\_LED\_Red\_Set()}}
+{\footnotesize\ttfamily \label{bsp_8c_ae922f8be5e8e2cb26274db441993c1e3} 
+void BSP\+\_\+\+LED\+\_\+\+Red\+\_\+\+Set (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{state}{}\end{DoxyParamCaption})}
+
+
+
+Sets the state of the Red LED. 
+
+Controls the red LED.
+
+
+\begin{DoxyParams}{Parameters}
+{\em state} & 1 to turn ON, 0 to turn OFF \\
+\hline
+\end{DoxyParams}
+\Hypertarget{bsp_8c_a866a01115f97d6a00d027571ecc7e773}\index{bsp.c@{bsp.c}!BSP\_MQ7\_Get\_ADC\_value@{BSP\_MQ7\_Get\_ADC\_value}}
+\index{BSP\_MQ7\_Get\_ADC\_value@{BSP\_MQ7\_Get\_ADC\_value}!bsp.c@{bsp.c}}
+\doxysubsubsection{\texorpdfstring{BSP\_MQ7\_Get\_ADC\_value()}{BSP\_MQ7\_Get\_ADC\_value()}}
+{\footnotesize\ttfamily \label{bsp_8c_a866a01115f97d6a00d027571ecc7e773} 
+uint32\+\_\+t BSP\+\_\+\+MQ7\+\_\+\+Get\+\_\+\+ADC\+\_\+value (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Retrieves the averaged ADC value from the DMA buffer. 
+
+Retrieves the averaged ADC reading for the sensor.
+
+\begin{DoxyNote}{Note}
+Performs hardware oversampling to reduce noise 
+\end{DoxyNote}
+
+\begin{DoxyRetVals}{Return values}
+{\em uint32\+\_\+t} & Averaged ADC reading \\
+\hline
+\end{DoxyRetVals}
+\Hypertarget{bsp_8c_af14a93f07d671db7c2dddab3d0bc310c}\index{bsp.c@{bsp.c}!BSP\_MQ7\_Heater\_Set@{BSP\_MQ7\_Heater\_Set}}
+\index{BSP\_MQ7\_Heater\_Set@{BSP\_MQ7\_Heater\_Set}!bsp.c@{bsp.c}}
+\doxysubsubsection{\texorpdfstring{BSP\_MQ7\_Heater\_Set()}{BSP\_MQ7\_Heater\_Set()}}
+{\footnotesize\ttfamily \label{bsp_8c_af14a93f07d671db7c2dddab3d0bc310c} 
+void BSP\+\_\+\+MQ7\+\_\+\+Heater\+\_\+\+Set (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{state}{}\end{DoxyParamCaption})}
+
+
+
+Sets the state of the MQ-\/7 sensor heater. 
+
+Controls the MQ-\/7 heater element.
+
+
+\begin{DoxyParams}{Parameters}
+{\em state} & 1 to turn ON, 0 to turn OFF \\
+\hline
+\end{DoxyParams}

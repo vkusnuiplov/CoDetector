@@ -1,0 +1,79 @@
+\doxysection{Src/\+sensor/\+mq7.c File Reference}
+\hypertarget{mq7_8c}{}\label{mq7_8c}\index{Src/sensor/mq7.c@{Src/sensor/mq7.c}}
+
+
+Driver for the MQ-\/7 CO sensor.  
+
+
+{\ttfamily \+\#include "{}mq7.\+h"{}}\newline
+{\ttfamily \+\#include $<$stddef.\+h$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{mq7_8c_a702046ec8e4ab8fc5201de48a7ab364e}{mq7\+\_\+sensor\+\_\+init}} (\doxymbox{\hyperlink{structmq7__t}{mq7\+\_\+t}} \texorpdfstring{$\ast$}{*}handle, \doxymbox{\hyperlink{structmq7__io__t}{mq7\+\_\+io\+\_\+t}} io)
+\begin{DoxyCompactList}\small\item\em Initializes the MQ-\/7 sensor instance and starts the initial cleaning phase. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{mq7_8h_a456a23444749701764d7c72a4318a8e3}{mq7\+\_\+status\+\_\+e}} \doxymbox{\hyperlink{mq7_8c_adae93206aa5c26a37f266867d90ffb3f}{mq7\+\_\+process}} (\doxymbox{\hyperlink{structmq7__t}{mq7\+\_\+t}} \texorpdfstring{$\ast$}{*}handle, uint32\+\_\+t current\+\_\+time\+\_\+ms)
+\begin{DoxyCompactList}\small\item\em Processes the MQ-\/7 sensor FSM and handles periodic PPM calculations. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Driver for the MQ-\/7 CO sensor. 
+
+\begin{DoxyAuthor}{Author}
+vkusnuiplov
+\end{DoxyAuthor}
+This file contains the finite state machine (FSM) for controlling the MQ-\/7 sensor, as well as functions for initialization and calculating measurement results (PPM) 
+
+\label{doc-func-members}
+\Hypertarget{mq7_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{mq7_8c_adae93206aa5c26a37f266867d90ffb3f}\index{mq7.c@{mq7.c}!mq7\_process@{mq7\_process}}
+\index{mq7\_process@{mq7\_process}!mq7.c@{mq7.c}}
+\doxysubsubsection{\texorpdfstring{mq7\_process()}{mq7\_process()}}
+{\footnotesize\ttfamily \label{mq7_8c_adae93206aa5c26a37f266867d90ffb3f} 
+\doxymbox{\hyperlink{mq7_8h_a456a23444749701764d7c72a4318a8e3}{mq7\+\_\+status\+\_\+e}} mq7\+\_\+process (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{structmq7__t}{mq7\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{handle}{, }\item[{uint32\+\_\+t}]{current\+\_\+time\+\_\+ms}{}\end{DoxyParamCaption})}
+
+
+
+Processes the MQ-\/7 sensor FSM and handles periodic PPM calculations. 
+
+\begin{DoxyNote}{Note}
+This function MUST be called continuously in the main application loop It uses non-\/blocking Delta Time to manage FSM phases and calculation intervals 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em handle} & Pointer to the MQ-\/7 sensor instance \\
+\hline
+{\em current\+\_\+time\+\_\+ms} & Current system time in milliseconds (e.\+g., HAL\+\_\+\+Get\+Tick()) \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em \doxylink{mq7_8h_a456a23444749701764d7c72a4318a8e3}{mq7\+\_\+status\+\_\+e}} & Status of the execution:\+
+\begin{DoxyItemize}
+\item MQ7\+\_\+\+OK:\+ Success
+\item MQ7\+\_\+\+ERR\+\_\+\+NULL\+\_\+\+PTR:\+ Handle is NULL
+\item MQ7\+\_\+\+ERR\+\_\+\+IO:\+ Missing IO function pointers
+\item MQ7\+\_\+\+ERR\+\_\+\+INVALID\+\_\+\+STATE:\+ FSM state is out of bounds 
+\end{DoxyItemize}\\
+\hline
+\end{DoxyRetVals}
+\Hypertarget{mq7_8c_a702046ec8e4ab8fc5201de48a7ab364e}\index{mq7.c@{mq7.c}!mq7\_sensor\_init@{mq7\_sensor\_init}}
+\index{mq7\_sensor\_init@{mq7\_sensor\_init}!mq7.c@{mq7.c}}
+\doxysubsubsection{\texorpdfstring{mq7\_sensor\_init()}{mq7\_sensor\_init()}}
+{\footnotesize\ttfamily \label{mq7_8c_a702046ec8e4ab8fc5201de48a7ab364e} 
+void mq7\+\_\+sensor\+\_\+init (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{structmq7__t}{mq7\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{handle}{, }\item[{\doxymbox{\hyperlink{structmq7__io__t}{mq7\+\_\+io\+\_\+t}}}]{io}{}\end{DoxyParamCaption})}
+
+
+
+Initializes the MQ-\/7 sensor instance and starts the initial cleaning phase. 
+
+Initializes the MQ-\/7 sensor instance and starts the cleaning phase.
+
+
+\begin{DoxyParams}{Parameters}
+{\em handle} & Pointer to the MQ-\/7 sensor instance to be initialized \\
+\hline
+{\em io} & Structure containing hardware-\/specific IO function pointers (ADC, Heater) \\
+\hline
+\end{DoxyParams}

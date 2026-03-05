@@ -1,0 +1,48 @@
+\doxysection{system\+\_\+stm32g0xx.\+h}
+\hypertarget{system__stm32g0xx_8h_source}{}\label{system__stm32g0xx_8h_source}\index{Drivers/CMSIS/Device/ST/STM32G0xx/Include/system\_stm32g0xx.h@{Drivers/CMSIS/Device/ST/STM32G0xx/Include/system\_stm32g0xx.h}}
+\doxymbox{\hyperlink{system__stm32g0xx_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#ifndef\ SYSTEM\_STM32G0XX\_H}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#define\ SYSTEM\_STM32G0XX\_H}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00033\ \ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00048\ \ \ \textcolor{comment}{/*\ This\ variable\ is\ updated\ in\ three\ ways:}}
+\DoxyCodeLine{00049\ \textcolor{comment}{\ \ \ \ \ \ 1)\ by\ calling\ CMSIS\ function\ SystemCoreClockUpdate()}}
+\DoxyCodeLine{00050\ \textcolor{comment}{\ \ \ \ \ \ 2)\ by\ calling\ HAL\ API\ function\ HAL\_RCC\_GetSysClockFreq()}}
+\DoxyCodeLine{00051\ \textcolor{comment}{\ \ \ \ \ \ 3)\ each\ time\ HAL\_RCC\_ClockConfig()\ \ is\ called\ to\ configure\ the\ system\ clock\ frequency}}
+\DoxyCodeLine{00052\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ Note:\ If\ you\ use\ this\ function\ to\ configure\ the\ system\ clock;\ then\ there}}
+\DoxyCodeLine{00053\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ is\ no\ need\ to\ call\ the\ 2\ first\ functions\ listed\ above,\ since\ SystemCoreClock}}
+\DoxyCodeLine{00054\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ variable\ is\ updated\ automatically.}}
+\DoxyCodeLine{00055\ \textcolor{comment}{\ \ */}}
+\DoxyCodeLine{00056\ \textcolor{keyword}{extern}\ uint32\_t\ \doxymbox{\hyperlink{group___s_t_m32_g0xx___system___private___variables_gaa3cd3e43291e81e795d642b79b6088e6}{SystemCoreClock}};\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \textcolor{keyword}{extern}\ \textcolor{keyword}{const}\ uint32\_t\ \doxymbox{\hyperlink{group___s_t_m32_g0xx___system___private___variables_ga094c87a4ec51afe55595514d0b40e6fa}{AHBPrescTable}}[16];\ \ }
+\DoxyCodeLine{00059\ \textcolor{keyword}{extern}\ \textcolor{keyword}{const}\ uint32\_t\ \doxymbox{\hyperlink{group___s_t_m32_g0xx___system___private___variables_gaedf64a04048e826a42c4eac37c2ecda0}{APBPrescTable}}[8];\ \ \ }
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{group___s_t_m32_g0xx___system___exported___functions_ga93f514700ccf00d08dbdcff7f1224eb2}{SystemInit}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00086\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{group___s_t_m32_g0xx___system___exported___functions_gae0c36a9591fe6e9c45ecb21a794f0f0f}{SystemCoreClockUpdate}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00092\ \}}
+\DoxyCodeLine{00093\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*SYSTEM\_STM32G0XX\_H\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00100\ }
+
+\end{DoxyCode}

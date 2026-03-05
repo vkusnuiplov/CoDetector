@@ -1,0 +1,85 @@
+\doxysection{mq7.\+h}
+\hypertarget{mq7_8h_source}{}\label{mq7_8h_source}\index{Core/Inc/sensor/mq7.h@{Core/Inc/sensor/mq7.h}}
+\doxymbox{\hyperlink{mq7_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#ifndef\ MQ7\_H}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#define\ MQ7\_H}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{comment}{/*\ -\/-\/-\/\ Hardware\ \&\ ADC\ Configurations\ -\/-\/-\/\ */}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#define\ SENSOR\_VCC\_MV\ 5000U}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#define\ ADC\_REFF\_VCC\_MV\ 3300U}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#define\ ADC\_MAX\_VALUE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 4095U}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ ADC\_ERROR\_VALUE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 10U}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{comment}{/*\ -\/-\/-\/\ Sensor\ Characteristics\ -\/-\/-\/\ */}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#define\ SENSOR\_R0\_RESISTANSE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 920U}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#define\ SENSOR\_RL\_RESISTASE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 2000U}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#define\ SENSOR\_EMERGENCY\_RAW\_ADC\_THRESHOLD\ \ 3900U}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{comment}{/*\ -\/-\/-\/\ FSM\ Timings\ (in\ milliseconds)\ -\/-\/-\/\ */}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#define\ SENSOR\_INITIAL\_CLEANING\_TIME\ \ \ \ \ \ \ \ 180000U}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#define\ SENSOR\_HEATING\_HIGH\_TIME\ \ \ \ \ \ \ \ \ \ \ \ 60000U}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#define\ SENSOR\_HEATING\_LOW\_TIME\ \ \ \ \ \ \ \ \ \ \ \ \ 85000U}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#define\ SENSOR\_MEASURE\_TIME\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 5000U}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#define\ SENSOR\_PPM\_CALC\_INTERVAL\ \ \ \ \ \ \ \ \ \ \ \ 250U}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{comment}{/*\ -\/-\/-\/\ Heater\ States\ -\/-\/-\/\ */}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#define\ HEATER\_ON\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1U}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#define\ HEATER\_OFF\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0U}}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \textcolor{comment}{/*\ -\/-\/-\/\ Look-\/Up\ Table\ for\ PPM\ Interpolation\ -\/-\/-\/\ */}}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#define\ SENSOR\_LUT\_SIZE\ 10U}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#define\ SENSOR\_LUT\_X\_VALUES\ \{1000,\ 1200,\ 1400,\ 1700,\ 2000,\ 2400,\ 2900,\ 3500,\ 4500,\ 6000\}}}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#define\ SENSOR\_LUT\_Y\_VALUES\ \{100,\ \ 77,\ \ \ 61,\ \ \ 47,\ \ \ 37,\ \ \ 29,\ \ \ 22,\ \ \ 17,\ \ \ 12,\ \ \ 8\}}}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00046\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00047\ \ \ \ \ MQ7\_STATE\_INIT\_CLEANING,}
+\DoxyCodeLine{00048\ \ \ \ \ MQ7\_STATE\_HEATING\_HIGH,\ \ \ \ \ \ \textcolor{comment}{//\ 60\ sec}}
+\DoxyCodeLine{00049\ \ \ \ \ MQ7\_STATE\_HEATING\_LOW,\ \ \ \ \ \ \ \textcolor{comment}{//\ 85sec}}
+\DoxyCodeLine{00050\ \ \ \ \ MQ7\_STATE\_MEASURE\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 5\ sec\ heating\ low}}
+\DoxyCodeLine{00051\ \}\ \doxymbox{\hyperlink{mq7_8h_a14bf92bf1d4aa7eb2f8dccf4d071b4e9}{mq7\_state\_e}};}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00056\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00057\ \ \ \ \ MQ7\_OK,}
+\DoxyCodeLine{00058\ \ \ \ \ MQ7\_ERR\_NULL\_PTR,}
+\DoxyCodeLine{00059\ \ \ \ \ MQ7\_ERR\_INVALID\_STATE,}
+\DoxyCodeLine{00060\ \ \ \ \ MQ7\_ERR\_IO}
+\DoxyCodeLine{00061\ \}\ \doxymbox{\hyperlink{mq7_8h_a456a23444749701764d7c72a4318a8e3}{mq7\_status\_e}};}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00066\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00067\ \ \ \ \ uint32\_t\ duration\_ms;}
+\DoxyCodeLine{00068\ \ \ \ \ uint8\_t\ heater\_on;}
+\DoxyCodeLine{00069\ \ \ \ \ \doxymbox{\hyperlink{mq7_8h_a14bf92bf1d4aa7eb2f8dccf4d071b4e9}{mq7\_state\_e}}\ next\_state;}
+\DoxyCodeLine{00070\ \}\ \doxymbox{\hyperlink{structmq7__cycle__step__t}{mq7\_cycle\_step\_t}};}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \textcolor{comment}{/*\ IO\ function\ pointers\ */}}
+\DoxyCodeLine{00073\ \textcolor{keyword}{typedef}\ void\ (*mq7\_set\_heater\_fn)(uint8\_t\ state);}
+\DoxyCodeLine{00074\ \textcolor{keyword}{typedef}\ uint32\_t\ (*mq7\_get\_adc\_fn)(void);}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00079\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00080\ \ \ \ \ mq7\_set\_heater\_fn\ \ \ set\_heater;}
+\DoxyCodeLine{00081\ \ \ \ \ mq7\_get\_adc\_fn\ \ \ \ \ \ get\_adc\_data;}
+\DoxyCodeLine{00082\ \}\ \doxymbox{\hyperlink{structmq7__io__t}{mq7\_io\_t}};}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00087\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00088\ \ \ \ \ \doxymbox{\hyperlink{structmq7__io__t}{mq7\_io\_t}}\ io;}
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keyword}{volatile}\ uint32\_t\ raw\_adc\_value;}
+\DoxyCodeLine{00090\ \ \ \ \ uint16\_t\ \ \ \ \ \ \ \ \ \ current\_ppm;}
+\DoxyCodeLine{00091\ \ \ \ \ \doxymbox{\hyperlink{mq7_8h_a14bf92bf1d4aa7eb2f8dccf4d071b4e9}{mq7\_state\_e}}\ \ \ \ \ \ \ state;}
+\DoxyCodeLine{00092\ \ \ \ \ uint32\_t\ \ \ \ \ \ \ \ \ \ timer\_start\_ms;}
+\DoxyCodeLine{00093\ \ \ \ \ uint32\_t\ \ \ \ \ \ \ \ \ \ last\_ppm\_calc\_time\_ms;}
+\DoxyCodeLine{00094\ \}\ \doxymbox{\hyperlink{structmq7__t}{mq7\_t}};}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \textcolor{comment}{/*\ -\/-\/-\/\ Public\ API\ -\/-\/-\/\ */}}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00103\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{mq7_8h_a702046ec8e4ab8fc5201de48a7ab364e}{mq7\_sensor\_init}}\ (\doxymbox{\hyperlink{structmq7__t}{mq7\_t}}\ *handle,\ \doxymbox{\hyperlink{structmq7__io__t}{mq7\_io\_t}}\ io);}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00111\ \doxymbox{\hyperlink{mq7_8h_a456a23444749701764d7c72a4318a8e3}{mq7\_status\_e}}\ \doxymbox{\hyperlink{mq7_8h_adae93206aa5c26a37f266867d90ffb3f}{mq7\_process}}\ (\doxymbox{\hyperlink{structmq7__t}{mq7\_t}}\ *handle,\ uint32\_t\ current\_time\_ms);}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -1,0 +1,131 @@
+\doxysubsubsubsection{AHB Peripherals Clock Sleep Enable Disable }
+\hypertarget{group___r_c_c___a_h_b___clock___sleep___enable___disable}{}\label{group___r_c_c___a_h_b___clock___sleep___enable___disable}\index{AHB Peripherals Clock Sleep Enable Disable@{AHB Peripherals Clock Sleep Enable Disable}}
+
+
+Enable or disable the AHB peripherals clock during Low Power (Sleep) mode.  
+
+
+\doxysubsubsubsubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\+\#define \doxymbox{\hyperlink{group___r_c_c___a_h_b___clock___sleep___enable___disable_ga568e4d004285fe009bc4e5d33e13af61}{\+\_\+\+\_\+\+HAL\+\_\+\+RCC\+\_\+\+DMA1\+\_\+\+CLK\+\_\+\+SLEEP\+\_\+\+ENABLE}}()
+\item 
+\+\#define \doxymbox{\hyperlink{group___r_c_c___a_h_b___clock___sleep___enable___disable_ga48733d5087a91250ee7248adc6b835b2}{\+\_\+\+\_\+\+HAL\+\_\+\+RCC\+\_\+\+FLASH\+\_\+\+CLK\+\_\+\+SLEEP\+\_\+\+ENABLE}}()
+\item 
+\+\#define \doxymbox{\hyperlink{group___r_c_c___a_h_b___clock___sleep___enable___disable_ga88a94e617176e6de50fd6ebcddbe6964}{\+\_\+\+\_\+\+HAL\+\_\+\+RCC\+\_\+\+SRAM\+\_\+\+CLK\+\_\+\+SLEEP\+\_\+\+ENABLE}}()
+\item 
+\+\#define \doxymbox{\hyperlink{group___r_c_c___a_h_b___clock___sleep___enable___disable_gab9b6703f096a151a86df9d76d4945cda}{\+\_\+\+\_\+\+HAL\+\_\+\+RCC\+\_\+\+CRC\+\_\+\+CLK\+\_\+\+SLEEP\+\_\+\+ENABLE}}()
+\item 
+\+\#define \doxymbox{\hyperlink{group___r_c_c___a_h_b___clock___sleep___enable___disable_ga8786d21490439ef0564edff087203245}{\+\_\+\+\_\+\+HAL\+\_\+\+RCC\+\_\+\+DMA1\+\_\+\+CLK\+\_\+\+SLEEP\+\_\+\+DISABLE}}()
+\item 
+\+\#define \doxymbox{\hyperlink{group___r_c_c___a_h_b___clock___sleep___enable___disable_ga929bb0b8ae2f4da5481d73f265cacce0}{\+\_\+\+\_\+\+HAL\+\_\+\+RCC\+\_\+\+FLASH\+\_\+\+CLK\+\_\+\+SLEEP\+\_\+\+DISABLE}}()
+\item 
+\+\#define \doxymbox{\hyperlink{group___r_c_c___a_h_b___clock___sleep___enable___disable_gac5769b5fb801a2ba6102c191460258f9}{\+\_\+\+\_\+\+HAL\+\_\+\+RCC\+\_\+\+SRAM\+\_\+\+CLK\+\_\+\+SLEEP\+\_\+\+DISABLE}}()
+\item 
+\+\#define \doxymbox{\hyperlink{group___r_c_c___a_h_b___clock___sleep___enable___disable_gaf63d9f5ce9a6922314054a94ee85eac0}{\+\_\+\+\_\+\+HAL\+\_\+\+RCC\+\_\+\+CRC\+\_\+\+CLK\+\_\+\+SLEEP\+\_\+\+DISABLE}}()
+\end{DoxyCompactItemize}
+
+
+\doxysubsubsubsubsection{Detailed Description}
+Enable or disable the AHB peripherals clock during Low Power (Sleep) mode. 
+
+\begin{DoxyNote}{Note}
+Peripheral clock gating in SLEEP mode can be used to further reduce power consumption. 
+
+After wakeup from SLEEP mode, the peripheral clock is enabled again. 
+
+By default, all peripheral clocks are enabled during SLEEP mode. 
+\end{DoxyNote}
+
+
+\label{doc-define-members}
+\Hypertarget{group___r_c_c___a_h_b___clock___sleep___enable___disable_doc-define-members}
+\doxysubsubsubsubsection{Macro Definition Documentation}
+\Hypertarget{group___r_c_c___a_h_b___clock___sleep___enable___disable_gaf63d9f5ce9a6922314054a94ee85eac0}\index{AHB Peripherals Clock Sleep Enable Disable@{AHB Peripherals Clock Sleep Enable Disable}!\_\_HAL\_RCC\_CRC\_CLK\_SLEEP\_DISABLE@{\_\_HAL\_RCC\_CRC\_CLK\_SLEEP\_DISABLE}}
+\index{\_\_HAL\_RCC\_CRC\_CLK\_SLEEP\_DISABLE@{\_\_HAL\_RCC\_CRC\_CLK\_SLEEP\_DISABLE}!AHB Peripherals Clock Sleep Enable Disable@{AHB Peripherals Clock Sleep Enable Disable}}
+\doxysubsubsubsubsubsection{\texorpdfstring{\_\_HAL\_RCC\_CRC\_CLK\_SLEEP\_DISABLE}{\_\_HAL\_RCC\_CRC\_CLK\_SLEEP\_DISABLE}}
+{\footnotesize\ttfamily \label{group___r_c_c___a_h_b___clock___sleep___enable___disable_gaf63d9f5ce9a6922314054a94ee85eac0} 
+\+\#define \+\_\+\+\_\+\+HAL\+\_\+\+RCC\+\_\+\+CRC\+\_\+\+CLK\+\_\+\+SLEEP\+\_\+\+DISABLE(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{CLEAR\_BIT(RCC-\/>AHBSMENR,\ RCC\_AHBSMENR\_CRCSMEN)}
+
+\end{DoxyCode}
+\Hypertarget{group___r_c_c___a_h_b___clock___sleep___enable___disable_gab9b6703f096a151a86df9d76d4945cda}\index{AHB Peripherals Clock Sleep Enable Disable@{AHB Peripherals Clock Sleep Enable Disable}!\_\_HAL\_RCC\_CRC\_CLK\_SLEEP\_ENABLE@{\_\_HAL\_RCC\_CRC\_CLK\_SLEEP\_ENABLE}}
+\index{\_\_HAL\_RCC\_CRC\_CLK\_SLEEP\_ENABLE@{\_\_HAL\_RCC\_CRC\_CLK\_SLEEP\_ENABLE}!AHB Peripherals Clock Sleep Enable Disable@{AHB Peripherals Clock Sleep Enable Disable}}
+\doxysubsubsubsubsubsection{\texorpdfstring{\_\_HAL\_RCC\_CRC\_CLK\_SLEEP\_ENABLE}{\_\_HAL\_RCC\_CRC\_CLK\_SLEEP\_ENABLE}}
+{\footnotesize\ttfamily \label{group___r_c_c___a_h_b___clock___sleep___enable___disable_gab9b6703f096a151a86df9d76d4945cda} 
+\+\#define \+\_\+\+\_\+\+HAL\+\_\+\+RCC\+\_\+\+CRC\+\_\+\+CLK\+\_\+\+SLEEP\+\_\+\+ENABLE(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{SET\_BIT(RCC-\/>AHBSMENR,\ RCC\_AHBSMENR\_CRCSMEN)}
+
+\end{DoxyCode}
+\Hypertarget{group___r_c_c___a_h_b___clock___sleep___enable___disable_ga8786d21490439ef0564edff087203245}\index{AHB Peripherals Clock Sleep Enable Disable@{AHB Peripherals Clock Sleep Enable Disable}!\_\_HAL\_RCC\_DMA1\_CLK\_SLEEP\_DISABLE@{\_\_HAL\_RCC\_DMA1\_CLK\_SLEEP\_DISABLE}}
+\index{\_\_HAL\_RCC\_DMA1\_CLK\_SLEEP\_DISABLE@{\_\_HAL\_RCC\_DMA1\_CLK\_SLEEP\_DISABLE}!AHB Peripherals Clock Sleep Enable Disable@{AHB Peripherals Clock Sleep Enable Disable}}
+\doxysubsubsubsubsubsection{\texorpdfstring{\_\_HAL\_RCC\_DMA1\_CLK\_SLEEP\_DISABLE}{\_\_HAL\_RCC\_DMA1\_CLK\_SLEEP\_DISABLE}}
+{\footnotesize\ttfamily \label{group___r_c_c___a_h_b___clock___sleep___enable___disable_ga8786d21490439ef0564edff087203245} 
+\+\#define \+\_\+\+\_\+\+HAL\+\_\+\+RCC\+\_\+\+DMA1\+\_\+\+CLK\+\_\+\+SLEEP\+\_\+\+DISABLE(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{CLEAR\_BIT(RCC-\/>AHBSMENR,\ RCC\_AHBSMENR\_DMA1SMEN)}
+
+\end{DoxyCode}
+\Hypertarget{group___r_c_c___a_h_b___clock___sleep___enable___disable_ga568e4d004285fe009bc4e5d33e13af61}\index{AHB Peripherals Clock Sleep Enable Disable@{AHB Peripherals Clock Sleep Enable Disable}!\_\_HAL\_RCC\_DMA1\_CLK\_SLEEP\_ENABLE@{\_\_HAL\_RCC\_DMA1\_CLK\_SLEEP\_ENABLE}}
+\index{\_\_HAL\_RCC\_DMA1\_CLK\_SLEEP\_ENABLE@{\_\_HAL\_RCC\_DMA1\_CLK\_SLEEP\_ENABLE}!AHB Peripherals Clock Sleep Enable Disable@{AHB Peripherals Clock Sleep Enable Disable}}
+\doxysubsubsubsubsubsection{\texorpdfstring{\_\_HAL\_RCC\_DMA1\_CLK\_SLEEP\_ENABLE}{\_\_HAL\_RCC\_DMA1\_CLK\_SLEEP\_ENABLE}}
+{\footnotesize\ttfamily \label{group___r_c_c___a_h_b___clock___sleep___enable___disable_ga568e4d004285fe009bc4e5d33e13af61} 
+\+\#define \+\_\+\+\_\+\+HAL\+\_\+\+RCC\+\_\+\+DMA1\+\_\+\+CLK\+\_\+\+SLEEP\+\_\+\+ENABLE(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{SET\_BIT(RCC-\/>AHBSMENR,\ RCC\_AHBSMENR\_DMA1SMEN)}
+
+\end{DoxyCode}
+\Hypertarget{group___r_c_c___a_h_b___clock___sleep___enable___disable_ga929bb0b8ae2f4da5481d73f265cacce0}\index{AHB Peripherals Clock Sleep Enable Disable@{AHB Peripherals Clock Sleep Enable Disable}!\_\_HAL\_RCC\_FLASH\_CLK\_SLEEP\_DISABLE@{\_\_HAL\_RCC\_FLASH\_CLK\_SLEEP\_DISABLE}}
+\index{\_\_HAL\_RCC\_FLASH\_CLK\_SLEEP\_DISABLE@{\_\_HAL\_RCC\_FLASH\_CLK\_SLEEP\_DISABLE}!AHB Peripherals Clock Sleep Enable Disable@{AHB Peripherals Clock Sleep Enable Disable}}
+\doxysubsubsubsubsubsection{\texorpdfstring{\_\_HAL\_RCC\_FLASH\_CLK\_SLEEP\_DISABLE}{\_\_HAL\_RCC\_FLASH\_CLK\_SLEEP\_DISABLE}}
+{\footnotesize\ttfamily \label{group___r_c_c___a_h_b___clock___sleep___enable___disable_ga929bb0b8ae2f4da5481d73f265cacce0} 
+\+\#define \+\_\+\+\_\+\+HAL\+\_\+\+RCC\+\_\+\+FLASH\+\_\+\+CLK\+\_\+\+SLEEP\+\_\+\+DISABLE(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{CLEAR\_BIT(RCC-\/>AHBSMENR,\ RCC\_AHBSMENR\_FLASHSMEN)}
+
+\end{DoxyCode}
+\Hypertarget{group___r_c_c___a_h_b___clock___sleep___enable___disable_ga48733d5087a91250ee7248adc6b835b2}\index{AHB Peripherals Clock Sleep Enable Disable@{AHB Peripherals Clock Sleep Enable Disable}!\_\_HAL\_RCC\_FLASH\_CLK\_SLEEP\_ENABLE@{\_\_HAL\_RCC\_FLASH\_CLK\_SLEEP\_ENABLE}}
+\index{\_\_HAL\_RCC\_FLASH\_CLK\_SLEEP\_ENABLE@{\_\_HAL\_RCC\_FLASH\_CLK\_SLEEP\_ENABLE}!AHB Peripherals Clock Sleep Enable Disable@{AHB Peripherals Clock Sleep Enable Disable}}
+\doxysubsubsubsubsubsection{\texorpdfstring{\_\_HAL\_RCC\_FLASH\_CLK\_SLEEP\_ENABLE}{\_\_HAL\_RCC\_FLASH\_CLK\_SLEEP\_ENABLE}}
+{\footnotesize\ttfamily \label{group___r_c_c___a_h_b___clock___sleep___enable___disable_ga48733d5087a91250ee7248adc6b835b2} 
+\+\#define \+\_\+\+\_\+\+HAL\+\_\+\+RCC\+\_\+\+FLASH\+\_\+\+CLK\+\_\+\+SLEEP\+\_\+\+ENABLE(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{SET\_BIT(RCC-\/>AHBSMENR,\ RCC\_AHBSMENR\_FLASHSMEN)}
+
+\end{DoxyCode}
+\Hypertarget{group___r_c_c___a_h_b___clock___sleep___enable___disable_gac5769b5fb801a2ba6102c191460258f9}\index{AHB Peripherals Clock Sleep Enable Disable@{AHB Peripherals Clock Sleep Enable Disable}!\_\_HAL\_RCC\_SRAM\_CLK\_SLEEP\_DISABLE@{\_\_HAL\_RCC\_SRAM\_CLK\_SLEEP\_DISABLE}}
+\index{\_\_HAL\_RCC\_SRAM\_CLK\_SLEEP\_DISABLE@{\_\_HAL\_RCC\_SRAM\_CLK\_SLEEP\_DISABLE}!AHB Peripherals Clock Sleep Enable Disable@{AHB Peripherals Clock Sleep Enable Disable}}
+\doxysubsubsubsubsubsection{\texorpdfstring{\_\_HAL\_RCC\_SRAM\_CLK\_SLEEP\_DISABLE}{\_\_HAL\_RCC\_SRAM\_CLK\_SLEEP\_DISABLE}}
+{\footnotesize\ttfamily \label{group___r_c_c___a_h_b___clock___sleep___enable___disable_gac5769b5fb801a2ba6102c191460258f9} 
+\+\#define \+\_\+\+\_\+\+HAL\+\_\+\+RCC\+\_\+\+SRAM\+\_\+\+CLK\+\_\+\+SLEEP\+\_\+\+DISABLE(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{CLEAR\_BIT(RCC-\/>AHBSMENR,\ RCC\_AHBSMENR\_SRAMSMEN)}
+
+\end{DoxyCode}
+\Hypertarget{group___r_c_c___a_h_b___clock___sleep___enable___disable_ga88a94e617176e6de50fd6ebcddbe6964}\index{AHB Peripherals Clock Sleep Enable Disable@{AHB Peripherals Clock Sleep Enable Disable}!\_\_HAL\_RCC\_SRAM\_CLK\_SLEEP\_ENABLE@{\_\_HAL\_RCC\_SRAM\_CLK\_SLEEP\_ENABLE}}
+\index{\_\_HAL\_RCC\_SRAM\_CLK\_SLEEP\_ENABLE@{\_\_HAL\_RCC\_SRAM\_CLK\_SLEEP\_ENABLE}!AHB Peripherals Clock Sleep Enable Disable@{AHB Peripherals Clock Sleep Enable Disable}}
+\doxysubsubsubsubsubsection{\texorpdfstring{\_\_HAL\_RCC\_SRAM\_CLK\_SLEEP\_ENABLE}{\_\_HAL\_RCC\_SRAM\_CLK\_SLEEP\_ENABLE}}
+{\footnotesize\ttfamily \label{group___r_c_c___a_h_b___clock___sleep___enable___disable_ga88a94e617176e6de50fd6ebcddbe6964} 
+\+\#define \+\_\+\+\_\+\+HAL\+\_\+\+RCC\+\_\+\+SRAM\+\_\+\+CLK\+\_\+\+SLEEP\+\_\+\+ENABLE(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{SET\_BIT(RCC-\/>AHBSMENR,\ RCC\_AHBSMENR\_SRAMSMEN)}
+
+\end{DoxyCode}

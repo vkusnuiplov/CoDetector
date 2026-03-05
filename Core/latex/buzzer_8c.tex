@@ -1,0 +1,111 @@
+\doxysection{Src/\+actuators/\+buzzer.c File Reference}
+\hypertarget{buzzer_8c}{}\label{buzzer_8c}\index{Src/actuators/buzzer.c@{Src/actuators/buzzer.c}}
+
+
+Driver for the buzzer actuator.  
+
+
+{\ttfamily \+\#include "{}buzzer.\+h"{}}\newline
+{\ttfamily \+\#include $<$stdint.\+h$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{buzzer_8c_aa0b50b47bd5b433a027b8df67b7c8005}{buzzer\+\_\+init}} (\doxymbox{\hyperlink{structbuzzer__t}{buzzer\+\_\+t}} \texorpdfstring{$\ast$}{*}handle, \doxymbox{\hyperlink{structbuzzer__io__t}{buzzer\+\_\+io\+\_\+t}} hw\+\_\+io)
+\begin{DoxyCompactList}\small\item\em Initializes the buzzer instance and its hardware IO callbacks. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{buzzer_8c_a96f3111c8b1d2e823fd24a8beef6284f}{buzzer\+\_\+beep}} (\doxymbox{\hyperlink{structbuzzer__t}{buzzer\+\_\+t}} \texorpdfstring{$\ast$}{*}handle)
+\begin{DoxyCompactList}\small\item\em Triggers a single short beep. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{buzzer_8c_a22f70e61d5499ef9125afdddb3b85bca}{buzzer\+\_\+set\+\_\+state}} (\doxymbox{\hyperlink{structbuzzer__t}{buzzer\+\_\+t}} \texorpdfstring{$\ast$}{*}handle, \doxymbox{\hyperlink{buzzer_8h_ac85d21c664070e78022ec7bca54f9f5b}{buzzer\+\_\+state\+\_\+e}} state)
+\begin{DoxyCompactList}\small\item\em Changes the active state of the buzzer. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{buzzer_8c_a5d69c98086e88c6e6d03057fcb5529bb}{buzzer\+\_\+process}} (\doxymbox{\hyperlink{structbuzzer__t}{buzzer\+\_\+t}} \texorpdfstring{$\ast$}{*}handle, uint32\+\_\+t current\+\_\+time\+\_\+ms)
+\begin{DoxyCompactList}\small\item\em Processes the buzzer logic (frequency sweeps, beep timeouts). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Driver for the buzzer actuator. 
+
+\begin{DoxyAuthor}{Author}
+vkusnuiplov
+\end{DoxyAuthor}
+Implements non-\/blocking frequency sweeps for alarms and manages single beep generation 
+
+\label{doc-func-members}
+\Hypertarget{buzzer_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{buzzer_8c_a96f3111c8b1d2e823fd24a8beef6284f}\index{buzzer.c@{buzzer.c}!buzzer\_beep@{buzzer\_beep}}
+\index{buzzer\_beep@{buzzer\_beep}!buzzer.c@{buzzer.c}}
+\doxysubsubsection{\texorpdfstring{buzzer\_beep()}{buzzer\_beep()}}
+{\footnotesize\ttfamily \label{buzzer_8c_a96f3111c8b1d2e823fd24a8beef6284f} 
+void buzzer\+\_\+beep (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{structbuzzer__t}{buzzer\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{handle}{}\end{DoxyParamCaption})}
+
+
+
+Triggers a single short beep. 
+
+Triggers a single short beep (ignored during active alarms).
+
+\begin{DoxyNote}{Note}
+This action is ignored if the buzzer is currently in an active alarm state 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em handle} & Pointer to the buzzer instance \\
+\hline
+\end{DoxyParams}
+\Hypertarget{buzzer_8c_aa0b50b47bd5b433a027b8df67b7c8005}\index{buzzer.c@{buzzer.c}!buzzer\_init@{buzzer\_init}}
+\index{buzzer\_init@{buzzer\_init}!buzzer.c@{buzzer.c}}
+\doxysubsubsection{\texorpdfstring{buzzer\_init()}{buzzer\_init()}}
+{\footnotesize\ttfamily \label{buzzer_8c_aa0b50b47bd5b433a027b8df67b7c8005} 
+void buzzer\+\_\+init (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{structbuzzer__t}{buzzer\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{handle}{, }\item[{\doxymbox{\hyperlink{structbuzzer__io__t}{buzzer\+\_\+io\+\_\+t}}}]{hw\+\_\+io}{}\end{DoxyParamCaption})}
+
+
+
+Initializes the buzzer instance and its hardware IO callbacks. 
+
+Initializes the buzzer instance and links hardware IO.
+
+
+\begin{DoxyParams}{Parameters}
+{\em handle} & Pointer to the buzzer instance \\
+\hline
+{\em hw\+\_\+io} & Structure containing hardware IO function pointers \\
+\hline
+\end{DoxyParams}
+\Hypertarget{buzzer_8c_a5d69c98086e88c6e6d03057fcb5529bb}\index{buzzer.c@{buzzer.c}!buzzer\_process@{buzzer\_process}}
+\index{buzzer\_process@{buzzer\_process}!buzzer.c@{buzzer.c}}
+\doxysubsubsection{\texorpdfstring{buzzer\_process()}{buzzer\_process()}}
+{\footnotesize\ttfamily \label{buzzer_8c_a5d69c98086e88c6e6d03057fcb5529bb} 
+void buzzer\+\_\+process (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{structbuzzer__t}{buzzer\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{handle}{, }\item[{uint32\+\_\+t}]{current\+\_\+time\+\_\+ms}{}\end{DoxyParamCaption})}
+
+
+
+Processes the buzzer logic (frequency sweeps, beep timeouts). 
+
+Processes buzzer sweep logic and beep timeouts.
+
+\begin{DoxyNote}{Note}
+Must be called continuously in the main application loop 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em handle} & Pointer to the buzzer instance \\
+\hline
+{\em current\+\_\+time\+\_\+ms} & Current system time in milliseconds \\
+\hline
+\end{DoxyParams}
+\Hypertarget{buzzer_8c_a22f70e61d5499ef9125afdddb3b85bca}\index{buzzer.c@{buzzer.c}!buzzer\_set\_state@{buzzer\_set\_state}}
+\index{buzzer\_set\_state@{buzzer\_set\_state}!buzzer.c@{buzzer.c}}
+\doxysubsubsection{\texorpdfstring{buzzer\_set\_state()}{buzzer\_set\_state()}}
+{\footnotesize\ttfamily \label{buzzer_8c_a22f70e61d5499ef9125afdddb3b85bca} 
+void buzzer\+\_\+set\+\_\+state (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{structbuzzer__t}{buzzer\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{handle}{, }\item[{\doxymbox{\hyperlink{buzzer_8h_ac85d21c664070e78022ec7bca54f9f5b}{buzzer\+\_\+state\+\_\+e}}}]{state}{}\end{DoxyParamCaption})}
+
+
+
+Changes the active state of the buzzer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em handle} & Pointer to the buzzer instance \\
+\hline
+{\em state} & The new state to apply (e.\+g., BUZZER\+\_\+\+OFF, BUZZER\+\_\+\+WARN\+\_\+\+ALARM) \\
+\hline
+\end{DoxyParams}

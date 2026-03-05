@@ -1,0 +1,111 @@
+\doxysection{Core/\+\+Inc/\+application/\+application.h File Reference}
+\hypertarget{application_8h}{}\label{application_8h}\index{Core/Inc/application/application.h@{Core/Inc/application/application.h}}
+
+
+Header file for the application business logic.  
+
+
+{\ttfamily \+\#include "{}mq7.\+h"{}}\newline
+{\ttfamily \+\#include "{}led.\+h"{}}\newline
+{\ttfamily \+\#include "{}buzzer.\+h"{}}\newline
+{\ttfamily \+\#include $<$stdbool.\+h$>$}\newline
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \doxymbox{\hyperlink{structapplication__t}{application\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Application instance structure (Handle) Aggregates all peripheral drivers and system state. \end{DoxyCompactList}\item 
+struct \doxymbox{\hyperlink{structindication__cfg__t}{indication\+\_\+cfg\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Configuration mapping for actuators. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{application_8h_a672c988c6a220ba8f20c05552757df47}\label{application_8h_a672c988c6a220ba8f20c05552757df47} 
+\+\#define {\bfseries DEFAULT\+\_\+\+LEVEL\+\_\+\+PPM}~30U
+\item 
+\Hypertarget{application_8h_a7ed0ed6d80a188304f625fb7ec4b5cb9}\label{application_8h_a7ed0ed6d80a188304f625fb7ec4b5cb9} 
+\+\#define {\bfseries WARNING\+\_\+\+LEVEL\+\_\+\+PPM}~60U
+\item 
+\Hypertarget{application_8h_a0fd79ec495adee84d8b5c90b2effa785}\label{application_8h_a0fd79ec495adee84d8b5c90b2effa785} 
+\+\#define {\bfseries APP\+\_\+\+WARMUP\+\_\+\+TIME\+\_\+\+MS}~SENSOR\+\_\+\+INITIAL\+\_\+\+CLEANING\+\_\+\+TIME
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{application_8h_a5bb27460721cc90620d197fabf50d4bb}\label{application_8h_a5bb27460721cc90620d197fabf50d4bb} 
+enum \doxymbox{\hyperlink{application_8h_a5bb27460721cc90620d197fabf50d4bb}{app\+\_\+state\+\_\+t}} \{ \newline
+{\bfseries APP\+\_\+\+STATE\+\_\+\+WARMUP}
+, {\bfseries APP\+\_\+\+STATE\+\_\+\+DEFAULT}
+, {\bfseries APP\+\_\+\+STATE\+\_\+\+WARNING}
+, {\bfseries APP\+\_\+\+STATE\+\_\+\+ALARM}
+, \newline
+{\bfseries APP\+\_\+\+STATE\+\_\+\+ERROR}
+ \}
+\begin{DoxyCompactList}\small\item\em High-\/level system states. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{application_8h_a4e7aa187e2612f28e8483a797ec0d951}{app\+\_\+init}} (\doxymbox{\hyperlink{structapplication__t}{application\+\_\+t}} \texorpdfstring{$\ast$}{*}app)
+\begin{DoxyCompactList}\small\item\em Initializes the application, links hardware drivers, and sets initial state. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{application_8h_aed2fd6b4924f94f9894c379f7c807382}{app\+\_\+process}} (\doxymbox{\hyperlink{structapplication__t}{application\+\_\+t}} \texorpdfstring{$\ast$}{*}app, uint32\+\_\+t now)
+\begin{DoxyCompactList}\small\item\em Main application task. Processes sensor logic and updates actuators. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Header file for the application business logic. 
+
+\begin{DoxyAuthor}{Author}
+vkusnuiplov
+\end{DoxyAuthor}
+Defines application states, gas concentration thresholds, and the public API for the main system task 
+
+\label{doc-func-members}
+\Hypertarget{application_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{application_8h_a4e7aa187e2612f28e8483a797ec0d951}\index{application.h@{application.h}!app\_init@{app\_init}}
+\index{app\_init@{app\_init}!application.h@{application.h}}
+\doxysubsubsection{\texorpdfstring{app\_init()}{app\_init()}}
+{\footnotesize\ttfamily \label{application_8h_a4e7aa187e2612f28e8483a797ec0d951} 
+void app\+\_\+init (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{structapplication__t}{application\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{app}{}\end{DoxyParamCaption})}
+
+
+
+Initializes the application, links hardware drivers, and sets initial state. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em app} & Pointer to the application instance\\
+\hline
+\end{DoxyParams}
+Initializes the application, links hardware drivers, and sets initial state.
+
+
+\begin{DoxyParams}{Parameters}
+{\em app} & Pointer to the application instance \\
+\hline
+\end{DoxyParams}
+\Hypertarget{application_8h_aed2fd6b4924f94f9894c379f7c807382}\index{application.h@{application.h}!app\_process@{app\_process}}
+\index{app\_process@{app\_process}!application.h@{application.h}}
+\doxysubsubsection{\texorpdfstring{app\_process()}{app\_process()}}
+{\footnotesize\ttfamily \label{application_8h_aed2fd6b4924f94f9894c379f7c807382} 
+void app\+\_\+process (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{structapplication__t}{application\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{app}{, }\item[{uint32\+\_\+t}]{now}{}\end{DoxyParamCaption})}
+
+
+
+Main application task. Processes sensor logic and updates actuators. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em app} & Pointer to the application instance \\
+\hline
+{\em now} & Current system time in milliseconds\\
+\hline
+\end{DoxyParams}
+Main application task. Processes sensor logic and updates actuators.
+
+
+\begin{DoxyParams}{Parameters}
+{\em app} & Pointer to the application instance \\
+\hline
+{\em now} & Current system time in milliseconds \\
+\hline
+\end{DoxyParams}

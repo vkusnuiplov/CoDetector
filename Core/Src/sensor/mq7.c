@@ -2,10 +2,10 @@
   ******************************************************************************
   * @file    mq7.c
   * @author  vkusnuiplov
-  * @brief   Драйвер для роботи з датчиком CO MQ-7
-  * * Файл містить кінцевий автомат станів для керування датчиком MQ-7,
-  * а також функції ініціалізації та обчислення результатів вимірювань
-  *
+  * @brief   Driver for the MQ-7 CO sensor.
+  * @details This file contains the finite state machine (FSM) for controlling
+  * the MQ-7 sensor, as well as functions for initialization and
+  * calculating measurement results (PPM)
   ******************************************************************************
   */
 
@@ -13,6 +13,9 @@
 #include <stddef.h>
 
 //-------------------------------------------------------------------------
+/** * @brief Configuration table for the MQ-7 heating and measuring cycle
+ * Defines phase durations, heater states, and the next FSM state
+ */
 static const mq7_cycle_step_t mq7_cycle [] = {
     [MQ7_STATE_INIT_CLEANING] = {SENSOR_INITIAL_CLEANING_TIME,  HEATER_ON,  MQ7_STATE_HEATING_HIGH},
 
@@ -22,16 +25,32 @@ static const mq7_cycle_step_t mq7_cycle [] = {
 
     [MQ7_STATE_MEASURE]       = {SENSOR_MEASURE_TIME,           HEATER_OFF, MQ7_STATE_HEATING_HIGH },
 };
+
 //-------------------------------------------------------------------------
+/** @brief Look-Up Table (LUT) X values (scaled resistance ratio Rs/R0 * 1000). */
 static const uint32_t lut_x[SENSOR_LUT_SIZE] = SENSOR_LUT_X_VALUES;
+/** @brief Look-Up Table (LUT) Y values (CO concentration in PPM). */
 static const uint32_t lut_y[SENSOR_LUT_SIZE] = SENSOR_LUT_Y_VALUES;
+
 //-------------------------------------------------------------------------
+/**
+ * @brief  Sets the physical state of the sensor's heater element
+ * @param  handle Pointer to the MQ-7 sensor instance
+ * @param  heater_on Desired heater state (1 for ON, 0 for OFF)
+ */
 static void _hw_set_heater(mq7_t *handle, uint8_t heater_on) {
     if(handle->io.set_heater) {
         handle->io.set_heater(heater_on);
     }
 }
+
 //-------------------------------------------------------------------------
+/**
+ * @brief  Performs linear interpolation to calculate PPM from the resistance ratio
+ * @param  ratio_scaled The Rs/R0 ratio multiplied by 1000 (avoids floating-point math)
+ * @retval uint16_t Calculated CO concentration in PPM. Returns 0 on out-of-bounds error
+ */
+
 static uint16_t _hw_interpolate_ppm (uint32_t ratio_scaled) {
 
     if (ratio_scaled <= lut_x [0]) {
@@ -61,7 +80,14 @@ static uint16_t _hw_interpolate_ppm (uint32_t ratio_scaled) {
     }
     return 0;
 }
+
 //-------------------------------------------------------------------------
+/**
+ * @brief  Calculates the sensor's resistance and updates the current PPM value
+ * @note   This function uses the latest raw ADC value stored in the handle
+ * @param  handle Pointer to the MQ-7 sensor instance
+ */
+
 static void _hw_calculate_ppm(mq7_t *handle) {
     uint32_t adc_value_mv = 0;
     uint32_t sensor_resistanse = 0;
@@ -84,7 +110,14 @@ static void _hw_calculate_ppm(mq7_t *handle) {
     handle->current_ppm = _hw_interpolate_ppm(ratio_scaled);
 
 }
+
 //-------------------------------------------------------------------------
+/**
+ * @brief  Initializes the MQ-7 sensor instance and starts the initial cleaning phase
+ * @param  handle Pointer to the MQ-7 sensor instance to be initialized
+ * @param  io Structure containing hardware-specific IO function pointers (ADC, Heater)
+ */
+
 void mq7_sensor_init (mq7_t *handle, mq7_io_t io) {
     if (handle == NULL) return;
 
@@ -100,7 +133,21 @@ void mq7_sensor_init (mq7_t *handle, mq7_io_t io) {
     _hw_set_heater (handle, mq7_cycle[MQ7_STATE_INIT_CLEANING].heater_on);
 
 }
+
 //-------------------------------------------------------------------------
+/**
+ * @brief  Processes the MQ-7 sensor FSM and handles periodic PPM calculations
+ * @note   This function MUST be called continuously in the main application loop
+ * It uses non-blocking Delta Time to manage FSM phases and calculation intervals
+ * @param  handle Pointer to the MQ-7 sensor instance
+ * @param  current_time_ms Current system time in milliseconds (e.g., HAL_GetTick())
+ * @retval mq7_status_e Status of the execution:
+ * - MQ7_OK: Success
+ * - MQ7_ERR_NULL_PTR: Handle is NULL
+ * - MQ7_ERR_IO: Missing IO function pointers
+ * - MQ7_ERR_INVALID_STATE: FSM state is out of bounds
+ */
+
 mq7_status_e mq7_process (mq7_t *handle, uint32_t current_time_ms) {
     if(handle == NULL) {
         return MQ7_ERR_NULL_PTR;

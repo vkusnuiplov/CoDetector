@@ -1,0 +1,65 @@
+\doxysection{Src/\+application/\+application.c File Reference}
+\hypertarget{application_8c}{}\label{application_8c}\index{Src/application/application.c@{Src/application/application.c}}
+
+
+Implementation of the high-\/level application business logic.  
+
+
+{\ttfamily \+\#include "{}application.\+h"{}}\newline
+{\ttfamily \+\#include "{}bsp.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{application_8c_a4e7aa187e2612f28e8483a797ec0d951}{app\+\_\+init}} (\doxymbox{\hyperlink{structapplication__t}{application\+\_\+t}} \texorpdfstring{$\ast$}{*}app)
+\begin{DoxyCompactList}\small\item\em Initializes the application, peripheral drivers, and BSP layer. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{application_8c_aed2fd6b4924f94f9894c379f7c807382}{app\+\_\+process}} (\doxymbox{\hyperlink{structapplication__t}{application\+\_\+t}} \texorpdfstring{$\ast$}{*}app, uint32\+\_\+t now)
+\begin{DoxyCompactList}\small\item\em Main application task. Must be called periodically in the main loop. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementation of the high-\/level application business logic. 
+
+\begin{DoxyAuthor}{Author}
+vkusnuiplov
+\end{DoxyAuthor}
+Coordinates sensor FSM, actuators (LEDs, Buzzer), and manages system states (Warmup, Default, Warning, Alarm, Error) 
+
+\label{doc-func-members}
+\Hypertarget{application_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{application_8c_a4e7aa187e2612f28e8483a797ec0d951}\index{application.c@{application.c}!app\_init@{app\_init}}
+\index{app\_init@{app\_init}!application.c@{application.c}}
+\doxysubsubsection{\texorpdfstring{app\_init()}{app\_init()}}
+{\footnotesize\ttfamily \label{application_8c_a4e7aa187e2612f28e8483a797ec0d951} 
+void app\+\_\+init (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{structapplication__t}{application\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{app}{}\end{DoxyParamCaption})}
+
+
+
+Initializes the application, peripheral drivers, and BSP layer. 
+
+Initializes the application, links hardware drivers, and sets initial state.
+
+
+\begin{DoxyParams}{Parameters}
+{\em app} & Pointer to the application instance \\
+\hline
+\end{DoxyParams}
+\Hypertarget{application_8c_aed2fd6b4924f94f9894c379f7c807382}\index{application.c@{application.c}!app\_process@{app\_process}}
+\index{app\_process@{app\_process}!application.c@{application.c}}
+\doxysubsubsection{\texorpdfstring{app\_process()}{app\_process()}}
+{\footnotesize\ttfamily \label{application_8c_aed2fd6b4924f94f9894c379f7c807382} 
+void app\+\_\+process (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{structapplication__t}{application\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{app}{, }\item[{uint32\+\_\+t}]{now}{}\end{DoxyParamCaption})}
+
+
+
+Main application task. Must be called periodically in the main loop. 
+
+Main application task. Processes sensor logic and updates actuators.
+
+
+\begin{DoxyParams}{Parameters}
+{\em app} & Pointer to the application instance \\
+\hline
+{\em now} & Current system time in milliseconds \\
+\hline
+\end{DoxyParams}

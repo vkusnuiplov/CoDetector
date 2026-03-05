@@ -2,7 +2,9 @@
   ******************************************************************************
   * @file    led.h
   * @author  vkusnuiplov
-  * @brief   Заголовочний файл для роботи зі світлодіодом
+  * @brief   Header file for the LED actuator driver
+  * @details Contains configuration macros, state definitions, and the public API
+  * for controlling LEDs with non-blocking blink patterns
   ******************************************************************************
   */
 
@@ -11,6 +13,7 @@
 
 #include <stdint.h>
 
+/* --- Blink Pattern Timings --- */
 #define LED_TIME_ON_PATTERN_ON_MS   0U
 #define LED_TIME_ON_PATTERN_OFF_MS  0U
 
@@ -29,9 +32,13 @@
 #define LED_TIME_DEFAULT_ON_MS      300U
 #define LED_TIME_DEFAULT_OFF_MS     4700U
 
+/* --- Logical Pin States --- */
 #define LED_ACTIVE_POT_HIGH         1U
 #define LED_ACTIVE_POT_LOW          0U
 
+/**
+ * @brief Available LED operational modes (blink patterns)
+ */
 typedef enum {
     LED_OFF,
     LED_ON,
@@ -41,18 +48,28 @@ typedef enum {
     LED_BLINK_HEARTBEAT
 } led_mode_e;
 
+/**
+ * @brief Hardware wiring polarity for the LED
+ */
 typedef enum {
 	LED_ACTIVE_LOW,
 	LED_ACTIVE_HIGH
 } led_polarity_e;
 
+/**
+ * @brief Timing configuration for a specific blink pattern
+ */
 typedef struct {
     uint16_t on_ms;
     uint16_t off_ms;
 } blink_timing_t;
 
+/* --- Hardware IO Callbacks --- */
 typedef void (*bsp_led_control)(uint8_t state);
 
+/**
+ * @brief LED instance structure (Handle)
+ */
 typedef struct {
     bsp_led_control hw_control;
     led_mode_e    mode;
@@ -63,10 +80,40 @@ typedef struct {
     uint32_t      last_toggle_time;
 } led_t;
 
+/* --- Public API --- */
+
+/**
+ * @brief  Initializes the LED instance and links hardware IO
+ * @param  handle Pointer to the LED instance
+ * @param  control_fn Hardware IO callback for controlling the physical pin
+ * @param  polarity Hardware wiring polarity (Active High or Active Low)
+ */
 void led_init(led_t *handle, bsp_led_control control_fn, led_polarity_e polarity);
+
+/**
+ * @brief  Turns the LED ON continuously
+ * @param  handle Pointer to the LED instance
+ */
 void led_on(led_t *handle);
+
+/**
+ * @brief  Turns the LED OFF continuously
+ * @param  handle Pointer to the LED instance
+ */
 void led_off(led_t *handle);
+
+/**
+ * @brief  Sets the operational mode (blink pattern) of the LED
+ * @param  handle Pointer to the LED instance
+ * @param  mode Desired LED mode
+ */
 void led_set_mode(led_t *handle, led_mode_e mode);
+
+/**
+ * @brief  Processes the non-blocking blink logic
+ * @param  handle Pointer to the LED instance
+ * @param  current_time_ms Current system time in milliseconds
+ */
 void led_process(led_t *handle, uint32_t current_time_ms);
 
 #endif

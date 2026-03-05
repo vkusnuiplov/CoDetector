@@ -1,0 +1,53 @@
+\doxysubsubsection{CORTEX Private Macros }
+\hypertarget{group___c_o_r_t_e_x___private___macros}{}\label{group___c_o_r_t_e_x___private___macros}\index{CORTEX Private Macros@{CORTEX Private Macros}}
+\doxysubsubsubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\+\#define \doxymbox{\hyperlink{group___c_o_r_t_e_x___private___macros_gaf30fd8f5960c2e28a772d8f16bb156dd}{IS\+\_\+\+NVIC\+\_\+\+PREEMPTION\+\_\+\+PRIORITY}}(PRIORITY)
+\item 
+\+\#define \doxymbox{\hyperlink{group___c_o_r_t_e_x___private___macros_ga9b8dcac4ed8e88c14d9bb04e369dad6a}{IS\+\_\+\+NVIC\+\_\+\+DEVICE\+\_\+\+IRQ}}(IRQ)
+\item 
+\+\#define \doxymbox{\hyperlink{group___c_o_r_t_e_x___private___macros_ga22d6291f6aed29442cf4cd9098fa0784}{IS\+\_\+\+SYSTICK\+\_\+\+CLK\+\_\+\+SOURCE}}(SOURCE)
+\end{DoxyCompactItemize}
+
+
+\doxysubsubsubsection{Detailed Description}
+
+
+\label{doc-define-members}
+\Hypertarget{group___c_o_r_t_e_x___private___macros_doc-define-members}
+\doxysubsubsubsection{Macro Definition Documentation}
+\Hypertarget{group___c_o_r_t_e_x___private___macros_ga9b8dcac4ed8e88c14d9bb04e369dad6a}\index{CORTEX Private Macros@{CORTEX Private Macros}!IS\_NVIC\_DEVICE\_IRQ@{IS\_NVIC\_DEVICE\_IRQ}}
+\index{IS\_NVIC\_DEVICE\_IRQ@{IS\_NVIC\_DEVICE\_IRQ}!CORTEX Private Macros@{CORTEX Private Macros}}
+\doxysubsubsubsubsection{\texorpdfstring{IS\_NVIC\_DEVICE\_IRQ}{IS\_NVIC\_DEVICE\_IRQ}}
+{\footnotesize\ttfamily \label{group___c_o_r_t_e_x___private___macros_ga9b8dcac4ed8e88c14d9bb04e369dad6a} 
+\+\#define IS\+\_\+\+NVIC\+\_\+\+DEVICE\+\_\+\+IRQ(\begin{DoxyParamCaption}\item[{}]{IRQ}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{((IRQ)\ >\ \doxymbox{\hyperlink{group___peripheral__interrupt__number__definition_gga7e1129cd8a196f4284d41db3e82ad5c8a6dbff8f8543325f3474cbae2446776e7}{SysTick\_IRQn}})}
+
+\end{DoxyCode}
+\Hypertarget{group___c_o_r_t_e_x___private___macros_gaf30fd8f5960c2e28a772d8f16bb156dd}\index{CORTEX Private Macros@{CORTEX Private Macros}!IS\_NVIC\_PREEMPTION\_PRIORITY@{IS\_NVIC\_PREEMPTION\_PRIORITY}}
+\index{IS\_NVIC\_PREEMPTION\_PRIORITY@{IS\_NVIC\_PREEMPTION\_PRIORITY}!CORTEX Private Macros@{CORTEX Private Macros}}
+\doxysubsubsubsubsection{\texorpdfstring{IS\_NVIC\_PREEMPTION\_PRIORITY}{IS\_NVIC\_PREEMPTION\_PRIORITY}}
+{\footnotesize\ttfamily \label{group___c_o_r_t_e_x___private___macros_gaf30fd8f5960c2e28a772d8f16bb156dd} 
+\+\#define IS\+\_\+\+NVIC\+\_\+\+PREEMPTION\+\_\+\+PRIORITY(\begin{DoxyParamCaption}\item[{}]{PRIORITY}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{((PRIORITY)\ <\ 0x4U)}
+
+\end{DoxyCode}
+\Hypertarget{group___c_o_r_t_e_x___private___macros_ga22d6291f6aed29442cf4cd9098fa0784}\index{CORTEX Private Macros@{CORTEX Private Macros}!IS\_SYSTICK\_CLK\_SOURCE@{IS\_SYSTICK\_CLK\_SOURCE}}
+\index{IS\_SYSTICK\_CLK\_SOURCE@{IS\_SYSTICK\_CLK\_SOURCE}!CORTEX Private Macros@{CORTEX Private Macros}}
+\doxysubsubsubsubsection{\texorpdfstring{IS\_SYSTICK\_CLK\_SOURCE}{IS\_SYSTICK\_CLK\_SOURCE}}
+{\footnotesize\ttfamily \label{group___c_o_r_t_e_x___private___macros_ga22d6291f6aed29442cf4cd9098fa0784} 
+\+\#define IS\+\_\+\+SYSTICK\+\_\+\+CLK\+\_\+\+SOURCE(\begin{DoxyParamCaption}\item[{}]{SOURCE}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(((SOURCE)\ ==\ SYSTICK\_CLKSOURCE\_HCLK)\ ||\ \(\backslash\)}
+\DoxyCodeLine{((SOURCE)\ ==\ SYSTICK\_CLKSOURCE\_HCLK\_DIV8))}
+
+\end{DoxyCode}

@@ -1,0 +1,186 @@
+\doxysection{Core/\+\+Inc/\+sensor/\+mq7.h File Reference}
+\hypertarget{mq7_8h}{}\label{mq7_8h}\index{Core/Inc/sensor/mq7.h@{Core/Inc/sensor/mq7.h}}
+
+
+Header file for the MQ-\/7 CO sensor driver.  
+
+
+{\ttfamily \+\#include $<$stdint.\+h$>$}\newline
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \doxymbox{\hyperlink{structmq7__cycle__step__t}{mq7\+\_\+cycle\+\_\+step\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Step configuration for the sensor cycle. \end{DoxyCompactList}\item 
+struct \doxymbox{\hyperlink{structmq7__io__t}{mq7\+\_\+io\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Hardware IO mapping structure. \end{DoxyCompactList}\item 
+struct \doxymbox{\hyperlink{structmq7__t}{mq7\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em MQ-\/7 sensor instance structure (Handle). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{mq7_8h_a7115485dca7be1df06e9b4141925c3a3}\label{mq7_8h_a7115485dca7be1df06e9b4141925c3a3} 
+\+\#define {\bfseries SENSOR\+\_\+\+VCC\+\_\+\+MV}~5000U
+\item 
+\Hypertarget{mq7_8h_acfc9b9e1be21cb282fb2ba886cb42321}\label{mq7_8h_acfc9b9e1be21cb282fb2ba886cb42321} 
+\+\#define {\bfseries ADC\+\_\+\+REFF\+\_\+\+VCC\+\_\+\+MV}~3300U
+\item 
+\Hypertarget{mq7_8h_a8e965b09ba8c46425032e6dd576f9bce}\label{mq7_8h_a8e965b09ba8c46425032e6dd576f9bce} 
+\+\#define {\bfseries ADC\+\_\+\+MAX\+\_\+\+VALUE}~4095U
+\item 
+\Hypertarget{mq7_8h_a810b46bdaa73057d834142229111adc5}\label{mq7_8h_a810b46bdaa73057d834142229111adc5} 
+\+\#define {\bfseries ADC\+\_\+\+ERROR\+\_\+\+VALUE}~10U
+\item 
+\Hypertarget{mq7_8h_adbac217f13bd374296e1a9d90795bde9}\label{mq7_8h_adbac217f13bd374296e1a9d90795bde9} 
+\+\#define {\bfseries SENSOR\+\_\+\+R0\+\_\+\+RESISTANSE}~920U
+\item 
+\Hypertarget{mq7_8h_a33899f451ac61b6b77ff75388136fba0}\label{mq7_8h_a33899f451ac61b6b77ff75388136fba0} 
+\+\#define {\bfseries SENSOR\+\_\+\+RL\+\_\+\+RESISTASE}~2000U
+\item 
+\Hypertarget{mq7_8h_ad5c6a53058d019caf6d4e55e7d909b61}\label{mq7_8h_ad5c6a53058d019caf6d4e55e7d909b61} 
+\+\#define {\bfseries SENSOR\+\_\+\+EMERGENCY\+\_\+\+RAW\+\_\+\+ADC\+\_\+\+THRESHOLD}~3900U
+\item 
+\Hypertarget{mq7_8h_a0a70d6b7771acc64624d1f980ff72c1a}\label{mq7_8h_a0a70d6b7771acc64624d1f980ff72c1a} 
+\+\#define {\bfseries SENSOR\+\_\+\+INITIAL\+\_\+\+CLEANING\+\_\+\+TIME}~180000U
+\item 
+\Hypertarget{mq7_8h_a61dfa67227edbe1f2f595a85653c61c6}\label{mq7_8h_a61dfa67227edbe1f2f595a85653c61c6} 
+\+\#define {\bfseries SENSOR\+\_\+\+HEATING\+\_\+\+HIGH\+\_\+\+TIME}~60000U
+\item 
+\Hypertarget{mq7_8h_af9eefbf76f653f9f465353424c8e8cbc}\label{mq7_8h_af9eefbf76f653f9f465353424c8e8cbc} 
+\+\#define {\bfseries SENSOR\+\_\+\+HEATING\+\_\+\+LOW\+\_\+\+TIME}~85000U
+\item 
+\Hypertarget{mq7_8h_aaa7dff692f7ecf9878214ea9fb431ba9}\label{mq7_8h_aaa7dff692f7ecf9878214ea9fb431ba9} 
+\+\#define {\bfseries SENSOR\+\_\+\+MEASURE\+\_\+\+TIME}~5000U
+\item 
+\Hypertarget{mq7_8h_a8a6e5deff2294fb8e721ca903ad7d314}\label{mq7_8h_a8a6e5deff2294fb8e721ca903ad7d314} 
+\+\#define {\bfseries SENSOR\+\_\+\+PPM\+\_\+\+CALC\+\_\+\+INTERVAL}~250U
+\item 
+\Hypertarget{mq7_8h_add6ca5edc6baca7a46a3e6604f4a7e20}\label{mq7_8h_add6ca5edc6baca7a46a3e6604f4a7e20} 
+\+\#define {\bfseries HEATER\+\_\+\+ON}~1U
+\item 
+\Hypertarget{mq7_8h_a521d66bef754bf9f23acf5676a9215bf}\label{mq7_8h_a521d66bef754bf9f23acf5676a9215bf} 
+\+\#define {\bfseries HEATER\+\_\+\+OFF}~0U
+\item 
+\Hypertarget{mq7_8h_ab73f136c9228953a6143e33668a612b3}\label{mq7_8h_ab73f136c9228953a6143e33668a612b3} 
+\+\#define {\bfseries SENSOR\+\_\+\+LUT\+\_\+\+SIZE}~10U
+\item 
+\Hypertarget{mq7_8h_af0c0042ad8cfbf2a85f1248b1ebf14fa}\label{mq7_8h_af0c0042ad8cfbf2a85f1248b1ebf14fa} 
+\+\#define {\bfseries SENSOR\+\_\+\+LUT\+\_\+\+X\+\_\+\+VALUES}~\{1000, 1200, 1400, 1700, 2000, 2400, 2900, 3500, 4500, 6000\}
+\item 
+\Hypertarget{mq7_8h_a84f8d0fe6f4e4ea00c2e9b4b5b48519f}\label{mq7_8h_a84f8d0fe6f4e4ea00c2e9b4b5b48519f} 
+\+\#define {\bfseries SENSOR\+\_\+\+LUT\+\_\+\+Y\+\_\+\+VALUES}~\{100,  77,   61,   47,   37,   29,   22,   17,   12,   8\}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{mq7_8h_a262ecb843b5432b97aae4b8dc119238c}\label{mq7_8h_a262ecb843b5432b97aae4b8dc119238c} 
+typedef void(\texorpdfstring{$\ast$}{*} {\bfseries mq7\+\_\+set\+\_\+heater\+\_\+fn}) (uint8\+\_\+t state)
+\item 
+\Hypertarget{mq7_8h_a54cf0533f65a7d641abad438b4da424c}\label{mq7_8h_a54cf0533f65a7d641abad438b4da424c} 
+typedef uint32\+\_\+t(\texorpdfstring{$\ast$}{*} {\bfseries mq7\+\_\+get\+\_\+adc\+\_\+fn}) (void)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{mq7_8h_a14bf92bf1d4aa7eb2f8dccf4d071b4e9}\label{mq7_8h_a14bf92bf1d4aa7eb2f8dccf4d071b4e9} 
+enum \doxymbox{\hyperlink{mq7_8h_a14bf92bf1d4aa7eb2f8dccf4d071b4e9}{mq7\+\_\+state\+\_\+e}} \{ {\bfseries MQ7\+\_\+\+STATE\+\_\+\+INIT\+\_\+\+CLEANING}
+, {\bfseries MQ7\+\_\+\+STATE\+\_\+\+HEATING\+\_\+\+HIGH}
+, {\bfseries MQ7\+\_\+\+STATE\+\_\+\+HEATING\+\_\+\+LOW}
+, {\bfseries MQ7\+\_\+\+STATE\+\_\+\+MEASURE}
+ \}
+\begin{DoxyCompactList}\small\item\em MQ-\/7 finite state machine phases. \end{DoxyCompactList}\item 
+\Hypertarget{mq7_8h_a456a23444749701764d7c72a4318a8e3}\label{mq7_8h_a456a23444749701764d7c72a4318a8e3} 
+enum \doxymbox{\hyperlink{mq7_8h_a456a23444749701764d7c72a4318a8e3}{mq7\+\_\+status\+\_\+e}} \{ {\bfseries MQ7\+\_\+\+OK}
+, {\bfseries MQ7\+\_\+\+ERR\+\_\+\+NULL\+\_\+\+PTR}
+, {\bfseries MQ7\+\_\+\+ERR\+\_\+\+INVALID\+\_\+\+STATE}
+, {\bfseries MQ7\+\_\+\+ERR\+\_\+\+IO}
+ \}
+\begin{DoxyCompactList}\small\item\em Driver execution status codes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{mq7_8h_a702046ec8e4ab8fc5201de48a7ab364e}{mq7\+\_\+sensor\+\_\+init}} (\doxymbox{\hyperlink{structmq7__t}{mq7\+\_\+t}} \texorpdfstring{$\ast$}{*}handle, \doxymbox{\hyperlink{structmq7__io__t}{mq7\+\_\+io\+\_\+t}} io)
+\begin{DoxyCompactList}\small\item\em Initializes the MQ-\/7 sensor instance and starts the cleaning phase. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{mq7_8h_a456a23444749701764d7c72a4318a8e3}{mq7\+\_\+status\+\_\+e}} \doxymbox{\hyperlink{mq7_8h_adae93206aa5c26a37f266867d90ffb3f}{mq7\+\_\+process}} (\doxymbox{\hyperlink{structmq7__t}{mq7\+\_\+t}} \texorpdfstring{$\ast$}{*}handle, uint32\+\_\+t current\+\_\+time\+\_\+ms)
+\begin{DoxyCompactList}\small\item\em Processes the MQ-\/7 sensor FSM and handles periodic PPM calculations. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Header file for the MQ-\/7 CO sensor driver. 
+
+\begin{DoxyAuthor}{Author}
+vkusnuiplov
+\end{DoxyAuthor}
+Contains FSM definitions, configuration macros, and the public API for initializing and reading the MQ-\/7 sensor 
+
+\label{doc-func-members}
+\Hypertarget{mq7_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{mq7_8h_adae93206aa5c26a37f266867d90ffb3f}\index{mq7.h@{mq7.h}!mq7\_process@{mq7\_process}}
+\index{mq7\_process@{mq7\_process}!mq7.h@{mq7.h}}
+\doxysubsubsection{\texorpdfstring{mq7\_process()}{mq7\_process()}}
+{\footnotesize\ttfamily \label{mq7_8h_adae93206aa5c26a37f266867d90ffb3f} 
+\doxymbox{\hyperlink{mq7_8h_a456a23444749701764d7c72a4318a8e3}{mq7\+\_\+status\+\_\+e}} mq7\+\_\+process (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{structmq7__t}{mq7\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{handle}{, }\item[{uint32\+\_\+t}]{current\+\_\+time\+\_\+ms}{}\end{DoxyParamCaption})}
+
+
+
+Processes the MQ-\/7 sensor FSM and handles periodic PPM calculations. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em handle} & Pointer to the MQ-\/7 sensor instance \\
+\hline
+{\em current\+\_\+time\+\_\+ms} & Current system time in milliseconds \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em \doxylink{mq7_8h_a456a23444749701764d7c72a4318a8e3}{mq7\+\_\+status\+\_\+e}} & Status of the execution\\
+\hline
+\end{DoxyRetVals}
+\begin{DoxyNote}{Note}
+This function MUST be called continuously in the main application loop It uses non-\/blocking Delta Time to manage FSM phases and calculation intervals 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em handle} & Pointer to the MQ-\/7 sensor instance \\
+\hline
+{\em current\+\_\+time\+\_\+ms} & Current system time in milliseconds (e.\+g., HAL\+\_\+\+Get\+Tick()) \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em \doxylink{mq7_8h_a456a23444749701764d7c72a4318a8e3}{mq7\+\_\+status\+\_\+e}} & Status of the execution:\+
+\begin{DoxyItemize}
+\item MQ7\+\_\+\+OK:\+ Success
+\item MQ7\+\_\+\+ERR\+\_\+\+NULL\+\_\+\+PTR:\+ Handle is NULL
+\item MQ7\+\_\+\+ERR\+\_\+\+IO:\+ Missing IO function pointers
+\item MQ7\+\_\+\+ERR\+\_\+\+INVALID\+\_\+\+STATE:\+ FSM state is out of bounds 
+\end{DoxyItemize}\\
+\hline
+\end{DoxyRetVals}
+\Hypertarget{mq7_8h_a702046ec8e4ab8fc5201de48a7ab364e}\index{mq7.h@{mq7.h}!mq7\_sensor\_init@{mq7\_sensor\_init}}
+\index{mq7\_sensor\_init@{mq7\_sensor\_init}!mq7.h@{mq7.h}}
+\doxysubsubsection{\texorpdfstring{mq7\_sensor\_init()}{mq7\_sensor\_init()}}
+{\footnotesize\ttfamily \label{mq7_8h_a702046ec8e4ab8fc5201de48a7ab364e} 
+void mq7\+\_\+sensor\+\_\+init (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{structmq7__t}{mq7\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{handle}{, }\item[{\doxymbox{\hyperlink{structmq7__io__t}{mq7\+\_\+io\+\_\+t}}}]{io}{}\end{DoxyParamCaption})}
+
+
+
+Initializes the MQ-\/7 sensor instance and starts the cleaning phase. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em handle} & Pointer to the MQ-\/7 sensor instance \\
+\hline
+{\em io} & Structure containing hardware-\/specific IO callbacks\\
+\hline
+\end{DoxyParams}
+Initializes the MQ-\/7 sensor instance and starts the cleaning phase.
+
+
+\begin{DoxyParams}{Parameters}
+{\em handle} & Pointer to the MQ-\/7 sensor instance to be initialized \\
+\hline
+{\em io} & Structure containing hardware-\/specific IO function pointers (ADC, Heater) \\
+\hline
+\end{DoxyParams}

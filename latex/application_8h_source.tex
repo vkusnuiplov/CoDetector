@@ -1,0 +1,54 @@
+\doxysection{application.\+h}
+\hypertarget{application_8h_source}{}\label{application_8h_source}\index{Core/Inc/application/application.h@{Core/Inc/application/application.h}}
+\doxymbox{\hyperlink{application_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#ifndef\ APPLICATION\_H}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#define\ APPLICATION\_H}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{mq7_8h}{mq7.h}}"{}}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{led_8h}{led.h}}"{}}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{buzzer_8h}{buzzer.h}}"{}}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{comment}{/*\ -\/-\/-\/\ Gas\ Concentration\ Thresholds\ -\/-\/-\/\ */}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#define\ DEFAULT\_LEVEL\_PPM\ \ \ 30U}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ WARNING\_LEVEL\_PPM\ \ \ 60U}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{comment}{/*\ -\/-\/-\/\ Timing\ Configurations\ -\/-\/-\/\ */}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#define\ APP\_WARMUP\_TIME\_MS\ \ SENSOR\_INITIAL\_CLEANING\_TIME}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00028\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00029\ \ \ \ \ APP\_STATE\_WARMUP,}
+\DoxyCodeLine{00030\ \ \ \ \ APP\_STATE\_DEFAULT,}
+\DoxyCodeLine{00031\ \ \ \ \ APP\_STATE\_WARNING,}
+\DoxyCodeLine{00032\ \ \ \ \ APP\_STATE\_ALARM,}
+\DoxyCodeLine{00033\ \ \ \ \ APP\_STATE\_ERROR}
+\DoxyCodeLine{00034\ \}\ \doxymbox{\hyperlink{application_8h_a5bb27460721cc90620d197fabf50d4bb}{app\_state\_t}};}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00040\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00041\ \ \ \ \ \doxymbox{\hyperlink{structmq7__t}{mq7\_t}}*\ sensor;}
+\DoxyCodeLine{00042\ \ \ \ \ \doxymbox{\hyperlink{structled__t}{led\_t}}*\ led\_green;}
+\DoxyCodeLine{00043\ \ \ \ \ \doxymbox{\hyperlink{structled__t}{led\_t}}*\ led\_red;}
+\DoxyCodeLine{00044\ \ \ \ \ \doxymbox{\hyperlink{structbuzzer__t}{buzzer\_t}}*\ buzzer;}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \ \ \doxymbox{\hyperlink{application_8h_a5bb27460721cc90620d197fabf50d4bb}{app\_state\_t}}\ state;}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{bool}\ warmup\_beep\_done;}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \}\ \doxymbox{\hyperlink{structapplication__t}{application\_t}};}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00054\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00055\ \ \ \ \ \doxymbox{\hyperlink{led_8h_ac9e7c090acc1191c6275f38892aa8877}{led\_mode\_e}}\ \ \ \ \ \ green\_mode;}
+\DoxyCodeLine{00056\ \ \ \ \ \doxymbox{\hyperlink{led_8h_ac9e7c090acc1191c6275f38892aa8877}{led\_mode\_e}}\ \ \ \ \ \ red\_mode;}
+\DoxyCodeLine{00057\ \ \ \ \ \doxymbox{\hyperlink{buzzer_8h_ac85d21c664070e78022ec7bca54f9f5b}{buzzer\_state\_e}}\ \ buzzer\_state;}
+\DoxyCodeLine{00058\ \}\ \doxymbox{\hyperlink{structindication__cfg__t}{indication\_cfg\_t}};}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \textcolor{comment}{/*\ -\/-\/-\/\ Public\ API\ -\/-\/-\/\ */}}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00066\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{application_8h_a4e7aa187e2612f28e8483a797ec0d951}{app\_init}}(\doxymbox{\hyperlink{structapplication__t}{application\_t}}\ *app);}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00073\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{application_8h_aed2fd6b4924f94f9894c379f7c807382}{app\_process}}(\doxymbox{\hyperlink{structapplication__t}{application\_t}}\ *app,\ uint32\_t\ now);}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

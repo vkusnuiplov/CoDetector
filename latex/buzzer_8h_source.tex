@@ -1,0 +1,91 @@
+\doxysection{buzzer.\+h}
+\hypertarget{buzzer_8h_source}{}\label{buzzer_8h_source}\index{Core/Inc/actuators/buzzer.h@{Core/Inc/actuators/buzzer.h}}
+\doxymbox{\hyperlink{buzzer_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\ \ \#ifndef\ BUZZER\_H}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\ \ \#define\ BUZZER\_H}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \ \ \textcolor{comment}{//\#include\ "{}main.h"{}}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\ \ \#include\ <stdint.h>}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{comment}{/*\ -\/-\/-\/\ Static\ \&\ Beep\ Configurations\ -\/-\/-\/\ */}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\ \ \#define\ BUZZER\_OFF\_FREQ\ \ \ \ \ \ \ \ \ 0U}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\ \ \#define\ BUZZER\_OFF\_STEP\ \ \ \ \ \ \ \ \ 0U}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\ \ \#define\ BUZZER\_OFF\_SPEED\ \ \ \ \ \ \ \ 0U}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\ \ \#define\ BUZZER\_ON\_FREQ\ \ \ \ \ \ \ \ \ \ 2000U}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\ \ \#define\ BUZZER\_ON\_STEP\ \ \ \ \ \ \ \ \ \ 0U}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\ \ \#define\ BUZZER\_ON\_SPEED\ \ \ \ \ \ \ \ \ 0U}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\ \ \#define\ BUZER\_BEEP\_STEP\ \ \ \ \ \ \ \ \ 0U}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\ \ \#define\ BUZZER\_BEEP\_SPEED\ \ \ \ \ \ \ 0U}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\ \ \#define\ BUZZER\_BEEP\_TIME\ \ \ \ \ \ \ \ 200U}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{comment}{/*\ -\/-\/-\/\ Warning\ Alarm\ Configuration\ -\/-\/-\/\ */}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\ \ \#define\ WARN\_ALARM\_MIN\_FREQ\ \ \ \ \ 500U}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\ \ \#define\ WARN\_ALARM\_MAX\_FREQ\ \ \ \ \ 1000U}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\ \ \#define\ WARN\_ALARM\_STEP\ \ \ \ \ \ \ \ \ 20U}}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\ \ \#define\ WARN\_ALARM\_SPEED\_MS\ \ \ \ \ 50U}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \textcolor{comment}{/*\ -\/-\/-\/\ Danger\ Alarm\ Configuration\ -\/-\/-\/\ */}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\ \ \#define\ DANGER\_ALARM\_MIN\_FREQ\ \ \ 1000U}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\ \ \#define\ DANGER\_ALARM\_MAX\_FREQ\ \ \ 2000U}}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\ \ \#define\ DANGER\_ALARM\_STEP\ \ \ \ \ \ \ 100U}}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\ \ \#define\ DANGER\_ALARM\_SPEED\_MS\ \ \ 10U}}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00044\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00045\ \ \ \ \ BUZZER\_OFF,}
+\DoxyCodeLine{00046\ \ \ \ \ BUZZER\_ON,}
+\DoxyCodeLine{00047\ \ \ \ \ BUZZER\_BEEP,}
+\DoxyCodeLine{00048\ \ \ \ \ BUZZER\_WARN\_ALARM,}
+\DoxyCodeLine{00049\ \ \ \ \ BUZZER\_DANGER\_ALARM}
+\DoxyCodeLine{00050\ \}\ \doxymbox{\hyperlink{buzzer_8h_ac85d21c664070e78022ec7bca54f9f5b}{buzzer\_state\_e}};}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00055\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00056\ \ \ \ \ uint16\_t\ min\_freq;}
+\DoxyCodeLine{00057\ \ \ \ \ uint16\_t\ max\_freq;}
+\DoxyCodeLine{00058\ \ \ \ \ uint16\_t\ step\_size;}
+\DoxyCodeLine{00059\ \ \ \ \ uint16\_t\ period\_ms;}
+\DoxyCodeLine{00060\ \}\ \doxymbox{\hyperlink{structbuzzer__setting__t}{buzzer\_setting\_t}};}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \textcolor{comment}{/*\ -\/-\/-\/\ Hardware\ IO\ Callbacks\ -\/-\/-\/\ */}}
+\DoxyCodeLine{00063\ \ \ \textcolor{keyword}{typedef}\ void\ (*bsp\_buzzer\_set\_freq\_fn)(uint16\_t\ freq\_hz);}
+\DoxyCodeLine{00064\ \ \ \textcolor{keyword}{typedef}\ void\ (*bsp\_buzzer\_stop\_fn)(void);}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00069\ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00070\ \ \ \ \ bsp\_buzzer\_set\_freq\_fn\ \ set\_freq;}
+\DoxyCodeLine{00071\ \ \ \ \ bsp\_buzzer\_stop\_fn\ \ \ \ \ \ stop;}
+\DoxyCodeLine{00072\ \ \ \}\ \doxymbox{\hyperlink{structbuzzer__io__t}{buzzer\_io\_t}};}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00077\ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \ \ \ \ \doxymbox{\hyperlink{structbuzzer__io__t}{buzzer\_io\_t}}\ io;}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \ \ \ \ \doxymbox{\hyperlink{buzzer_8h_ac85d21c664070e78022ec7bca54f9f5b}{buzzer\_state\_e}}\ state;}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{structbuzzer__setting__t}{buzzer\_setting\_t}}\ *current\_setting;}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \ \ \ \ uint16\_t\ current\_freq;}
+\DoxyCodeLine{00086\ \ \ \ \ int16\_t\ current\_delta;}
+\DoxyCodeLine{00087\ \ \ \ \ uint32\_t\ last\_update\_time;}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \ \ \ \ uint32\_t\ beep\_start\_time;}
+\DoxyCodeLine{00090\ \ \ \ \ uint32\_t\ beep\_duration\_ms;}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \ \ \}\ \doxymbox{\hyperlink{structbuzzer__t}{buzzer\_t}};}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \ \ \textcolor{comment}{/*\ -\/-\/-\/\ Public\ API\ -\/-\/-\/\ */}}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00101\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{buzzer_8h_a1205dc3a8b97f24037f6cda26bcb85be}{buzzer\_init}}\ (\doxymbox{\hyperlink{structbuzzer__t}{buzzer\_t}}\ *handle,\ \doxymbox{\hyperlink{structbuzzer__io__t}{buzzer\_io\_t}}\ hw\_buzz\_bsp);}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00108\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{buzzer_8h_a22f70e61d5499ef9125afdddb3b85bca}{buzzer\_set\_state}}\ (\doxymbox{\hyperlink{structbuzzer__t}{buzzer\_t}}\ *handle,\ \doxymbox{\hyperlink{buzzer_8h_ac85d21c664070e78022ec7bca54f9f5b}{buzzer\_state\_e}}\ state);}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00115\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{buzzer_8h_a5d69c98086e88c6e6d03057fcb5529bb}{buzzer\_process}}\ (\doxymbox{\hyperlink{structbuzzer__t}{buzzer\_t}}\ *handle,\ uint32\_t\ current\_time\_ms);}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00121\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{buzzer_8h_a96f3111c8b1d2e823fd24a8beef6284f}{buzzer\_beep}}\ (\doxymbox{\hyperlink{structbuzzer__t}{buzzer\_t}}\ *handle);}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00123\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00124\ }
+
+\end{DoxyCode}

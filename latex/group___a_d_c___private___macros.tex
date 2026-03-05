@@ -1,0 +1,692 @@
+\doxysubsubsection{ADC Private Macros }
+\hypertarget{group___a_d_c___private___macros}{}\label{group___a_d_c___private___macros}\index{ADC Private Macros@{ADC Private Macros}}
+\doxysubsubsubsubsection*{Topics}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{group___a_d_c__regular__nb__conv__verification}{ADC Regular Conversion Number Verification}}
+\item 
+\doxymbox{\hyperlink{group___a_d_c___private___constants}{ADC Private Constants}}
+\item 
+\doxymbox{\hyperlink{group___a_d_c___exported___macros}{ADC Exported Macros}}
+\item 
+\doxymbox{\hyperlink{group___a_d_c___exported___functions}{ADC\+\_\+\+Exported\+\_\+\+Functions}}
+\end{DoxyCompactItemize}
+\doxysubsubsubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\+\#define \doxymbox{\hyperlink{group___a_d_c___private___macros_ga2ccb82ecf85d6c6d1ff2cdf9b6a82d2b}{ADC\+\_\+\+IS\+\_\+\+SOFTWARE\+\_\+\+START\+\_\+\+REGULAR}}(\+\_\+\+\_\+\+HANDLE\+\_\+\+\_\+)
+\begin{DoxyCompactList}\small\item\em Test if conversion trigger of regular group is software start or external trigger. \end{DoxyCompactList}\item 
+\+\#define \doxymbox{\hyperlink{group___a_d_c___private___macros_gae2da95074db4dd0418c1dd1f13ad7970}{ADC\+\_\+\+GET\+\_\+\+RESOLUTION}}(\+\_\+\+\_\+\+HANDLE\+\_\+\+\_\+)
+\begin{DoxyCompactList}\small\item\em Return resolution bits in CFGR1 register RES\+[1:\+0]\+ field. \end{DoxyCompactList}\item 
+\+\#define \doxymbox{\hyperlink{group___a_d_c___private___macros_gac7ab87a3ab932eed1b3ac5faad4e3aa9}{ADC\+\_\+\+CLEAR\+\_\+\+ERRORCODE}}(\+\_\+\+\_\+\+HANDLE\+\_\+\+\_\+)
+\begin{DoxyCompactList}\small\item\em Clear ADC error code (set it to no error code "{}\+HAL\+\_\+\+ADC\+\_\+\+ERROR\+\_\+\+NONE"{}). \end{DoxyCompactList}\item 
+\+\#define \doxymbox{\hyperlink{group___a_d_c___private___macros_gaaf93e91b164d4a220aae475eff82665f}{ADC\+\_\+\+STATE\+\_\+\+CLR\+\_\+\+SET}}~MODIFY\+\_\+\+REG
+\begin{DoxyCompactList}\small\item\em Simultaneously clear and set specific bits of the handle State. \end{DoxyCompactList}\item 
+\+\#define \doxymbox{\hyperlink{group___a_d_c___private___macros_gaa0ec9cb0b5d97ba2d8bfd4fdf1f2a398}{ADC\+\_\+\+CFGR1\+\_\+\+REG\+\_\+\+DISCCONTINUOUS}}(\+\_\+\+REG\+\_\+\+DISCONTINUOUS\+\_\+\+MODE\+\_\+)
+\begin{DoxyCompactList}\small\item\em Enable ADC discontinuous conversion mode for regular group. \end{DoxyCompactList}\item 
+\+\#define \doxymbox{\hyperlink{group___a_d_c___private___macros_ga36993a7b32f5ec4f4163856f7ba8e8f0}{ADC\+\_\+\+CFGR1\+\_\+\+AUTOOFF}}(\+\_\+\+AUTOOFF\+\_\+)
+\begin{DoxyCompactList}\small\item\em Enable the ADC auto off mode. \end{DoxyCompactList}\item 
+\+\#define \doxymbox{\hyperlink{group___a_d_c___private___macros_ga36fe17d7bad2f7445f201d318779051d}{ADC\+\_\+\+CFGR1\+\_\+\+AUTOWAIT}}(\+\_\+\+AUTOWAIT\+\_\+)
+\begin{DoxyCompactList}\small\item\em Enable the ADC auto delay mode. \end{DoxyCompactList}\item 
+\+\#define \doxymbox{\hyperlink{group___a_d_c___private___macros_gaa6d2333361167e3a510b2dd50f824a80}{ADC\+\_\+\+CFGR1\+\_\+\+CONTINUOUS}}(\+\_\+\+CONTINUOUS\+\_\+\+MODE\+\_\+)
+\begin{DoxyCompactList}\small\item\em Enable ADC continuous conversion mode. \end{DoxyCompactList}\item 
+\+\#define \doxymbox{\hyperlink{group___a_d_c___private___macros_ga0e446f9c5ff062c2f138636c1ea639a1}{ADC\+\_\+\+CFGR1\+\_\+\+OVERRUN}}(\+\_\+\+OVERRUN\+\_\+\+MODE\+\_\+)
+\begin{DoxyCompactList}\small\item\em Enable ADC overrun mode. \end{DoxyCompactList}\item 
+\+\#define \doxymbox{\hyperlink{group___a_d_c___private___macros_ga29ee42e07d58295ad5dfab86f3421671}{ADC\+\_\+\+SCAN\+\_\+\+SEQ\+\_\+\+MODE}}(\+\_\+\+SCAN\+\_\+\+MODE\+\_\+)
+\begin{DoxyCompactList}\small\item\em Set ADC scan mode with differentiation of sequencer setting fixed or configurable. \end{DoxyCompactList}\item 
+\+\#define \doxymbox{\hyperlink{group___a_d_c___private___macros_ga06cee7979b56d2ad07f024f394522097}{ADC\+\_\+\+CFGR1\+\_\+\+DMACONTREQ}}(\+\_\+\+DMACONTREQ\+\_\+\+MODE\+\_\+)
+\begin{DoxyCompactList}\small\item\em Enable the ADC DMA continuous request. \end{DoxyCompactList}\item 
+\+\#define \doxymbox{\hyperlink{group___a_d_c___private___macros_ga6964dd348041232d34696fd535ad4450}{ADC\+\_\+\+AWD1\+THRESHOLD\+\_\+\+SHIFT\+\_\+\+RESOLUTION}}(\+\_\+\+\_\+\+HANDLE\+\_\+\+\_\+,  \+\_\+\+Threshold\+\_\+)
+\begin{DoxyCompactList}\small\item\em Shift the AWD threshold in function of the selected ADC resolution. Thresholds have to be left-\/aligned on bit 11, the LSB (right bits) are set to 0. If resolution 12 bits, no shift. If resolution 10 bits, shift of 2 ranks on the left. If resolution 8 bits, shift of 4 ranks on the left. If resolution 6 bits, shift of 6 ranks on the left. therefore, shift = (12 -\/ resolution) = 12 -\/ (12-\/ (((RES\+[1:\+0]\+) \texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>} 3)\texorpdfstring{$\ast$}{*}2)). \end{DoxyCompactList}\item 
+\+\#define \doxymbox{\hyperlink{group___a_d_c___private___macros_ga519de99233de22e355a7702a7dab2f06}{IS\+\_\+\+ADC\+\_\+\+CLOCKPRESCALER}}(ADC\+\_\+\+CLOCK)
+\item 
+\+\#define \doxymbox{\hyperlink{group___a_d_c___private___macros_ga346d83dd4af81b36a6dbd78c7bf2ff0a}{IS\+\_\+\+ADC\+\_\+\+RESOLUTION}}(RESOLUTION)
+\item 
+\+\#define \doxymbox{\hyperlink{group___a_d_c___private___macros_ga2903b620e3c61dc47ed8c0fbf4197801}{IS\+\_\+\+ADC\+\_\+\+DATA\+\_\+\+ALIGN}}(ALIGN)
+\item 
+\+\#define \doxymbox{\hyperlink{group___a_d_c___private___macros_gad86e7d7e94679a54f66e79b002f936f0}{IS\+\_\+\+ADC\+\_\+\+SCAN\+\_\+\+MODE}}(SCAN\+\_\+\+MODE)
+\item 
+\+\#define \doxymbox{\hyperlink{group___a_d_c___private___macros_gaa862868aea997c7a9e1c808faee75e6c}{IS\+\_\+\+ADC\+\_\+\+EXTTRIG\+\_\+\+EDGE}}(EDGE)
+\item 
+\+\#define \doxymbox{\hyperlink{group___a_d_c___private___macros_gab3f646d603911820b104dd134c42f028}{IS\+\_\+\+ADC\+\_\+\+EXTTRIG}}(REGTRIG)
+\item 
+\+\#define \doxymbox{\hyperlink{group___a_d_c___private___macros_ga9e0a777b64cb66657c862021cd05ae64}{IS\+\_\+\+ADC\+\_\+\+EOC\+\_\+\+SELECTION}}(EOC\+\_\+\+SELECTION)
+\item 
+\+\#define \doxymbox{\hyperlink{group___a_d_c___private___macros_ga99e2ba194894e94fd851e3852dbbc4eb}{IS\+\_\+\+ADC\+\_\+\+OVERRUN}}(OVR)
+\item 
+\+\#define \doxymbox{\hyperlink{group___a_d_c___private___macros_gaf9b04590b4f214b28b772ec624065354}{IS\+\_\+\+ADC\+\_\+\+REGULAR\+\_\+\+RANK\+\_\+\+SEQ\+\_\+\+FIXED}}(RANK)
+\item 
+\+\#define \doxymbox{\hyperlink{group___a_d_c___private___macros_ga5928a1e9315f798e27220b91f1bae7f2}{IS\+\_\+\+ADC\+\_\+\+REGULAR\+\_\+\+RANK}}(RANK)
+\item 
+\+\#define \doxymbox{\hyperlink{group___a_d_c___private___macros_gaba41910dcb2b449c613a5ef638862e77}{IS\+\_\+\+ADC\+\_\+\+CHANNEL}}(CHANNEL)
+\item 
+\+\#define \doxymbox{\hyperlink{group___a_d_c___private___macros_ga00865e71e3d925c0a416398a23ebea9d}{IS\+\_\+\+ADC\+\_\+\+SAMPLING\+\_\+\+TIME\+\_\+\+COMMON}}(SAMPLING\+\_\+\+TIME\+\_\+\+COMMON)
+\item 
+\+\#define \doxymbox{\hyperlink{group___a_d_c___private___macros_ga30e0307fa009e1c383d3047b48e94644}{IS\+\_\+\+ADC\+\_\+\+SAMPLE\+\_\+\+TIME}}(TIME)
+\item 
+\+\#define \doxymbox{\hyperlink{group___a_d_c___private___macros_gaf7759ac4973669bec7ddca86e55ff707}{IS\+\_\+\+ADC\+\_\+\+ANALOG\+\_\+\+WATCHDOG\+\_\+\+NUMBER}}(WATCHDOG)
+\item 
+\+\#define \doxymbox{\hyperlink{group___a_d_c___private___macros_ga331ffc36ba5922efeff033f075e8174d}{IS\+\_\+\+ADC\+\_\+\+ANALOG\+\_\+\+WATCHDOG\+\_\+\+MODE}}(WATCHDOG)
+\item 
+\+\#define \doxymbox{\hyperlink{group___a_d_c___private___macros_gaee90778e1d338b4c9d374073a71c895b}{IS\+\_\+\+ADC\+\_\+\+TRIGGER\+\_\+\+FREQ}}(TRIGGER\+\_\+\+FREQ)
+\item 
+\+\#define \doxymbox{\hyperlink{group___a_d_c___private___macros_ga26fd0ba397566ade5d960ff29bccbc31}{IS\+\_\+\+ADC\+\_\+\+EVENT\+\_\+\+TYPE}}(EVENT)
+\item 
+\+\#define \doxymbox{\hyperlink{group___a_d_c___private___macros_ga485c12f57d082232da8e219ae6b4f44b}{IS\+\_\+\+ADC\+\_\+\+RANGE}}(\+\_\+\+\_\+\+RESOLUTION\+\_\+\+\_\+,  \+\_\+\+\_\+\+ADC\+\_\+\+VALUE\+\_\+\+\_\+)
+\begin{DoxyCompactList}\small\item\em Verify that a given value is aligned with the ADC resolution range. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{group___a_d_c___private___macros_gabe003fac907fec54e23439d3c0dad020}\label{group___a_d_c___private___macros_gabe003fac907fec54e23439d3c0dad020} 
+\doxymbox{\hyperlink{stm32g0xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\+\_\+\+Status\+Type\+Def}} {\bfseries ADC\+\_\+\+Conversion\+Stop} (\doxymbox{\hyperlink{struct_a_d_c___handle_type_def}{ADC\+\_\+\+Handle\+Type\+Def}} \texorpdfstring{$\ast$}{*}hadc)
+\item 
+\Hypertarget{group___a_d_c___private___macros_ga034b9253bac7f083ec43b5b09873ebf1}\label{group___a_d_c___private___macros_ga034b9253bac7f083ec43b5b09873ebf1} 
+\doxymbox{\hyperlink{stm32g0xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\+\_\+\+Status\+Type\+Def}} {\bfseries ADC\+\_\+\+Enable} (\doxymbox{\hyperlink{struct_a_d_c___handle_type_def}{ADC\+\_\+\+Handle\+Type\+Def}} \texorpdfstring{$\ast$}{*}hadc)
+\item 
+\Hypertarget{group___a_d_c___private___macros_gaf93525a5c14bfdf926f8d8331a63b44c}\label{group___a_d_c___private___macros_gaf93525a5c14bfdf926f8d8331a63b44c} 
+\doxymbox{\hyperlink{stm32g0xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\+\_\+\+Status\+Type\+Def}} {\bfseries ADC\+\_\+\+Disable} (\doxymbox{\hyperlink{struct_a_d_c___handle_type_def}{ADC\+\_\+\+Handle\+Type\+Def}} \texorpdfstring{$\ast$}{*}hadc)
+\end{DoxyCompactItemize}
+
+
+\doxysubsubsubsection{Detailed Description}
+
+
+\label{doc-define-members}
+\Hypertarget{group___a_d_c___private___macros_doc-define-members}
+\doxysubsubsubsection{Macro Definition Documentation}
+\Hypertarget{group___a_d_c___private___macros_ga6964dd348041232d34696fd535ad4450}\index{ADC Private Macros@{ADC Private Macros}!ADC\_AWD1THRESHOLD\_SHIFT\_RESOLUTION@{ADC\_AWD1THRESHOLD\_SHIFT\_RESOLUTION}}
+\index{ADC\_AWD1THRESHOLD\_SHIFT\_RESOLUTION@{ADC\_AWD1THRESHOLD\_SHIFT\_RESOLUTION}!ADC Private Macros@{ADC Private Macros}}
+\doxysubsubsubsubsection{\texorpdfstring{ADC\_AWD1THRESHOLD\_SHIFT\_RESOLUTION}{ADC\_AWD1THRESHOLD\_SHIFT\_RESOLUTION}}
+{\footnotesize\ttfamily \label{group___a_d_c___private___macros_ga6964dd348041232d34696fd535ad4450} 
+\+\#define ADC\+\_\+\+AWD1\+THRESHOLD\+\_\+\+SHIFT\+\_\+\+RESOLUTION(\begin{DoxyParamCaption}\item[{}]{\+\_\+\+\_\+\+HANDLE\+\_\+\+\_\+}{, }\item[{}]{\+\_\+\+Threshold\+\_\+}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{((\_Threshold\_)\ <<\ ((((\_\_HANDLE\_\_)-\/>Instance-\/>CFGR1\ \&\ \doxymbox{\hyperlink{group___peripheral___registers___bits___definition_ga9d5676c559f66561a86e6236ba803f98}{ADC\_CFGR1\_RES}})\ >>\ 3U)*2U))}
+
+\end{DoxyCode}
+
+
+Shift the AWD threshold in function of the selected ADC resolution. Thresholds have to be left-\/aligned on bit 11, the LSB (right bits) are set to 0. If resolution 12 bits, no shift. If resolution 10 bits, shift of 2 ranks on the left. If resolution 8 bits, shift of 4 ranks on the left. If resolution 6 bits, shift of 6 ranks on the left. therefore, shift = (12 -\/ resolution) = 12 -\/ (12-\/ (((RES\+[1:\+0]\+) \texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>} 3)\texorpdfstring{$\ast$}{*}2)). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+\+\_\+\+HANDLE\+\_\+\+\_\+} & ADC handle \\
+\hline
+{\em \+\_\+\+Threshold\+\_\+} & Value to be shifted \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\Hypertarget{group___a_d_c___private___macros_ga36993a7b32f5ec4f4163856f7ba8e8f0}\index{ADC Private Macros@{ADC Private Macros}!ADC\_CFGR1\_AUTOOFF@{ADC\_CFGR1\_AUTOOFF}}
+\index{ADC\_CFGR1\_AUTOOFF@{ADC\_CFGR1\_AUTOOFF}!ADC Private Macros@{ADC Private Macros}}
+\doxysubsubsubsubsection{\texorpdfstring{ADC\_CFGR1\_AUTOOFF}{ADC\_CFGR1\_AUTOOFF}}
+{\footnotesize\ttfamily \label{group___a_d_c___private___macros_ga36993a7b32f5ec4f4163856f7ba8e8f0} 
+\+\#define ADC\+\_\+\+CFGR1\+\_\+\+AUTOOFF(\begin{DoxyParamCaption}\item[{}]{\+\_\+\+AUTOOFF\+\_\+}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{((\_AUTOOFF\_)\ <<\ 15U)}
+
+\end{DoxyCode}
+
+
+Enable the ADC auto off mode. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+\+AUTOOFF\+\_\+} & Auto off bit enable or disable. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\Hypertarget{group___a_d_c___private___macros_ga36fe17d7bad2f7445f201d318779051d}\index{ADC Private Macros@{ADC Private Macros}!ADC\_CFGR1\_AUTOWAIT@{ADC\_CFGR1\_AUTOWAIT}}
+\index{ADC\_CFGR1\_AUTOWAIT@{ADC\_CFGR1\_AUTOWAIT}!ADC Private Macros@{ADC Private Macros}}
+\doxysubsubsubsubsection{\texorpdfstring{ADC\_CFGR1\_AUTOWAIT}{ADC\_CFGR1\_AUTOWAIT}}
+{\footnotesize\ttfamily \label{group___a_d_c___private___macros_ga36fe17d7bad2f7445f201d318779051d} 
+\+\#define ADC\+\_\+\+CFGR1\+\_\+\+AUTOWAIT(\begin{DoxyParamCaption}\item[{}]{\+\_\+\+AUTOWAIT\+\_\+}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{((\_AUTOWAIT\_)\ <<\ 14U)}
+
+\end{DoxyCode}
+
+
+Enable the ADC auto delay mode. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+\+AUTOWAIT\+\_\+} & Auto delay bit enable or disable. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\Hypertarget{group___a_d_c___private___macros_gaa6d2333361167e3a510b2dd50f824a80}\index{ADC Private Macros@{ADC Private Macros}!ADC\_CFGR1\_CONTINUOUS@{ADC\_CFGR1\_CONTINUOUS}}
+\index{ADC\_CFGR1\_CONTINUOUS@{ADC\_CFGR1\_CONTINUOUS}!ADC Private Macros@{ADC Private Macros}}
+\doxysubsubsubsubsection{\texorpdfstring{ADC\_CFGR1\_CONTINUOUS}{ADC\_CFGR1\_CONTINUOUS}}
+{\footnotesize\ttfamily \label{group___a_d_c___private___macros_gaa6d2333361167e3a510b2dd50f824a80} 
+\+\#define ADC\+\_\+\+CFGR1\+\_\+\+CONTINUOUS(\begin{DoxyParamCaption}\item[{}]{\+\_\+\+CONTINUOUS\+\_\+\+MODE\+\_\+}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{((\_CONTINUOUS\_MODE\_)\ <<\ 13U)}
+
+\end{DoxyCode}
+
+
+Enable ADC continuous conversion mode. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+\+CONTINUOUS\+\_\+\+MODE\+\_\+} & Continuous mode. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\Hypertarget{group___a_d_c___private___macros_ga06cee7979b56d2ad07f024f394522097}\index{ADC Private Macros@{ADC Private Macros}!ADC\_CFGR1\_DMACONTREQ@{ADC\_CFGR1\_DMACONTREQ}}
+\index{ADC\_CFGR1\_DMACONTREQ@{ADC\_CFGR1\_DMACONTREQ}!ADC Private Macros@{ADC Private Macros}}
+\doxysubsubsubsubsection{\texorpdfstring{ADC\_CFGR1\_DMACONTREQ}{ADC\_CFGR1\_DMACONTREQ}}
+{\footnotesize\ttfamily \label{group___a_d_c___private___macros_ga06cee7979b56d2ad07f024f394522097} 
+\+\#define ADC\+\_\+\+CFGR1\+\_\+\+DMACONTREQ(\begin{DoxyParamCaption}\item[{}]{\+\_\+\+DMACONTREQ\+\_\+\+MODE\+\_\+}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{((\_DMACONTREQ\_MODE\_)\ <<\ 1U)}
+
+\end{DoxyCode}
+
+
+Enable the ADC DMA continuous request. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+\+DMACONTREQ\+\_\+\+MODE\+\_\+} & DMA continuous request mode. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\Hypertarget{group___a_d_c___private___macros_ga0e446f9c5ff062c2f138636c1ea639a1}\index{ADC Private Macros@{ADC Private Macros}!ADC\_CFGR1\_OVERRUN@{ADC\_CFGR1\_OVERRUN}}
+\index{ADC\_CFGR1\_OVERRUN@{ADC\_CFGR1\_OVERRUN}!ADC Private Macros@{ADC Private Macros}}
+\doxysubsubsubsubsection{\texorpdfstring{ADC\_CFGR1\_OVERRUN}{ADC\_CFGR1\_OVERRUN}}
+{\footnotesize\ttfamily \label{group___a_d_c___private___macros_ga0e446f9c5ff062c2f138636c1ea639a1} 
+\+\#define ADC\+\_\+\+CFGR1\+\_\+\+OVERRUN(\begin{DoxyParamCaption}\item[{}]{\+\_\+\+OVERRUN\+\_\+\+MODE\+\_\+}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(\ (\ (\_OVERRUN\_MODE\_)\ !=\ (\doxymbox{\hyperlink{group___a_d_c___h_a_l___e_c___r_e_g___o_v_r___d_a_t_a___b_e_h_a_v_i_o_r_ga5e6fdbe9cab7436c3bf4551944c5c04d}{ADC\_OVR\_DATA\_PRESERVED}})\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ )?\ (\doxymbox{\hyperlink{group___peripheral___registers___bits___definition_gadbd980c2b24383afb370bfe69860064f}{ADC\_CFGR1\_OVRMOD}})\ :\ (0x00000000UL)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{)}
+
+\end{DoxyCode}
+
+
+Enable ADC overrun mode. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+\+OVERRUN\+\_\+\+MODE\+\_\+} & Overrun mode. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em Overrun} & bit setting to be programmed into CFGR register \\
+\hline
+\end{DoxyRetVals}
+\Hypertarget{group___a_d_c___private___macros_gaa0ec9cb0b5d97ba2d8bfd4fdf1f2a398}\index{ADC Private Macros@{ADC Private Macros}!ADC\_CFGR1\_REG\_DISCCONTINUOUS@{ADC\_CFGR1\_REG\_DISCCONTINUOUS}}
+\index{ADC\_CFGR1\_REG\_DISCCONTINUOUS@{ADC\_CFGR1\_REG\_DISCCONTINUOUS}!ADC Private Macros@{ADC Private Macros}}
+\doxysubsubsubsubsection{\texorpdfstring{ADC\_CFGR1\_REG\_DISCCONTINUOUS}{ADC\_CFGR1\_REG\_DISCCONTINUOUS}}
+{\footnotesize\ttfamily \label{group___a_d_c___private___macros_gaa0ec9cb0b5d97ba2d8bfd4fdf1f2a398} 
+\+\#define ADC\+\_\+\+CFGR1\+\_\+\+REG\+\_\+\+DISCCONTINUOUS(\begin{DoxyParamCaption}\item[{}]{\+\_\+\+REG\+\_\+\+DISCONTINUOUS\+\_\+\+MODE\+\_\+}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{((\_REG\_DISCONTINUOUS\_MODE\_)\ <<\ 16U)}
+
+\end{DoxyCode}
+
+
+Enable ADC discontinuous conversion mode for regular group. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+\+REG\+\_\+\+DISCONTINUOUS\+\_\+\+MODE\+\_\+} & Regular discontinuous mode. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\Hypertarget{group___a_d_c___private___macros_gac7ab87a3ab932eed1b3ac5faad4e3aa9}\index{ADC Private Macros@{ADC Private Macros}!ADC\_CLEAR\_ERRORCODE@{ADC\_CLEAR\_ERRORCODE}}
+\index{ADC\_CLEAR\_ERRORCODE@{ADC\_CLEAR\_ERRORCODE}!ADC Private Macros@{ADC Private Macros}}
+\doxysubsubsubsubsection{\texorpdfstring{ADC\_CLEAR\_ERRORCODE}{ADC\_CLEAR\_ERRORCODE}}
+{\footnotesize\ttfamily \label{group___a_d_c___private___macros_gac7ab87a3ab932eed1b3ac5faad4e3aa9} 
+\+\#define ADC\+\_\+\+CLEAR\+\_\+\+ERRORCODE(\begin{DoxyParamCaption}\item[{}]{\+\_\+\+\_\+\+HANDLE\+\_\+\+\_\+}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{((\_\_HANDLE\_\_)-\/>ErrorCode\ =\ \doxymbox{\hyperlink{group___a_d_c___error___code_ga93b4576d46ee0f8c53b7d69f39778e38}{HAL\_ADC\_ERROR\_NONE}})}
+
+\end{DoxyCode}
+
+
+Clear ADC error code (set it to no error code "{}\+HAL\+\_\+\+ADC\+\_\+\+ERROR\+\_\+\+NONE"{}). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+\+\_\+\+HANDLE\+\_\+\+\_\+} & ADC handle \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\Hypertarget{group___a_d_c___private___macros_gae2da95074db4dd0418c1dd1f13ad7970}\index{ADC Private Macros@{ADC Private Macros}!ADC\_GET\_RESOLUTION@{ADC\_GET\_RESOLUTION}}
+\index{ADC\_GET\_RESOLUTION@{ADC\_GET\_RESOLUTION}!ADC Private Macros@{ADC Private Macros}}
+\doxysubsubsubsubsection{\texorpdfstring{ADC\_GET\_RESOLUTION}{ADC\_GET\_RESOLUTION}}
+{\footnotesize\ttfamily \label{group___a_d_c___private___macros_gae2da95074db4dd0418c1dd1f13ad7970} 
+\+\#define ADC\+\_\+\+GET\+\_\+\+RESOLUTION(\begin{DoxyParamCaption}\item[{}]{\+\_\+\+\_\+\+HANDLE\+\_\+\+\_\+}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(LL\_ADC\_GetResolution((\_\_HANDLE\_\_)-\/>Instance))}
+
+\end{DoxyCode}
+
+
+Return resolution bits in CFGR1 register RES\+[1:\+0]\+ field. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+\+\_\+\+HANDLE\+\_\+\+\_\+} & ADC handle \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em Value} & of bitfield RES in CFGR1 register. \\
+\hline
+\end{DoxyRetVals}
+\Hypertarget{group___a_d_c___private___macros_ga2ccb82ecf85d6c6d1ff2cdf9b6a82d2b}\index{ADC Private Macros@{ADC Private Macros}!ADC\_IS\_SOFTWARE\_START\_REGULAR@{ADC\_IS\_SOFTWARE\_START\_REGULAR}}
+\index{ADC\_IS\_SOFTWARE\_START\_REGULAR@{ADC\_IS\_SOFTWARE\_START\_REGULAR}!ADC Private Macros@{ADC Private Macros}}
+\doxysubsubsubsubsection{\texorpdfstring{ADC\_IS\_SOFTWARE\_START\_REGULAR}{ADC\_IS\_SOFTWARE\_START\_REGULAR}}
+{\footnotesize\ttfamily \label{group___a_d_c___private___macros_ga2ccb82ecf85d6c6d1ff2cdf9b6a82d2b} 
+\+\#define ADC\+\_\+\+IS\+\_\+\+SOFTWARE\+\_\+\+START\+\_\+\+REGULAR(\begin{DoxyParamCaption}\item[{}]{\+\_\+\+\_\+\+HANDLE\+\_\+\+\_\+}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(((\_\_HANDLE\_\_)-\/>Instance-\/>CFGR1\ \&\ \doxymbox{\hyperlink{group___peripheral___registers___bits___definition_gafc48e957d935d791a767c763b9225832}{ADC\_CFGR1\_EXTEN}})\ ==\ 0UL)}
+
+\end{DoxyCode}
+
+
+Test if conversion trigger of regular group is software start or external trigger. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+\+\_\+\+HANDLE\+\_\+\+\_\+} & ADC handle \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em SET} & (software start) or RESET (external trigger) \\
+\hline
+\end{DoxyRetVals}
+\Hypertarget{group___a_d_c___private___macros_ga29ee42e07d58295ad5dfab86f3421671}\index{ADC Private Macros@{ADC Private Macros}!ADC\_SCAN\_SEQ\_MODE@{ADC\_SCAN\_SEQ\_MODE}}
+\index{ADC\_SCAN\_SEQ\_MODE@{ADC\_SCAN\_SEQ\_MODE}!ADC Private Macros@{ADC Private Macros}}
+\doxysubsubsubsubsection{\texorpdfstring{ADC\_SCAN\_SEQ\_MODE}{ADC\_SCAN\_SEQ\_MODE}}
+{\footnotesize\ttfamily \label{group___a_d_c___private___macros_ga29ee42e07d58295ad5dfab86f3421671} 
+\+\#define ADC\+\_\+\+SCAN\+\_\+\+SEQ\+\_\+\+MODE(\begin{DoxyParamCaption}\item[{}]{\+\_\+\+SCAN\+\_\+\+MODE\+\_\+}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(\ (((\_SCAN\_MODE\_)\ \&\ ADC\_SCAN\_SEQ\_FIXED\_INT)\ !=\ 0UL\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ )?\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ ((\_SCAN\_MODE\_)\ \&\ (\string~ADC\_SCAN\_SEQ\_FIXED\_INT))\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ :\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ (\doxymbox{\hyperlink{group___peripheral___registers___bits___definition_ga5b734cd2a8fc8b538e21c54d2d147588}{ADC\_CFGR1\_CHSELRMOD}})\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{)}
+
+\end{DoxyCode}
+
+
+Set ADC scan mode with differentiation of sequencer setting fixed or configurable. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+\+SCAN\+\_\+\+MODE\+\_\+} & Scan conversion mode. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\Hypertarget{group___a_d_c___private___macros_gaaf93e91b164d4a220aae475eff82665f}\index{ADC Private Macros@{ADC Private Macros}!ADC\_STATE\_CLR\_SET@{ADC\_STATE\_CLR\_SET}}
+\index{ADC\_STATE\_CLR\_SET@{ADC\_STATE\_CLR\_SET}!ADC Private Macros@{ADC Private Macros}}
+\doxysubsubsubsubsection{\texorpdfstring{ADC\_STATE\_CLR\_SET}{ADC\_STATE\_CLR\_SET}}
+{\footnotesize\ttfamily \label{group___a_d_c___private___macros_gaaf93e91b164d4a220aae475eff82665f} 
+\+\#define ADC\+\_\+\+STATE\+\_\+\+CLR\+\_\+\+SET~MODIFY\+\_\+\+REG}
+
+
+
+Simultaneously clear and set specific bits of the handle State. 
+
+\begin{DoxyNote}{Note}
+\doxylink{group___a_d_c___private___macros_gaaf93e91b164d4a220aae475eff82665f}{ADC\+\_\+\+STATE\+\_\+\+CLR\+\_\+\+SET()} macro is merely aliased to generic macro MODIFY\+\_\+\+REG(), the first parameter is the ADC handle State, the second parameter is the bit field to clear, the third and last parameter is the bit field to set. 
+\end{DoxyNote}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\Hypertarget{group___a_d_c___private___macros_ga331ffc36ba5922efeff033f075e8174d}\index{ADC Private Macros@{ADC Private Macros}!IS\_ADC\_ANALOG\_WATCHDOG\_MODE@{IS\_ADC\_ANALOG\_WATCHDOG\_MODE}}
+\index{IS\_ADC\_ANALOG\_WATCHDOG\_MODE@{IS\_ADC\_ANALOG\_WATCHDOG\_MODE}!ADC Private Macros@{ADC Private Macros}}
+\doxysubsubsubsubsection{\texorpdfstring{IS\_ADC\_ANALOG\_WATCHDOG\_MODE}{IS\_ADC\_ANALOG\_WATCHDOG\_MODE}}
+{\footnotesize\ttfamily \label{group___a_d_c___private___macros_ga331ffc36ba5922efeff033f075e8174d} 
+\+\#define IS\+\_\+\+ADC\+\_\+\+ANALOG\+\_\+\+WATCHDOG\+\_\+\+MODE(\begin{DoxyParamCaption}\item[{}]{WATCHDOG}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(((WATCHDOG)\ ==\ \doxymbox{\hyperlink{group___a_d_c__analog__watchdog__mode_gad173f9dd01d4585c9b7c8c324de399c0}{ADC\_ANALOGWATCHDOG\_NONE}})\ \ \ \ \ \ \ \ \ \ \ \ \ ||\ \(\backslash\)}
+\DoxyCodeLine{((WATCHDOG)\ ==\ \doxymbox{\hyperlink{group___a_d_c__analog__watchdog__mode_gad4cf176e721fd2382fbc7937e352db67}{ADC\_ANALOGWATCHDOG\_SINGLE\_REG}})\ \ \ \ \ \ \ ||\ \(\backslash\)}
+\DoxyCodeLine{((WATCHDOG)\ ==\ \doxymbox{\hyperlink{group___a_d_c__analog__watchdog__mode_gad9d25140644089dd34084cb4dfa7ebd8}{ADC\_ANALOGWATCHDOG\_ALL\_REG}})\ \ \ \ \ \ \ \ \ \ \ \ )}
+
+\end{DoxyCode}
+\Hypertarget{group___a_d_c___private___macros_gaf7759ac4973669bec7ddca86e55ff707}\index{ADC Private Macros@{ADC Private Macros}!IS\_ADC\_ANALOG\_WATCHDOG\_NUMBER@{IS\_ADC\_ANALOG\_WATCHDOG\_NUMBER}}
+\index{IS\_ADC\_ANALOG\_WATCHDOG\_NUMBER@{IS\_ADC\_ANALOG\_WATCHDOG\_NUMBER}!ADC Private Macros@{ADC Private Macros}}
+\doxysubsubsubsubsection{\texorpdfstring{IS\_ADC\_ANALOG\_WATCHDOG\_NUMBER}{IS\_ADC\_ANALOG\_WATCHDOG\_NUMBER}}
+{\footnotesize\ttfamily \label{group___a_d_c___private___macros_gaf7759ac4973669bec7ddca86e55ff707} 
+\+\#define IS\+\_\+\+ADC\+\_\+\+ANALOG\+\_\+\+WATCHDOG\+\_\+\+NUMBER(\begin{DoxyParamCaption}\item[{}]{WATCHDOG}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(((WATCHDOG)\ ==\ \doxymbox{\hyperlink{group___a_d_c___h_a_l___e_c___a_w_d___n_u_m_b_e_r_gabaeee5ea3af70e86c71414b4a00dda35}{ADC\_ANALOGWATCHDOG\_1}})\ ||\ \(\backslash\)}
+\DoxyCodeLine{((WATCHDOG)\ ==\ \doxymbox{\hyperlink{group___a_d_c___h_a_l___e_c___a_w_d___n_u_m_b_e_r_gaa4b9d5474c711b6a14d550e16fa1613f}{ADC\_ANALOGWATCHDOG\_2}})\ ||\ \(\backslash\)}
+\DoxyCodeLine{((WATCHDOG)\ ==\ \doxymbox{\hyperlink{group___a_d_c___h_a_l___e_c___a_w_d___n_u_m_b_e_r_gaf382380a06c26a56a59a79ec81998691}{ADC\_ANALOGWATCHDOG\_3}})\ \ \ )}
+
+\end{DoxyCode}
+\Hypertarget{group___a_d_c___private___macros_gaba41910dcb2b449c613a5ef638862e77}\index{ADC Private Macros@{ADC Private Macros}!IS\_ADC\_CHANNEL@{IS\_ADC\_CHANNEL}}
+\index{IS\_ADC\_CHANNEL@{IS\_ADC\_CHANNEL}!ADC Private Macros@{ADC Private Macros}}
+\doxysubsubsubsubsection{\texorpdfstring{IS\_ADC\_CHANNEL}{IS\_ADC\_CHANNEL}}
+{\footnotesize\ttfamily \label{group___a_d_c___private___macros_gaba41910dcb2b449c613a5ef638862e77} 
+\+\#define IS\+\_\+\+ADC\+\_\+\+CHANNEL(\begin{DoxyParamCaption}\item[{}]{CHANNEL}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(((CHANNEL)\ ==\ \doxymbox{\hyperlink{group___a_d_c___h_a_l___e_c___c_h_a_n_n_e_l_ga3c5075aee5af4eae02f1a72d6216199c}{ADC\_CHANNEL\_0}})\ \ \ \ \ \ \ \ \ \ \ ||\ \(\backslash\)}
+\DoxyCodeLine{((CHANNEL)\ ==\ \doxymbox{\hyperlink{group___a_d_c___h_a_l___e_c___c_h_a_n_n_e_l_gaeb119201733a871c94971c51843ffaac}{ADC\_CHANNEL\_1}})\ \ \ \ \ \ \ \ \ \ \ ||\ \(\backslash\)}
+\DoxyCodeLine{((CHANNEL)\ ==\ \doxymbox{\hyperlink{group___a_d_c___h_a_l___e_c___c_h_a_n_n_e_l_gad576132ebd78a3429be34f44e474c914}{ADC\_CHANNEL\_2}})\ \ \ \ \ \ \ \ \ \ \ ||\ \(\backslash\)}
+\DoxyCodeLine{((CHANNEL)\ ==\ \doxymbox{\hyperlink{group___a_d_c___h_a_l___e_c___c_h_a_n_n_e_l_ga56dba5d35f1f7bcad41e4f9a7da3b125}{ADC\_CHANNEL\_3}})\ \ \ \ \ \ \ \ \ \ \ ||\ \(\backslash\)}
+\DoxyCodeLine{((CHANNEL)\ ==\ \doxymbox{\hyperlink{group___a_d_c___h_a_l___e_c___c_h_a_n_n_e_l_ga66f19737ad81a0a62eb97854d0e41a54}{ADC\_CHANNEL\_4}})\ \ \ \ \ \ \ \ \ \ \ ||\ \(\backslash\)}
+\DoxyCodeLine{((CHANNEL)\ ==\ \doxymbox{\hyperlink{group___a_d_c___h_a_l___e_c___c_h_a_n_n_e_l_ga716f2836f655c753c629de439ce50ecf}{ADC\_CHANNEL\_5}})\ \ \ \ \ \ \ \ \ \ \ ||\ \(\backslash\)}
+\DoxyCodeLine{((CHANNEL)\ ==\ \doxymbox{\hyperlink{group___a_d_c___h_a_l___e_c___c_h_a_n_n_e_l_ga418f0223ea88773157638097391716a5}{ADC\_CHANNEL\_6}})\ \ \ \ \ \ \ \ \ \ \ ||\ \(\backslash\)}
+\DoxyCodeLine{((CHANNEL)\ ==\ \doxymbox{\hyperlink{group___a_d_c___h_a_l___e_c___c_h_a_n_n_e_l_ga03b8138c2d87274f94ba675a7e18e666}{ADC\_CHANNEL\_7}})\ \ \ \ \ \ \ \ \ \ \ ||\ \(\backslash\)}
+\DoxyCodeLine{((CHANNEL)\ ==\ \doxymbox{\hyperlink{group___a_d_c___h_a_l___e_c___c_h_a_n_n_e_l_gab0917f6b66213f33f2e2ea8781df5aa9}{ADC\_CHANNEL\_8}})\ \ \ \ \ \ \ \ \ \ \ ||\ \(\backslash\)}
+\DoxyCodeLine{((CHANNEL)\ ==\ \doxymbox{\hyperlink{group___a_d_c___h_a_l___e_c___c_h_a_n_n_e_l_ga95f485ecc05187c3d475238a88beef1c}{ADC\_CHANNEL\_9}})\ \ \ \ \ \ \ \ \ \ \ ||\ \(\backslash\)}
+\DoxyCodeLine{((CHANNEL)\ ==\ \doxymbox{\hyperlink{group___a_d_c___h_a_l___e_c___c_h_a_n_n_e_l_gaa55df8c97225d32b495959896897567c}{ADC\_CHANNEL\_10}})\ \ \ \ \ \ \ \ \ \ ||\ \(\backslash\)}
+\DoxyCodeLine{((CHANNEL)\ ==\ \doxymbox{\hyperlink{group___a_d_c___h_a_l___e_c___c_h_a_n_n_e_l_gaf36361a33c07b04f8ab1d58d232bc434}{ADC\_CHANNEL\_11}})\ \ \ \ \ \ \ \ \ \ ||\ \(\backslash\)}
+\DoxyCodeLine{((CHANNEL)\ ==\ \doxymbox{\hyperlink{group___a_d_c___h_a_l___e_c___c_h_a_n_n_e_l_gad5ff4f4f0e5f6f9ffbdfb6f4cbc3a6e0}{ADC\_CHANNEL\_12}})\ \ \ \ \ \ \ \ \ \ ||\ \(\backslash\)}
+\DoxyCodeLine{((CHANNEL)\ ==\ \doxymbox{\hyperlink{group___a_d_c___h_a_l___e_c___c_h_a_n_n_e_l_gad7550270d90a1a12b00cd9f8ad9f1fc2}{ADC\_CHANNEL\_13}})\ \ \ \ \ \ \ \ \ \ ||\ \(\backslash\)}
+\DoxyCodeLine{((CHANNEL)\ ==\ \doxymbox{\hyperlink{group___a_d_c___h_a_l___e_c___c_h_a_n_n_e_l_ga9caff32bcda5dd83f662bf398ab14d36}{ADC\_CHANNEL\_14}})\ \ \ \ \ \ \ \ \ \ ||\ \(\backslash\)}
+\DoxyCodeLine{((CHANNEL)\ ==\ \doxymbox{\hyperlink{group___a_d_c___h_a_l___e_c___c_h_a_n_n_e_l_ga66f41aad197a6de160dd8958c90653a2}{ADC\_CHANNEL\_15}})\ \ \ \ \ \ \ \ \ \ ||\ \(\backslash\)}
+\DoxyCodeLine{((CHANNEL)\ ==\ \doxymbox{\hyperlink{group___a_d_c___h_a_l___e_c___c_h_a_n_n_e_l_ga7892590f524e7356deb1e513bbc0cdaf}{ADC\_CHANNEL\_16}})\ \ \ \ \ \ \ \ \ \ ||\ \(\backslash\)}
+\DoxyCodeLine{((CHANNEL)\ ==\ \doxymbox{\hyperlink{group___a_d_c___h_a_l___e_c___c_h_a_n_n_e_l_gaf7760a480f79c62d19260291f8afb6e1}{ADC\_CHANNEL\_17}})\ \ \ \ \ \ \ \ \ \ ||\ \(\backslash\)}
+\DoxyCodeLine{((CHANNEL)\ ==\ \doxymbox{\hyperlink{group___a_d_c___h_a_l___e_c___c_h_a_n_n_e_l_ga30fc8e77b4c89d3ea0609cfbc7fc90fd}{ADC\_CHANNEL\_18}})\ \ \ \ \ \ \ \ \ \ ||\ \(\backslash\)}
+\DoxyCodeLine{((CHANNEL)\ ==\ \doxymbox{\hyperlink{group___a_d_c___h_a_l___e_c___c_h_a_n_n_e_l_ga8f0da1e8fa8504c92a368f6eb8e229b3}{ADC\_CHANNEL\_TEMPSENSOR}})\ \ ||\ \(\backslash\)}
+\DoxyCodeLine{((CHANNEL)\ ==\ \doxymbox{\hyperlink{group___a_d_c___h_a_l___e_c___c_h_a_n_n_e_l_ga2647a044275a295693e8fb01db3172f9}{ADC\_CHANNEL\_VREFINT}})\ \ \ \ \ ||\ \(\backslash\)}
+\DoxyCodeLine{((CHANNEL)\ ==\ \doxymbox{\hyperlink{group___a_d_c___h_a_l___e_c___c_h_a_n_n_e_l_ga60210f1e9305301dea9e42afedd9093f}{ADC\_CHANNEL\_VBAT}})\ \ \ \ \ \ \ \ \ \ )}
+
+\end{DoxyCode}
+\Hypertarget{group___a_d_c___private___macros_ga519de99233de22e355a7702a7dab2f06}\index{ADC Private Macros@{ADC Private Macros}!IS\_ADC\_CLOCKPRESCALER@{IS\_ADC\_CLOCKPRESCALER}}
+\index{IS\_ADC\_CLOCKPRESCALER@{IS\_ADC\_CLOCKPRESCALER}!ADC Private Macros@{ADC Private Macros}}
+\doxysubsubsubsubsection{\texorpdfstring{IS\_ADC\_CLOCKPRESCALER}{IS\_ADC\_CLOCKPRESCALER}}
+{\footnotesize\ttfamily \label{group___a_d_c___private___macros_ga519de99233de22e355a7702a7dab2f06} 
+\+\#define IS\+\_\+\+ADC\+\_\+\+CLOCKPRESCALER(\begin{DoxyParamCaption}\item[{}]{ADC\+\_\+\+CLOCK}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(((ADC\_CLOCK)\ ==\ \doxymbox{\hyperlink{group___a_d_c___h_a_l___e_c___c_o_m_m_o_n___c_l_o_c_k___s_o_u_r_c_e_ga82b23f1d4c415971ce7339b5484c89e5}{ADC\_CLOCK\_SYNC\_PCLK\_DIV1}})\ ||\(\backslash\)}
+\DoxyCodeLine{((ADC\_CLOCK)\ ==\ \doxymbox{\hyperlink{group___a_d_c___h_a_l___e_c___c_o_m_m_o_n___c_l_o_c_k___s_o_u_r_c_e_ga71571b183aa6d0ddbaeef8a1da11d00a}{ADC\_CLOCK\_SYNC\_PCLK\_DIV2}})\ ||\(\backslash\)}
+\DoxyCodeLine{((ADC\_CLOCK)\ ==\ \doxymbox{\hyperlink{group___a_d_c___h_a_l___e_c___c_o_m_m_o_n___c_l_o_c_k___s_o_u_r_c_e_ga41b6a6d1cdf7806ec1e5790fc7fdc651}{ADC\_CLOCK\_SYNC\_PCLK\_DIV4}})\ ||\(\backslash\)}
+\DoxyCodeLine{((ADC\_CLOCK)\ ==\ \doxymbox{\hyperlink{group___a_d_c___h_a_l___e_c___c_o_m_m_o_n___c_l_o_c_k___s_o_u_r_c_e_ga092c0277fd6db9b905d229c9f8dda8ab}{ADC\_CLOCK\_ASYNC\_DIV1}}\ \ )\ \ \ ||\(\backslash\)}
+\DoxyCodeLine{((ADC\_CLOCK)\ ==\ \doxymbox{\hyperlink{group___a_d_c___h_a_l___e_c___c_o_m_m_o_n___c_l_o_c_k___s_o_u_r_c_e_gacf4ae9c70dd75168acf17fbce10af8b8}{ADC\_CLOCK\_ASYNC\_DIV2}}\ \ )\ \ \ ||\(\backslash\)}
+\DoxyCodeLine{((ADC\_CLOCK)\ ==\ \doxymbox{\hyperlink{group___a_d_c___h_a_l___e_c___c_o_m_m_o_n___c_l_o_c_k___s_o_u_r_c_e_ga5fb738b8222dfdbceb02a0ad041f5da5}{ADC\_CLOCK\_ASYNC\_DIV4}}\ \ )\ \ \ ||\(\backslash\)}
+\DoxyCodeLine{((ADC\_CLOCK)\ ==\ \doxymbox{\hyperlink{group___a_d_c___h_a_l___e_c___c_o_m_m_o_n___c_l_o_c_k___s_o_u_r_c_e_ga5f601e9eebdb8cdede55795569afba73}{ADC\_CLOCK\_ASYNC\_DIV6}}\ \ )\ \ \ ||\(\backslash\)}
+\DoxyCodeLine{((ADC\_CLOCK)\ ==\ \doxymbox{\hyperlink{group___a_d_c___h_a_l___e_c___c_o_m_m_o_n___c_l_o_c_k___s_o_u_r_c_e_ga7b2f8fab64f09ff0b3f1417c35277cba}{ADC\_CLOCK\_ASYNC\_DIV8}}\ \ )\ \ \ ||\(\backslash\)}
+\DoxyCodeLine{((ADC\_CLOCK)\ ==\ \doxymbox{\hyperlink{group___a_d_c___h_a_l___e_c___c_o_m_m_o_n___c_l_o_c_k___s_o_u_r_c_e_ga02e1e376967ec71b7de92fd3396ee0c7}{ADC\_CLOCK\_ASYNC\_DIV10}}\ )\ \ \ ||\(\backslash\)}
+\DoxyCodeLine{((ADC\_CLOCK)\ ==\ \doxymbox{\hyperlink{group___a_d_c___h_a_l___e_c___c_o_m_m_o_n___c_l_o_c_k___s_o_u_r_c_e_ga4dcf1f94a3bb0d0d302c5d0e036e9be2}{ADC\_CLOCK\_ASYNC\_DIV12}}\ )\ \ \ ||\(\backslash\)}
+\DoxyCodeLine{((ADC\_CLOCK)\ ==\ \doxymbox{\hyperlink{group___a_d_c___h_a_l___e_c___c_o_m_m_o_n___c_l_o_c_k___s_o_u_r_c_e_gacbc0428c7aedfe765753b1730aaab760}{ADC\_CLOCK\_ASYNC\_DIV16}}\ )\ \ \ ||\(\backslash\)}
+\DoxyCodeLine{((ADC\_CLOCK)\ ==\ \doxymbox{\hyperlink{group___a_d_c___h_a_l___e_c___c_o_m_m_o_n___c_l_o_c_k___s_o_u_r_c_e_gafe248b4ca392b46aa17cf3364ed1ab26}{ADC\_CLOCK\_ASYNC\_DIV32}}\ )\ \ \ ||\(\backslash\)}
+\DoxyCodeLine{((ADC\_CLOCK)\ ==\ \doxymbox{\hyperlink{group___a_d_c___h_a_l___e_c___c_o_m_m_o_n___c_l_o_c_k___s_o_u_r_c_e_gafc1ea6ea65684834d93104333f5560e4}{ADC\_CLOCK\_ASYNC\_DIV64}}\ )\ \ \ ||\(\backslash\)}
+\DoxyCodeLine{((ADC\_CLOCK)\ ==\ \doxymbox{\hyperlink{group___a_d_c___h_a_l___e_c___c_o_m_m_o_n___c_l_o_c_k___s_o_u_r_c_e_ga833ca0a88cdca2c7c37a7fbf02450bf5}{ADC\_CLOCK\_ASYNC\_DIV128}}\ )\ \ ||\(\backslash\)}
+\DoxyCodeLine{((ADC\_CLOCK)\ ==\ \doxymbox{\hyperlink{group___a_d_c___h_a_l___e_c___c_o_m_m_o_n___c_l_o_c_k___s_o_u_r_c_e_ga5735f0862aff35cbc195bdf316b286ee}{ADC\_CLOCK\_ASYNC\_DIV256}}))}
+
+\end{DoxyCode}
+\Hypertarget{group___a_d_c___private___macros_ga2903b620e3c61dc47ed8c0fbf4197801}\index{ADC Private Macros@{ADC Private Macros}!IS\_ADC\_DATA\_ALIGN@{IS\_ADC\_DATA\_ALIGN}}
+\index{IS\_ADC\_DATA\_ALIGN@{IS\_ADC\_DATA\_ALIGN}!ADC Private Macros@{ADC Private Macros}}
+\doxysubsubsubsubsection{\texorpdfstring{IS\_ADC\_DATA\_ALIGN}{IS\_ADC\_DATA\_ALIGN}}
+{\footnotesize\ttfamily \label{group___a_d_c___private___macros_ga2903b620e3c61dc47ed8c0fbf4197801} 
+\+\#define IS\+\_\+\+ADC\+\_\+\+DATA\+\_\+\+ALIGN(\begin{DoxyParamCaption}\item[{}]{ALIGN}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(((ALIGN)\ ==\ \doxymbox{\hyperlink{group___a_d_c___h_a_l___e_c___d_a_t_a___a_l_i_g_n_gafed5c0d327ad6d2cc0960f7943beb265}{ADC\_DATAALIGN\_RIGHT}})\ ||\ \(\backslash\)}
+\DoxyCodeLine{((ALIGN)\ ==\ \doxymbox{\hyperlink{group___a_d_c___h_a_l___e_c___d_a_t_a___a_l_i_g_n_ga8afeead661c1ffbc27a5405a254d60ba}{ADC\_DATAALIGN\_LEFT}})\ \ \ \ )}
+
+\end{DoxyCode}
+\Hypertarget{group___a_d_c___private___macros_ga9e0a777b64cb66657c862021cd05ae64}\index{ADC Private Macros@{ADC Private Macros}!IS\_ADC\_EOC\_SELECTION@{IS\_ADC\_EOC\_SELECTION}}
+\index{IS\_ADC\_EOC\_SELECTION@{IS\_ADC\_EOC\_SELECTION}!ADC Private Macros@{ADC Private Macros}}
+\doxysubsubsubsubsection{\texorpdfstring{IS\_ADC\_EOC\_SELECTION}{IS\_ADC\_EOC\_SELECTION}}
+{\footnotesize\ttfamily \label{group___a_d_c___private___macros_ga9e0a777b64cb66657c862021cd05ae64} 
+\+\#define IS\+\_\+\+ADC\+\_\+\+EOC\+\_\+\+SELECTION(\begin{DoxyParamCaption}\item[{}]{EOC\+\_\+\+SELECTION}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(((EOC\_SELECTION)\ ==\ \doxymbox{\hyperlink{group___a_d_c___e_o_c_selection_ga4c455483d74c1be899d4b2e8f45f202b}{ADC\_EOC\_SINGLE\_CONV}})\ \ \ \ ||\ \(\backslash\)}
+\DoxyCodeLine{((EOC\_SELECTION)\ ==\ \doxymbox{\hyperlink{group___a_d_c___e_o_c_selection_ga6c71ff64c9ecc9ba19ac088009f36cd8}{ADC\_EOC\_SEQ\_CONV}}))}
+
+\end{DoxyCode}
+\Hypertarget{group___a_d_c___private___macros_ga26fd0ba397566ade5d960ff29bccbc31}\index{ADC Private Macros@{ADC Private Macros}!IS\_ADC\_EVENT\_TYPE@{IS\_ADC\_EVENT\_TYPE}}
+\index{IS\_ADC\_EVENT\_TYPE@{IS\_ADC\_EVENT\_TYPE}!ADC Private Macros@{ADC Private Macros}}
+\doxysubsubsubsubsection{\texorpdfstring{IS\_ADC\_EVENT\_TYPE}{IS\_ADC\_EVENT\_TYPE}}
+{\footnotesize\ttfamily \label{group___a_d_c___private___macros_ga26fd0ba397566ade5d960ff29bccbc31} 
+\+\#define IS\+\_\+\+ADC\+\_\+\+EVENT\+\_\+\+TYPE(\begin{DoxyParamCaption}\item[{}]{EVENT}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(((EVENT)\ ==\ \doxymbox{\hyperlink{group___a_d_c___event__type_ga64cc36c6052158905e3bc50058534246}{ADC\_EOSMP\_EVENT}})\ ||\ \(\backslash\)}
+\DoxyCodeLine{((EVENT)\ ==\ \doxymbox{\hyperlink{group___a_d_c___event__type_ga0e6a24521d8bdc762fd916fb48c45475}{ADC\_AWD1\_EVENT}})\ \ ||\ \(\backslash\)}
+\DoxyCodeLine{((EVENT)\ ==\ \doxymbox{\hyperlink{group___a_d_c___event__type_gae9fee1c6b0da778564b914137604214f}{ADC\_AWD2\_EVENT}})\ \ ||\ \(\backslash\)}
+\DoxyCodeLine{((EVENT)\ ==\ \doxymbox{\hyperlink{group___a_d_c___event__type_ga3d44604b80308eb5671bdf23043e6317}{ADC\_AWD3\_EVENT}})\ \ ||\ \(\backslash\)}
+\DoxyCodeLine{((EVENT)\ ==\ \doxymbox{\hyperlink{group___a_d_c___event__type_gae1ef5aaecb2d24cac50a59f1bc311221}{ADC\_OVR\_EVENT}})\ \ \ \ \ )}
+
+\end{DoxyCode}
+\Hypertarget{group___a_d_c___private___macros_gab3f646d603911820b104dd134c42f028}\index{ADC Private Macros@{ADC Private Macros}!IS\_ADC\_EXTTRIG@{IS\_ADC\_EXTTRIG}}
+\index{IS\_ADC\_EXTTRIG@{IS\_ADC\_EXTTRIG}!ADC Private Macros@{ADC Private Macros}}
+\doxysubsubsubsubsection{\texorpdfstring{IS\_ADC\_EXTTRIG}{IS\_ADC\_EXTTRIG}}
+{\footnotesize\ttfamily \label{group___a_d_c___private___macros_gab3f646d603911820b104dd134c42f028} 
+\+\#define IS\+\_\+\+ADC\+\_\+\+EXTTRIG(\begin{DoxyParamCaption}\item[{}]{REGTRIG}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(((REGTRIG)\ ==\ \doxymbox{\hyperlink{group___a_d_c__regular__external__trigger__source_ga8d7fd6a426a23de3361426448b7f5d49}{ADC\_EXTERNALTRIG\_T1\_TRGO2}})\ ||\ \(\backslash\)}
+\DoxyCodeLine{((REGTRIG)\ ==\ \doxymbox{\hyperlink{group___a_d_c__regular__external__trigger__source_ga66e597ccead1c67b82887e5120c391f0}{ADC\_EXTERNALTRIG\_T1\_CC4}})\ \ \ ||\ \(\backslash\)}
+\DoxyCodeLine{((REGTRIG)\ ==\ \doxymbox{\hyperlink{group___a_d_c__regular__external__trigger__source_ga763ad79d293f8eae7208b94a49b1de01}{ADC\_EXTERNALTRIG\_T3\_TRGO}})\ \ ||\ \(\backslash\)}
+\DoxyCodeLine{((REGTRIG)\ ==\ \doxymbox{\hyperlink{group___a_d_c__regular__external__trigger__source_ga79c6ddcd5e158a6506da9fae010927d8}{ADC\_EXTERNALTRIG\_EXT\_IT11}})\ ||\ \(\backslash\)}
+\DoxyCodeLine{((REGTRIG)\ ==\ \doxymbox{\hyperlink{group___a_d_c__regular__external__trigger__source_ga349ec6a1c2a362fba718cbfd068e50dc}{ADC\_SOFTWARE\_START}})\ \ \ \ \ \ \ \ \ \ )}
+
+\end{DoxyCode}
+\Hypertarget{group___a_d_c___private___macros_gaa862868aea997c7a9e1c808faee75e6c}\index{ADC Private Macros@{ADC Private Macros}!IS\_ADC\_EXTTRIG\_EDGE@{IS\_ADC\_EXTTRIG\_EDGE}}
+\index{IS\_ADC\_EXTTRIG\_EDGE@{IS\_ADC\_EXTTRIG\_EDGE}!ADC Private Macros@{ADC Private Macros}}
+\doxysubsubsubsubsection{\texorpdfstring{IS\_ADC\_EXTTRIG\_EDGE}{IS\_ADC\_EXTTRIG\_EDGE}}
+{\footnotesize\ttfamily \label{group___a_d_c___private___macros_gaa862868aea997c7a9e1c808faee75e6c} 
+\+\#define IS\+\_\+\+ADC\+\_\+\+EXTTRIG\+\_\+\+EDGE(\begin{DoxyParamCaption}\item[{}]{EDGE}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(((EDGE)\ ==\ \doxymbox{\hyperlink{group___a_d_c__regular__external__trigger__edge_gab2e3a19c05441925f9b9a482238994ac}{ADC\_EXTERNALTRIGCONVEDGE\_NONE}})\ \ \ \ \ \ \ \ \ ||\ \(\backslash\)}
+\DoxyCodeLine{((EDGE)\ ==\ \doxymbox{\hyperlink{group___a_d_c__regular__external__trigger__edge_ga0aaa4e876de630733ca4ca4116b9608e}{ADC\_EXTERNALTRIGCONVEDGE\_RISING}})\ \ \ \ \ \ \ ||\ \(\backslash\)}
+\DoxyCodeLine{((EDGE)\ ==\ \doxymbox{\hyperlink{group___a_d_c__regular__external__trigger__edge_ga15975c01b6a514f346272a1373239c54}{ADC\_EXTERNALTRIGCONVEDGE\_FALLING}})\ \ \ \ \ \ ||\ \(\backslash\)}
+\DoxyCodeLine{((EDGE)\ ==\ \doxymbox{\hyperlink{group___a_d_c__regular__external__trigger__edge_gab4221f5f52b5f75dc8cea701bb57be35}{ADC\_EXTERNALTRIGCONVEDGE\_RISINGFALLING}})\ \ )}
+
+\end{DoxyCode}
+\Hypertarget{group___a_d_c___private___macros_ga99e2ba194894e94fd851e3852dbbc4eb}\index{ADC Private Macros@{ADC Private Macros}!IS\_ADC\_OVERRUN@{IS\_ADC\_OVERRUN}}
+\index{IS\_ADC\_OVERRUN@{IS\_ADC\_OVERRUN}!ADC Private Macros@{ADC Private Macros}}
+\doxysubsubsubsubsection{\texorpdfstring{IS\_ADC\_OVERRUN}{IS\_ADC\_OVERRUN}}
+{\footnotesize\ttfamily \label{group___a_d_c___private___macros_ga99e2ba194894e94fd851e3852dbbc4eb} 
+\+\#define IS\+\_\+\+ADC\+\_\+\+OVERRUN(\begin{DoxyParamCaption}\item[{}]{OVR}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(((OVR)\ ==\ \doxymbox{\hyperlink{group___a_d_c___h_a_l___e_c___r_e_g___o_v_r___d_a_t_a___b_e_h_a_v_i_o_r_ga5e6fdbe9cab7436c3bf4551944c5c04d}{ADC\_OVR\_DATA\_PRESERVED}})\ \ ||\ \(\backslash\)}
+\DoxyCodeLine{((OVR)\ ==\ \doxymbox{\hyperlink{group___a_d_c___h_a_l___e_c___r_e_g___o_v_r___d_a_t_a___b_e_h_a_v_i_o_r_gaeafc365762736ea8b5d73ba8c163548a}{ADC\_OVR\_DATA\_OVERWRITTEN}})\ \ )}
+
+\end{DoxyCode}
+\Hypertarget{group___a_d_c___private___macros_ga485c12f57d082232da8e219ae6b4f44b}\index{ADC Private Macros@{ADC Private Macros}!IS\_ADC\_RANGE@{IS\_ADC\_RANGE}}
+\index{IS\_ADC\_RANGE@{IS\_ADC\_RANGE}!ADC Private Macros@{ADC Private Macros}}
+\doxysubsubsubsubsection{\texorpdfstring{IS\_ADC\_RANGE}{IS\_ADC\_RANGE}}
+{\footnotesize\ttfamily \label{group___a_d_c___private___macros_ga485c12f57d082232da8e219ae6b4f44b} 
+\+\#define IS\+\_\+\+ADC\+\_\+\+RANGE(\begin{DoxyParamCaption}\item[{}]{\+\_\+\+\_\+\+RESOLUTION\+\_\+\+\_\+}{, }\item[{}]{\+\_\+\+\_\+\+ADC\+\_\+\+VALUE\+\_\+\+\_\+}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{((\_\_ADC\_VALUE\_\_)\ <=\ \_\_LL\_ADC\_DIGITAL\_SCALE(\_\_RESOLUTION\_\_))}
+
+\end{DoxyCode}
+
+
+Verify that a given value is aligned with the ADC resolution range. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+\+\_\+\+RESOLUTION\+\_\+\+\_\+} & ADC resolution (12, 10, 8 or 6 bits). \\
+\hline
+{\em \+\_\+\+\_\+\+ADC\+\_\+\+VALUE\+\_\+\+\_\+} & value checked against the resolution. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em SET} & ({\bfseries{ADC\+\_\+\+VALUE}} in line with {\bfseries{RESOLUTION}}) or RESET ({\bfseries{ADC\+\_\+\+VALUE}} not in line with {\bfseries{RESOLUTION}}) \\
+\hline
+\end{DoxyRetVals}
+\Hypertarget{group___a_d_c___private___macros_ga5928a1e9315f798e27220b91f1bae7f2}\index{ADC Private Macros@{ADC Private Macros}!IS\_ADC\_REGULAR\_RANK@{IS\_ADC\_REGULAR\_RANK}}
+\index{IS\_ADC\_REGULAR\_RANK@{IS\_ADC\_REGULAR\_RANK}!ADC Private Macros@{ADC Private Macros}}
+\doxysubsubsubsubsection{\texorpdfstring{IS\_ADC\_REGULAR\_RANK}{IS\_ADC\_REGULAR\_RANK}}
+{\footnotesize\ttfamily \label{group___a_d_c___private___macros_ga5928a1e9315f798e27220b91f1bae7f2} 
+\+\#define IS\+\_\+\+ADC\+\_\+\+REGULAR\+\_\+\+RANK(\begin{DoxyParamCaption}\item[{}]{RANK}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(((RANK)\ ==\ \doxymbox{\hyperlink{group___a_d_c___h_a_l___e_c___r_e_g___s_e_q___r_a_n_k_s_gadf298d930c7a4f313ece62320dbd600c}{ADC\_REGULAR\_RANK\_1}}\ )\ ||\ \(\backslash\)}
+\DoxyCodeLine{((RANK)\ ==\ \doxymbox{\hyperlink{group___a_d_c___h_a_l___e_c___r_e_g___s_e_q___r_a_n_k_s_ga21f2593d1950de1b7f98770a21009826}{ADC\_REGULAR\_RANK\_2}}\ )\ ||\ \(\backslash\)}
+\DoxyCodeLine{((RANK)\ ==\ \doxymbox{\hyperlink{group___a_d_c___h_a_l___e_c___r_e_g___s_e_q___r_a_n_k_s_gadaab09acdc0504f6ed8a84d7de6170dc}{ADC\_REGULAR\_RANK\_3}}\ )\ ||\ \(\backslash\)}
+\DoxyCodeLine{((RANK)\ ==\ \doxymbox{\hyperlink{group___a_d_c___h_a_l___e_c___r_e_g___s_e_q___r_a_n_k_s_gae23fcbfa4f2a1c919038739cbcb57410}{ADC\_REGULAR\_RANK\_4}}\ )\ ||\ \(\backslash\)}
+\DoxyCodeLine{((RANK)\ ==\ \doxymbox{\hyperlink{group___a_d_c___h_a_l___e_c___r_e_g___s_e_q___r_a_n_k_s_ga288d36b6b6e483116ca423ee5709580e}{ADC\_REGULAR\_RANK\_5}}\ )\ ||\ \(\backslash\)}
+\DoxyCodeLine{((RANK)\ ==\ \doxymbox{\hyperlink{group___a_d_c___h_a_l___e_c___r_e_g___s_e_q___r_a_n_k_s_ga6636e3943689f2a196256c939b3aa5f5}{ADC\_REGULAR\_RANK\_6}}\ )\ ||\ \(\backslash\)}
+\DoxyCodeLine{((RANK)\ ==\ \doxymbox{\hyperlink{group___a_d_c___h_a_l___e_c___r_e_g___s_e_q___r_a_n_k_s_ga63bea206a722dd11460d09b619aa4145}{ADC\_REGULAR\_RANK\_7}}\ )\ ||\ \(\backslash\)}
+\DoxyCodeLine{((RANK)\ ==\ \doxymbox{\hyperlink{group___a_d_c___h_a_l___e_c___r_e_g___s_e_q___r_a_n_k_s_gab39e2e0fb73beec47d249a75a42b5293}{ADC\_REGULAR\_RANK\_8}}\ )\ \ \ )}
+
+\end{DoxyCode}
+\Hypertarget{group___a_d_c___private___macros_gaf9b04590b4f214b28b772ec624065354}\index{ADC Private Macros@{ADC Private Macros}!IS\_ADC\_REGULAR\_RANK\_SEQ\_FIXED@{IS\_ADC\_REGULAR\_RANK\_SEQ\_FIXED}}
+\index{IS\_ADC\_REGULAR\_RANK\_SEQ\_FIXED@{IS\_ADC\_REGULAR\_RANK\_SEQ\_FIXED}!ADC Private Macros@{ADC Private Macros}}
+\doxysubsubsubsubsection{\texorpdfstring{IS\_ADC\_REGULAR\_RANK\_SEQ\_FIXED}{IS\_ADC\_REGULAR\_RANK\_SEQ\_FIXED}}
+{\footnotesize\ttfamily \label{group___a_d_c___private___macros_gaf9b04590b4f214b28b772ec624065354} 
+\+\#define IS\+\_\+\+ADC\+\_\+\+REGULAR\+\_\+\+RANK\+\_\+\+SEQ\+\_\+\+FIXED(\begin{DoxyParamCaption}\item[{}]{RANK}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(((RANK)\ ==\ \doxymbox{\hyperlink{group___a_d_c___h_a_l___e_c___r_e_g___s_e_q___r_a_n_k_s_ga25907c7d81b72261eff9adc6e9726690}{ADC\_RANK\_CHANNEL\_NUMBER}})\ ||\ \(\backslash\)}
+\DoxyCodeLine{((RANK)\ ==\ \doxymbox{\hyperlink{group___a_d_c___h_a_l___e_c___r_e_g___s_e_q___r_a_n_k_s_gace464dc0c5d9a401d2842f7f1629d5cd}{ADC\_RANK\_NONE}})\ \ \ \ \ \ \ \ \ \ \ \ \ )}
+
+\end{DoxyCode}
+\Hypertarget{group___a_d_c___private___macros_ga346d83dd4af81b36a6dbd78c7bf2ff0a}\index{ADC Private Macros@{ADC Private Macros}!IS\_ADC\_RESOLUTION@{IS\_ADC\_RESOLUTION}}
+\index{IS\_ADC\_RESOLUTION@{IS\_ADC\_RESOLUTION}!ADC Private Macros@{ADC Private Macros}}
+\doxysubsubsubsubsection{\texorpdfstring{IS\_ADC\_RESOLUTION}{IS\_ADC\_RESOLUTION}}
+{\footnotesize\ttfamily \label{group___a_d_c___private___macros_ga346d83dd4af81b36a6dbd78c7bf2ff0a} 
+\+\#define IS\+\_\+\+ADC\+\_\+\+RESOLUTION(\begin{DoxyParamCaption}\item[{}]{RESOLUTION}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(((RESOLUTION)\ ==\ \doxymbox{\hyperlink{group___a_d_c___h_a_l___e_c___r_e_s_o_l_u_t_i_o_n_ga49c8408a1cdbf97bbf29234c3770fa74}{ADC\_RESOLUTION\_12B}})\ ||\ \(\backslash\)}
+\DoxyCodeLine{((RESOLUTION)\ ==\ \doxymbox{\hyperlink{group___a_d_c___h_a_l___e_c___r_e_s_o_l_u_t_i_o_n_ga91289e269eb3080d25301909c0f417e5}{ADC\_RESOLUTION\_10B}})\ ||\ \(\backslash\)}
+\DoxyCodeLine{((RESOLUTION)\ ==\ \doxymbox{\hyperlink{group___a_d_c___h_a_l___e_c___r_e_s_o_l_u_t_i_o_n_ga39925af93719877bdcc5664e4b95e69a}{ADC\_RESOLUTION\_8B}})\ \ ||\ \(\backslash\)}
+\DoxyCodeLine{((RESOLUTION)\ ==\ \doxymbox{\hyperlink{group___a_d_c___h_a_l___e_c___r_e_s_o_l_u_t_i_o_n_ga24c5226e05db78b4065f2f187d497b04}{ADC\_RESOLUTION\_6B}})\ \ \ \ )}
+
+\end{DoxyCode}
+\Hypertarget{group___a_d_c___private___macros_ga30e0307fa009e1c383d3047b48e94644}\index{ADC Private Macros@{ADC Private Macros}!IS\_ADC\_SAMPLE\_TIME@{IS\_ADC\_SAMPLE\_TIME}}
+\index{IS\_ADC\_SAMPLE\_TIME@{IS\_ADC\_SAMPLE\_TIME}!ADC Private Macros@{ADC Private Macros}}
+\doxysubsubsubsubsection{\texorpdfstring{IS\_ADC\_SAMPLE\_TIME}{IS\_ADC\_SAMPLE\_TIME}}
+{\footnotesize\ttfamily \label{group___a_d_c___private___macros_ga30e0307fa009e1c383d3047b48e94644} 
+\+\#define IS\+\_\+\+ADC\+\_\+\+SAMPLE\+\_\+\+TIME(\begin{DoxyParamCaption}\item[{}]{TIME}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(((TIME)\ ==\ \doxymbox{\hyperlink{group___a_d_c___h_a_l___e_c___c_h_a_n_n_e_l___s_a_m_p_l_i_n_g_t_i_m_e_ga01ae8ddd4c3f0a7cace13273c1e67fdd}{ADC\_SAMPLETIME\_1CYCLE\_5}})\ \ \ \ ||\ \(\backslash\)}
+\DoxyCodeLine{((TIME)\ ==\ \doxymbox{\hyperlink{group___a_d_c___h_a_l___e_c___c_h_a_n_n_e_l___s_a_m_p_l_i_n_g_t_i_m_e_ga26686bf41328f04a94e1943afd24eb18}{ADC\_SAMPLETIME\_3CYCLES\_5}})\ \ \ ||\ \(\backslash\)}
+\DoxyCodeLine{((TIME)\ ==\ \doxymbox{\hyperlink{group___a_d_c___h_a_l___e_c___c_h_a_n_n_e_l___s_a_m_p_l_i_n_g_t_i_m_e_gac0aff040aa3a0e63147fcdd8ab805af1}{ADC\_SAMPLETIME\_7CYCLES\_5}})\ \ \ ||\ \(\backslash\)}
+\DoxyCodeLine{((TIME)\ ==\ \doxymbox{\hyperlink{group___a_d_c___h_a_l___e_c___c_h_a_n_n_e_l___s_a_m_p_l_i_n_g_t_i_m_e_ga4ec313f4ced6fff99856fe0acf97e83d}{ADC\_SAMPLETIME\_12CYCLES\_5}})\ \ ||\ \(\backslash\)}
+\DoxyCodeLine{((TIME)\ ==\ \doxymbox{\hyperlink{group___a_d_c___h_a_l___e_c___c_h_a_n_n_e_l___s_a_m_p_l_i_n_g_t_i_m_e_ga9f38a23f9c372236ae0ed6d36d0137ba}{ADC\_SAMPLETIME\_19CYCLES\_5}})\ \ ||\ \(\backslash\)}
+\DoxyCodeLine{((TIME)\ ==\ \doxymbox{\hyperlink{group___a_d_c___h_a_l___e_c___c_h_a_n_n_e_l___s_a_m_p_l_i_n_g_t_i_m_e_ga26d97eca41760e6711096b39a2c2eeda}{ADC\_SAMPLETIME\_39CYCLES\_5}})\ \ ||\ \(\backslash\)}
+\DoxyCodeLine{((TIME)\ ==\ \doxymbox{\hyperlink{group___a_d_c___h_a_l___e_c___c_h_a_n_n_e_l___s_a_m_p_l_i_n_g_t_i_m_e_ga3008b603cb73c66117b4719ab96c6319}{ADC\_SAMPLETIME\_79CYCLES\_5}})\ \ ||\ \(\backslash\)}
+\DoxyCodeLine{((TIME)\ ==\ \doxymbox{\hyperlink{group___a_d_c___h_a_l___e_c___c_h_a_n_n_e_l___s_a_m_p_l_i_n_g_t_i_m_e_gae7fe49d28e93c918174f340bbc75928a}{ADC\_SAMPLETIME\_160CYCLES\_5}})\ \ \ )}
+
+\end{DoxyCode}
+\Hypertarget{group___a_d_c___private___macros_ga00865e71e3d925c0a416398a23ebea9d}\index{ADC Private Macros@{ADC Private Macros}!IS\_ADC\_SAMPLING\_TIME\_COMMON@{IS\_ADC\_SAMPLING\_TIME\_COMMON}}
+\index{IS\_ADC\_SAMPLING\_TIME\_COMMON@{IS\_ADC\_SAMPLING\_TIME\_COMMON}!ADC Private Macros@{ADC Private Macros}}
+\doxysubsubsubsubsection{\texorpdfstring{IS\_ADC\_SAMPLING\_TIME\_COMMON}{IS\_ADC\_SAMPLING\_TIME\_COMMON}}
+{\footnotesize\ttfamily \label{group___a_d_c___private___macros_ga00865e71e3d925c0a416398a23ebea9d} 
+\+\#define IS\+\_\+\+ADC\+\_\+\+SAMPLING\+\_\+\+TIME\+\_\+\+COMMON(\begin{DoxyParamCaption}\item[{}]{SAMPLING\+\_\+\+TIME\+\_\+\+COMMON}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(((SAMPLING\_TIME\_COMMON)\ ==\ \doxymbox{\hyperlink{group___a_d_c___h_a_l___e_c___s_a_m_p_l_i_n_g_t_i_m_e___c_o_m_m_o_n_ga9c45290c738768bbd49b1fa4cfc12da5}{ADC\_SAMPLINGTIME\_COMMON\_1}})\ ||\ \(\backslash\)}
+\DoxyCodeLine{((SAMPLING\_TIME\_COMMON)\ ==\ \doxymbox{\hyperlink{group___a_d_c___h_a_l___e_c___s_a_m_p_l_i_n_g_t_i_m_e___c_o_m_m_o_n_gaf91b284f9481ad9674064afcbba573f8}{ADC\_SAMPLINGTIME\_COMMON\_2}})\ \ \ )}
+
+\end{DoxyCode}
+\Hypertarget{group___a_d_c___private___macros_gad86e7d7e94679a54f66e79b002f936f0}\index{ADC Private Macros@{ADC Private Macros}!IS\_ADC\_SCAN\_MODE@{IS\_ADC\_SCAN\_MODE}}
+\index{IS\_ADC\_SCAN\_MODE@{IS\_ADC\_SCAN\_MODE}!ADC Private Macros@{ADC Private Macros}}
+\doxysubsubsubsubsection{\texorpdfstring{IS\_ADC\_SCAN\_MODE}{IS\_ADC\_SCAN\_MODE}}
+{\footnotesize\ttfamily \label{group___a_d_c___private___macros_gad86e7d7e94679a54f66e79b002f936f0} 
+\+\#define IS\+\_\+\+ADC\+\_\+\+SCAN\+\_\+\+MODE(\begin{DoxyParamCaption}\item[{}]{SCAN\+\_\+\+MODE}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(((SCAN\_MODE)\ ==\ \doxymbox{\hyperlink{group___a_d_c___scan__mode_ga6e269121b26e999155863ce52c522883}{ADC\_SCAN\_DISABLE}})\ \ \ \ \ \ \ \ \ \ \ \ ||\ \(\backslash\)}
+\DoxyCodeLine{((SCAN\_MODE)\ ==\ \doxymbox{\hyperlink{group___a_d_c___scan__mode_ga1e109b8619961829ff2bc368c1725382}{ADC\_SCAN\_ENABLE}})\ \ \ \ \ \ \ \ \ \ \ \ \ ||\ \(\backslash\)}
+\DoxyCodeLine{((SCAN\_MODE)\ ==\ \doxymbox{\hyperlink{group___a_d_c___scan__mode_gaa94cf64e8f22fdd95faa57b471231ef0}{ADC\_SCAN\_SEQ\_FIXED}})\ \ \ \ \ \ \ \ \ \ ||\ \(\backslash\)}
+\DoxyCodeLine{((SCAN\_MODE)\ ==\ \doxymbox{\hyperlink{group___a_d_c___scan__mode_ga90401b98c9c4beca30d0203dcc3ff907}{ADC\_SCAN\_SEQ\_FIXED\_BACKWARD}})\ \ \ )}
+
+\end{DoxyCode}
+\Hypertarget{group___a_d_c___private___macros_gaee90778e1d338b4c9d374073a71c895b}\index{ADC Private Macros@{ADC Private Macros}!IS\_ADC\_TRIGGER\_FREQ@{IS\_ADC\_TRIGGER\_FREQ}}
+\index{IS\_ADC\_TRIGGER\_FREQ@{IS\_ADC\_TRIGGER\_FREQ}!ADC Private Macros@{ADC Private Macros}}
+\doxysubsubsubsubsection{\texorpdfstring{IS\_ADC\_TRIGGER\_FREQ}{IS\_ADC\_TRIGGER\_FREQ}}
+{\footnotesize\ttfamily \label{group___a_d_c___private___macros_gaee90778e1d338b4c9d374073a71c895b} 
+\+\#define IS\+\_\+\+ADC\+\_\+\+TRIGGER\+\_\+\+FREQ(\begin{DoxyParamCaption}\item[{}]{TRIGGER\+\_\+\+FREQ}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(((TRIGGER\_FREQ)\ ==\ LL\_ADC\_TRIGGER\_FREQ\_HIGH)\ ||\ \(\backslash\)}
+\DoxyCodeLine{((TRIGGER\_FREQ)\ ==\ LL\_ADC\_TRIGGER\_FREQ\_LOW)\ \ \ \ )}
+
+\end{DoxyCode}
+\input{group___a_d_c__regular__nb__conv__verification}
+\input{group___a_d_c___private___constants}
+\input{group___a_d_c___exported___macros}
+\input{group___a_d_c___exported___functions}

@@ -1,0 +1,65 @@
+\doxysection{ADC\+\_\+\+Channel\+Conf\+Type\+Def Struct Reference}
+\hypertarget{struct_a_d_c___channel_conf_type_def}{}\label{struct_a_d_c___channel_conf_type_def}\index{ADC\_ChannelConfTypeDef@{ADC\_ChannelConfTypeDef}}
+
+
+Structure definition of ADC channel for regular group.  
+
+
+
+
+{\ttfamily \+\#include $<$stm32g0xx\+\_\+hal\+\_\+adc.\+h$>$}
+
+\doxysubsubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t \doxymbox{\hyperlink{struct_a_d_c___channel_conf_type_def_ae82bf9242a014164f9f6907f29782c44}{Channel}}
+\item 
+uint32\+\_\+t \doxymbox{\hyperlink{struct_a_d_c___channel_conf_type_def_ab926cc2abe3d17aeaf637d499aef6b1b}{Rank}}
+\item 
+uint32\+\_\+t \doxymbox{\hyperlink{struct_a_d_c___channel_conf_type_def_a72e649848c8a14f0adcba783cfb3b2cd}{Sampling\+Time}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Structure definition of ADC channel for regular group. 
+
+\begin{DoxyNote}{Note}
+The setting of these parameters by function HAL\+\_\+\+ADC\+\_\+\+Config\+Channel() is conditioned to ADC state. ADC state can be either:\+
+\begin{DoxyItemize}
+\item For all parameters:\+ ADC disabled or enabled without conversion on going on regular group. If ADC is not in the appropriate state to modify some parameters, these parameters setting is bypassed without error reporting (as it can be the expected behavior in case of intended action to update another parameter (which fulfills the ADC state condition) on the fly). 
+\end{DoxyItemize}
+\end{DoxyNote}
+
+
+\label{doc-variable-members}
+\Hypertarget{struct_a_d_c___channel_conf_type_def_doc-variable-members}
+\doxysubsection{Field Documentation}
+\Hypertarget{struct_a_d_c___channel_conf_type_def_ae82bf9242a014164f9f6907f29782c44}\index{ADC\_ChannelConfTypeDef@{ADC\_ChannelConfTypeDef}!Channel@{Channel}}
+\index{Channel@{Channel}!ADC\_ChannelConfTypeDef@{ADC\_ChannelConfTypeDef}}
+\doxysubsubsection{\texorpdfstring{Channel}{Channel}}
+{\footnotesize\ttfamily \label{struct_a_d_c___channel_conf_type_def_ae82bf9242a014164f9f6907f29782c44} 
+uint32\+\_\+t Channel}
+
+Specify the channel to configure into ADC regular group. This parameter can be a value of \doxylink{group___a_d_c___h_a_l___e_c___c_h_a_n_n_e_l}{ADC instance -\/ Channel number} Note:\+ Depending on devices and ADC instances, some channels may not be available on device package pins. Refer to device datasheet for channels availability. \Hypertarget{struct_a_d_c___channel_conf_type_def_ab926cc2abe3d17aeaf637d499aef6b1b}\index{ADC\_ChannelConfTypeDef@{ADC\_ChannelConfTypeDef}!Rank@{Rank}}
+\index{Rank@{Rank}!ADC\_ChannelConfTypeDef@{ADC\_ChannelConfTypeDef}}
+\doxysubsubsection{\texorpdfstring{Rank}{Rank}}
+{\footnotesize\ttfamily \label{struct_a_d_c___channel_conf_type_def_ab926cc2abe3d17aeaf637d499aef6b1b} 
+uint32\+\_\+t Rank}
+
+Add or remove the channel from ADC regular group sequencer and specify its conversion rank. This parameter is dependent on Scan\+Conv\+Mode:\+
+\begin{DoxyItemize}
+\item sequencer configured to fully configurable:\+ Channels ordering into each rank of scan sequence:\+ whatever channel can be placed into whatever rank.
+\item sequencer configured to not fully configurable:\+ rank of each channel is fixed by channel HW number. (channel 0 fixed on rank 0, channel 1 fixed on rank1, ...). Despite the channel rank is fixed, this parameter allow an additional possibility:\+ to remove the selected rank (selected channel) from sequencer. This parameter can be a value of \doxylink{group___a_d_c___h_a_l___e_c___r_e_g___s_e_q___r_a_n_k_s}{ADC group regular -\/ Sequencer ranks} 
+\end{DoxyItemize}\Hypertarget{struct_a_d_c___channel_conf_type_def_a72e649848c8a14f0adcba783cfb3b2cd}\index{ADC\_ChannelConfTypeDef@{ADC\_ChannelConfTypeDef}!SamplingTime@{SamplingTime}}
+\index{SamplingTime@{SamplingTime}!ADC\_ChannelConfTypeDef@{ADC\_ChannelConfTypeDef}}
+\doxysubsubsection{\texorpdfstring{SamplingTime}{SamplingTime}}
+{\footnotesize\ttfamily \label{struct_a_d_c___channel_conf_type_def_a72e649848c8a14f0adcba783cfb3b2cd} 
+uint32\+\_\+t Sampling\+Time}
+
+Sampling time value to be set for the selected channel. Unit:\+ ADC clock cycles Conversion time is the addition of sampling time and processing time (12.\+5 ADC clock cycles at ADC resolution 12 bits, 10.\+5 cycles at 10 bits, 8.\+5 cycles at 8 bits, 6.\+5 cycles at 6 bits). This parameter can be a value of \doxylink{group___a_d_c___h_a_l___e_c___s_a_m_p_l_i_n_g_t_i_m_e___c_o_m_m_o_n}{ADC instance -\/ Sampling time common to a group of channels} Note:\+ On this STM32 family, two different sampling time settings are available (refer to parameters "{}\+Sampling\+Time\+Common1"{} and "{}\+Sampling\+Time\+Common2"{}), each channel can use one of these two settings.
+
+Note:\+ In case of usage of internal measurement channels (Vref\+Int/\+\+Vbat/\+ Temp\+Sensor), sampling time constraints must be respected (sampling time can be adjusted in function of ADC clock frequency and sampling time setting) Refer to device datasheet for timings values. 
+
+The documentation for this struct was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+Drivers/\+\+STM32\+G0xx\+\_\+\+HAL\+\_\+\+Driver/\+\+Inc/\+\doxymbox{\hyperlink{stm32g0xx__hal__adc_8h}{stm32g0xx\+\_\+hal\+\_\+adc.\+h}}\end{DoxyCompactItemize}

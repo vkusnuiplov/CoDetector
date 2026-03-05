@@ -1,0 +1,124 @@
+\doxysubsubsubsection{AHB Peripheral Force Release Reset }
+\hypertarget{group___r_c_c___a_h_b___force___release___reset}{}\label{group___r_c_c___a_h_b___force___release___reset}\index{AHB Peripheral Force Release Reset@{AHB Peripheral Force Release Reset}}
+
+
+Force or release AHB1 peripheral reset.  
+
+
+\doxysubsubsubsubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\+\#define \doxymbox{\hyperlink{group___r_c_c___a_h_b___force___release___reset_ga70ac7ee64a7f1911e3c89d54efb13695}{\+\_\+\+\_\+\+HAL\+\_\+\+RCC\+\_\+\+AHB\+\_\+\+FORCE\+\_\+\+RESET}}()
+\item 
+\+\#define \doxymbox{\hyperlink{group___r_c_c___a_h_b___force___release___reset_ga9135dece327ecc27f333f86dcf3ba8ee}{\+\_\+\+\_\+\+HAL\+\_\+\+RCC\+\_\+\+DMA1\+\_\+\+FORCE\+\_\+\+RESET}}()
+\item 
+\+\#define \doxymbox{\hyperlink{group___r_c_c___a_h_b___force___release___reset_ga8b4f2a9ac8d2f458fdfc46be211cf2c8}{\+\_\+\+\_\+\+HAL\+\_\+\+RCC\+\_\+\+FLASH\+\_\+\+FORCE\+\_\+\+RESET}}()
+\item 
+\+\#define \doxymbox{\hyperlink{group___r_c_c___a_h_b___force___release___reset_gaf12ffda90699081f29cf76dab39b1944}{\+\_\+\+\_\+\+HAL\+\_\+\+RCC\+\_\+\+CRC\+\_\+\+FORCE\+\_\+\+RESET}}()
+\item 
+\+\#define \doxymbox{\hyperlink{group___r_c_c___a_h_b___force___release___reset_gab9a849fdb7ef7ea4021af51799b474d7}{\+\_\+\+\_\+\+HAL\+\_\+\+RCC\+\_\+\+AHB\+\_\+\+RELEASE\+\_\+\+RESET}}()
+\item 
+\+\#define \doxymbox{\hyperlink{group___r_c_c___a_h_b___force___release___reset_ga8f7eef8316c35175df11d77f5106d334}{\+\_\+\+\_\+\+HAL\+\_\+\+RCC\+\_\+\+DMA1\+\_\+\+RELEASE\+\_\+\+RESET}}()
+\item 
+\+\#define \doxymbox{\hyperlink{group___r_c_c___a_h_b___force___release___reset_gac79372a9136c0932a622b7c40b6f2f8e}{\+\_\+\+\_\+\+HAL\+\_\+\+RCC\+\_\+\+FLASH\+\_\+\+RELEASE\+\_\+\+RESET}}()
+\item 
+\+\#define \doxymbox{\hyperlink{group___r_c_c___a_h_b___force___release___reset_gab7426b24c0b9d6aaec3c17f98735a178}{\+\_\+\+\_\+\+HAL\+\_\+\+RCC\+\_\+\+CRC\+\_\+\+RELEASE\+\_\+\+RESET}}()
+\end{DoxyCompactItemize}
+
+
+\doxysubsubsubsubsection{Detailed Description}
+Force or release AHB1 peripheral reset. 
+
+
+
+\label{doc-define-members}
+\Hypertarget{group___r_c_c___a_h_b___force___release___reset_doc-define-members}
+\doxysubsubsubsubsection{Macro Definition Documentation}
+\Hypertarget{group___r_c_c___a_h_b___force___release___reset_ga70ac7ee64a7f1911e3c89d54efb13695}\index{AHB Peripheral Force Release Reset@{AHB Peripheral Force Release Reset}!\_\_HAL\_RCC\_AHB\_FORCE\_RESET@{\_\_HAL\_RCC\_AHB\_FORCE\_RESET}}
+\index{\_\_HAL\_RCC\_AHB\_FORCE\_RESET@{\_\_HAL\_RCC\_AHB\_FORCE\_RESET}!AHB Peripheral Force Release Reset@{AHB Peripheral Force Release Reset}}
+\doxysubsubsubsubsubsection{\texorpdfstring{\_\_HAL\_RCC\_AHB\_FORCE\_RESET}{\_\_HAL\_RCC\_AHB\_FORCE\_RESET}}
+{\footnotesize\ttfamily \label{group___r_c_c___a_h_b___force___release___reset_ga70ac7ee64a7f1911e3c89d54efb13695} 
+\+\#define \+\_\+\+\_\+\+HAL\+\_\+\+RCC\+\_\+\+AHB\+\_\+\+FORCE\+\_\+\+RESET(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{WRITE\_REG(RCC-\/>AHBRSTR,\ 0xFFFFFFFFU)}
+
+\end{DoxyCode}
+\Hypertarget{group___r_c_c___a_h_b___force___release___reset_gab9a849fdb7ef7ea4021af51799b474d7}\index{AHB Peripheral Force Release Reset@{AHB Peripheral Force Release Reset}!\_\_HAL\_RCC\_AHB\_RELEASE\_RESET@{\_\_HAL\_RCC\_AHB\_RELEASE\_RESET}}
+\index{\_\_HAL\_RCC\_AHB\_RELEASE\_RESET@{\_\_HAL\_RCC\_AHB\_RELEASE\_RESET}!AHB Peripheral Force Release Reset@{AHB Peripheral Force Release Reset}}
+\doxysubsubsubsubsubsection{\texorpdfstring{\_\_HAL\_RCC\_AHB\_RELEASE\_RESET}{\_\_HAL\_RCC\_AHB\_RELEASE\_RESET}}
+{\footnotesize\ttfamily \label{group___r_c_c___a_h_b___force___release___reset_gab9a849fdb7ef7ea4021af51799b474d7} 
+\+\#define \+\_\+\+\_\+\+HAL\+\_\+\+RCC\+\_\+\+AHB\+\_\+\+RELEASE\+\_\+\+RESET(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{WRITE\_REG(RCC-\/>AHBRSTR,\ 0x00000000U)}
+
+\end{DoxyCode}
+\Hypertarget{group___r_c_c___a_h_b___force___release___reset_gaf12ffda90699081f29cf76dab39b1944}\index{AHB Peripheral Force Release Reset@{AHB Peripheral Force Release Reset}!\_\_HAL\_RCC\_CRC\_FORCE\_RESET@{\_\_HAL\_RCC\_CRC\_FORCE\_RESET}}
+\index{\_\_HAL\_RCC\_CRC\_FORCE\_RESET@{\_\_HAL\_RCC\_CRC\_FORCE\_RESET}!AHB Peripheral Force Release Reset@{AHB Peripheral Force Release Reset}}
+\doxysubsubsubsubsubsection{\texorpdfstring{\_\_HAL\_RCC\_CRC\_FORCE\_RESET}{\_\_HAL\_RCC\_CRC\_FORCE\_RESET}}
+{\footnotesize\ttfamily \label{group___r_c_c___a_h_b___force___release___reset_gaf12ffda90699081f29cf76dab39b1944} 
+\+\#define \+\_\+\+\_\+\+HAL\+\_\+\+RCC\+\_\+\+CRC\+\_\+\+FORCE\+\_\+\+RESET(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{SET\_BIT(RCC-\/>AHBRSTR,\ RCC\_AHBRSTR\_CRCRST)}
+
+\end{DoxyCode}
+\Hypertarget{group___r_c_c___a_h_b___force___release___reset_gab7426b24c0b9d6aaec3c17f98735a178}\index{AHB Peripheral Force Release Reset@{AHB Peripheral Force Release Reset}!\_\_HAL\_RCC\_CRC\_RELEASE\_RESET@{\_\_HAL\_RCC\_CRC\_RELEASE\_RESET}}
+\index{\_\_HAL\_RCC\_CRC\_RELEASE\_RESET@{\_\_HAL\_RCC\_CRC\_RELEASE\_RESET}!AHB Peripheral Force Release Reset@{AHB Peripheral Force Release Reset}}
+\doxysubsubsubsubsubsection{\texorpdfstring{\_\_HAL\_RCC\_CRC\_RELEASE\_RESET}{\_\_HAL\_RCC\_CRC\_RELEASE\_RESET}}
+{\footnotesize\ttfamily \label{group___r_c_c___a_h_b___force___release___reset_gab7426b24c0b9d6aaec3c17f98735a178} 
+\+\#define \+\_\+\+\_\+\+HAL\+\_\+\+RCC\+\_\+\+CRC\+\_\+\+RELEASE\+\_\+\+RESET(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{CLEAR\_BIT(RCC-\/>AHBRSTR,\ RCC\_AHBRSTR\_CRCRST)}
+
+\end{DoxyCode}
+\Hypertarget{group___r_c_c___a_h_b___force___release___reset_ga9135dece327ecc27f333f86dcf3ba8ee}\index{AHB Peripheral Force Release Reset@{AHB Peripheral Force Release Reset}!\_\_HAL\_RCC\_DMA1\_FORCE\_RESET@{\_\_HAL\_RCC\_DMA1\_FORCE\_RESET}}
+\index{\_\_HAL\_RCC\_DMA1\_FORCE\_RESET@{\_\_HAL\_RCC\_DMA1\_FORCE\_RESET}!AHB Peripheral Force Release Reset@{AHB Peripheral Force Release Reset}}
+\doxysubsubsubsubsubsection{\texorpdfstring{\_\_HAL\_RCC\_DMA1\_FORCE\_RESET}{\_\_HAL\_RCC\_DMA1\_FORCE\_RESET}}
+{\footnotesize\ttfamily \label{group___r_c_c___a_h_b___force___release___reset_ga9135dece327ecc27f333f86dcf3ba8ee} 
+\+\#define \+\_\+\+\_\+\+HAL\+\_\+\+RCC\+\_\+\+DMA1\+\_\+\+FORCE\+\_\+\+RESET(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{SET\_BIT(RCC-\/>AHBRSTR,\ RCC\_AHBRSTR\_DMA1RST)}
+
+\end{DoxyCode}
+\Hypertarget{group___r_c_c___a_h_b___force___release___reset_ga8f7eef8316c35175df11d77f5106d334}\index{AHB Peripheral Force Release Reset@{AHB Peripheral Force Release Reset}!\_\_HAL\_RCC\_DMA1\_RELEASE\_RESET@{\_\_HAL\_RCC\_DMA1\_RELEASE\_RESET}}
+\index{\_\_HAL\_RCC\_DMA1\_RELEASE\_RESET@{\_\_HAL\_RCC\_DMA1\_RELEASE\_RESET}!AHB Peripheral Force Release Reset@{AHB Peripheral Force Release Reset}}
+\doxysubsubsubsubsubsection{\texorpdfstring{\_\_HAL\_RCC\_DMA1\_RELEASE\_RESET}{\_\_HAL\_RCC\_DMA1\_RELEASE\_RESET}}
+{\footnotesize\ttfamily \label{group___r_c_c___a_h_b___force___release___reset_ga8f7eef8316c35175df11d77f5106d334} 
+\+\#define \+\_\+\+\_\+\+HAL\+\_\+\+RCC\+\_\+\+DMA1\+\_\+\+RELEASE\+\_\+\+RESET(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{CLEAR\_BIT(RCC-\/>AHBRSTR,\ RCC\_AHBRSTR\_DMA1RST)}
+
+\end{DoxyCode}
+\Hypertarget{group___r_c_c___a_h_b___force___release___reset_ga8b4f2a9ac8d2f458fdfc46be211cf2c8}\index{AHB Peripheral Force Release Reset@{AHB Peripheral Force Release Reset}!\_\_HAL\_RCC\_FLASH\_FORCE\_RESET@{\_\_HAL\_RCC\_FLASH\_FORCE\_RESET}}
+\index{\_\_HAL\_RCC\_FLASH\_FORCE\_RESET@{\_\_HAL\_RCC\_FLASH\_FORCE\_RESET}!AHB Peripheral Force Release Reset@{AHB Peripheral Force Release Reset}}
+\doxysubsubsubsubsubsection{\texorpdfstring{\_\_HAL\_RCC\_FLASH\_FORCE\_RESET}{\_\_HAL\_RCC\_FLASH\_FORCE\_RESET}}
+{\footnotesize\ttfamily \label{group___r_c_c___a_h_b___force___release___reset_ga8b4f2a9ac8d2f458fdfc46be211cf2c8} 
+\+\#define \+\_\+\+\_\+\+HAL\+\_\+\+RCC\+\_\+\+FLASH\+\_\+\+FORCE\+\_\+\+RESET(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{SET\_BIT(RCC-\/>AHBRSTR,\ RCC\_AHBRSTR\_FLASHRST)}
+
+\end{DoxyCode}
+\Hypertarget{group___r_c_c___a_h_b___force___release___reset_gac79372a9136c0932a622b7c40b6f2f8e}\index{AHB Peripheral Force Release Reset@{AHB Peripheral Force Release Reset}!\_\_HAL\_RCC\_FLASH\_RELEASE\_RESET@{\_\_HAL\_RCC\_FLASH\_RELEASE\_RESET}}
+\index{\_\_HAL\_RCC\_FLASH\_RELEASE\_RESET@{\_\_HAL\_RCC\_FLASH\_RELEASE\_RESET}!AHB Peripheral Force Release Reset@{AHB Peripheral Force Release Reset}}
+\doxysubsubsubsubsubsection{\texorpdfstring{\_\_HAL\_RCC\_FLASH\_RELEASE\_RESET}{\_\_HAL\_RCC\_FLASH\_RELEASE\_RESET}}
+{\footnotesize\ttfamily \label{group___r_c_c___a_h_b___force___release___reset_gac79372a9136c0932a622b7c40b6f2f8e} 
+\+\#define \+\_\+\+\_\+\+HAL\+\_\+\+RCC\+\_\+\+FLASH\+\_\+\+RELEASE\+\_\+\+RESET(\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+{\bfseries Value:\+}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{CLEAR\_BIT(RCC-\/>AHBRSTR,\ RCC\_AHBRSTR\_FLASHRST)}
+
+\end{DoxyCode}

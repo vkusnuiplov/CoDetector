@@ -1,0 +1,56 @@
+\doxysection{Drivers/\+\+STM32\+G0xx\+\_\+\+HAL\+\_\+\+Driver/\+\+Inc/\+stm32g0xx\+\_\+hal\+\_\+adc\+\_\+ex.h File Reference}
+\hypertarget{stm32g0xx__hal__adc__ex_8h}{}\label{stm32g0xx__hal__adc__ex_8h}\index{Drivers/STM32G0xx\_HAL\_Driver/Inc/stm32g0xx\_hal\_adc\_ex.h@{Drivers/STM32G0xx\_HAL\_Driver/Inc/stm32g0xx\_hal\_adc\_ex.h}}
+
+
+Header file of ADC HAL extended module.  
+
+
+{\ttfamily \+\#include "{}stm32g0xx\+\_\+hal\+\_\+def.\+h"{}}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\+\#define \doxymbox{\hyperlink{group___a_d_c___h_a_l___e_c___g_r_o_u_p_s_ga5330c69e67bd145bcf413b153e4dbf81}{ADC\+\_\+\+REGULAR\+\_\+\+GROUP}}~(LL\+\_\+\+ADC\+\_\+\+GROUP\+\_\+\+REGULAR)
+\item 
+\+\#define \doxymbox{\hyperlink{group___a_d_c_ex___private___macro__internal___h_a_l__driver_ga6c3c83ca2e9218a3f8cce6ca97205ae7}{ADC\+\_\+\+IS\+\_\+\+INDEPENDENT}}(\+\_\+\+\_\+\+HANDLE\+\_\+\+\_\+)
+\begin{DoxyCompactList}\small\item\em Check whether or not ADC is independent. \end{DoxyCompactList}\item 
+\+\#define \doxymbox{\hyperlink{group___a_d_c_ex___private___macro__internal___h_a_l__driver_ga1ade5d9717486b2b13321bcc357a9baa}{IS\+\_\+\+ADC\+\_\+\+CALFACT}}(\+\_\+\+\_\+\+CALIBRATION\+\_\+\+FACTOR\+\_\+\+\_\+)
+\begin{DoxyCompactList}\small\item\em Calibration factor size verification (7 bits maximum). \end{DoxyCompactList}\item 
+\+\#define \doxymbox{\hyperlink{group___a_d_c_ex___private___macro__internal___h_a_l__driver_ga9f199298f37636fd96678c70b832d940}{IS\+\_\+\+ADC\+\_\+\+OVERSAMPLING\+\_\+\+RATIO}}(\+\_\+\+\_\+\+RATIO\+\_\+\+\_\+)
+\begin{DoxyCompactList}\small\item\em Verify the ADC oversampling ratio. \end{DoxyCompactList}\item 
+\+\#define \doxymbox{\hyperlink{group___a_d_c_ex___private___macro__internal___h_a_l__driver_gaf48eaf9b583c59241ccc9e0044152f49}{IS\+\_\+\+ADC\+\_\+\+RIGHT\+\_\+\+BIT\+\_\+\+SHIFT}}(\+\_\+\+\_\+\+SHIFT\+\_\+\+\_\+)
+\begin{DoxyCompactList}\small\item\em Verify the ADC oversampling shift. \end{DoxyCompactList}\item 
+\+\#define \doxymbox{\hyperlink{group___a_d_c_ex___private___macro__internal___h_a_l__driver_gae30b1e8011ba1590324753789e126264}{IS\+\_\+\+ADC\+\_\+\+TRIGGERED\+\_\+\+OVERSAMPLING\+\_\+\+MODE}}(\+\_\+\+\_\+\+MODE\+\_\+\+\_\+)
+\begin{DoxyCompactList}\small\item\em Verify the ADC oversampling triggered mode. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{stm32g0xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\+\_\+\+Status\+Type\+Def}} {\bfseries HAL\+\_\+\+ADCEx\+\_\+\+Calibration\+\_\+\+Start} (\doxymbox{\hyperlink{struct_a_d_c___handle_type_def}{ADC\+\_\+\+Handle\+Type\+Def}} \texorpdfstring{$\ast$}{*}hadc)
+\item 
+uint32\+\_\+t {\bfseries HAL\+\_\+\+ADCEx\+\_\+\+Calibration\+\_\+\+Get\+Value} (const \doxymbox{\hyperlink{struct_a_d_c___handle_type_def}{ADC\+\_\+\+Handle\+Type\+Def}} \texorpdfstring{$\ast$}{*}hadc)
+\item 
+\doxymbox{\hyperlink{stm32g0xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\+\_\+\+Status\+Type\+Def}} {\bfseries HAL\+\_\+\+ADCEx\+\_\+\+Calibration\+\_\+\+Set\+Value} (\doxymbox{\hyperlink{struct_a_d_c___handle_type_def}{ADC\+\_\+\+Handle\+Type\+Def}} \texorpdfstring{$\ast$}{*}hadc, uint32\+\_\+t Calibration\+Factor)
+\item 
+void {\bfseries HAL\+\_\+\+ADCEx\+\_\+\+Level\+Out\+Of\+Window2\+Callback} (\doxymbox{\hyperlink{struct_a_d_c___handle_type_def}{ADC\+\_\+\+Handle\+Type\+Def}} \texorpdfstring{$\ast$}{*}hadc)
+\item 
+void {\bfseries HAL\+\_\+\+ADCEx\+\_\+\+Level\+Out\+Of\+Window3\+Callback} (\doxymbox{\hyperlink{struct_a_d_c___handle_type_def}{ADC\+\_\+\+Handle\+Type\+Def}} \texorpdfstring{$\ast$}{*}hadc)
+\item 
+void {\bfseries HAL\+\_\+\+ADCEx\+\_\+\+End\+Of\+Sampling\+Callback} (\doxymbox{\hyperlink{struct_a_d_c___handle_type_def}{ADC\+\_\+\+Handle\+Type\+Def}} \texorpdfstring{$\ast$}{*}hadc)
+\item 
+void {\bfseries HAL\+\_\+\+ADCEx\+\_\+\+Channel\+Config\+Ready\+Callback} (\doxymbox{\hyperlink{struct_a_d_c___handle_type_def}{ADC\+\_\+\+Handle\+Type\+Def}} \texorpdfstring{$\ast$}{*}hadc)
+\item 
+\doxymbox{\hyperlink{stm32g0xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\+\_\+\+Status\+Type\+Def}} {\bfseries HAL\+\_\+\+ADCEx\+\_\+\+Disable\+Voltage\+Regulator} (\doxymbox{\hyperlink{struct_a_d_c___handle_type_def}{ADC\+\_\+\+Handle\+Type\+Def}} \texorpdfstring{$\ast$}{*}hadc)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Header file of ADC HAL extended module. 
+
+\begin{DoxyAuthor}{Author}
+MCD Application Team 
+\end{DoxyAuthor}
+\begin{DoxyAttention}{Attention}
+
+\end{DoxyAttention}
+Copyright (c) 2018 STMicroelectronics. All rights reserved.
+
+This software is licensed under terms that can be found in the LICENSE file in the root directory of this software component. If no LICENSE file comes with this software, it is provided AS-\/\+IS. 

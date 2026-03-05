@@ -1,0 +1,210 @@
+\doxysection{Inc/\+actuators/\+led.h File Reference}
+\hypertarget{led_8h}{}\label{led_8h}\index{Inc/actuators/led.h@{Inc/actuators/led.h}}
+
+
+Header file for the LED actuator driver.  
+
+
+{\ttfamily \+\#include $<$stdint.\+h$>$}\newline
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \doxymbox{\hyperlink{structblink__timing__t}{blink\+\_\+timing\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Timing configuration for a specific blink pattern. \end{DoxyCompactList}\item 
+struct \doxymbox{\hyperlink{structled__t}{led\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em LED instance structure (Handle). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{led_8h_a682ec2638985613debd116d30ce095d0}\label{led_8h_a682ec2638985613debd116d30ce095d0} 
+\+\#define {\bfseries LED\+\_\+\+TIME\+\_\+\+ON\+\_\+\+PATTERN\+\_\+\+ON\+\_\+\+MS}~0U
+\item 
+\Hypertarget{led_8h_ac9dc9829842c88bb8cdd1a59c37141df}\label{led_8h_ac9dc9829842c88bb8cdd1a59c37141df} 
+\+\#define {\bfseries LED\+\_\+\+TIME\+\_\+\+ON\+\_\+\+PATTERN\+\_\+\+OFF\+\_\+\+MS}~0U
+\item 
+\Hypertarget{led_8h_a16483b6bff18b69fdcc2bbdff57237c6}\label{led_8h_a16483b6bff18b69fdcc2bbdff57237c6} 
+\+\#define {\bfseries LED\+\_\+\+TIME\+\_\+\+OFF\+\_\+\+PATTERN\+\_\+\+ON\+\_\+\+MS}~0U
+\item 
+\Hypertarget{led_8h_a1e5a53b328ba16cd1a647c778bc8a0b3}\label{led_8h_a1e5a53b328ba16cd1a647c778bc8a0b3} 
+\+\#define {\bfseries LED\+\_\+\+TIME\+\_\+\+OFF\+\_\+\+PATTERN\+\_\+\+OFF\+\_\+\+MS}~0U
+\item 
+\Hypertarget{led_8h_a6945f447c17f6e42a9b0f16a16b99560}\label{led_8h_a6945f447c17f6e42a9b0f16a16b99560} 
+\+\#define {\bfseries LED\+\_\+\+TIME\+\_\+\+FAST\+\_\+\+ON\+\_\+\+MS}~200U
+\item 
+\Hypertarget{led_8h_a50569f86a3d4dddde1fa65c308b8cdfa}\label{led_8h_a50569f86a3d4dddde1fa65c308b8cdfa} 
+\+\#define {\bfseries LED\+\_\+\+TIME\+\_\+\+FAST\+\_\+\+OFF\+\_\+\+MS}~200U
+\item 
+\Hypertarget{led_8h_a22c380120a4e601c95ec2a290e59e8bd}\label{led_8h_a22c380120a4e601c95ec2a290e59e8bd} 
+\+\#define {\bfseries LED\+\_\+\+TIME\+\_\+\+MED\+\_\+\+ON\+\_\+\+MS}~500U
+\item 
+\Hypertarget{led_8h_a1f411017617498743e1a9d176162edb9}\label{led_8h_a1f411017617498743e1a9d176162edb9} 
+\+\#define {\bfseries LED\+\_\+\+TIME\+\_\+\+MED\+\_\+\+OFF\+\_\+\+MS}~500U
+\item 
+\Hypertarget{led_8h_ae908cc288046ee676741fb7d7d2d3420}\label{led_8h_ae908cc288046ee676741fb7d7d2d3420} 
+\+\#define {\bfseries LED\+\_\+\+TIME\+\_\+\+SLOW\+\_\+\+ON\+\_\+\+MS}~1000U
+\item 
+\Hypertarget{led_8h_a987a0dd47a356eb4487c4175ccd730ef}\label{led_8h_a987a0dd47a356eb4487c4175ccd730ef} 
+\+\#define {\bfseries LED\+\_\+\+TIME\+\_\+\+SLOW\+\_\+\+OFF\+\_\+\+MS}~1000U
+\item 
+\Hypertarget{led_8h_ae9298f83ee8fa08e05c51c4f179dfcbf}\label{led_8h_ae9298f83ee8fa08e05c51c4f179dfcbf} 
+\+\#define {\bfseries LED\+\_\+\+TIME\+\_\+\+DEFAULT\+\_\+\+ON\+\_\+\+MS}~300U
+\item 
+\Hypertarget{led_8h_a371f007e25cf1a90063535427f2f9f4d}\label{led_8h_a371f007e25cf1a90063535427f2f9f4d} 
+\+\#define {\bfseries LED\+\_\+\+TIME\+\_\+\+DEFAULT\+\_\+\+OFF\+\_\+\+MS}~4700U
+\item 
+\Hypertarget{led_8h_a476e20e37d9fd425498bcd8a9ccba60d}\label{led_8h_a476e20e37d9fd425498bcd8a9ccba60d} 
+\+\#define {\bfseries LED\+\_\+\+ACTIVE\+\_\+\+POT\+\_\+\+HIGH}~1U
+\item 
+\Hypertarget{led_8h_a4e4a1c501b486edfff1d5dda445d7baf}\label{led_8h_a4e4a1c501b486edfff1d5dda445d7baf} 
+\+\#define {\bfseries LED\+\_\+\+ACTIVE\+\_\+\+POT\+\_\+\+LOW}~0U
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{led_8h_af9865aafe9a4522a2e3d3212ddbc19eb}\label{led_8h_af9865aafe9a4522a2e3d3212ddbc19eb} 
+typedef void(\texorpdfstring{$\ast$}{*} {\bfseries bsp\+\_\+led\+\_\+control}) (uint8\+\_\+t state)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{led_8h_ac9e7c090acc1191c6275f38892aa8877}\label{led_8h_ac9e7c090acc1191c6275f38892aa8877} 
+enum \doxymbox{\hyperlink{led_8h_ac9e7c090acc1191c6275f38892aa8877}{led\+\_\+mode\+\_\+e}} \{ \newline
+{\bfseries LED\+\_\+\+OFF}
+, {\bfseries LED\+\_\+\+ON}
+, {\bfseries LED\+\_\+\+BLINK\+\_\+\+FAST}
+, {\bfseries LED\+\_\+\+BLINK\+\_\+\+MEDIUM}
+, \newline
+{\bfseries LED\+\_\+\+BLINK\+\_\+\+SLOW}
+, {\bfseries LED\+\_\+\+BLINK\+\_\+\+HEARTBEAT}
+ \}
+\begin{DoxyCompactList}\small\item\em Available LED operational modes (blink patterns). \end{DoxyCompactList}\item 
+\Hypertarget{led_8h_a13959449bfb9af9ddd3281a00525fb6d}\label{led_8h_a13959449bfb9af9ddd3281a00525fb6d} 
+enum \doxymbox{\hyperlink{led_8h_a13959449bfb9af9ddd3281a00525fb6d}{led\+\_\+polarity\+\_\+e}} \{ {\bfseries LED\+\_\+\+ACTIVE\+\_\+\+LOW}
+, {\bfseries LED\+\_\+\+ACTIVE\+\_\+\+HIGH}
+ \}
+\begin{DoxyCompactList}\small\item\em Hardware wiring polarity for the LED. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{led_8h_a2c4f0f648094f5c3e793188d849ebcef}{led\+\_\+init}} (\doxymbox{\hyperlink{structled__t}{led\+\_\+t}} \texorpdfstring{$\ast$}{*}handle, bsp\+\_\+led\+\_\+control control\+\_\+fn, \doxymbox{\hyperlink{led_8h_a13959449bfb9af9ddd3281a00525fb6d}{led\+\_\+polarity\+\_\+e}} polarity)
+\begin{DoxyCompactList}\small\item\em Initializes the LED instance and links hardware IO. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{led_8h_a497967085fff01391882263f3e89bd7f}{led\+\_\+on}} (\doxymbox{\hyperlink{structled__t}{led\+\_\+t}} \texorpdfstring{$\ast$}{*}handle)
+\begin{DoxyCompactList}\small\item\em Turns the LED ON continuously. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{led_8h_a82bca75e8782ecc14ccea4d2ba68d059}{led\+\_\+off}} (\doxymbox{\hyperlink{structled__t}{led\+\_\+t}} \texorpdfstring{$\ast$}{*}handle)
+\begin{DoxyCompactList}\small\item\em Turns the LED OFF continuously. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{led_8h_aaa31b3700088d910797fd9cc691d43ea}{led\+\_\+set\+\_\+mode}} (\doxymbox{\hyperlink{structled__t}{led\+\_\+t}} \texorpdfstring{$\ast$}{*}handle, \doxymbox{\hyperlink{led_8h_ac9e7c090acc1191c6275f38892aa8877}{led\+\_\+mode\+\_\+e}} mode)
+\begin{DoxyCompactList}\small\item\em Sets the operational mode (blink pattern) of the LED. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{led_8h_a453a3a7513980cafdd0c12dd53593e09}{led\+\_\+process}} (\doxymbox{\hyperlink{structled__t}{led\+\_\+t}} \texorpdfstring{$\ast$}{*}handle, uint32\+\_\+t current\+\_\+time\+\_\+ms)
+\begin{DoxyCompactList}\small\item\em Processes the non-\/blocking blink logic. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Header file for the LED actuator driver. 
+
+\begin{DoxyAuthor}{Author}
+vkusnuiplov
+\end{DoxyAuthor}
+Contains configuration macros, state definitions, and the public API for controlling LEDs with non-\/blocking blink patterns 
+
+\label{doc-func-members}
+\Hypertarget{led_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{led_8h_a2c4f0f648094f5c3e793188d849ebcef}\index{led.h@{led.h}!led\_init@{led\_init}}
+\index{led\_init@{led\_init}!led.h@{led.h}}
+\doxysubsubsection{\texorpdfstring{led\_init()}{led\_init()}}
+{\footnotesize\ttfamily \label{led_8h_a2c4f0f648094f5c3e793188d849ebcef} 
+void led\+\_\+init (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{structled__t}{led\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{handle}{, }\item[{bsp\+\_\+led\+\_\+control}]{control\+\_\+fn}{, }\item[{\doxymbox{\hyperlink{led_8h_a13959449bfb9af9ddd3281a00525fb6d}{led\+\_\+polarity\+\_\+e}}}]{polarity}{}\end{DoxyParamCaption})}
+
+
+
+Initializes the LED instance and links hardware IO. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em handle} & Pointer to the LED instance \\
+\hline
+{\em control\+\_\+fn} & Hardware IO callback for controlling the physical pin \\
+\hline
+{\em polarity} & Hardware wiring polarity (Active High or Active Low) \\
+\hline
+\end{DoxyParams}
+\Hypertarget{led_8h_a82bca75e8782ecc14ccea4d2ba68d059}\index{led.h@{led.h}!led\_off@{led\_off}}
+\index{led\_off@{led\_off}!led.h@{led.h}}
+\doxysubsubsection{\texorpdfstring{led\_off()}{led\_off()}}
+{\footnotesize\ttfamily \label{led_8h_a82bca75e8782ecc14ccea4d2ba68d059} 
+void led\+\_\+off (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{structled__t}{led\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{handle}{}\end{DoxyParamCaption})}
+
+
+
+Turns the LED OFF continuously. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em handle} & Pointer to the LED instance \\
+\hline
+\end{DoxyParams}
+\Hypertarget{led_8h_a497967085fff01391882263f3e89bd7f}\index{led.h@{led.h}!led\_on@{led\_on}}
+\index{led\_on@{led\_on}!led.h@{led.h}}
+\doxysubsubsection{\texorpdfstring{led\_on()}{led\_on()}}
+{\footnotesize\ttfamily \label{led_8h_a497967085fff01391882263f3e89bd7f} 
+void led\+\_\+on (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{structled__t}{led\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{handle}{}\end{DoxyParamCaption})}
+
+
+
+Turns the LED ON continuously. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em handle} & Pointer to the LED instance \\
+\hline
+\end{DoxyParams}
+\Hypertarget{led_8h_a453a3a7513980cafdd0c12dd53593e09}\index{led.h@{led.h}!led\_process@{led\_process}}
+\index{led\_process@{led\_process}!led.h@{led.h}}
+\doxysubsubsection{\texorpdfstring{led\_process()}{led\_process()}}
+{\footnotesize\ttfamily \label{led_8h_a453a3a7513980cafdd0c12dd53593e09} 
+void led\+\_\+process (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{structled__t}{led\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{handle}{, }\item[{uint32\+\_\+t}]{current\+\_\+time\+\_\+ms}{}\end{DoxyParamCaption})}
+
+
+
+Processes the non-\/blocking blink logic. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em handle} & Pointer to the LED instance \\
+\hline
+{\em current\+\_\+time\+\_\+ms} & Current system time in milliseconds\\
+\hline
+\end{DoxyParams}
+Processes the non-\/blocking blink logic.
+
+\begin{DoxyNote}{Note}
+Must be called continuously in the main application loop 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em handle} & Pointer to the LED instance \\
+\hline
+{\em current\+\_\+time\+\_\+ms} & Current system time in milliseconds \\
+\hline
+\end{DoxyParams}
+\Hypertarget{led_8h_aaa31b3700088d910797fd9cc691d43ea}\index{led.h@{led.h}!led\_set\_mode@{led\_set\_mode}}
+\index{led\_set\_mode@{led\_set\_mode}!led.h@{led.h}}
+\doxysubsubsection{\texorpdfstring{led\_set\_mode()}{led\_set\_mode()}}
+{\footnotesize\ttfamily \label{led_8h_aaa31b3700088d910797fd9cc691d43ea} 
+void led\+\_\+set\+\_\+mode (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{structled__t}{led\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{handle}{, }\item[{\doxymbox{\hyperlink{led_8h_ac9e7c090acc1191c6275f38892aa8877}{led\+\_\+mode\+\_\+e}}}]{mode}{}\end{DoxyParamCaption})}
+
+
+
+Sets the operational mode (blink pattern) of the LED. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em handle} & Pointer to the LED instance \\
+\hline
+{\em mode} & Desired LED mode\\
+\hline
+{\em handle} & Pointer to the LED instance \\
+\hline
+{\em mode} & Desired LED mode (e.\+g., LED\+\_\+\+BLINK\+\_\+\+FAST, LED\+\_\+\+ON) \\
+\hline
+\end{DoxyParams}

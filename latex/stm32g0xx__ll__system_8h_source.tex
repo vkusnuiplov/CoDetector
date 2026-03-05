@@ -1,0 +1,1010 @@
+\doxysection{stm32g0xx\+\_\+ll\+\_\+system.\+h}
+\hypertarget{stm32g0xx__ll__system_8h_source}{}\label{stm32g0xx__ll__system_8h_source}\index{Drivers/STM32G0xx\_HAL\_Driver/Inc/stm32g0xx\_ll\_system.h@{Drivers/STM32G0xx\_HAL\_Driver/Inc/stm32g0xx\_ll\_system.h}}
+\doxymbox{\hyperlink{stm32g0xx__ll__system_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{comment}{/*\ Define\ to\ prevent\ recursive\ inclusion\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#ifndef\ STM32G0xx\_LL\_SYSTEM\_H}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#define\ STM32G0xx\_LL\_SYSTEM\_H}}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00039\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{comment}{/*\ Includes\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{stm32g0xx_8h}{stm32g0xx.h}}"{}}}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#if\ defined\ (FLASH)\ ||\ defined\ (SYSCFG)\ ||\ defined\ (DBG)}}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \textcolor{comment}{/*\ Private\ types\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{00056\ \textcolor{comment}{/*\ Private\ variables\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \textcolor{comment}{/*\ Private\ constants\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \textcolor{comment}{/*\ Private\ macros\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \textcolor{comment}{/*\ Exported\ types\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{00070\ \textcolor{comment}{/*\ Exported\ constants\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00078\ \textcolor{preprocessor}{\#define\ LL\_SYSCFG\_REMAP\_FLASH\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000000U\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00079\ \textcolor{preprocessor}{\#define\ LL\_SYSCFG\_REMAP\_SYSTEMFLASH\ \ \ \ \ \ \ \ \ SYSCFG\_CFGR1\_MEM\_MODE\_0\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00080\ \textcolor{preprocessor}{\#define\ LL\_SYSCFG\_REMAP\_SRAM\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (SYSCFG\_CFGR1\_MEM\_MODE\_1\ |\ SYSCFG\_CFGR1\_MEM\_MODE\_0)\ \ \ }\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00088\ \textcolor{preprocessor}{\#define\ LL\_SYSCFG\_PIN\_RMP\_PA11\ \ \ \ \ \ \ \ \ \ \ \ \ \ SYSCFG\_CFGR1\_PA11\_RMP\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00089\ \textcolor{preprocessor}{\#define\ LL\_SYSCFG\_PIN\_RMP\_PA12\ \ \ \ \ \ \ \ \ \ \ \ \ \ SYSCFG\_CFGR1\_PA12\_RMP\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \textcolor{preprocessor}{\#if\ defined(SYSCFG\_CFGR1\_IR\_MOD)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00099\ \textcolor{preprocessor}{\#define\ LL\_SYSCFG\_IR\_MOD\_TIM16\ \ \ \ \ \ \ (SYSCFG\_CFGR1\_IR\_MOD\_0\ \&\ SYSCFG\_CFGR1\_IR\_MOD\_1)\ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00100\ \textcolor{preprocessor}{\#define\ LL\_SYSCFG\_IR\_MOD\_USART1\ \ \ \ \ \ (SYSCFG\_CFGR1\_IR\_MOD\_0)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00101\ \textcolor{preprocessor}{\#if\ defined(USART4)}}
+\DoxyCodeLine{00102\ \textcolor{preprocessor}{\#define\ LL\_SYSCFG\_IR\_MOD\_USART4\ \ \ \ \ \ (SYSCFG\_CFGR1\_IR\_MOD\_1)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00103\ \textcolor{preprocessor}{\#else\ \ }}
+\DoxyCodeLine{00104\ \textcolor{preprocessor}{\#define\ LL\_SYSCFG\_IR\_MOD\_USART2\ \ \ \ \ \ (SYSCFG\_CFGR1\_IR\_MOD\_1)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00105\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ USART4\ */}\textcolor{preprocessor}{}\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00112\ \textcolor{preprocessor}{\#define\ LL\_SYSCFG\_IR\_POL\_NOT\_INVERTED\ \ 0x00000000U\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00113\ \textcolor{preprocessor}{\#define\ LL\_SYSCFG\_IR\_POL\_INVERTED\ \ \ \ \ (SYSCFG\_CFGR1\_IR\_POL)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00117\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SYSCFG\_CFGR1\_IR\_MOD\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ \textcolor{preprocessor}{\#if\ defined(SYSCFG\_CFGR1\_BOOSTEN)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00123\ \textcolor{preprocessor}{\#define\ LL\_SYSCFG\_CFGR1\_BOOSTEN\ \ \ \ \ \ \ SYSCFG\_CFGR1\_BOOSTEN\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00127\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SYSCFG\_CFGR1\_BOOSTEN\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00129\ \textcolor{preprocessor}{\#if\ defined(SYSCFG\_CFGR1\_UCPD1\_STROBE)\ ||\ \ defined(SYSCFG\_CFGR1\_UCPD2\_STROBE)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00133\ \textcolor{preprocessor}{\#define\ LL\_SYSCFG\_UCPD1\_STROBE\ \ \ \ \ \ \ SYSCFG\_CFGR1\_UCPD1\_STROBE\ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00134\ \textcolor{preprocessor}{\#define\ LL\_SYSCFG\_UCPD2\_STROBE\ \ \ \ \ \ \ SYSCFG\_CFGR1\_UCPD2\_STROBE\ \ \ \ \ \ \ }\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00138\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SYSCFG\_CFGR1\_UCPD1\_STROBE)\ ||\ SYSCFG\_CFGR1\_UCPD2\_STROBE\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00139\ }
+\DoxyCodeLine{00143\ \textcolor{preprocessor}{\#define\ LL\_SYSCFG\_I2C\_FASTMODEPLUS\_PB6\ \ \ \ \ SYSCFG\_CFGR1\_I2C\_PB6\_FMP\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00144\ \textcolor{preprocessor}{\#define\ LL\_SYSCFG\_I2C\_FASTMODEPLUS\_PB7\ \ \ \ \ SYSCFG\_CFGR1\_I2C\_PB7\_FMP\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00145\ \textcolor{preprocessor}{\#define\ LL\_SYSCFG\_I2C\_FASTMODEPLUS\_PB8\ \ \ \ \ SYSCFG\_CFGR1\_I2C\_PB8\_FMP\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00146\ \textcolor{preprocessor}{\#define\ LL\_SYSCFG\_I2C\_FASTMODEPLUS\_PB9\ \ \ \ \ SYSCFG\_CFGR1\_I2C\_PB9\_FMP\ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00147\ \textcolor{preprocessor}{\#if\ defined(SYSCFG\_CFGR1\_I2C1\_FMP)}}
+\DoxyCodeLine{00148\ \textcolor{preprocessor}{\#define\ LL\_SYSCFG\_I2C\_FASTMODEPLUS\_I2C1\ \ \ \ SYSCFG\_CFGR1\_I2C1\_FMP\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00149\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*SYSCFG\_CFGR1\_I2C1\_FMP*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00150\ \textcolor{preprocessor}{\#if\ defined(SYSCFG\_CFGR1\_I2C2\_FMP)}}
+\DoxyCodeLine{00151\ \textcolor{preprocessor}{\#define\ LL\_SYSCFG\_I2C\_FASTMODEPLUS\_I2C2\ \ \ \ SYSCFG\_CFGR1\_I2C2\_FMP\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00152\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*SYSCFG\_CFGR1\_I2C2\_FMP*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00153\ \textcolor{preprocessor}{\#if\ defined(SYSCFG\_CFGR1\_I2C\_PA9\_FMP)}}
+\DoxyCodeLine{00154\ \textcolor{preprocessor}{\#define\ LL\_SYSCFG\_I2C\_FASTMODEPLUS\_PA9\ \ \ \ \ SYSCFG\_CFGR1\_I2C\_PA9\_FMP\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00155\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*SYSCFG\_CFGR1\_I2C\_PA9\_FMP*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00156\ \textcolor{preprocessor}{\#if\ defined(SYSCFG\_CFGR1\_I2C\_PA10\_FMP)}}
+\DoxyCodeLine{00157\ \textcolor{preprocessor}{\#define\ LL\_SYSCFG\_I2C\_FASTMODEPLUS\_PA10\ \ \ \ SYSCFG\_CFGR1\_I2C\_PA10\_FMP\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00158\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*SYSCFG\_CFGR1\_I2C\_PA10\_FMP*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00159\ \textcolor{preprocessor}{\#if\ defined(STM32G0C1xx)\ ||\ defined(STM32G0B1xx)\ ||\ defined(STM32G0B0xx)}}
+\DoxyCodeLine{00160\ \textcolor{preprocessor}{\#if\ defined(SYSCFG\_CFGR1\_I2C3\_FMP)}}
+\DoxyCodeLine{00161\ \textcolor{preprocessor}{\#define\ LL\_SYSCFG\_I2C\_FASTMODEPLUS\_I2C3\ \ \ \ SYSCFG\_CFGR1\_I2C3\_FMP\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00162\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*SYSCFG\_CFGR1\_I2C3\_FMP*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00163\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ STM32G0C1xx\ ||\ STM32G0B1xx\ ||\ STM32G0B0xx\ */}\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00167\ }
+\DoxyCodeLine{00171\ \textcolor{preprocessor}{\#define\ LL\_SYSCFG\_TIMBREAK\_ECC\ \ \ \ \ \ \ \ \ \ \ \ \ SYSCFG\_CFGR2\_ECCL\ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00173\ \textcolor{preprocessor}{\#if\ defined\ (PWR\_PVD\_SUPPORT)}}
+\DoxyCodeLine{00174\ \textcolor{preprocessor}{\#define\ LL\_SYSCFG\_TIMBREAK\_PVD\ \ \ \ \ \ \ \ \ \ \ \ \ SYSCFG\_CFGR2\_PVDL\ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00177\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ PWR\_PVD\_SUPPORT\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00178\ \textcolor{preprocessor}{\#define\ LL\_SYSCFG\_TIMBREAK\_SRAM\_PARITY\ \ \ \ \ SYSCFG\_CFGR2\_SPL\ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00180\ \textcolor{preprocessor}{\#define\ LL\_SYSCFG\_TIMBREAK\_LOCKUP\ \ \ \ \ \ \ \ \ \ SYSCFG\_CFGR2\_CLL\ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00185\ }
+\DoxyCodeLine{00186\ \textcolor{preprocessor}{\#if\ defined(SYSCFG\_CDEN\_SUPPORT)}\textcolor{preprocessor}{\ \ }}
+\DoxyCodeLine{00190\ \textcolor{preprocessor}{\#define\ LL\_SYSCFG\_CFGR2\_PA1\_CDEN\ \ \ \ \ \ \ \ \ SYSCFG\_CFGR2\_PA1\_CDEN\ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00191\ \textcolor{preprocessor}{\#define\ LL\_SYSCFG\_CFGR2\_PA3\_CDEN\ \ \ \ \ \ \ \ \ SYSCFG\_CFGR2\_PA3\_CDEN\ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00192\ \textcolor{preprocessor}{\#define\ LL\_SYSCFG\_CFGR2\_PA5\_CDEN\ \ \ \ \ \ \ \ \ SYSCFG\_CFGR2\_PA5\_CDEN\ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00193\ \textcolor{preprocessor}{\#define\ LL\_SYSCFG\_CFGR2\_PA6\_CDEN\ \ \ \ \ \ \ \ \ SYSCFG\_CFGR2\_PA6\_CDEN\ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00194\ \textcolor{preprocessor}{\#define\ LL\_SYSCFG\_CFGR2\_PA13\_CDEN\ \ \ \ \ \ \ \ SYSCFG\_CFGR2\_PA13\_CDEN\ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00195\ \textcolor{preprocessor}{\#define\ LL\_SYSCFG\_CFGR2\_PB0\_CDEN\ \ \ \ \ \ \ \ \ SYSCFG\_CFGR2\_PB0\_CDEN\ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00196\ \textcolor{preprocessor}{\#define\ LL\_SYSCFG\_CFGR2\_PB1\_CDEN\ \ \ \ \ \ \ \ \ SYSCFG\_CFGR2\_PB1\_CDEN\ \ \ \ \ }\textcolor{preprocessor}{\ \ }}
+\DoxyCodeLine{00197\ \textcolor{preprocessor}{\#define\ LL\_SYSCFG\_CFGR2\_PB2\_CDEN\ \ \ \ \ \ \ \ \ SYSCFG\_CFGR2\_PB2\_CDEN\ \ \ \ \ }\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00201\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SYSCFG\_CDEN\_SUPPORT\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00202\ }
+\DoxyCodeLine{00206\ \textcolor{preprocessor}{\#if\ defined(DBG\_APB\_FZ1\_DBG\_TIM2\_STOP)}}
+\DoxyCodeLine{00207\ \textcolor{preprocessor}{\#define\ LL\_DBGMCU\_APB1\_GRP1\_TIM2\_STOP\ \ \ \ \ \ DBG\_APB\_FZ1\_DBG\_TIM2\_STOP\ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00208\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*DBG\_APB\_FZ1\_DBG\_TIM2\_STOP*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00209\ \textcolor{preprocessor}{\#define\ LL\_DBGMCU\_APB1\_GRP1\_TIM3\_STOP\ \ \ \ \ \ DBG\_APB\_FZ1\_DBG\_TIM3\_STOP\ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00210\ \textcolor{preprocessor}{\#if\ defined(STM32G0C1xx)\ ||\ defined(STM32G0B1xx)\ ||\ defined(STM32G0B0xx)}}
+\DoxyCodeLine{00211\ \textcolor{preprocessor}{\#define\ LL\_DBGMCU\_APB1\_GRP1\_TIM4\_STOP\ \ \ \ \ \ DBG\_APB\_FZ1\_DBG\_TIM4\_STOP\ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00212\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ STM32G0C1xx\ ||\ STM32G0B1xx\ ||\ STM32G0B0xx\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00213\ \textcolor{preprocessor}{\#if\ defined(DBG\_APB\_FZ1\_DBG\_TIM6\_STOP)}}
+\DoxyCodeLine{00214\ \textcolor{preprocessor}{\#define\ LL\_DBGMCU\_APB1\_GRP1\_TIM6\_STOP\ \ \ \ \ \ DBG\_APB\_FZ1\_DBG\_TIM6\_STOP\ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00215\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*DBG\_APB\_FZ1\_DBG\_TIM6\_STOP*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00216\ \textcolor{preprocessor}{\#if\ defined(DBG\_APB\_FZ1\_DBG\_TIM7\_STOP)}}
+\DoxyCodeLine{00217\ \textcolor{preprocessor}{\#define\ LL\_DBGMCU\_APB1\_GRP1\_TIM7\_STOP\ \ \ \ \ \ DBG\_APB\_FZ1\_DBG\_TIM7\_STOP\ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00218\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*DBG\_APB\_FZ1\_DBG\_TIM7\_STOP*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00219\ \textcolor{preprocessor}{\#define\ LL\_DBGMCU\_APB1\_GRP1\_RTC\_STOP\ \ \ \ \ \ \ DBG\_APB\_FZ1\_DBG\_RTC\_STOP\ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00220\ \textcolor{preprocessor}{\#define\ LL\_DBGMCU\_APB1\_GRP1\_WWDG\_STOP\ \ \ \ \ \ DBG\_APB\_FZ1\_DBG\_WWDG\_STOP\ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00221\ \textcolor{preprocessor}{\#define\ LL\_DBGMCU\_APB1\_GRP1\_IWDG\_STOP\ \ \ \ \ \ DBG\_APB\_FZ1\_DBG\_IWDG\_STOP\ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00222\ \textcolor{preprocessor}{\#define\ LL\_DBGMCU\_APB1\_GRP1\_I2C1\_STOP\ \ \ \ \ \ DBG\_APB\_FZ1\_DBG\_I2C1\_SMBUS\_TIMEOUT\_STOP\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00223\ \textcolor{preprocessor}{\#if\ defined(STM32G0C1xx)\ ||\ defined(STM32G0B1xx)\ ||\ defined(STM32G0B0xx)}}
+\DoxyCodeLine{00224\ \textcolor{preprocessor}{\#define\ LL\_DBGMCU\_APB1\_GRP1\_I2C2\_STOP\ \ \ \ \ \ DBG\_APB\_FZ1\_DBG\_I2C2\_SMBUS\_TIMEOUT\_STOP\ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00225\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ STM32G0C1xx\ ||\ STM32G0B1xx\ ||\ STM32G0B0xx\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00226\ \textcolor{preprocessor}{\#if\ defined(DBG\_APB\_FZ1\_DBG\_LPTIM2\_STOP)}}
+\DoxyCodeLine{00227\ \textcolor{preprocessor}{\#define\ LL\_DBGMCU\_APB1\_GRP1\_LPTIM2\_STOP\ \ \ \ DBG\_APB\_FZ1\_DBG\_LPTIM2\_STOP\ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00228\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ DBG\_APB\_FZ1\_DBG\_LPTIM2\_STOP\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00229\ \textcolor{preprocessor}{\#if\ defined(DBG\_APB\_FZ1\_DBG\_LPTIM1\_STOP)}}
+\DoxyCodeLine{00230\ \textcolor{preprocessor}{\#define\ LL\_DBGMCU\_APB1\_GRP1\_LPTIM1\_STOP\ \ \ \ DBG\_APB\_FZ1\_DBG\_LPTIM1\_STOP\ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00231\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ DBG\_APB\_FZ1\_DBG\_LPTIM1\_STOP\ */}\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00235\ }
+\DoxyCodeLine{00239\ \textcolor{preprocessor}{\#define\ LL\_DBGMCU\_APB2\_GRP1\_TIM1\_STOP\ \ \ \ \ \ DBG\_APB\_FZ2\_DBG\_TIM1\_STOP\ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00240\ \textcolor{preprocessor}{\#if\ defined(DBG\_APB\_FZ2\_DBG\_TIM14\_STOP)}}
+\DoxyCodeLine{00241\ \textcolor{preprocessor}{\#define\ LL\_DBGMCU\_APB2\_GRP1\_TIM14\_STOP\ \ \ \ \ DBG\_APB\_FZ2\_DBG\_TIM14\_STOP\ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00242\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ DBG\_APB\_FZ2\_DBG\_TIM14\_STOP\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00243\ \textcolor{preprocessor}{\#if\ defined(DBG\_APB\_FZ2\_DBG\_TIM15\_STOP)}}
+\DoxyCodeLine{00244\ \textcolor{preprocessor}{\#define\ LL\_DBGMCU\_APB2\_GRP1\_TIM15\_STOP\ \ \ \ \ DBG\_APB\_FZ2\_DBG\_TIM15\_STOP\ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00245\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*DBG\_APB\_FZ2\_DBG\_TIM15\_STOP*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00246\ \textcolor{preprocessor}{\#define\ LL\_DBGMCU\_APB2\_GRP1\_TIM16\_STOP\ \ \ \ \ DBG\_APB\_FZ2\_DBG\_TIM16\_STOP\ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00247\ \textcolor{preprocessor}{\#define\ LL\_DBGMCU\_APB2\_GRP1\_TIM17\_STOP\ \ \ \ \ DBG\_APB\_FZ2\_DBG\_TIM17\_STOP\ \ \ \ \ \ \ }\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00251\ }
+\DoxyCodeLine{00252\ }
+\DoxyCodeLine{00253\ \textcolor{preprocessor}{\#if\ defined(VREFBUF)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00257\ \textcolor{preprocessor}{\#define\ LL\_VREFBUF\_VOLTAGE\_SCALE0\ \ \ \ \ \ \ \ \ \ 0x00000000U\ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00258\ \textcolor{preprocessor}{\#define\ LL\_VREFBUF\_VOLTAGE\_SCALE1\ \ \ \ \ \ \ \ \ \ VREFBUF\_CSR\_VRS\ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00262\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ VREFBUF\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00263\ }
+\DoxyCodeLine{00267\ \textcolor{preprocessor}{\#define\ LL\_FLASH\_LATENCY\_0\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000000U\ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00268\ \textcolor{preprocessor}{\#define\ LL\_FLASH\_LATENCY\_1\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FLASH\_ACR\_LATENCY\_0\ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00269\ \textcolor{preprocessor}{\#define\ LL\_FLASH\_LATENCY\_2\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ FLASH\_ACR\_LATENCY\_1\ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00270\ \textcolor{preprocessor}{\#define\ LL\_FLASH\_LATENCY\_3\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (FLASH\_ACR\_LATENCY\_1\ |\ FLASH\_ACR\_LATENCY\_0)\ \ \ \ \ }\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00274\ }
+\DoxyCodeLine{00278\ }
+\DoxyCodeLine{00279\ \textcolor{comment}{/*\ Exported\ macro\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{00280\ }
+\DoxyCodeLine{00281\ \textcolor{comment}{/*\ Exported\ functions\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{00285\ }
+\DoxyCodeLine{00289\ }
+\DoxyCodeLine{00299\ \_\_STATIC\_INLINE\ \textcolor{keywordtype}{void}\ LL\_SYSCFG\_SetRemapMemory(uint32\_t\ Memory)}
+\DoxyCodeLine{00300\ \{}
+\DoxyCodeLine{00301\ \ \ MODIFY\_REG(SYSCFG-\/>CFGR1,\ \doxymbox{\hyperlink{group___peripheral___registers___bits___definition_gae844133af99402c342767b0406cb874d}{SYSCFG\_CFGR1\_MEM\_MODE}},\ Memory);}
+\DoxyCodeLine{00302\ \}}
+\DoxyCodeLine{00303\ }
+\DoxyCodeLine{00312\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_SYSCFG\_GetRemapMemory(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{00313\ \{}
+\DoxyCodeLine{00314\ \ \ \textcolor{keywordflow}{return}\ (uint32\_t)(READ\_BIT(SYSCFG-\/>CFGR1,\ \doxymbox{\hyperlink{group___peripheral___registers___bits___definition_gae844133af99402c342767b0406cb874d}{SYSCFG\_CFGR1\_MEM\_MODE}}));}
+\DoxyCodeLine{00315\ \}}
+\DoxyCodeLine{00316\ }
+\DoxyCodeLine{00326\ \_\_STATIC\_INLINE\ \textcolor{keywordtype}{void}\ LL\_SYSCFG\_EnablePinRemap(uint32\_t\ PinRemap)}
+\DoxyCodeLine{00327\ \{}
+\DoxyCodeLine{00328\ \ \ SET\_BIT(SYSCFG-\/>CFGR1,\ PinRemap);}
+\DoxyCodeLine{00329\ \}}
+\DoxyCodeLine{00330\ }
+\DoxyCodeLine{00340\ \_\_STATIC\_INLINE\ \textcolor{keywordtype}{void}\ LL\_SYSCFG\_DisablePinRemap(uint32\_t\ PinRemap)}
+\DoxyCodeLine{00341\ \{}
+\DoxyCodeLine{00342\ \ \ CLEAR\_BIT(SYSCFG-\/>CFGR1,\ PinRemap);}
+\DoxyCodeLine{00343\ \}}
+\DoxyCodeLine{00344\ }
+\DoxyCodeLine{00345\ \textcolor{preprocessor}{\#if\ defined(SYSCFG\_CFGR1\_IR\_MOD)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00355\ \_\_STATIC\_INLINE\ \textcolor{keywordtype}{void}\ LL\_SYSCFG\_SetIRModEnvelopeSignal(uint32\_t\ Source)}
+\DoxyCodeLine{00356\ \{}
+\DoxyCodeLine{00357\ \ \ MODIFY\_REG(SYSCFG-\/>CFGR1,\ \doxymbox{\hyperlink{group___peripheral___registers___bits___definition_gaf60f9d9a19609cd9f8720a0b07335045}{SYSCFG\_CFGR1\_IR\_MOD}},\ Source);}
+\DoxyCodeLine{00358\ \}}
+\DoxyCodeLine{00359\ }
+\DoxyCodeLine{00368\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_SYSCFG\_GetIRModEnvelopeSignal(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{00369\ \{}
+\DoxyCodeLine{00370\ \ \ \textcolor{keywordflow}{return}\ (uint32\_t)(READ\_BIT(SYSCFG-\/>CFGR1,\ \doxymbox{\hyperlink{group___peripheral___registers___bits___definition_gaf60f9d9a19609cd9f8720a0b07335045}{SYSCFG\_CFGR1\_IR\_MOD}}));}
+\DoxyCodeLine{00371\ \}}
+\DoxyCodeLine{00372\ }
+\DoxyCodeLine{00381\ \_\_STATIC\_INLINE\ \textcolor{keywordtype}{void}\ LL\_SYSCFG\_SetIRPolarity(uint32\_t\ Polarity)}
+\DoxyCodeLine{00382\ \{}
+\DoxyCodeLine{00383\ \ \ MODIFY\_REG(SYSCFG-\/>CFGR1,\ \doxymbox{\hyperlink{group___peripheral___registers___bits___definition_ga5a7177e17b6fc0241514b6667d318fe9}{SYSCFG\_CFGR1\_IR\_POL}},\ Polarity);}
+\DoxyCodeLine{00384\ \}}
+\DoxyCodeLine{00385\ }
+\DoxyCodeLine{00393\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_SYSCFG\_GetIRPolarity(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{00394\ \{}
+\DoxyCodeLine{00395\ \ \ \textcolor{keywordflow}{return}\ (uint32\_t)(READ\_BIT(SYSCFG-\/>CFGR1,\ \doxymbox{\hyperlink{group___peripheral___registers___bits___definition_ga5a7177e17b6fc0241514b6667d318fe9}{SYSCFG\_CFGR1\_IR\_POL}}));}
+\DoxyCodeLine{00396\ \}}
+\DoxyCodeLine{00397\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SYSCFG\_CFGR1\_IR\_MOD\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00398\ }
+\DoxyCodeLine{00399\ \textcolor{preprocessor}{\#if\ defined(SYSCFG\_CFGR1\_BOOSTEN)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00414\ \_\_STATIC\_INLINE\ \textcolor{keywordtype}{void}\ LL\_SYSCFG\_EnableAnalogBooster(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{00415\ \{}
+\DoxyCodeLine{00416\ \ \ SET\_BIT(SYSCFG-\/>CFGR1,\ \doxymbox{\hyperlink{group___peripheral___registers___bits___definition_ga948471b86a4c7bf56000670b10b203ab}{SYSCFG\_CFGR1\_BOOSTEN}});}
+\DoxyCodeLine{00417\ \}}
+\DoxyCodeLine{00418\ }
+\DoxyCodeLine{00433\ \_\_STATIC\_INLINE\ \textcolor{keywordtype}{void}\ LL\_SYSCFG\_DisableAnalogBooster(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{00434\ \{}
+\DoxyCodeLine{00435\ \ \ CLEAR\_BIT(SYSCFG-\/>CFGR1,\ \doxymbox{\hyperlink{group___peripheral___registers___bits___definition_ga948471b86a4c7bf56000670b10b203ab}{SYSCFG\_CFGR1\_BOOSTEN}});}
+\DoxyCodeLine{00436\ \}}
+\DoxyCodeLine{00437\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SYSCFG\_CFGR1\_BOOSTEN\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00438\ }
+\DoxyCodeLine{00464\ \_\_STATIC\_INLINE\ \textcolor{keywordtype}{void}\ LL\_SYSCFG\_EnableFastModePlus(uint32\_t\ ConfigFastModePlus)}
+\DoxyCodeLine{00465\ \{}
+\DoxyCodeLine{00466\ \ \ SET\_BIT(SYSCFG-\/>CFGR1,\ ConfigFastModePlus);}
+\DoxyCodeLine{00467\ \}}
+\DoxyCodeLine{00468\ }
+\DoxyCodeLine{00494\ \_\_STATIC\_INLINE\ \textcolor{keywordtype}{void}\ LL\_SYSCFG\_DisableFastModePlus(uint32\_t\ ConfigFastModePlus)}
+\DoxyCodeLine{00495\ \{}
+\DoxyCodeLine{00496\ \ \ CLEAR\_BIT(SYSCFG-\/>CFGR1,\ ConfigFastModePlus);}
+\DoxyCodeLine{00497\ \}}
+\DoxyCodeLine{00498\ }
+\DoxyCodeLine{00499\ \textcolor{preprocessor}{\#if\ defined(SYSCFG\_CFGR1\_UCPD1\_STROBE)\ ||\ defined(SYSCFG\_CFGR1\_UCPD2\_STROBE)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00510\ \_\_STATIC\_INLINE\ \textcolor{keywordtype}{void}\ LL\_SYSCFG\_DisableDBATT(uint32\_t\ ConfigDeadBattery)}
+\DoxyCodeLine{00511\ \{}
+\DoxyCodeLine{00512\ \ \ SET\_BIT(SYSCFG-\/>CFGR1,\ ConfigDeadBattery);}
+\DoxyCodeLine{00513\ \}}
+\DoxyCodeLine{00514\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SYSCFG\_CFGR1\_UCPD1\_STROBE\ ||\ SYSCFG\_CFGR1\_UCPD2\_STROBE\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00515\ }
+\DoxyCodeLine{00516\ \textcolor{preprocessor}{\#if\ defined(SYSCFG\_ITLINE0\_SR\_EWDG)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00522\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_SYSCFG\_IsActiveFlag\_WWDG(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{00523\ \{}
+\DoxyCodeLine{00524\ \ \ \textcolor{keywordflow}{return}\ ((READ\_BIT(SYSCFG-\/>IT\_LINE\_SR[0],\ \doxymbox{\hyperlink{group___peripheral___registers___bits___definition_ga223647ca8a84874004d06190ae5055a0}{SYSCFG\_ITLINE0\_SR\_EWDG}})\ ==\ (\doxymbox{\hyperlink{group___peripheral___registers___bits___definition_ga223647ca8a84874004d06190ae5055a0}{SYSCFG\_ITLINE0\_SR\_EWDG}}))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{00525\ \}}
+\DoxyCodeLine{00526\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SYSCFG\_ITLINE0\_SR\_EWDG\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00527\ }
+\DoxyCodeLine{00528\ \textcolor{preprocessor}{\#if\ defined\ (PWR\_PVD\_SUPPORT)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00534\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_SYSCFG\_IsActiveFlag\_PVDOUT(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{00535\ \{}
+\DoxyCodeLine{00536\ \ \ \textcolor{keywordflow}{return}\ ((READ\_BIT(SYSCFG-\/>IT\_LINE\_SR[1],\ SYSCFG\_ITLINE1\_SR\_PVDOUT)\ ==\ (SYSCFG\_ITLINE1\_SR\_PVDOUT))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{00537\ \}}
+\DoxyCodeLine{00538\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ PWR\_PVD\_SUPPORT\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00539\ }
+\DoxyCodeLine{00540\ \textcolor{preprocessor}{\#if\ defined\ (PWR\_PVM\_SUPPORT)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00546\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_SYSCFG\_IsActiveFlag\_PVMOUT(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{00547\ \{}
+\DoxyCodeLine{00548\ \ \ \textcolor{keywordflow}{return}\ ((READ\_BIT(SYSCFG-\/>IT\_LINE\_SR[1],\ SYSCFG\_ITLINE1\_SR\_PVMOUT)\ ==\ (SYSCFG\_ITLINE1\_SR\_PVMOUT))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{00549\ \}}
+\DoxyCodeLine{00550\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ PWR\_PVM\_SUPPORT\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00551\ }
+\DoxyCodeLine{00552\ \textcolor{preprocessor}{\#if\ defined(SYSCFG\_ITLINE2\_SR\_RTC)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00558\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_SYSCFG\_IsActiveFlag\_RTC\_WAKEUP(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{00559\ \{}
+\DoxyCodeLine{00560\ \ \ \textcolor{keywordflow}{return}\ ((READ\_BIT(SYSCFG-\/>IT\_LINE\_SR[2],\ \doxymbox{\hyperlink{group___peripheral___registers___bits___definition_ga28066b1843d51b8239a29dadda5fcae9}{SYSCFG\_ITLINE2\_SR\_RTC}})\ ==\ (\doxymbox{\hyperlink{group___peripheral___registers___bits___definition_ga28066b1843d51b8239a29dadda5fcae9}{SYSCFG\_ITLINE2\_SR\_RTC}}))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{00561\ \}}
+\DoxyCodeLine{00562\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SYSCFG\_ITLINE2\_SR\_RTC\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00563\ }
+\DoxyCodeLine{00564\ \textcolor{preprocessor}{\#if\ defined(SYSCFG\_ITLINE2\_SR\_TAMPER)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00570\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_SYSCFG\_IsActiveFlag\_TAMPER(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{00571\ \{}
+\DoxyCodeLine{00572\ \ \ \textcolor{keywordflow}{return}\ ((READ\_BIT(SYSCFG-\/>IT\_LINE\_SR[2],\ \doxymbox{\hyperlink{group___peripheral___registers___bits___definition_ga0337a756d4fc45703a75a92db6eaa5a8}{SYSCFG\_ITLINE2\_SR\_TAMPER}})\ ==\ (\doxymbox{\hyperlink{group___peripheral___registers___bits___definition_ga0337a756d4fc45703a75a92db6eaa5a8}{SYSCFG\_ITLINE2\_SR\_TAMPER}}))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{00573\ \}}
+\DoxyCodeLine{00574\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SYSCFG\_ITLINE2\_SR\_TAMPER\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00575\ }
+\DoxyCodeLine{00576\ \textcolor{preprocessor}{\#if\ defined(SYSCFG\_ITLINE3\_SR\_FLASH\_ITF)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00582\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_SYSCFG\_IsActiveFlag\_FLASH\_ITF(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{00583\ \{}
+\DoxyCodeLine{00584\ \ \ \textcolor{keywordflow}{return}\ ((READ\_BIT(SYSCFG-\/>IT\_LINE\_SR[3],\ \doxymbox{\hyperlink{group___peripheral___registers___bits___definition_ga330f14c7905da944f8cdf4c10ff60665}{SYSCFG\_ITLINE3\_SR\_FLASH\_ITF}})\ ==\ (\doxymbox{\hyperlink{group___peripheral___registers___bits___definition_ga330f14c7905da944f8cdf4c10ff60665}{SYSCFG\_ITLINE3\_SR\_FLASH\_ITF}}))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{00585\ \}}
+\DoxyCodeLine{00586\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SYSCFG\_ITLINE3\_SR\_FLASH\_ITF\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00587\ }
+\DoxyCodeLine{00588\ \textcolor{preprocessor}{\#if\ defined(SYSCFG\_ITLINE3\_SR\_FLASH\_ECC)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00594\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_SYSCFG\_IsActiveFlag\_FLASH\_ECC(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{00595\ \{}
+\DoxyCodeLine{00596\ \ \ \textcolor{keywordflow}{return}\ ((READ\_BIT(SYSCFG-\/>IT\_LINE\_SR[3],\ \doxymbox{\hyperlink{group___peripheral___registers___bits___definition_gad89435ecedc79ef7795c2c9ee3cb8baa}{SYSCFG\_ITLINE3\_SR\_FLASH\_ECC}})\ ==\ (\doxymbox{\hyperlink{group___peripheral___registers___bits___definition_gad89435ecedc79ef7795c2c9ee3cb8baa}{SYSCFG\_ITLINE3\_SR\_FLASH\_ECC}}))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{00597\ \}}
+\DoxyCodeLine{00598\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SYSCFG\_ITLINE3\_SR\_FLASH\_ECC\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00599\ }
+\DoxyCodeLine{00600\ \textcolor{preprocessor}{\#if\ defined(SYSCFG\_ITLINE4\_SR\_CLK\_CTRL)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00606\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_SYSCFG\_IsActiveFlag\_CLK\_CTRL(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{00607\ \{}
+\DoxyCodeLine{00608\ \ \ \textcolor{keywordflow}{return}\ ((READ\_BIT(SYSCFG-\/>IT\_LINE\_SR[4],\ \doxymbox{\hyperlink{group___peripheral___registers___bits___definition_gacb55e04a5068985ac5c753a73a296238}{SYSCFG\_ITLINE4\_SR\_CLK\_CTRL}})\ ==\ (\doxymbox{\hyperlink{group___peripheral___registers___bits___definition_gacb55e04a5068985ac5c753a73a296238}{SYSCFG\_ITLINE4\_SR\_CLK\_CTRL}}))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{00609\ \}}
+\DoxyCodeLine{00610\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SYSCFG\_ITLINE4\_SR\_CLK\_CTRL\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00611\ }
+\DoxyCodeLine{00612\ \textcolor{preprocessor}{\#if\ defined(CRS)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00618\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_SYSCFG\_IsActiveFlag\_CRS(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{00619\ \{}
+\DoxyCodeLine{00620\ \ \ \textcolor{keywordflow}{return}\ ((READ\_BIT(SYSCFG-\/>IT\_LINE\_SR[4],\ SYSCFG\_ITLINE4\_SR\_CRS)\ ==\ (SYSCFG\_ITLINE4\_SR\_CRS))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{00621\ \}}
+\DoxyCodeLine{00622\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ CRS\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00623\ \textcolor{preprocessor}{\#if\ defined(SYSCFG\_ITLINE5\_SR\_EXTI0)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00629\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_SYSCFG\_IsActiveFlag\_EXTI0(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{00630\ \{}
+\DoxyCodeLine{00631\ \ \ \textcolor{keywordflow}{return}\ ((READ\_BIT(SYSCFG-\/>IT\_LINE\_SR[5],\ \doxymbox{\hyperlink{group___peripheral___registers___bits___definition_ga741120faa5773084b5907d2ceabe3d98}{SYSCFG\_ITLINE5\_SR\_EXTI0}})\ ==\ (\doxymbox{\hyperlink{group___peripheral___registers___bits___definition_ga741120faa5773084b5907d2ceabe3d98}{SYSCFG\_ITLINE5\_SR\_EXTI0}}))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{00632\ \}}
+\DoxyCodeLine{00633\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SYSCFG\_ITLINE5\_SR\_EXTI0\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00634\ }
+\DoxyCodeLine{00635\ \textcolor{preprocessor}{\#if\ defined(SYSCFG\_ITLINE5\_SR\_EXTI1)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00641\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_SYSCFG\_IsActiveFlag\_EXTI1(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{00642\ \{}
+\DoxyCodeLine{00643\ \ \ \textcolor{keywordflow}{return}\ ((READ\_BIT(SYSCFG-\/>IT\_LINE\_SR[5],\ \doxymbox{\hyperlink{group___peripheral___registers___bits___definition_ga126917c002628d929d29ee5dbcf2c615}{SYSCFG\_ITLINE5\_SR\_EXTI1}})\ ==\ (\doxymbox{\hyperlink{group___peripheral___registers___bits___definition_ga126917c002628d929d29ee5dbcf2c615}{SYSCFG\_ITLINE5\_SR\_EXTI1}}))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{00644\ \}}
+\DoxyCodeLine{00645\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SYSCFG\_ITLINE5\_SR\_EXTI1\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00646\ }
+\DoxyCodeLine{00647\ \textcolor{preprocessor}{\#if\ defined(SYSCFG\_ITLINE6\_SR\_EXTI2)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00653\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_SYSCFG\_IsActiveFlag\_EXTI2(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{00654\ \{}
+\DoxyCodeLine{00655\ \ \ \textcolor{keywordflow}{return}\ ((READ\_BIT(SYSCFG-\/>IT\_LINE\_SR[6],\ \doxymbox{\hyperlink{group___peripheral___registers___bits___definition_ga818edda0a7662e459ca90685f6c9d761}{SYSCFG\_ITLINE6\_SR\_EXTI2}})\ ==\ (\doxymbox{\hyperlink{group___peripheral___registers___bits___definition_ga818edda0a7662e459ca90685f6c9d761}{SYSCFG\_ITLINE6\_SR\_EXTI2}}))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{00656\ \}}
+\DoxyCodeLine{00657\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SYSCFG\_ITLINE6\_SR\_EXTI2\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00658\ }
+\DoxyCodeLine{00659\ \textcolor{preprocessor}{\#if\ defined(SYSCFG\_ITLINE6\_SR\_EXTI3)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00665\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_SYSCFG\_IsActiveFlag\_EXTI3(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{00666\ \{}
+\DoxyCodeLine{00667\ \ \ \textcolor{keywordflow}{return}\ ((READ\_BIT(SYSCFG-\/>IT\_LINE\_SR[6],\ \doxymbox{\hyperlink{group___peripheral___registers___bits___definition_ga835c72678133096c8deee4fd25064b69}{SYSCFG\_ITLINE6\_SR\_EXTI3}})\ ==\ (\doxymbox{\hyperlink{group___peripheral___registers___bits___definition_ga835c72678133096c8deee4fd25064b69}{SYSCFG\_ITLINE6\_SR\_EXTI3}}))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{00668\ \}}
+\DoxyCodeLine{00669\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SYSCFG\_ITLINE6\_SR\_EXTI3\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00670\ }
+\DoxyCodeLine{00671\ \textcolor{preprocessor}{\#if\ defined(SYSCFG\_ITLINE7\_SR\_EXTI4)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00677\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_SYSCFG\_IsActiveFlag\_EXTI4(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{00678\ \{}
+\DoxyCodeLine{00679\ \ \ \textcolor{keywordflow}{return}\ ((READ\_BIT(SYSCFG-\/>IT\_LINE\_SR[7],\ \doxymbox{\hyperlink{group___peripheral___registers___bits___definition_ga3bab34ab51b9f38f9b67494a2b0dc4a9}{SYSCFG\_ITLINE7\_SR\_EXTI4}})\ ==\ (\doxymbox{\hyperlink{group___peripheral___registers___bits___definition_ga3bab34ab51b9f38f9b67494a2b0dc4a9}{SYSCFG\_ITLINE7\_SR\_EXTI4}}))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{00680\ \}}
+\DoxyCodeLine{00681\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SYSCFG\_ITLINE7\_SR\_EXTI4\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00682\ }
+\DoxyCodeLine{00683\ \textcolor{preprocessor}{\#if\ defined(SYSCFG\_ITLINE7\_SR\_EXTI5)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00689\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_SYSCFG\_IsActiveFlag\_EXTI5(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{00690\ \{}
+\DoxyCodeLine{00691\ \ \ \textcolor{keywordflow}{return}\ ((READ\_BIT(SYSCFG-\/>IT\_LINE\_SR[7],\ \doxymbox{\hyperlink{group___peripheral___registers___bits___definition_ga7e2c33ca18e282bd1f13c984d11df903}{SYSCFG\_ITLINE7\_SR\_EXTI5}})\ ==\ (\doxymbox{\hyperlink{group___peripheral___registers___bits___definition_ga7e2c33ca18e282bd1f13c984d11df903}{SYSCFG\_ITLINE7\_SR\_EXTI5}}))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{00692\ \}}
+\DoxyCodeLine{00693\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SYSCFG\_ITLINE7\_SR\_EXTI5\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00694\ }
+\DoxyCodeLine{00695\ \textcolor{preprocessor}{\#if\ defined(SYSCFG\_ITLINE7\_SR\_EXTI6)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00701\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_SYSCFG\_IsActiveFlag\_EXTI6(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{00702\ \{}
+\DoxyCodeLine{00703\ \ \ \textcolor{keywordflow}{return}\ ((READ\_BIT(SYSCFG-\/>IT\_LINE\_SR[7],\ \doxymbox{\hyperlink{group___peripheral___registers___bits___definition_ga1043d8b2f3862af68406e56d19d7e339}{SYSCFG\_ITLINE7\_SR\_EXTI6}})\ ==\ (\doxymbox{\hyperlink{group___peripheral___registers___bits___definition_ga1043d8b2f3862af68406e56d19d7e339}{SYSCFG\_ITLINE7\_SR\_EXTI6}}))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{00704\ \}}
+\DoxyCodeLine{00705\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SYSCFG\_ITLINE7\_SR\_EXTI6\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00706\ }
+\DoxyCodeLine{00707\ \textcolor{preprocessor}{\#if\ defined(SYSCFG\_ITLINE7\_SR\_EXTI7)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00713\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_SYSCFG\_IsActiveFlag\_EXTI7(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{00714\ \{}
+\DoxyCodeLine{00715\ \ \ \textcolor{keywordflow}{return}\ ((READ\_BIT(SYSCFG-\/>IT\_LINE\_SR[7],\ \doxymbox{\hyperlink{group___peripheral___registers___bits___definition_gab9b1ce1123491573a51ab24a5115c0d3}{SYSCFG\_ITLINE7\_SR\_EXTI7}})\ ==\ (\doxymbox{\hyperlink{group___peripheral___registers___bits___definition_gab9b1ce1123491573a51ab24a5115c0d3}{SYSCFG\_ITLINE7\_SR\_EXTI7}}))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{00716\ \}}
+\DoxyCodeLine{00717\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SYSCFG\_ITLINE7\_SR\_EXTI7\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00718\ }
+\DoxyCodeLine{00719\ \textcolor{preprocessor}{\#if\ defined(SYSCFG\_ITLINE7\_SR\_EXTI8)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00725\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_SYSCFG\_IsActiveFlag\_EXTI8(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{00726\ \{}
+\DoxyCodeLine{00727\ \ \ \textcolor{keywordflow}{return}\ ((READ\_BIT(SYSCFG-\/>IT\_LINE\_SR[7],\ \doxymbox{\hyperlink{group___peripheral___registers___bits___definition_ga71f359bf6ff0d2ff7f68238361302eae}{SYSCFG\_ITLINE7\_SR\_EXTI8}})\ ==\ (\doxymbox{\hyperlink{group___peripheral___registers___bits___definition_ga71f359bf6ff0d2ff7f68238361302eae}{SYSCFG\_ITLINE7\_SR\_EXTI8}}))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{00728\ \}}
+\DoxyCodeLine{00729\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SYSCFG\_ITLINE7\_SR\_EXTI8\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00730\ }
+\DoxyCodeLine{00731\ \textcolor{preprocessor}{\#if\ defined(SYSCFG\_ITLINE7\_SR\_EXTI9)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00737\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_SYSCFG\_IsActiveFlag\_EXTI9(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{00738\ \{}
+\DoxyCodeLine{00739\ \ \ \textcolor{keywordflow}{return}\ ((READ\_BIT(SYSCFG-\/>IT\_LINE\_SR[7],\ \doxymbox{\hyperlink{group___peripheral___registers___bits___definition_ga7f4cb76d27712a0b1daebb613216e911}{SYSCFG\_ITLINE7\_SR\_EXTI9}})\ ==\ (\doxymbox{\hyperlink{group___peripheral___registers___bits___definition_ga7f4cb76d27712a0b1daebb613216e911}{SYSCFG\_ITLINE7\_SR\_EXTI9}}))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{00740\ \}}
+\DoxyCodeLine{00741\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SYSCFG\_ITLINE7\_SR\_EXTI9\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00742\ }
+\DoxyCodeLine{00743\ \textcolor{preprocessor}{\#if\ defined(SYSCFG\_ITLINE7\_SR\_EXTI10)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00749\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_SYSCFG\_IsActiveFlag\_EXTI10(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{00750\ \{}
+\DoxyCodeLine{00751\ \ \ \textcolor{keywordflow}{return}\ ((READ\_BIT(SYSCFG-\/>IT\_LINE\_SR[7],\ \doxymbox{\hyperlink{group___peripheral___registers___bits___definition_ga4a1806d027733dbb7b7568034de57479}{SYSCFG\_ITLINE7\_SR\_EXTI10}})\ ==\ (\doxymbox{\hyperlink{group___peripheral___registers___bits___definition_ga4a1806d027733dbb7b7568034de57479}{SYSCFG\_ITLINE7\_SR\_EXTI10}}))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{00752\ \}}
+\DoxyCodeLine{00753\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SYSCFG\_ITLINE7\_SR\_EXTI10\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00754\ }
+\DoxyCodeLine{00755\ \textcolor{preprocessor}{\#if\ defined(SYSCFG\_ITLINE7\_SR\_EXTI11)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00761\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_SYSCFG\_IsActiveFlag\_EXTI11(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{00762\ \{}
+\DoxyCodeLine{00763\ \ \ \textcolor{keywordflow}{return}\ ((READ\_BIT(SYSCFG-\/>IT\_LINE\_SR[7],\ \doxymbox{\hyperlink{group___peripheral___registers___bits___definition_gae93431885ad913507a2e27abb2f2c08f}{SYSCFG\_ITLINE7\_SR\_EXTI11}})\ ==\ (\doxymbox{\hyperlink{group___peripheral___registers___bits___definition_gae93431885ad913507a2e27abb2f2c08f}{SYSCFG\_ITLINE7\_SR\_EXTI11}}))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{00764\ \}}
+\DoxyCodeLine{00765\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SYSCFG\_ITLINE7\_SR\_EXTI11\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00766\ }
+\DoxyCodeLine{00767\ \textcolor{preprocessor}{\#if\ defined(SYSCFG\_ITLINE7\_SR\_EXTI12)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00773\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_SYSCFG\_IsActiveFlag\_EXTI12(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{00774\ \{}
+\DoxyCodeLine{00775\ \ \ \textcolor{keywordflow}{return}\ ((READ\_BIT(SYSCFG-\/>IT\_LINE\_SR[7],\ \doxymbox{\hyperlink{group___peripheral___registers___bits___definition_ga796bed258b2c8dc344eaed9bb5b29a7d}{SYSCFG\_ITLINE7\_SR\_EXTI12}})\ ==\ (\doxymbox{\hyperlink{group___peripheral___registers___bits___definition_ga796bed258b2c8dc344eaed9bb5b29a7d}{SYSCFG\_ITLINE7\_SR\_EXTI12}}))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{00776\ \}}
+\DoxyCodeLine{00777\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SYSCFG\_ITLINE7\_SR\_EXTI12\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00778\ }
+\DoxyCodeLine{00779\ \textcolor{preprocessor}{\#if\ defined(SYSCFG\_ITLINE7\_SR\_EXTI13)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00785\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_SYSCFG\_IsActiveFlag\_EXTI13(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{00786\ \{}
+\DoxyCodeLine{00787\ \ \ \textcolor{keywordflow}{return}\ ((READ\_BIT(SYSCFG-\/>IT\_LINE\_SR[7],\ \doxymbox{\hyperlink{group___peripheral___registers___bits___definition_gacb8862768adb5419a9ca7029d3c8c28d}{SYSCFG\_ITLINE7\_SR\_EXTI13}})\ ==\ (\doxymbox{\hyperlink{group___peripheral___registers___bits___definition_gacb8862768adb5419a9ca7029d3c8c28d}{SYSCFG\_ITLINE7\_SR\_EXTI13}}))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{00788\ \}}
+\DoxyCodeLine{00789\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SYSCFG\_ITLINE7\_SR\_EXTI13\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00790\ }
+\DoxyCodeLine{00791\ \textcolor{preprocessor}{\#if\ defined(SYSCFG\_ITLINE7\_SR\_EXTI14)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00797\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_SYSCFG\_IsActiveFlag\_EXTI14(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{00798\ \{}
+\DoxyCodeLine{00799\ \ \ \textcolor{keywordflow}{return}\ ((READ\_BIT(SYSCFG-\/>IT\_LINE\_SR[7],\ \doxymbox{\hyperlink{group___peripheral___registers___bits___definition_ga726ba17f8be1fcc6ce8f02d5a14232e7}{SYSCFG\_ITLINE7\_SR\_EXTI14}})\ ==\ (\doxymbox{\hyperlink{group___peripheral___registers___bits___definition_ga726ba17f8be1fcc6ce8f02d5a14232e7}{SYSCFG\_ITLINE7\_SR\_EXTI14}}))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{00800\ \}}
+\DoxyCodeLine{00801\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SYSCFG\_ITLINE7\_SR\_EXTI14\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00802\ }
+\DoxyCodeLine{00803\ \textcolor{preprocessor}{\#if\ defined(SYSCFG\_ITLINE7\_SR\_EXTI15)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00809\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_SYSCFG\_IsActiveFlag\_EXTI15(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{00810\ \{}
+\DoxyCodeLine{00811\ \ \ \textcolor{keywordflow}{return}\ ((READ\_BIT(SYSCFG-\/>IT\_LINE\_SR[7],\ \doxymbox{\hyperlink{group___peripheral___registers___bits___definition_ga97f0041357cc7fc4899359dd6f529496}{SYSCFG\_ITLINE7\_SR\_EXTI15}})\ ==\ (\doxymbox{\hyperlink{group___peripheral___registers___bits___definition_ga97f0041357cc7fc4899359dd6f529496}{SYSCFG\_ITLINE7\_SR\_EXTI15}}))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{00812\ \}}
+\DoxyCodeLine{00813\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SYSCFG\_ITLINE7\_SR\_EXTI15\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00814\ }
+\DoxyCodeLine{00815\ \textcolor{preprocessor}{\#if\ defined(SYSCFG\_ITLINE8\_SR\_UCPD1)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00821\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_SYSCFG\_IsActiveFlag\_UCPD1(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{00822\ \{}
+\DoxyCodeLine{00823\ \ \ \textcolor{keywordflow}{return}\ ((READ\_BIT(SYSCFG-\/>IT\_LINE\_SR[8],\ SYSCFG\_ITLINE8\_SR\_UCPD1)\ ==\ (SYSCFG\_ITLINE8\_SR\_UCPD1))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{00824\ \}}
+\DoxyCodeLine{00825\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SYSCFG\_ITLINE8\_SR\_UCPD1\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00826\ }
+\DoxyCodeLine{00827\ \textcolor{preprocessor}{\#if\ defined(SYSCFG\_ITLINE8\_SR\_UCPD2)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00833\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_SYSCFG\_IsActiveFlag\_UCPD2(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{00834\ \{}
+\DoxyCodeLine{00835\ \ \ \textcolor{keywordflow}{return}\ ((READ\_BIT(SYSCFG-\/>IT\_LINE\_SR[8],\ SYSCFG\_ITLINE8\_SR\_UCPD2)\ ==\ (SYSCFG\_ITLINE8\_SR\_UCPD2))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{00836\ \}}
+\DoxyCodeLine{00837\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SYSCFG\_ITLINE8\_SR\_UCPD2\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00838\ }
+\DoxyCodeLine{00839\ \textcolor{preprocessor}{\#if\ defined(SYSCFG\_ITLINE8\_SR\_USB)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00845\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_SYSCFG\_IsActiveFlag\_USB(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{00846\ \{}
+\DoxyCodeLine{00847\ \ \ \textcolor{keywordflow}{return}\ ((READ\_BIT(SYSCFG-\/>IT\_LINE\_SR[8],\ SYSCFG\_ITLINE8\_SR\_USB)\ ==\ (SYSCFG\_ITLINE8\_SR\_USB))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{00848\ \}}
+\DoxyCodeLine{00849\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SYSCFG\_ITLINE8\_SR\_USB\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00850\ }
+\DoxyCodeLine{00851\ \textcolor{preprocessor}{\#if\ defined(SYSCFG\_ITLINE9\_SR\_DMA1\_CH1)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00857\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_SYSCFG\_IsActiveFlag\_DMA1\_CH1(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{00858\ \{}
+\DoxyCodeLine{00859\ \ \ \textcolor{keywordflow}{return}\ ((READ\_BIT(SYSCFG-\/>IT\_LINE\_SR[9],\ \doxymbox{\hyperlink{group___peripheral___registers___bits___definition_ga9085372238829d2971c78066739d591c}{SYSCFG\_ITLINE9\_SR\_DMA1\_CH1}})\ ==\ (\doxymbox{\hyperlink{group___peripheral___registers___bits___definition_ga9085372238829d2971c78066739d591c}{SYSCFG\_ITLINE9\_SR\_DMA1\_CH1}}))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{00860\ \}}
+\DoxyCodeLine{00861\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SYSCFG\_ITLINE9\_SR\_DMA1\_CH1\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00862\ }
+\DoxyCodeLine{00863\ \textcolor{preprocessor}{\#if\ defined(SYSCFG\_ITLINE10\_SR\_DMA1\_CH2)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00869\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_SYSCFG\_IsActiveFlag\_DMA1\_CH2(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{00870\ \{}
+\DoxyCodeLine{00871\ \ \ \textcolor{keywordflow}{return}\ ((READ\_BIT(SYSCFG-\/>IT\_LINE\_SR[10],\ \doxymbox{\hyperlink{group___peripheral___registers___bits___definition_gac0dffe393973568471ced0832a8d0cc9}{SYSCFG\_ITLINE10\_SR\_DMA1\_CH2}})\ ==\ (\doxymbox{\hyperlink{group___peripheral___registers___bits___definition_gac0dffe393973568471ced0832a8d0cc9}{SYSCFG\_ITLINE10\_SR\_DMA1\_CH2}}))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{00872\ \}}
+\DoxyCodeLine{00873\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SYSCFG\_ITLINE10\_SR\_DMA1\_CH2\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00874\ }
+\DoxyCodeLine{00875\ \textcolor{preprocessor}{\#if\ defined(SYSCFG\_ITLINE10\_SR\_DMA1\_CH3)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00881\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_SYSCFG\_IsActiveFlag\_DMA1\_CH3(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{00882\ \{}
+\DoxyCodeLine{00883\ \ \ \textcolor{keywordflow}{return}\ ((READ\_BIT(SYSCFG-\/>IT\_LINE\_SR[10],\ \doxymbox{\hyperlink{group___peripheral___registers___bits___definition_ga7d2953ba8c131e3e72e9a95bd9790fc5}{SYSCFG\_ITLINE10\_SR\_DMA1\_CH3}})\ ==\ (\doxymbox{\hyperlink{group___peripheral___registers___bits___definition_ga7d2953ba8c131e3e72e9a95bd9790fc5}{SYSCFG\_ITLINE10\_SR\_DMA1\_CH3}}))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{00884\ \}}
+\DoxyCodeLine{00885\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SYSCFG\_ITLINE10\_SR\_DMA1\_CH3\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00886\ }
+\DoxyCodeLine{00887\ \textcolor{preprocessor}{\#if\ defined(SYSCFG\_ITLINE11\_SR\_DMA1\_CH4)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00893\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_SYSCFG\_IsActiveFlag\_DMA1\_CH4(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{00894\ \{}
+\DoxyCodeLine{00895\ \ \ \textcolor{keywordflow}{return}\ ((READ\_BIT(SYSCFG-\/>IT\_LINE\_SR[11],\ \doxymbox{\hyperlink{group___peripheral___registers___bits___definition_ga77d57fa71b228f255df4a9b8a64bdea8}{SYSCFG\_ITLINE11\_SR\_DMA1\_CH4}})\ ==\ (\doxymbox{\hyperlink{group___peripheral___registers___bits___definition_ga77d57fa71b228f255df4a9b8a64bdea8}{SYSCFG\_ITLINE11\_SR\_DMA1\_CH4}}))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{00896\ \}}
+\DoxyCodeLine{00897\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SYSCFG\_ITLINE11\_SR\_DMA1\_CH4\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00898\ }
+\DoxyCodeLine{00899\ \textcolor{preprocessor}{\#if\ defined(SYSCFG\_ITLINE11\_SR\_DMA1\_CH5)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00905\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_SYSCFG\_IsActiveFlag\_DMA1\_CH5(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{00906\ \{}
+\DoxyCodeLine{00907\ \ \ \textcolor{keywordflow}{return}\ ((READ\_BIT(SYSCFG-\/>IT\_LINE\_SR[11],\ \doxymbox{\hyperlink{group___peripheral___registers___bits___definition_ga0ec2b0d202418ed25ca8718c8db9b097}{SYSCFG\_ITLINE11\_SR\_DMA1\_CH5}})\ ==\ (\doxymbox{\hyperlink{group___peripheral___registers___bits___definition_ga0ec2b0d202418ed25ca8718c8db9b097}{SYSCFG\_ITLINE11\_SR\_DMA1\_CH5}}))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{00908\ \}}
+\DoxyCodeLine{00909\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SYSCFG\_ITLINE11\_SR\_DMA1\_CH5\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00910\ }
+\DoxyCodeLine{00911\ \textcolor{preprocessor}{\#if\ defined(SYSCFG\_ITLINE11\_SR\_DMA1\_CH6)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00917\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_SYSCFG\_IsActiveFlag\_DMA1\_CH6(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{00918\ \{}
+\DoxyCodeLine{00919\ \ \ \textcolor{keywordflow}{return}\ ((READ\_BIT(SYSCFG-\/>IT\_LINE\_SR[11],\ SYSCFG\_ITLINE11\_SR\_DMA1\_CH6)\ ==\ (SYSCFG\_ITLINE11\_SR\_DMA1\_CH6))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{00920\ \}}
+\DoxyCodeLine{00921\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SYSCFG\_ITLINE11\_SR\_DMA1\_CH6\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00922\ }
+\DoxyCodeLine{00923\ \textcolor{preprocessor}{\#if\ defined(SYSCFG\_ITLINE11\_SR\_DMA1\_CH7)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00929\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_SYSCFG\_IsActiveFlag\_DMA1\_CH7(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{00930\ \{}
+\DoxyCodeLine{00931\ \ \ \textcolor{keywordflow}{return}\ ((READ\_BIT(SYSCFG-\/>IT\_LINE\_SR[11],\ SYSCFG\_ITLINE11\_SR\_DMA1\_CH7)\ ==\ (SYSCFG\_ITLINE11\_SR\_DMA1\_CH7))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{00932\ \}}
+\DoxyCodeLine{00933\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SYSCFG\_ITLINE11\_SR\_DMA1\_CH7\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00934\ }
+\DoxyCodeLine{00935\ \textcolor{preprocessor}{\#if\ defined(SYSCFG\_ITLINE11\_SR\_DMAMUX1)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00941\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_SYSCFG\_IsActiveFlag\_DMAMUX(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{00942\ \{}
+\DoxyCodeLine{00943\ \ \ \textcolor{keywordflow}{return}\ ((READ\_BIT(SYSCFG-\/>IT\_LINE\_SR[11],\ \doxymbox{\hyperlink{group___peripheral___registers___bits___definition_ga05845da6f8b217eeb74b435eb6b798b7}{SYSCFG\_ITLINE11\_SR\_DMAMUX1}})\ ==\ (\doxymbox{\hyperlink{group___peripheral___registers___bits___definition_ga05845da6f8b217eeb74b435eb6b798b7}{SYSCFG\_ITLINE11\_SR\_DMAMUX1}}))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{00944\ \}}
+\DoxyCodeLine{00945\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SYSCFG\_ITLINE11\_SR\_DMAMUX\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00946\ }
+\DoxyCodeLine{00947\ \textcolor{preprocessor}{\#if\ defined(SYSCFG\_ITLINE11\_SR\_DMA2\_CH1)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00953\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_SYSCFG\_IsActiveFlag\_DMA2\_CH1(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{00954\ \{}
+\DoxyCodeLine{00955\ \ \ \textcolor{keywordflow}{return}\ ((READ\_BIT(SYSCFG-\/>IT\_LINE\_SR[11],\ SYSCFG\_ITLINE11\_SR\_DMA2\_CH1)\ ==\ (SYSCFG\_ITLINE11\_SR\_DMA2\_CH1))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{00956\ \}}
+\DoxyCodeLine{00957\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SYSCFG\_ITLINE11\_SR\_DMA2\_CH1\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00958\ }
+\DoxyCodeLine{00959\ \textcolor{preprocessor}{\#if\ defined(SYSCFG\_ITLINE11\_SR\_DMA2\_CH2)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00965\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_SYSCFG\_IsActiveFlag\_DMA2\_CH2(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{00966\ \{}
+\DoxyCodeLine{00967\ \ \ \textcolor{keywordflow}{return}\ ((READ\_BIT(SYSCFG-\/>IT\_LINE\_SR[11],\ SYSCFG\_ITLINE11\_SR\_DMA2\_CH2)\ ==\ (SYSCFG\_ITLINE11\_SR\_DMA2\_CH2))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{00968\ \}}
+\DoxyCodeLine{00969\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SYSCFG\_ITLINE11\_SR\_DMA2\_CH2\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00970\ }
+\DoxyCodeLine{00971\ \textcolor{preprocessor}{\#if\ defined(SYSCFG\_ITLINE11\_SR\_DMA2\_CH3)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00977\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_SYSCFG\_IsActiveFlag\_DMA2\_CH3(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{00978\ \{}
+\DoxyCodeLine{00979\ \ \ \textcolor{keywordflow}{return}\ ((READ\_BIT(SYSCFG-\/>IT\_LINE\_SR[11],\ SYSCFG\_ITLINE11\_SR\_DMA2\_CH3)\ ==\ (SYSCFG\_ITLINE11\_SR\_DMA2\_CH3))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{00980\ \}}
+\DoxyCodeLine{00981\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SYSCFG\_ITLINE11\_SR\_DMA2\_CH3\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00982\ }
+\DoxyCodeLine{00983\ \textcolor{preprocessor}{\#if\ defined(SYSCFG\_ITLINE11\_SR\_DMA2\_CH4)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00989\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_SYSCFG\_IsActiveFlag\_DMA2\_CH4(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{00990\ \{}
+\DoxyCodeLine{00991\ \ \ \textcolor{keywordflow}{return}\ ((READ\_BIT(SYSCFG-\/>IT\_LINE\_SR[11],\ SYSCFG\_ITLINE11\_SR\_DMA2\_CH4)\ ==\ (SYSCFG\_ITLINE11\_SR\_DMA2\_CH4))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{00992\ \}}
+\DoxyCodeLine{00993\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SYSCFG\_ITLINE11\_SR\_DMA2\_CH4\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00994\ }
+\DoxyCodeLine{00995\ \textcolor{preprocessor}{\#if\ defined(SYSCFG\_ITLINE11\_SR\_DMA2\_CH5)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01001\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_SYSCFG\_IsActiveFlag\_DMA2\_CH5(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{01002\ \{}
+\DoxyCodeLine{01003\ \ \ \textcolor{keywordflow}{return}\ ((READ\_BIT(SYSCFG-\/>IT\_LINE\_SR[11],\ SYSCFG\_ITLINE11\_SR\_DMA2\_CH5)\ ==\ (SYSCFG\_ITLINE11\_SR\_DMA2\_CH5))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{01004\ \}}
+\DoxyCodeLine{01005\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SYSCFG\_ITLINE11\_SR\_DMA2\_CH5\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01006\ }
+\DoxyCodeLine{01007\ \textcolor{preprocessor}{\#if\ defined(SYSCFG\_ITLINE12\_SR\_ADC)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01013\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_SYSCFG\_IsActiveFlag\_ADC(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{01014\ \{}
+\DoxyCodeLine{01015\ \ \ \textcolor{keywordflow}{return}\ ((READ\_BIT(SYSCFG-\/>IT\_LINE\_SR[12],\ \doxymbox{\hyperlink{group___peripheral___registers___bits___definition_ga85532ebb0901b3dec2ab54d09f756c7d}{SYSCFG\_ITLINE12\_SR\_ADC}})\ ==\ (\doxymbox{\hyperlink{group___peripheral___registers___bits___definition_ga85532ebb0901b3dec2ab54d09f756c7d}{SYSCFG\_ITLINE12\_SR\_ADC}}))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{01016\ \}}
+\DoxyCodeLine{01017\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SYSCFG\_ITLINE12\_SR\_ADC\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01018\ }
+\DoxyCodeLine{01019\ \textcolor{preprocessor}{\#if\ defined(SYSCFG\_ITLINE12\_SR\_COMP1)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01025\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_SYSCFG\_IsActiveFlag\_COMP1(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{01026\ \{}
+\DoxyCodeLine{01027\ \ \ \textcolor{keywordflow}{return}\ ((READ\_BIT(SYSCFG-\/>IT\_LINE\_SR[12],\ SYSCFG\_ITLINE12\_SR\_COMP1)\ ==\ (SYSCFG\_ITLINE12\_SR\_COMP1))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{01028\ \}}
+\DoxyCodeLine{01029\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SYSCFG\_ITLINE12\_SR\_COMP1\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01030\ }
+\DoxyCodeLine{01031\ \textcolor{preprocessor}{\#if\ defined(SYSCFG\_ITLINE12\_SR\_COMP2)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01037\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_SYSCFG\_IsActiveFlag\_COMP2(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{01038\ \{}
+\DoxyCodeLine{01039\ \ \ \textcolor{keywordflow}{return}\ ((READ\_BIT(SYSCFG-\/>IT\_LINE\_SR[12],\ SYSCFG\_ITLINE12\_SR\_COMP2)\ ==\ (SYSCFG\_ITLINE12\_SR\_COMP2))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{01040\ \}}
+\DoxyCodeLine{01041\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SYSCFG\_ITLINE12\_SR\_COMP2\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01042\ }
+\DoxyCodeLine{01043\ \textcolor{preprocessor}{\#if\ defined(SYSCFG\_ITLINE12\_SR\_COMP3)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01049\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_SYSCFG\_IsActiveFlag\_COMP3(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{01050\ \{}
+\DoxyCodeLine{01051\ \ \ \textcolor{keywordflow}{return}\ ((READ\_BIT(SYSCFG-\/>IT\_LINE\_SR[12],\ SYSCFG\_ITLINE12\_SR\_COMP3)\ ==\ (SYSCFG\_ITLINE12\_SR\_COMP3))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{01052\ \}}
+\DoxyCodeLine{01053\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SYSCFG\_ITLINE12\_SR\_COMP3\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01054\ }
+\DoxyCodeLine{01055\ \textcolor{preprocessor}{\#if\ defined(SYSCFG\_ITLINE13\_SR\_TIM1\_BRK)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01061\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_SYSCFG\_IsActiveFlag\_TIM1\_BRK(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{01062\ \{}
+\DoxyCodeLine{01063\ \ \ \textcolor{keywordflow}{return}\ ((READ\_BIT(SYSCFG-\/>IT\_LINE\_SR[13],\ \doxymbox{\hyperlink{group___peripheral___registers___bits___definition_gace238071b9632a9b822bcfdc82e8463e}{SYSCFG\_ITLINE13\_SR\_TIM1\_BRK}})\ ==\ (\doxymbox{\hyperlink{group___peripheral___registers___bits___definition_gace238071b9632a9b822bcfdc82e8463e}{SYSCFG\_ITLINE13\_SR\_TIM1\_BRK}}))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{01064\ \}}
+\DoxyCodeLine{01065\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SYSCFG\_ITLINE13\_SR\_TIM1\_BRK\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01066\ }
+\DoxyCodeLine{01067\ \textcolor{preprocessor}{\#if\ defined(SYSCFG\_ITLINE13\_SR\_TIM1\_UPD)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01073\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_SYSCFG\_IsActiveFlag\_TIM1\_UPD(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{01074\ \{}
+\DoxyCodeLine{01075\ \ \ \textcolor{keywordflow}{return}\ ((READ\_BIT(SYSCFG-\/>IT\_LINE\_SR[13],\ \doxymbox{\hyperlink{group___peripheral___registers___bits___definition_ga2f6aa553c29fd6e0dac1aede3dfea6f4}{SYSCFG\_ITLINE13\_SR\_TIM1\_UPD}})\ ==\ (\doxymbox{\hyperlink{group___peripheral___registers___bits___definition_ga2f6aa553c29fd6e0dac1aede3dfea6f4}{SYSCFG\_ITLINE13\_SR\_TIM1\_UPD}}))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{01076\ \}}
+\DoxyCodeLine{01077\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SYSCFG\_ITLINE13\_SR\_TIM1\_UPD\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01078\ }
+\DoxyCodeLine{01079\ \textcolor{preprocessor}{\#if\ defined(SYSCFG\_ITLINE13\_SR\_TIM1\_TRG)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01085\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_SYSCFG\_IsActiveFlag\_TIM1\_TRG(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{01086\ \{}
+\DoxyCodeLine{01087\ \ \ \textcolor{keywordflow}{return}\ ((READ\_BIT(SYSCFG-\/>IT\_LINE\_SR[13],\ \doxymbox{\hyperlink{group___peripheral___registers___bits___definition_ga266ce23fdd3f44d8b7e8ebaba640fd4a}{SYSCFG\_ITLINE13\_SR\_TIM1\_TRG}})\ ==\ (\doxymbox{\hyperlink{group___peripheral___registers___bits___definition_ga266ce23fdd3f44d8b7e8ebaba640fd4a}{SYSCFG\_ITLINE13\_SR\_TIM1\_TRG}}))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{01088\ \}}
+\DoxyCodeLine{01089\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SYSCFG\_ITLINE13\_SR\_TIM1\_TRG\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01090\ }
+\DoxyCodeLine{01091\ \textcolor{preprocessor}{\#if\ defined(SYSCFG\_ITLINE13\_SR\_TIM1\_CCU)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01097\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_SYSCFG\_IsActiveFlag\_TIM1\_CCU(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{01098\ \{}
+\DoxyCodeLine{01099\ \ \ \textcolor{keywordflow}{return}\ ((READ\_BIT(SYSCFG-\/>IT\_LINE\_SR[13],\ \doxymbox{\hyperlink{group___peripheral___registers___bits___definition_ga9d826ca1e3928f27b9c6bb127f5f5ea9}{SYSCFG\_ITLINE13\_SR\_TIM1\_CCU}})\ ==\ (\doxymbox{\hyperlink{group___peripheral___registers___bits___definition_ga9d826ca1e3928f27b9c6bb127f5f5ea9}{SYSCFG\_ITLINE13\_SR\_TIM1\_CCU}}))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{01100\ \}}
+\DoxyCodeLine{01101\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SYSCFG\_ITLINE13\_SR\_TIM1\_CCU\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01102\ }
+\DoxyCodeLine{01103\ \textcolor{preprocessor}{\#if\ defined(SYSCFG\_ITLINE14\_SR\_TIM1\_CC)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01109\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_SYSCFG\_IsActiveFlag\_TIM1\_CC(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{01110\ \{}
+\DoxyCodeLine{01111\ \ \ \textcolor{keywordflow}{return}\ ((READ\_BIT(SYSCFG-\/>IT\_LINE\_SR[14],\ \doxymbox{\hyperlink{group___peripheral___registers___bits___definition_gad5eb8f269036a43dbd6964511524a62a}{SYSCFG\_ITLINE14\_SR\_TIM1\_CC}})\ ==\ (\doxymbox{\hyperlink{group___peripheral___registers___bits___definition_gad5eb8f269036a43dbd6964511524a62a}{SYSCFG\_ITLINE14\_SR\_TIM1\_CC}}))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{01112\ \}}
+\DoxyCodeLine{01113\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SYSCFG\_ITLINE14\_SR\_TIM1\_CC\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01114\ }
+\DoxyCodeLine{01115\ \textcolor{preprocessor}{\#if\ defined(SYSCFG\_ITLINE15\_SR\_TIM2\_GLB)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01121\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_SYSCFG\_IsActiveFlag\_TIM2(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{01122\ \{}
+\DoxyCodeLine{01123\ \ \ \textcolor{keywordflow}{return}\ ((READ\_BIT(SYSCFG-\/>IT\_LINE\_SR[15],\ SYSCFG\_ITLINE15\_SR\_TIM2\_GLB)\ ==\ (SYSCFG\_ITLINE15\_SR\_TIM2\_GLB))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{01124\ \}}
+\DoxyCodeLine{01125\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SYSCFG\_ITLINE15\_SR\_TIM2\_GLB\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01126\ }
+\DoxyCodeLine{01127\ \textcolor{preprocessor}{\#if\ defined(SYSCFG\_ITLINE16\_SR\_TIM3\_GLB)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01133\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_SYSCFG\_IsActiveFlag\_TIM3(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{01134\ \{}
+\DoxyCodeLine{01135\ \ \ \textcolor{keywordflow}{return}\ ((READ\_BIT(SYSCFG-\/>IT\_LINE\_SR[16],\ \doxymbox{\hyperlink{group___peripheral___registers___bits___definition_ga7534fecc4a4c921321398a1049143f21}{SYSCFG\_ITLINE16\_SR\_TIM3\_GLB}})\ ==\ (\doxymbox{\hyperlink{group___peripheral___registers___bits___definition_ga7534fecc4a4c921321398a1049143f21}{SYSCFG\_ITLINE16\_SR\_TIM3\_GLB}}))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{01136\ \}}
+\DoxyCodeLine{01137\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SYSCFG\_ITLINE16\_SR\_TIM3\_GLB\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01138\ }
+\DoxyCodeLine{01139\ \textcolor{preprocessor}{\#if\ defined(SYSCFG\_ITLINE16\_SR\_TIM4\_GLB)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01145\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_SYSCFG\_IsActiveFlag\_TIM4(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{01146\ \{}
+\DoxyCodeLine{01147\ \ \ \textcolor{keywordflow}{return}\ ((READ\_BIT(SYSCFG-\/>IT\_LINE\_SR[16],\ SYSCFG\_ITLINE16\_SR\_TIM4\_GLB)\ ==\ (SYSCFG\_ITLINE16\_SR\_TIM4\_GLB))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{01148\ \}}
+\DoxyCodeLine{01149\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SYSCFG\_ITLINE16\_SR\_TIM4\_GLB\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01150\ }
+\DoxyCodeLine{01151\ \textcolor{preprocessor}{\#if\ defined(SYSCFG\_ITLINE17\_SR\_DAC)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01157\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_SYSCFG\_IsActiveFlag\_DAC(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{01158\ \{}
+\DoxyCodeLine{01159\ \ \ \textcolor{keywordflow}{return}\ ((READ\_BIT(SYSCFG-\/>IT\_LINE\_SR[17],\ SYSCFG\_ITLINE17\_SR\_DAC)\ ==\ (SYSCFG\_ITLINE17\_SR\_DAC))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{01160\ \}}
+\DoxyCodeLine{01161\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SYSCFG\_ITLINE17\_SR\_DAC\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01162\ }
+\DoxyCodeLine{01163\ \textcolor{preprocessor}{\#if\ defined(SYSCFG\_ITLINE17\_SR\_TIM6\_GLB)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01169\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_SYSCFG\_IsActiveFlag\_TIM6(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{01170\ \{}
+\DoxyCodeLine{01171\ \ \ \textcolor{keywordflow}{return}\ ((READ\_BIT(SYSCFG-\/>IT\_LINE\_SR[17],\ SYSCFG\_ITLINE17\_SR\_TIM6\_GLB)\ ==\ (SYSCFG\_ITLINE17\_SR\_TIM6\_GLB))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{01172\ \}}
+\DoxyCodeLine{01173\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SYSCFG\_ITLINE17\_SR\_TIM6\_GLB\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01174\ }
+\DoxyCodeLine{01175\ \textcolor{preprocessor}{\#if\ defined(SYSCFG\_ITLINE17\_SR\_LPTIM1\_GLB)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01181\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_SYSCFG\_IsActiveFlag\_LPTIM1(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{01182\ \{}
+\DoxyCodeLine{01183\ \ \ \textcolor{keywordflow}{return}\ ((READ\_BIT(SYSCFG-\/>IT\_LINE\_SR[17],\ SYSCFG\_ITLINE17\_SR\_LPTIM1\_GLB)\ ==\ (SYSCFG\_ITLINE17\_SR\_LPTIM1\_GLB))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{01184\ \}}
+\DoxyCodeLine{01185\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SYSCFG\_ITLINE17\_SR\_LPTIM1\_GLB\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01186\ }
+\DoxyCodeLine{01187\ \textcolor{preprocessor}{\#if\ defined(SYSCFG\_ITLINE18\_SR\_TIM7\_GLB)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01193\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_SYSCFG\_IsActiveFlag\_TIM7(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{01194\ \{}
+\DoxyCodeLine{01195\ \ \ \textcolor{keywordflow}{return}\ ((READ\_BIT(SYSCFG-\/>IT\_LINE\_SR[18],\ SYSCFG\_ITLINE18\_SR\_TIM7\_GLB)\ ==\ (SYSCFG\_ITLINE18\_SR\_TIM7\_GLB))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{01196\ \}}
+\DoxyCodeLine{01197\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SYSCFG\_ITLINE18\_SR\_TIM7\_GLB\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01198\ }
+\DoxyCodeLine{01199\ \textcolor{preprocessor}{\#if\ defined(SYSCFG\_ITLINE18\_SR\_LPTIM2\_GLB)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01205\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_SYSCFG\_IsActiveFlag\_LPTIM2(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{01206\ \{}
+\DoxyCodeLine{01207\ \ \ \textcolor{keywordflow}{return}\ ((READ\_BIT(SYSCFG-\/>IT\_LINE\_SR[18],\ SYSCFG\_ITLINE18\_SR\_LPTIM2\_GLB)\ ==\ (SYSCFG\_ITLINE18\_SR\_LPTIM2\_GLB))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{01208\ \}}
+\DoxyCodeLine{01209\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SYSCFG\_ITLINE18\_SR\_LPTIM2\_GLB\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01210\ }
+\DoxyCodeLine{01211\ \textcolor{preprocessor}{\#if\ defined(SYSCFG\_ITLINE19\_SR\_TIM14\_GLB)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01217\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_SYSCFG\_IsActiveFlag\_TIM14(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{01218\ \{}
+\DoxyCodeLine{01219\ \ \ \textcolor{keywordflow}{return}\ ((READ\_BIT(SYSCFG-\/>IT\_LINE\_SR[19],\ \doxymbox{\hyperlink{group___peripheral___registers___bits___definition_ga05c22c12fcfcd060b88fd00d5e07ce80}{SYSCFG\_ITLINE19\_SR\_TIM14\_GLB}})\ ==\ (\doxymbox{\hyperlink{group___peripheral___registers___bits___definition_ga05c22c12fcfcd060b88fd00d5e07ce80}{SYSCFG\_ITLINE19\_SR\_TIM14\_GLB}}))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{01220\ \}}
+\DoxyCodeLine{01221\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SYSCFG\_ITLINE19\_SR\_TIM14\_GLB\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01222\ }
+\DoxyCodeLine{01223\ \textcolor{preprocessor}{\#if\ defined(SYSCFG\_ITLINE20\_SR\_TIM15\_GLB)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01229\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_SYSCFG\_IsActiveFlag\_TIM15(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{01230\ \{}
+\DoxyCodeLine{01231\ \ \ \textcolor{keywordflow}{return}\ ((READ\_BIT(SYSCFG-\/>IT\_LINE\_SR[20],\ SYSCFG\_ITLINE20\_SR\_TIM15\_GLB)\ ==\ (SYSCFG\_ITLINE20\_SR\_TIM15\_GLB))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{01232\ \}}
+\DoxyCodeLine{01233\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SYSCFG\_ITLINE20\_SR\_TIM15\_GLB\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01234\ }
+\DoxyCodeLine{01235\ \textcolor{preprocessor}{\#if\ defined(SYSCFG\_ITLINE21\_SR\_TIM16\_GLB)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01241\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_SYSCFG\_IsActiveFlag\_TIM16(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{01242\ \{}
+\DoxyCodeLine{01243\ \ \ \textcolor{keywordflow}{return}\ ((READ\_BIT(SYSCFG-\/>IT\_LINE\_SR[21],\ \doxymbox{\hyperlink{group___peripheral___registers___bits___definition_gab10211329fcc785b31236c23e73d7934}{SYSCFG\_ITLINE21\_SR\_TIM16\_GLB}})\ ==\ (\doxymbox{\hyperlink{group___peripheral___registers___bits___definition_gab10211329fcc785b31236c23e73d7934}{SYSCFG\_ITLINE21\_SR\_TIM16\_GLB}}))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{01244\ \}}
+\DoxyCodeLine{01245\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SYSCFG\_ITLINE21\_SR\_TIM16\_GLB\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01246\ }
+\DoxyCodeLine{01247\ \textcolor{preprocessor}{\#if\ defined(SYSCFG\_ITLINE21\_SR\_FDCAN1\_IT0)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01253\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_SYSCFG\_IsActiveFlag\_FDCAN1\_IT0(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{01254\ \{}
+\DoxyCodeLine{01255\ \ \ \textcolor{keywordflow}{return}\ ((READ\_BIT(SYSCFG-\/>IT\_LINE\_SR[21],\ SYSCFG\_ITLINE21\_SR\_FDCAN1\_IT0)\ ==\ (SYSCFG\_ITLINE21\_SR\_FDCAN1\_IT0))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{01256\ \}}
+\DoxyCodeLine{01257\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SYSCFG\_ITLINE21\_SR\_FDCAN1\_IT0\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01258\ \textcolor{preprocessor}{\#if\ defined(SYSCFG\_ITLINE21\_SR\_FDCAN2\_IT0)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01264\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_SYSCFG\_IsActiveFlag\_FDCAN2\_IT0(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{01265\ \{}
+\DoxyCodeLine{01266\ \ \ \textcolor{keywordflow}{return}\ ((READ\_BIT(SYSCFG-\/>IT\_LINE\_SR[21],\ SYSCFG\_ITLINE21\_SR\_FDCAN2\_IT0)\ ==\ (SYSCFG\_ITLINE21\_SR\_FDCAN2\_IT0))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{01267\ \}}
+\DoxyCodeLine{01268\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SYSCFG\_ITLINE21\_SR\_FDCAN2\_IT0\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01269\ }
+\DoxyCodeLine{01270\ \textcolor{preprocessor}{\#if\ defined(SYSCFG\_ITLINE22\_SR\_TIM17\_GLB)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01276\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_SYSCFG\_IsActiveFlag\_TIM17(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{01277\ \{}
+\DoxyCodeLine{01278\ \ \ \textcolor{keywordflow}{return}\ ((READ\_BIT(SYSCFG-\/>IT\_LINE\_SR[22],\ \doxymbox{\hyperlink{group___peripheral___registers___bits___definition_ga5e83c07f6948e9a5349c7ca5c614be6a}{SYSCFG\_ITLINE22\_SR\_TIM17\_GLB}})\ ==\ (\doxymbox{\hyperlink{group___peripheral___registers___bits___definition_ga5e83c07f6948e9a5349c7ca5c614be6a}{SYSCFG\_ITLINE22\_SR\_TIM17\_GLB}}))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{01279\ \}}
+\DoxyCodeLine{01280\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SYSCFG\_ITLINE22\_SR\_TIM17\_GLB\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01281\ }
+\DoxyCodeLine{01282\ \textcolor{preprocessor}{\#if\ defined(SYSCFG\_ITLINE22\_SR\_FDCAN1\_IT1)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01288\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_SYSCFG\_IsActiveFlag\_FDCAN1\_IT1(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{01289\ \{}
+\DoxyCodeLine{01290\ \ \ \textcolor{keywordflow}{return}\ ((READ\_BIT(SYSCFG-\/>IT\_LINE\_SR[22],\ SYSCFG\_ITLINE22\_SR\_FDCAN1\_IT1)\ ==\ (SYSCFG\_ITLINE22\_SR\_FDCAN1\_IT1))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{01291\ \}}
+\DoxyCodeLine{01292\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SYSCFG\_ITLINE22\_SR\_FDCAN1\_IT1\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01293\ \textcolor{preprocessor}{\#if\ defined(SYSCFG\_ITLINE22\_SR\_FDCAN2\_IT1)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01299\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_SYSCFG\_IsActiveFlag\_FDCAN2\_IT1(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{01300\ \{}
+\DoxyCodeLine{01301\ \ \ \textcolor{keywordflow}{return}\ ((READ\_BIT(SYSCFG-\/>IT\_LINE\_SR[22],\ SYSCFG\_ITLINE22\_SR\_FDCAN2\_IT1)\ ==\ (SYSCFG\_ITLINE22\_SR\_FDCAN2\_IT1))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{01302\ \}}
+\DoxyCodeLine{01303\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SYSCFG\_ITLINE22\_SR\_FDCAN2\_IT1\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01304\ }
+\DoxyCodeLine{01305\ \textcolor{preprocessor}{\#if\ defined(SYSCFG\_ITLINE23\_SR\_I2C1\_GLB)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01311\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_SYSCFG\_IsActiveFlag\_I2C1(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{01312\ \{}
+\DoxyCodeLine{01313\ \ \ \textcolor{keywordflow}{return}\ ((READ\_BIT(SYSCFG-\/>IT\_LINE\_SR[23],\ \doxymbox{\hyperlink{group___peripheral___registers___bits___definition_gacaeff4b6c8faabc32ea45159ddef6368}{SYSCFG\_ITLINE23\_SR\_I2C1\_GLB}})\ ==\ (\doxymbox{\hyperlink{group___peripheral___registers___bits___definition_gacaeff4b6c8faabc32ea45159ddef6368}{SYSCFG\_ITLINE23\_SR\_I2C1\_GLB}}))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{01314\ \}}
+\DoxyCodeLine{01315\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SYSCFG\_ITLINE23\_SR\_I2C1\_GLB\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01316\ }
+\DoxyCodeLine{01317\ \textcolor{preprocessor}{\#if\ defined(SYSCFG\_ITLINE24\_SR\_I2C2\_GLB)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01323\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_SYSCFG\_IsActiveFlag\_I2C2(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{01324\ \{}
+\DoxyCodeLine{01325\ \ \ \textcolor{keywordflow}{return}\ ((READ\_BIT(SYSCFG-\/>IT\_LINE\_SR[24],\ \doxymbox{\hyperlink{group___peripheral___registers___bits___definition_ga593b370eb8fd5418349c55f5df9f63df}{SYSCFG\_ITLINE24\_SR\_I2C2\_GLB}})\ ==\ (\doxymbox{\hyperlink{group___peripheral___registers___bits___definition_ga593b370eb8fd5418349c55f5df9f63df}{SYSCFG\_ITLINE24\_SR\_I2C2\_GLB}}))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{01326\ \}}
+\DoxyCodeLine{01327\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SYSCFG\_ITLINE24\_SR\_I2C2\_GLB\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01328\ }
+\DoxyCodeLine{01329\ \textcolor{preprocessor}{\#if\ defined(SYSCFG\_ITLINE24\_SR\_I2C3\_GLB)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01335\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_SYSCFG\_IsActiveFlag\_I2C3(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{01336\ \{}
+\DoxyCodeLine{01337\ \ \ \textcolor{keywordflow}{return}\ ((READ\_BIT(SYSCFG-\/>IT\_LINE\_SR[24],\ SYSCFG\_ITLINE24\_SR\_I2C3\_GLB)\ ==\ (SYSCFG\_ITLINE24\_SR\_I2C3\_GLB))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{01338\ \}}
+\DoxyCodeLine{01339\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SYSCFG\_ITLINE24\_SR\_I2C3\_GLB\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01340\ }
+\DoxyCodeLine{01341\ \textcolor{preprocessor}{\#if\ defined(SYSCFG\_ITLINE25\_SR\_SPI1)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01347\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_SYSCFG\_IsActiveFlag\_SPI1(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{01348\ \{}
+\DoxyCodeLine{01349\ \ \ \textcolor{keywordflow}{return}\ ((READ\_BIT(SYSCFG-\/>IT\_LINE\_SR[25],\ \doxymbox{\hyperlink{group___peripheral___registers___bits___definition_ga1f4c89fed1557294a22728428752a295}{SYSCFG\_ITLINE25\_SR\_SPI1}})\ ==\ (\doxymbox{\hyperlink{group___peripheral___registers___bits___definition_ga1f4c89fed1557294a22728428752a295}{SYSCFG\_ITLINE25\_SR\_SPI1}}))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{01350\ \}}
+\DoxyCodeLine{01351\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SYSCFG\_ITLINE25\_SR\_SPI1\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01352\ }
+\DoxyCodeLine{01353\ \textcolor{preprocessor}{\#if\ defined(SYSCFG\_ITLINE26\_SR\_SPI2)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01359\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_SYSCFG\_IsActiveFlag\_SPI2(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{01360\ \{}
+\DoxyCodeLine{01361\ \ \ \textcolor{keywordflow}{return}\ ((READ\_BIT(SYSCFG-\/>IT\_LINE\_SR[26],\ \doxymbox{\hyperlink{group___peripheral___registers___bits___definition_gaa3e2ae78b58e2f78285416663156cb93}{SYSCFG\_ITLINE26\_SR\_SPI2}})\ ==\ (\doxymbox{\hyperlink{group___peripheral___registers___bits___definition_gaa3e2ae78b58e2f78285416663156cb93}{SYSCFG\_ITLINE26\_SR\_SPI2}}))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{01362\ \}}
+\DoxyCodeLine{01363\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SYSCFG\_ITLINE26\_SR\_SPI2\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01364\ }
+\DoxyCodeLine{01365\ \textcolor{preprocessor}{\#if\ defined(SYSCFG\_ITLINE26\_SR\_SPI3)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01371\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_SYSCFG\_IsActiveFlag\_SPI3(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{01372\ \{}
+\DoxyCodeLine{01373\ \ \ \textcolor{keywordflow}{return}\ ((READ\_BIT(SYSCFG-\/>IT\_LINE\_SR[26],\ SYSCFG\_ITLINE26\_SR\_SPI3)\ ==\ (SYSCFG\_ITLINE26\_SR\_SPI3))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{01374\ \}}
+\DoxyCodeLine{01375\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SYSCFG\_ITLINE26\_SR\_SPI3\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01376\ }
+\DoxyCodeLine{01377\ \textcolor{preprocessor}{\#if\ defined(SYSCFG\_ITLINE27\_SR\_USART1\_GLB)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01383\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_SYSCFG\_IsActiveFlag\_USART1(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{01384\ \{}
+\DoxyCodeLine{01385\ \ \ \textcolor{keywordflow}{return}\ ((READ\_BIT(SYSCFG-\/>IT\_LINE\_SR[27],\ \doxymbox{\hyperlink{group___peripheral___registers___bits___definition_ga78edd382629b8d278327a9ff9f5cfeae}{SYSCFG\_ITLINE27\_SR\_USART1\_GLB}})\ ==\ (\doxymbox{\hyperlink{group___peripheral___registers___bits___definition_ga78edd382629b8d278327a9ff9f5cfeae}{SYSCFG\_ITLINE27\_SR\_USART1\_GLB}}))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{01386\ \}}
+\DoxyCodeLine{01387\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SYSCFG\_ITLINE27\_SR\_USART1\_GLB\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01388\ }
+\DoxyCodeLine{01389\ \textcolor{preprocessor}{\#if\ defined(SYSCFG\_ITLINE28\_SR\_USART2\_GLB)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01395\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_SYSCFG\_IsActiveFlag\_USART2(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{01396\ \{}
+\DoxyCodeLine{01397\ \ \ \textcolor{keywordflow}{return}\ ((READ\_BIT(SYSCFG-\/>IT\_LINE\_SR[28],\ \doxymbox{\hyperlink{group___peripheral___registers___bits___definition_gadcfd80da7db6145a4437fa148452a5a8}{SYSCFG\_ITLINE28\_SR\_USART2\_GLB}})\ ==\ (\doxymbox{\hyperlink{group___peripheral___registers___bits___definition_gadcfd80da7db6145a4437fa148452a5a8}{SYSCFG\_ITLINE28\_SR\_USART2\_GLB}}))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{01398\ \}}
+\DoxyCodeLine{01399\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SYSCFG\_ITLINE28\_SR\_USART2\_GLB\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01400\ }
+\DoxyCodeLine{01401\ \textcolor{preprocessor}{\#if\ defined(SYSCFG\_ITLINE28\_SR\_LPUART2\_GLB)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01407\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_SYSCFG\_IsActiveFlag\_LPUART2(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{01408\ \{}
+\DoxyCodeLine{01409\ \ \ \textcolor{keywordflow}{return}\ ((READ\_BIT(SYSCFG-\/>IT\_LINE\_SR[28],\ SYSCFG\_ITLINE28\_SR\_LPUART2\_GLB)\ ==\ (SYSCFG\_ITLINE28\_SR\_LPUART2\_GLB))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{01410\ \}}
+\DoxyCodeLine{01411\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SYSCFG\_ITLINE28\_SR\_LPUART2\_GLB\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01412\ }
+\DoxyCodeLine{01413\ \textcolor{preprocessor}{\#if\ defined(SYSCFG\_ITLINE29\_SR\_USART3\_GLB)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01419\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_SYSCFG\_IsActiveFlag\_USART3(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{01420\ \{}
+\DoxyCodeLine{01421\ \ \ \textcolor{keywordflow}{return}\ ((READ\_BIT(SYSCFG-\/>IT\_LINE\_SR[29],\ SYSCFG\_ITLINE29\_SR\_USART3\_GLB)\ ==\ (SYSCFG\_ITLINE29\_SR\_USART3\_GLB))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{01422\ \}}
+\DoxyCodeLine{01423\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SYSCFG\_ITLINE29\_SR\_USART3\_GLB\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01424\ }
+\DoxyCodeLine{01425\ \textcolor{preprocessor}{\#if\ defined(SYSCFG\_ITLINE29\_SR\_USART4\_GLB)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01431\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_SYSCFG\_IsActiveFlag\_USART4(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{01432\ \{}
+\DoxyCodeLine{01433\ \ \ \textcolor{keywordflow}{return}\ ((READ\_BIT(SYSCFG-\/>IT\_LINE\_SR[29],\ SYSCFG\_ITLINE29\_SR\_USART4\_GLB)\ ==\ (SYSCFG\_ITLINE29\_SR\_USART4\_GLB))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{01434\ \}}
+\DoxyCodeLine{01435\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SYSCFG\_ITLINE29\_SR\_USART4\_GLB\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01436\ }
+\DoxyCodeLine{01437\ \textcolor{preprocessor}{\#if\ defined(SYSCFG\_ITLINE29\_SR\_LPUART1\_GLB)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01443\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_SYSCFG\_IsActiveFlag\_LPUART1(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{01444\ \{}
+\DoxyCodeLine{01445\ \ \ \textcolor{keywordflow}{return}\ ((READ\_BIT(SYSCFG-\/>IT\_LINE\_SR[29],\ SYSCFG\_ITLINE29\_SR\_LPUART1\_GLB)\ ==\ (SYSCFG\_ITLINE29\_SR\_LPUART1\_GLB))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{01446\ \}}
+\DoxyCodeLine{01447\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SYSCFG\_ITLINE29\_SR\_LPUART1\_GLB\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01448\ }
+\DoxyCodeLine{01449\ \textcolor{preprocessor}{\#if\ defined(SYSCFG\_ITLINE29\_SR\_USART5\_GLB)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01455\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_SYSCFG\_IsActiveFlag\_USART5(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{01456\ \{}
+\DoxyCodeLine{01457\ \ \ \textcolor{keywordflow}{return}\ ((READ\_BIT(SYSCFG-\/>IT\_LINE\_SR[29],\ SYSCFG\_ITLINE29\_SR\_USART5\_GLB)\ ==\ (SYSCFG\_ITLINE29\_SR\_USART5\_GLB))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{01458\ \}}
+\DoxyCodeLine{01459\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SYSCFG\_ITLINE29\_SR\_USART5\_GLB\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01460\ }
+\DoxyCodeLine{01461\ \textcolor{preprocessor}{\#if\ defined(SYSCFG\_ITLINE29\_SR\_USART6\_GLB)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01467\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_SYSCFG\_IsActiveFlag\_USART6(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{01468\ \{}
+\DoxyCodeLine{01469\ \ \ \textcolor{keywordflow}{return}\ ((READ\_BIT(SYSCFG-\/>IT\_LINE\_SR[29],\ SYSCFG\_ITLINE29\_SR\_USART6\_GLB)\ ==\ (SYSCFG\_ITLINE29\_SR\_USART6\_GLB))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{01470\ \}}
+\DoxyCodeLine{01471\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SYSCFG\_ITLINE29\_SR\_USART6\_GLB\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01472\ }
+\DoxyCodeLine{01473\ \textcolor{preprocessor}{\#if\ defined(SYSCFG\_ITLINE30\_SR\_CEC)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01479\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_SYSCFG\_IsActiveFlag\_CEC(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{01480\ \{}
+\DoxyCodeLine{01481\ \ \ \textcolor{keywordflow}{return}\ ((READ\_BIT(SYSCFG-\/>IT\_LINE\_SR[30],\ SYSCFG\_ITLINE30\_SR\_CEC)\ ==\ (SYSCFG\_ITLINE30\_SR\_CEC))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{01482\ \}}
+\DoxyCodeLine{01483\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SYSCFG\_ITLINE30\_SR\_CEC\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01484\ }
+\DoxyCodeLine{01485\ \textcolor{preprocessor}{\#if\ defined(SYSCFG\_ITLINE31\_SR\_AES)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01491\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_SYSCFG\_IsActiveFlag\_AES(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{01492\ \{}
+\DoxyCodeLine{01493\ \ \ \textcolor{keywordflow}{return}\ ((READ\_BIT(SYSCFG-\/>IT\_LINE\_SR[31],\ SYSCFG\_ITLINE31\_SR\_AES)\ ==\ (SYSCFG\_ITLINE31\_SR\_AES))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{01494\ \}}
+\DoxyCodeLine{01495\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SYSCFG\_ITLINE31\_SR\_AES\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01496\ }
+\DoxyCodeLine{01497\ \textcolor{preprocessor}{\#if\ defined(SYSCFG\_ITLINE31\_SR\_RNG)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01503\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_SYSCFG\_IsActiveFlag\_RNG(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{01504\ \{}
+\DoxyCodeLine{01505\ \ \ \textcolor{keywordflow}{return}\ ((READ\_BIT(SYSCFG-\/>IT\_LINE\_SR[31],\ SYSCFG\_ITLINE31\_SR\_RNG)\ ==\ (SYSCFG\_ITLINE31\_SR\_RNG))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{01506\ \}}
+\DoxyCodeLine{01507\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SYSCFG\_ITLINE31\_SR\_RNG\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01508\ }
+\DoxyCodeLine{01526\ \_\_STATIC\_INLINE\ \textcolor{keywordtype}{void}\ LL\_SYSCFG\_SetTIMBreakInputs(uint32\_t\ Break)}
+\DoxyCodeLine{01527\ \{}
+\DoxyCodeLine{01528\ \textcolor{preprocessor}{\#if\ defined(SYSCFG\_CFGR2\_PVDL)}}
+\DoxyCodeLine{01529\ \ \ MODIFY\_REG(SYSCFG-\/>CFGR2,\ \doxymbox{\hyperlink{group___peripheral___registers___bits___definition_ga37867c85a6455883bf60424879a281f4}{SYSCFG\_CFGR2\_CLL}}\ |\ \doxymbox{\hyperlink{group___peripheral___registers___bits___definition_gacbf387c6e12d90c012dd85636c5dc31b}{SYSCFG\_CFGR2\_SPL}}\ |\ SYSCFG\_CFGR2\_PVDL\ |\ \doxymbox{\hyperlink{group___peripheral___registers___bits___definition_gae75e85c4c032560b4db88cd8fcb3aaf9}{SYSCFG\_CFGR2\_ECCL}},\ Break);}
+\DoxyCodeLine{01530\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{01531\ \ \ MODIFY\_REG(SYSCFG-\/>CFGR2,\ \doxymbox{\hyperlink{group___peripheral___registers___bits___definition_ga37867c85a6455883bf60424879a281f4}{SYSCFG\_CFGR2\_CLL}}\ |\ \doxymbox{\hyperlink{group___peripheral___registers___bits___definition_gacbf387c6e12d90c012dd85636c5dc31b}{SYSCFG\_CFGR2\_SPL}}\ |\ \doxymbox{\hyperlink{group___peripheral___registers___bits___definition_gae75e85c4c032560b4db88cd8fcb3aaf9}{SYSCFG\_CFGR2\_ECCL}},\ Break);}
+\DoxyCodeLine{01532\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*SYSCFG\_CFGR2\_PVDL*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01533\ \}}
+\DoxyCodeLine{01534\ }
+\DoxyCodeLine{01551\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_SYSCFG\_GetTIMBreakInputs(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{01552\ \{}
+\DoxyCodeLine{01553\ \textcolor{preprocessor}{\#if\ defined(SYSCFG\_CFGR2\_PVDL)}}
+\DoxyCodeLine{01554\ \ \ \textcolor{keywordflow}{return}\ (uint32\_t)(READ\_BIT(SYSCFG-\/>CFGR2,\ \doxymbox{\hyperlink{group___peripheral___registers___bits___definition_ga37867c85a6455883bf60424879a281f4}{SYSCFG\_CFGR2\_CLL}}\ |\ \doxymbox{\hyperlink{group___peripheral___registers___bits___definition_gacbf387c6e12d90c012dd85636c5dc31b}{SYSCFG\_CFGR2\_SPL}}\ |\ SYSCFG\_CFGR2\_PVDL\ |\ \doxymbox{\hyperlink{group___peripheral___registers___bits___definition_gae75e85c4c032560b4db88cd8fcb3aaf9}{SYSCFG\_CFGR2\_ECCL}}));}
+\DoxyCodeLine{01555\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{01556\ \ \ \textcolor{keywordflow}{return}\ (uint32\_t)(READ\_BIT(SYSCFG-\/>CFGR2,\ \doxymbox{\hyperlink{group___peripheral___registers___bits___definition_ga37867c85a6455883bf60424879a281f4}{SYSCFG\_CFGR2\_CLL}}\ |\ \doxymbox{\hyperlink{group___peripheral___registers___bits___definition_gacbf387c6e12d90c012dd85636c5dc31b}{SYSCFG\_CFGR2\_SPL}}\ |\ \doxymbox{\hyperlink{group___peripheral___registers___bits___definition_gae75e85c4c032560b4db88cd8fcb3aaf9}{SYSCFG\_CFGR2\_ECCL}}));}
+\DoxyCodeLine{01557\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*SYSCFG\_CFGR2\_PVDL*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01558\ \}}
+\DoxyCodeLine{01559\ }
+\DoxyCodeLine{01565\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_SYSCFG\_IsActiveFlag\_SP(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{01566\ \{}
+\DoxyCodeLine{01567\ \ \ \textcolor{keywordflow}{return}\ ((READ\_BIT(SYSCFG-\/>CFGR2,\ \doxymbox{\hyperlink{group___peripheral___registers___bits___definition_ga155014fba33b6dc281892ec1ff27e4da}{SYSCFG\_CFGR2\_SPF}})\ ==\ (\doxymbox{\hyperlink{group___peripheral___registers___bits___definition_ga155014fba33b6dc281892ec1ff27e4da}{SYSCFG\_CFGR2\_SPF}}))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{01568\ \}}
+\DoxyCodeLine{01569\ }
+\DoxyCodeLine{01575\ \_\_STATIC\_INLINE\ \textcolor{keywordtype}{void}\ LL\_SYSCFG\_ClearFlag\_SP(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{01576\ \{}
+\DoxyCodeLine{01577\ \ \ SET\_BIT(SYSCFG-\/>CFGR2,\ \doxymbox{\hyperlink{group___peripheral___registers___bits___definition_ga155014fba33b6dc281892ec1ff27e4da}{SYSCFG\_CFGR2\_SPF}});}
+\DoxyCodeLine{01578\ \}}
+\DoxyCodeLine{01579\ }
+\DoxyCodeLine{01580\ \textcolor{preprocessor}{\#if\ defined(SYSCFG\_CDEN\_SUPPORT)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01602\ \_\_STATIC\_INLINE\ \textcolor{keywordtype}{void}\ LL\_SYSCFG\_EnableClampingDiode(uint32\_t\ ConfigClampingDiode)}
+\DoxyCodeLine{01603\ \{}
+\DoxyCodeLine{01604\ \ \ SET\_BIT(SYSCFG-\/>CFGR2,\ ConfigClampingDiode);}
+\DoxyCodeLine{01605\ \}}
+\DoxyCodeLine{01606\ }
+\DoxyCodeLine{01628\ \_\_STATIC\_INLINE\ \textcolor{keywordtype}{void}\ LL\_SYSCFG\_DisableClampingDiode(uint32\_t\ ConfigClampingDiode)}
+\DoxyCodeLine{01629\ \{}
+\DoxyCodeLine{01630\ \ \ CLEAR\_BIT(SYSCFG-\/>CFGR2,\ ConfigClampingDiode);}
+\DoxyCodeLine{01631\ \}}
+\DoxyCodeLine{01653\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_SYSCFG\_IsEnabledClampingDiode(uint32\_t\ ConfigClampingDiode)}
+\DoxyCodeLine{01654\ \{}
+\DoxyCodeLine{01655\ \ \ \textcolor{keywordflow}{return}\ ((READ\_BIT(SYSCFG-\/>CFGR2,\ ConfigClampingDiode)\ ==\ (ConfigClampingDiode))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{01656\ \}}
+\DoxyCodeLine{01657\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SYSCFG\_CDEN\_SUPPORT\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01658\ }
+\DoxyCodeLine{01662\ }
+\DoxyCodeLine{01666\ }
+\DoxyCodeLine{01673\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_DBGMCU\_GetDeviceID(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{01674\ \{}
+\DoxyCodeLine{01675\ \ \ \textcolor{keywordflow}{return}\ (uint32\_t)(READ\_BIT(DBG-\/>IDCODE,\ DBG\_IDCODE\_DEV\_ID));}
+\DoxyCodeLine{01676\ \}}
+\DoxyCodeLine{01677\ }
+\DoxyCodeLine{01684\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_DBGMCU\_GetRevisionID(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{01685\ \{}
+\DoxyCodeLine{01686\ \ \ \textcolor{keywordflow}{return}\ (uint32\_t)(READ\_BIT(DBG-\/>IDCODE,\ DBG\_IDCODE\_REV\_ID)\ >>\ DBG\_IDCODE\_REV\_ID\_Pos);}
+\DoxyCodeLine{01687\ \}}
+\DoxyCodeLine{01688\ }
+\DoxyCodeLine{01694\ \_\_STATIC\_INLINE\ \textcolor{keywordtype}{void}\ LL\_DBGMCU\_EnableDBGStopMode(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{01695\ \{}
+\DoxyCodeLine{01696\ \ \ SET\_BIT(DBG-\/>CR,\ DBG\_CR\_DBG\_STOP);}
+\DoxyCodeLine{01697\ \}}
+\DoxyCodeLine{01698\ }
+\DoxyCodeLine{01704\ \_\_STATIC\_INLINE\ \textcolor{keywordtype}{void}\ LL\_DBGMCU\_DisableDBGStopMode(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{01705\ \{}
+\DoxyCodeLine{01706\ \ \ CLEAR\_BIT(DBG-\/>CR,\ DBG\_CR\_DBG\_STOP);}
+\DoxyCodeLine{01707\ \}}
+\DoxyCodeLine{01708\ }
+\DoxyCodeLine{01714\ \_\_STATIC\_INLINE\ \textcolor{keywordtype}{void}\ LL\_DBGMCU\_EnableDBGStandbyMode(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{01715\ \{}
+\DoxyCodeLine{01716\ \ \ SET\_BIT(DBG-\/>CR,\ DBG\_CR\_DBG\_STANDBY);}
+\DoxyCodeLine{01717\ \}}
+\DoxyCodeLine{01718\ }
+\DoxyCodeLine{01724\ \_\_STATIC\_INLINE\ \textcolor{keywordtype}{void}\ LL\_DBGMCU\_DisableDBGStandbyMode(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{01725\ \{}
+\DoxyCodeLine{01726\ \ \ CLEAR\_BIT(DBG-\/>CR,\ DBG\_CR\_DBG\_STANDBY);}
+\DoxyCodeLine{01727\ \}}
+\DoxyCodeLine{01728\ }
+\DoxyCodeLine{01760\ \_\_STATIC\_INLINE\ \textcolor{keywordtype}{void}\ LL\_DBGMCU\_APB1\_GRP1\_FreezePeriph(uint32\_t\ Periphs)}
+\DoxyCodeLine{01761\ \{}
+\DoxyCodeLine{01762\ \ \ SET\_BIT(DBG-\/>APBFZ1,\ Periphs);}
+\DoxyCodeLine{01763\ \}}
+\DoxyCodeLine{01764\ }
+\DoxyCodeLine{01796\ \_\_STATIC\_INLINE\ \textcolor{keywordtype}{void}\ LL\_DBGMCU\_APB1\_GRP1\_UnFreezePeriph(uint32\_t\ Periphs)}
+\DoxyCodeLine{01797\ \{}
+\DoxyCodeLine{01798\ \ \ CLEAR\_BIT(DBG-\/>APBFZ1,\ Periphs);}
+\DoxyCodeLine{01799\ \}}
+\DoxyCodeLine{01800\ }
+\DoxyCodeLine{01818\ \_\_STATIC\_INLINE\ \textcolor{keywordtype}{void}\ LL\_DBGMCU\_APB2\_GRP1\_FreezePeriph(uint32\_t\ Periphs)}
+\DoxyCodeLine{01819\ \{}
+\DoxyCodeLine{01820\ \ \ SET\_BIT(DBG-\/>APBFZ2,\ Periphs);}
+\DoxyCodeLine{01821\ \}}
+\DoxyCodeLine{01822\ }
+\DoxyCodeLine{01840\ \_\_STATIC\_INLINE\ \textcolor{keywordtype}{void}\ LL\_DBGMCU\_APB2\_GRP1\_UnFreezePeriph(uint32\_t\ Periphs)}
+\DoxyCodeLine{01841\ \{}
+\DoxyCodeLine{01842\ \ \ CLEAR\_BIT(DBG-\/>APBFZ2,\ Periphs);}
+\DoxyCodeLine{01843\ \}}
+\DoxyCodeLine{01847\ }
+\DoxyCodeLine{01848\ \textcolor{preprocessor}{\#if\ defined(VREFBUF)}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01852\ }
+\DoxyCodeLine{01858\ \_\_STATIC\_INLINE\ \textcolor{keywordtype}{void}\ LL\_VREFBUF\_Enable(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{01859\ \{}
+\DoxyCodeLine{01860\ \ \ SET\_BIT(VREFBUF-\/>CSR,\ VREFBUF\_CSR\_ENVR);}
+\DoxyCodeLine{01861\ \}}
+\DoxyCodeLine{01862\ }
+\DoxyCodeLine{01868\ \_\_STATIC\_INLINE\ \textcolor{keywordtype}{void}\ LL\_VREFBUF\_Disable(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{01869\ \{}
+\DoxyCodeLine{01870\ \ \ CLEAR\_BIT(VREFBUF-\/>CSR,\ VREFBUF\_CSR\_ENVR);}
+\DoxyCodeLine{01871\ \}}
+\DoxyCodeLine{01872\ }
+\DoxyCodeLine{01878\ \_\_STATIC\_INLINE\ \textcolor{keywordtype}{void}\ LL\_VREFBUF\_EnableHIZ(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{01879\ \{}
+\DoxyCodeLine{01880\ \ \ SET\_BIT(VREFBUF-\/>CSR,\ VREFBUF\_CSR\_HIZ);}
+\DoxyCodeLine{01881\ \}}
+\DoxyCodeLine{01882\ }
+\DoxyCodeLine{01888\ \_\_STATIC\_INLINE\ \textcolor{keywordtype}{void}\ LL\_VREFBUF\_DisableHIZ(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{01889\ \{}
+\DoxyCodeLine{01890\ \ \ CLEAR\_BIT(VREFBUF-\/>CSR,\ VREFBUF\_CSR\_HIZ);}
+\DoxyCodeLine{01891\ \}}
+\DoxyCodeLine{01892\ }
+\DoxyCodeLine{01901\ \_\_STATIC\_INLINE\ \textcolor{keywordtype}{void}\ LL\_VREFBUF\_SetVoltageScaling(uint32\_t\ Scale)}
+\DoxyCodeLine{01902\ \{}
+\DoxyCodeLine{01903\ \ \ MODIFY\_REG(VREFBUF-\/>CSR,\ VREFBUF\_CSR\_VRS,\ Scale);}
+\DoxyCodeLine{01904\ \}}
+\DoxyCodeLine{01905\ }
+\DoxyCodeLine{01913\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_VREFBUF\_GetVoltageScaling(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{01914\ \{}
+\DoxyCodeLine{01915\ \ \ \textcolor{keywordflow}{return}\ (uint32\_t)(READ\_BIT(VREFBUF-\/>CSR,\ VREFBUF\_CSR\_VRS));}
+\DoxyCodeLine{01916\ \}}
+\DoxyCodeLine{01917\ }
+\DoxyCodeLine{01923\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_VREFBUF\_IsVREFReady(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{01924\ \{}
+\DoxyCodeLine{01925\ \ \ \textcolor{keywordflow}{return}\ ((READ\_BIT(VREFBUF-\/>CSR,\ VREFBUF\_CSR\_VRR)\ ==\ (VREFBUF\_CSR\_VRR))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{01926\ \}}
+\DoxyCodeLine{01927\ }
+\DoxyCodeLine{01933\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_VREFBUF\_GetTrimming(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{01934\ \{}
+\DoxyCodeLine{01935\ \ \ \textcolor{keywordflow}{return}\ (uint32\_t)(READ\_BIT(VREFBUF-\/>CCR,\ VREFBUF\_CCR\_TRIM));}
+\DoxyCodeLine{01936\ \}}
+\DoxyCodeLine{01937\ }
+\DoxyCodeLine{01949\ \_\_STATIC\_INLINE\ \textcolor{keywordtype}{void}\ LL\_VREFBUF\_SetTrimming(uint32\_t\ Value)}
+\DoxyCodeLine{01950\ \{}
+\DoxyCodeLine{01951\ \ \ WRITE\_REG(VREFBUF-\/>CCR,\ Value);}
+\DoxyCodeLine{01952\ \}}
+\DoxyCodeLine{01953\ }
+\DoxyCodeLine{01957\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ VREFBUF\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01958\ }
+\DoxyCodeLine{01962\ }
+\DoxyCodeLine{01972\ \_\_STATIC\_INLINE\ \textcolor{keywordtype}{void}\ LL\_FLASH\_SetLatency(uint32\_t\ Latency)}
+\DoxyCodeLine{01973\ \{}
+\DoxyCodeLine{01974\ \ \ MODIFY\_REG(FLASH-\/>ACR,\ FLASH\_ACR\_LATENCY,\ Latency);}
+\DoxyCodeLine{01975\ \}}
+\DoxyCodeLine{01976\ }
+\DoxyCodeLine{01985\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_FLASH\_GetLatency(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{01986\ \{}
+\DoxyCodeLine{01987\ \ \ \textcolor{keywordflow}{return}\ (uint32\_t)(READ\_BIT(FLASH-\/>ACR,\ FLASH\_ACR\_LATENCY));}
+\DoxyCodeLine{01988\ \}}
+\DoxyCodeLine{01989\ }
+\DoxyCodeLine{01995\ \_\_STATIC\_INLINE\ \textcolor{keywordtype}{void}\ LL\_FLASH\_EnablePrefetch(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{01996\ \{}
+\DoxyCodeLine{01997\ \ \ SET\_BIT(FLASH-\/>ACR,\ FLASH\_ACR\_PRFTEN);}
+\DoxyCodeLine{01998\ \}}
+\DoxyCodeLine{01999\ }
+\DoxyCodeLine{02005\ \_\_STATIC\_INLINE\ \textcolor{keywordtype}{void}\ LL\_FLASH\_DisablePrefetch(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{02006\ \{}
+\DoxyCodeLine{02007\ \ \ CLEAR\_BIT(FLASH-\/>ACR,\ FLASH\_ACR\_PRFTEN);}
+\DoxyCodeLine{02008\ \}}
+\DoxyCodeLine{02009\ }
+\DoxyCodeLine{02015\ \_\_STATIC\_INLINE\ uint32\_t\ LL\_FLASH\_IsPrefetchEnabled(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{02016\ \{}
+\DoxyCodeLine{02017\ \ \ \textcolor{keywordflow}{return}\ ((READ\_BIT(FLASH-\/>ACR,\ FLASH\_ACR\_PRFTEN)\ ==\ (FLASH\_ACR\_PRFTEN))\ ?\ 1UL\ :\ 0UL);}
+\DoxyCodeLine{02018\ \}}
+\DoxyCodeLine{02019\ }
+\DoxyCodeLine{02025\ \_\_STATIC\_INLINE\ \textcolor{keywordtype}{void}\ LL\_FLASH\_EnableInstCache(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{02026\ \{}
+\DoxyCodeLine{02027\ \ \ SET\_BIT(FLASH-\/>ACR,\ FLASH\_ACR\_ICEN);}
+\DoxyCodeLine{02028\ \}}
+\DoxyCodeLine{02029\ }
+\DoxyCodeLine{02035\ \_\_STATIC\_INLINE\ \textcolor{keywordtype}{void}\ LL\_FLASH\_DisableInstCache(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{02036\ \{}
+\DoxyCodeLine{02037\ \ \ CLEAR\_BIT(FLASH-\/>ACR,\ FLASH\_ACR\_ICEN);}
+\DoxyCodeLine{02038\ \}}
+\DoxyCodeLine{02039\ }
+\DoxyCodeLine{02046\ \_\_STATIC\_INLINE\ \textcolor{keywordtype}{void}\ LL\_FLASH\_EnableInstCacheReset(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{02047\ \{}
+\DoxyCodeLine{02048\ \ \ SET\_BIT(FLASH-\/>ACR,\ FLASH\_ACR\_ICRST);}
+\DoxyCodeLine{02049\ \}}
+\DoxyCodeLine{02050\ }
+\DoxyCodeLine{02056\ \_\_STATIC\_INLINE\ \textcolor{keywordtype}{void}\ LL\_FLASH\_DisableInstCacheReset(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{02057\ \{}
+\DoxyCodeLine{02058\ \ \ CLEAR\_BIT(FLASH-\/>ACR,\ FLASH\_ACR\_ICRST);}
+\DoxyCodeLine{02059\ \}}
+\DoxyCodeLine{02060\ }
+\DoxyCodeLine{02064\ }
+\DoxyCodeLine{02068\ }
+\DoxyCodeLine{02072\ }
+\DoxyCodeLine{02073\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ defined\ (FLASH)\ ||\ defined\ (SYSCFG)\ ||\ defined\ (DBG)\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{02074\ }
+\DoxyCodeLine{02078\ }
+\DoxyCodeLine{02079\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{02080\ \}}
+\DoxyCodeLine{02081\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{02082\ }
+\DoxyCodeLine{02083\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ STM32G0xx\_LL\_SYSTEM\_H\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{02084\ }
+\DoxyCodeLine{02085\ }
+
+\end{DoxyCode}

@@ -1,0 +1,338 @@
+\doxysection{stm32g0xx\+\_\+hal\+\_\+tim\+\_\+ex.\+h}
+\hypertarget{stm32g0xx__hal__tim__ex_8h_source}{}\label{stm32g0xx__hal__tim__ex_8h_source}\index{Drivers/STM32G0xx\_HAL\_Driver/Inc/stm32g0xx\_hal\_tim\_ex.h@{Drivers/STM32G0xx\_HAL\_Driver/Inc/stm32g0xx\_hal\_tim\_ex.h}}
+\doxymbox{\hyperlink{stm32g0xx__hal__tim__ex_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{comment}{/*\ Define\ to\ prevent\ recursive\ inclusion\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#ifndef\ STM32G0xx\_HAL\_TIM\_EX\_H}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#define\ STM32G0xx\_HAL\_TIM\_EX\_H}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00024\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{comment}{/*\ Includes\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{stm32g0xx__hal__def_8h}{stm32g0xx\_hal\_def.h}}"{}}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \textcolor{comment}{/*\ Exported\ types\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00048\ \{}
+\DoxyCodeLine{00049\ \ \ uint32\_t\ \doxymbox{\hyperlink{struct_t_i_m___hall_sensor___init_type_def_ac1191c7421a3ca4c53ec7875870812e5}{IC1Polarity}};\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ uint32\_t\ \doxymbox{\hyperlink{struct_t_i_m___hall_sensor___init_type_def_aa913a8df0a4c97fefa87ff760fae10cb}{IC1Prescaler}};\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ uint32\_t\ \doxymbox{\hyperlink{struct_t_i_m___hall_sensor___init_type_def_a5efa2ad5085fe72fb0b5dc2e2fc61def}{IC1Filter}};\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ uint32\_t\ \doxymbox{\hyperlink{struct_t_i_m___hall_sensor___init_type_def_a5d74bf14283eb95439d6d37952274f07}{Commutation\_Delay}};\ \ \ }
+\DoxyCodeLine{00060\ \}\ \doxymbox{\hyperlink{struct_t_i_m___hall_sensor___init_type_def}{TIM\_HallSensor\_InitTypeDef}};}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00065\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00066\ \{}
+\DoxyCodeLine{00067\ \ \ uint32\_t\ \doxymbox{\hyperlink{struct_t_i_m_ex___break_input_config_type_def_a8ce78da716e053d4aa5a8c972524f4ad}{Source}};\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00069\ \ \ uint32\_t\ \doxymbox{\hyperlink{struct_t_i_m_ex___break_input_config_type_def_affeaaeb5fc4bbc782c09b47bef36490f}{Enable}};\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00071\ \ \ uint32\_t\ \doxymbox{\hyperlink{struct_t_i_m_ex___break_input_config_type_def_aa8163c013b720459c0e6a92c84d5bef9}{Polarity}};\ \ \ \ \ \ \ }
+\DoxyCodeLine{00073\ \}\ \doxymbox{\hyperlink{struct_t_i_m_ex___break_input_config_type_def}{TIMEx\_BreakInputConfigTypeDef}};}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00078\ \textcolor{comment}{/*\ End\ of\ exported\ types\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \textcolor{comment}{/*\ Exported\ constants\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00088\ \textcolor{preprocessor}{\#define\ TIM\_TIM1\_ETR\_GPIO\ \ \ \ \ \ \ \ \ \ \ 0x00000000U\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00089\ \textcolor{preprocessor}{\#if\ defined(COMP1)\ \&\&\ defined(COMP2)}}
+\DoxyCodeLine{00090\ \textcolor{preprocessor}{\#define\ TIM\_TIM1\_ETR\_COMP1\ \ \ \ \ \ \ \ \ \ TIM1\_AF1\_ETRSEL\_0\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00091\ \textcolor{preprocessor}{\#define\ TIM\_TIM1\_ETR\_COMP2\ \ \ \ \ \ \ \ \ \ TIM1\_AF1\_ETRSEL\_1\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00092\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ COMP1\ \&\&\ COMP2\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00093\ \textcolor{preprocessor}{\#define\ TIM\_TIM1\_ETR\_ADC1\_AWD1\ \ \ \ \ \ (TIM1\_AF1\_ETRSEL\_1\ |\ TIM1\_AF1\_ETRSEL\_0)\ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00094\ \textcolor{preprocessor}{\#define\ TIM\_TIM1\_ETR\_ADC1\_AWD2\ \ \ \ \ \ TIM1\_AF1\_ETRSEL\_2\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00095\ \textcolor{preprocessor}{\#define\ TIM\_TIM1\_ETR\_ADC1\_AWD3\ \ \ \ \ \ (TIM1\_AF1\_ETRSEL\_2\ |\ TIM1\_AF1\_ETRSEL\_0)\ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00096\ \textcolor{preprocessor}{\#if\ defined(COMP3)}}
+\DoxyCodeLine{00097\ \textcolor{preprocessor}{\#define\ TIM\_TIM1\_ETR\_COMP3\ \ \ \ \ \ \ \ \ \ (TIM1\_AF1\_ETRSEL\_2\ |\ TIM1\_AF1\_ETRSEL\_1)\ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00098\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ COMP3\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00099\ \textcolor{preprocessor}{\#if\ defined(TIM2)}}
+\DoxyCodeLine{00100\ \textcolor{preprocessor}{\#define\ TIM\_TIM2\_ETR\_GPIO\ \ \ \ \ \ \ \ \ \ \ 0x00000000U\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00101\ \textcolor{preprocessor}{\#define\ TIM\_TIM2\_ETR\_COMP1\ \ \ \ \ \ \ \ \ \ TIM2\_AF1\_ETRSEL\_0\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00102\ \textcolor{preprocessor}{\#define\ TIM\_TIM2\_ETR\_COMP2\ \ \ \ \ \ \ \ \ \ TIM2\_AF1\_ETRSEL\_1\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00103\ \textcolor{preprocessor}{\#define\ TIM\_TIM2\_ETR\_LSE\ \ \ \ \ \ \ \ \ \ \ \ (TIM2\_AF1\_ETRSEL\_1\ |\ TIM2\_AF1\_ETRSEL\_0)\ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00104\ \textcolor{preprocessor}{\#if\ defined(COMP3)}}
+\DoxyCodeLine{00105\ \textcolor{preprocessor}{\#define\ TIM\_TIM2\_ETR\_MCO\ \ \ \ \ \ \ \ \ \ \ \ TIM2\_AF1\_ETRSEL\_2\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00106\ \textcolor{preprocessor}{\#define\ TIM\_TIM2\_ETR\_MCO2\ \ \ \ \ \ \ \ \ \ \ (TIM1\_AF1\_ETRSEL\_2\ |\ TIM1\_AF1\_ETRSEL\_0)\ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00107\ \textcolor{preprocessor}{\#define\ TIM\_TIM2\_ETR\_COMP3\ \ \ \ \ \ \ \ \ \ (TIM1\_AF1\_ETRSEL\_2\ |\ TIM1\_AF1\_ETRSEL\_1)\ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00108\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ COMP3\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00109\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \ TIM2\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00110\ \textcolor{preprocessor}{\#if\ defined(TIM3)}}
+\DoxyCodeLine{00111\ \textcolor{preprocessor}{\#define\ TIM\_TIM3\_ETR\_GPIO\ \ \ \ \ \ \ \ \ \ \ 0x00000000U\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00112\ \textcolor{preprocessor}{\#if\ defined(COMP1)\ \&\&\ defined(COMP2)}}
+\DoxyCodeLine{00113\ \textcolor{preprocessor}{\#define\ TIM\_TIM3\_ETR\_COMP1\ \ \ \ \ \ \ \ \ \ TIM3\_AF1\_ETRSEL\_0\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00114\ \textcolor{preprocessor}{\#define\ TIM\_TIM3\_ETR\_COMP2\ \ \ \ \ \ \ \ \ \ TIM3\_AF1\_ETRSEL\_1\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00115\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ COMP1\ \&\&\ COMP2\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00116\ \textcolor{preprocessor}{\#if\ defined(COMP3)}}
+\DoxyCodeLine{00117\ \textcolor{preprocessor}{\#define\ TIM\_TIM3\_ETR\_COMP3\ \ \ \ \ \ \ \ \ \ (TIM3\_AF1\_ETRSEL\_1\ |\ TIM3\_AF1\_ETRSEL\_0)\ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00118\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ COMP3\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00119\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ TIM3\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00120\ \textcolor{preprocessor}{\#if\ defined(TIM4)}}
+\DoxyCodeLine{00121\ \textcolor{preprocessor}{\#define\ TIM\_TIM4\_ETR\_GPIO\ \ \ \ \ \ \ \ \ \ \ 0x00000000U\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00122\ \textcolor{preprocessor}{\#if\ defined(COMP1)\ \&\&\ defined(COMP2)}}
+\DoxyCodeLine{00123\ \textcolor{preprocessor}{\#define\ TIM\_TIM4\_ETR\_COMP1\ \ \ \ \ \ \ \ \ \ TIM4\_AF1\_ETRSEL\_0\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00124\ \textcolor{preprocessor}{\#define\ TIM\_TIM4\_ETR\_COMP2\ \ \ \ \ \ \ \ \ \ TIM4\_AF1\_ETRSEL\_1\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00125\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ COMP1\ \&\&\ COMP2\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00126\ \textcolor{preprocessor}{\#if\ defined(COMP3)}}
+\DoxyCodeLine{00127\ \textcolor{preprocessor}{\#define\ TIM\_TIM4\_ETR\_COMP3\ \ \ \ \ \ \ \ \ \ (TIM4\_AF1\_ETRSEL\_1\ |\ TIM4\_AF1\_ETRSEL\_0)\ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00128\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ COMP3\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00129\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ TIM4\ */}\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00137\ \textcolor{preprocessor}{\#define\ TIM\_BREAKINPUT\_BRK\ \ \ \ \ 0x00000001U\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00138\ \textcolor{preprocessor}{\#define\ TIM\_BREAKINPUT\_BRK2\ \ \ \ 0x00000002U\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00146\ \textcolor{preprocessor}{\#define\ TIM\_BREAKINPUTSOURCE\_BKIN\ \ \ \ \ 0x00000001U\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00147\ \textcolor{preprocessor}{\#if\ defined(COMP1)\ \&\&\ defined(COMP2)}}
+\DoxyCodeLine{00148\ \textcolor{preprocessor}{\#define\ TIM\_BREAKINPUTSOURCE\_COMP1\ \ \ \ 0x00000002U\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00149\ \textcolor{preprocessor}{\#define\ TIM\_BREAKINPUTSOURCE\_COMP2\ \ \ \ 0x00000004U\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00150\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ COMP1\ \&\&\ COMP2\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00151\ \textcolor{preprocessor}{\#if\ defined(COMP3)}}
+\DoxyCodeLine{00152\ \textcolor{preprocessor}{\#define\ TIM\_BREAKINPUTSOURCE\_COMP3\ \ \ \ 0x00000008U\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00153\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ COMP3\ */}\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00157\ }
+\DoxyCodeLine{00161\ \textcolor{preprocessor}{\#define\ TIM\_BREAKINPUTSOURCE\_DISABLE\ \ \ \ \ 0x00000000U\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00162\ \textcolor{preprocessor}{\#define\ TIM\_BREAKINPUTSOURCE\_ENABLE\ \ \ \ \ \ 0x00000001U\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00170\ \textcolor{preprocessor}{\#define\ TIM\_BREAKINPUTSOURCE\_POLARITY\_LOW\ \ \ \ \ 0x00000001U\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00171\ \textcolor{preprocessor}{\#define\ TIM\_BREAKINPUTSOURCE\_POLARITY\_HIGH\ \ \ \ 0x00000000U\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00175\ }
+\DoxyCodeLine{00179\ \textcolor{preprocessor}{\#define\ TIM\_TIM1\_TI1\_GPIO\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000000U\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00180\ \textcolor{preprocessor}{\#if\ defined(COMP1)}}
+\DoxyCodeLine{00181\ \textcolor{preprocessor}{\#define\ TIM\_TIM1\_TI1\_COMP1\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000001U\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00182\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ COMP1\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00183\ }
+\DoxyCodeLine{00184\ \textcolor{preprocessor}{\#define\ TIM\_TIM1\_TI2\_GPIO\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000000U\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00185\ \textcolor{preprocessor}{\#if\ defined(COMP2)}}
+\DoxyCodeLine{00186\ \textcolor{preprocessor}{\#define\ TIM\_TIM1\_TI2\_COMP2\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000100U\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00187\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ COMP2\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00188\ }
+\DoxyCodeLine{00189\ \textcolor{preprocessor}{\#define\ TIM\_TIM1\_TI3\_GPIO\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000000U\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00190\ \textcolor{preprocessor}{\#if\ defined(COMP3)}}
+\DoxyCodeLine{00191\ \textcolor{preprocessor}{\#define\ TIM\_TIM1\_TI3\_COMP3\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00010000U\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00192\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ COMP3\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00193\ }
+\DoxyCodeLine{00194\ \textcolor{preprocessor}{\#if\ defined(TIM2)}}
+\DoxyCodeLine{00195\ \textcolor{preprocessor}{\#define\ TIM\_TIM2\_TI1\_GPIO\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000000U\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00196\ \textcolor{preprocessor}{\#define\ TIM\_TIM2\_TI1\_COMP1\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000001U\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00197\ }
+\DoxyCodeLine{00198\ \textcolor{preprocessor}{\#define\ TIM\_TIM2\_TI2\_GPIO\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000000U\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00199\ \textcolor{preprocessor}{\#define\ TIM\_TIM2\_TI2\_COMP2\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000100U\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00200\ }
+\DoxyCodeLine{00201\ \textcolor{preprocessor}{\#define\ TIM\_TIM2\_TI3\_GPIO\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000000U\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00202\ \textcolor{preprocessor}{\#if\ defined(COMP3)}}
+\DoxyCodeLine{00203\ \textcolor{preprocessor}{\#define\ TIM\_TIM2\_TI3\_COMP3\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00010000U\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00204\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ COMP3\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00205\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ TIM2\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00206\ }
+\DoxyCodeLine{00207\ \textcolor{preprocessor}{\#define\ TIM\_TIM3\_TI1\_GPIO\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000000U\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00208\ \textcolor{preprocessor}{\#if\ defined(COMP1)}}
+\DoxyCodeLine{00209\ \textcolor{preprocessor}{\#define\ TIM\_TIM3\_TI1\_COMP1\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000001U\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00210\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ COMP1\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00211\ }
+\DoxyCodeLine{00212\ \textcolor{preprocessor}{\#define\ TIM\_TIM3\_TI2\_GPIO\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000000U\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00213\ \textcolor{preprocessor}{\#if\ defined(COMP2)}}
+\DoxyCodeLine{00214\ \textcolor{preprocessor}{\#define\ TIM\_TIM3\_TI2\_COMP2\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000100U\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00215\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ COMP2\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00216\ }
+\DoxyCodeLine{00217\ \textcolor{preprocessor}{\#define\ TIM\_TIM3\_TI3\_GPIO\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000000U\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00218\ \textcolor{preprocessor}{\#if\ defined(COMP3)}}
+\DoxyCodeLine{00219\ \textcolor{preprocessor}{\#define\ TIM\_TIM3\_TI3\_COMP3\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00010000U\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00220\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ COMP3\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00221\ }
+\DoxyCodeLine{00222\ \textcolor{preprocessor}{\#if\ defined(TIM4)}}
+\DoxyCodeLine{00223\ \textcolor{preprocessor}{\#define\ TIM\_TIM4\_TI1\_GPIO\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000000U\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00224\ \textcolor{preprocessor}{\#if\ defined(COMP1)}}
+\DoxyCodeLine{00225\ \textcolor{preprocessor}{\#define\ TIM\_TIM4\_TI1\_COMP1\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000001U\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00226\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ COMP1\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00227\ }
+\DoxyCodeLine{00228\ \textcolor{preprocessor}{\#define\ TIM\_TIM4\_TI2\_GPIO\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000000U\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00229\ \textcolor{preprocessor}{\#if\ defined(COMP2)}}
+\DoxyCodeLine{00230\ \textcolor{preprocessor}{\#define\ TIM\_TIM4\_TI2\_COMP2\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000100U\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00231\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ COMP2\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00232\ }
+\DoxyCodeLine{00233\ \textcolor{preprocessor}{\#define\ TIM\_TIM4\_TI3\_GPIO\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000000U\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00234\ \textcolor{preprocessor}{\#if\ defined(COMP3)}}
+\DoxyCodeLine{00235\ \textcolor{preprocessor}{\#define\ TIM\_TIM4\_TI3\_COMP3\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00010000U\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00236\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ COMP3\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00237\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ TIM4\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00238\ }
+\DoxyCodeLine{00239\ \textcolor{preprocessor}{\#define\ TIM\_TIM14\_TI1\_GPIO\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000000U\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00240\ \textcolor{preprocessor}{\#define\ TIM\_TIM14\_TI1\_RTC\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000001U\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00241\ \textcolor{preprocessor}{\#define\ TIM\_TIM14\_TI1\_HSE\_32\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000002U\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00242\ \textcolor{preprocessor}{\#define\ TIM\_TIM14\_TI1\_MCO\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000003U\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00243\ \textcolor{preprocessor}{\#if\ defined(RCC\_MCO2\_SUPPORT)}}
+\DoxyCodeLine{00244\ \textcolor{preprocessor}{\#define\ TIM\_TIM14\_TI1\_MCO2\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000004U\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00245\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ RCC\_MCO2\_SUPPORT\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00246\ }
+\DoxyCodeLine{00247\ \textcolor{preprocessor}{\#if\ defined(TIM15)}}
+\DoxyCodeLine{00248\ \textcolor{preprocessor}{\#define\ TIM\_TIM15\_TI1\_GPIO\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000000U\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00249\ \textcolor{preprocessor}{\#define\ TIM\_TIM15\_TI1\_TIM2\_CH1\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000001U\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00250\ \textcolor{preprocessor}{\#define\ TIM\_TIM15\_TI1\_TIM3\_CH1\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000002U\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00251\ }
+\DoxyCodeLine{00252\ \textcolor{preprocessor}{\#define\ TIM\_TIM15\_TI2\_GPIO\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000000U\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00253\ \textcolor{preprocessor}{\#define\ TIM\_TIM15\_TI2\_TIM2\_CH2\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000100U\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00254\ \textcolor{preprocessor}{\#define\ TIM\_TIM15\_TI2\_TIM3\_CH2\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000200U\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00255\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ TIM15\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00256\ }
+\DoxyCodeLine{00257\ \textcolor{preprocessor}{\#define\ TIM\_TIM16\_TI1\_GPIO\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000000U\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00258\ \textcolor{preprocessor}{\#define\ TIM\_TIM16\_TI1\_LSI\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000001U\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00259\ \textcolor{preprocessor}{\#define\ TIM\_TIM16\_TI1\_LSE\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000002U\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00260\ \textcolor{preprocessor}{\#define\ TIM\_TIM16\_TI1\_RTC\_WAKEUP\ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000003U\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00261\ \textcolor{preprocessor}{\#if\ defined(RCC\_MCO2\_SUPPORT)}}
+\DoxyCodeLine{00262\ \textcolor{preprocessor}{\#define\ TIM\_TIM16\_TI1\_MCO2\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000004U\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00263\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ RCC\_MCO2\_SUPPORT\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00264\ }
+\DoxyCodeLine{00265\ \textcolor{preprocessor}{\#define\ TIM\_TIM17\_TI1\_GPIO\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000000U\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00266\ \textcolor{preprocessor}{\#if\ defined(RCC\_HSI48\_SUPPORT)}}
+\DoxyCodeLine{00267\ \textcolor{preprocessor}{\#define\ TIM\_TIM17\_TI1\_HSI48\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000001U\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00268\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ RCC\_HSI48\_SUPPORT\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00269\ \textcolor{preprocessor}{\#define\ TIM\_TIM17\_TI1\_HSE\_32\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000002U\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00270\ \textcolor{preprocessor}{\#define\ TIM\_TIM17\_TI1\_MCO\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000003U\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00271\ \textcolor{preprocessor}{\#if\ defined(RCC\_MCO2\_SUPPORT)}}
+\DoxyCodeLine{00272\ \textcolor{preprocessor}{\#define\ TIM\_TIM17\_TI1\_MCO2\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000004U\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00273\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ RCC\_MCO2\_SUPPORT\ */}\textcolor{preprocessor}{}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00277\ }
+\DoxyCodeLine{00281\ \textcolor{comment}{/*\ End\ of\ exported\ constants\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{00282\ }
+\DoxyCodeLine{00283\ \textcolor{comment}{/*\ Exported\ macro\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{00287\ }
+\DoxyCodeLine{00291\ \textcolor{comment}{/*\ End\ of\ exported\ macro\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{00292\ }
+\DoxyCodeLine{00293\ \textcolor{comment}{/*\ Private\ macro\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{00297\ \textcolor{preprocessor}{\#define\ IS\_TIM\_REMAP(\_\_REMAP\_\_)\ ((((\_\_REMAP\_\_)\ \&\ 0xFFFC3FFFU)\ ==\ 0x00000000U))}}
+\DoxyCodeLine{00298\ }
+\DoxyCodeLine{00299\ \textcolor{preprocessor}{\#define\ IS\_TIM\_BREAKINPUT(\_\_BREAKINPUT\_\_)\ \ (((\_\_BREAKINPUT\_\_)\ ==\ TIM\_BREAKINPUT\_BRK)\ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00300\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((\_\_BREAKINPUT\_\_)\ ==\ TIM\_BREAKINPUT\_BRK2))}}
+\DoxyCodeLine{00301\ }
+\DoxyCodeLine{00302\ \textcolor{preprocessor}{\#if\ defined(COMP1)\ \&\&\ defined(COMP2)\ \&\&\ defined(COMP3)}}
+\DoxyCodeLine{00303\ \textcolor{preprocessor}{\#define\ IS\_TIM\_BREAKINPUTSOURCE(\_\_SOURCE\_\_)\ \ (((\_\_SOURCE\_\_)\ ==\ TIM\_BREAKINPUTSOURCE\_BKIN)\ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00304\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((\_\_SOURCE\_\_)\ ==\ TIM\_BREAKINPUTSOURCE\_COMP1)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00305\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((\_\_SOURCE\_\_)\ ==\ TIM\_BREAKINPUTSOURCE\_COMP2)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00306\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((\_\_SOURCE\_\_)\ ==\ TIM\_BREAKINPUTSOURCE\_COMP3))}}
+\DoxyCodeLine{00307\ \textcolor{preprocessor}{\#elif\ defined(COMP1)\ \&\&\ defined(COMP2)}}
+\DoxyCodeLine{00308\ \textcolor{preprocessor}{\#define\ IS\_TIM\_BREAKINPUTSOURCE(\_\_SOURCE\_\_)\ \ (((\_\_SOURCE\_\_)\ ==\ TIM\_BREAKINPUTSOURCE\_BKIN)\ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00309\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((\_\_SOURCE\_\_)\ ==\ TIM\_BREAKINPUTSOURCE\_COMP1)\ ||\ \(\backslash\)}}
+\DoxyCodeLine{00310\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((\_\_SOURCE\_\_)\ ==\ TIM\_BREAKINPUTSOURCE\_COMP2))}}
+\DoxyCodeLine{00311\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00312\ \textcolor{preprocessor}{\#define\ IS\_TIM\_BREAKINPUTSOURCE(\_\_SOURCE\_\_)\ \ ((\_\_SOURCE\_\_)\ ==\ TIM\_BREAKINPUTSOURCE\_BKIN)}}
+\DoxyCodeLine{00313\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ COMP1\ \&\&\ COMP2\ \&\&\ COMP3\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00314\ }
+\DoxyCodeLine{00315\ \textcolor{preprocessor}{\#define\ IS\_TIM\_BREAKINPUTSOURCE\_STATE(\_\_STATE\_\_)\ \ (((\_\_STATE\_\_)\ ==\ TIM\_BREAKINPUTSOURCE\_DISABLE)\ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00316\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((\_\_STATE\_\_)\ ==\ TIM\_BREAKINPUTSOURCE\_ENABLE))}}
+\DoxyCodeLine{00317\ }
+\DoxyCodeLine{00318\ \textcolor{preprocessor}{\#define\ IS\_TIM\_BREAKINPUTSOURCE\_POLARITY(\_\_POLARITY\_\_)\ \ (((\_\_POLARITY\_\_)\ ==\ TIM\_BREAKINPUTSOURCE\_POLARITY\_LOW)\ \ ||\ \(\backslash\)}}
+\DoxyCodeLine{00319\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ((\_\_POLARITY\_\_)\ ==\ TIM\_BREAKINPUTSOURCE\_POLARITY\_HIGH))}}
+\DoxyCodeLine{00320\ }
+\DoxyCodeLine{00321\ \textcolor{preprocessor}{\#define\ IS\_TIM\_TISEL(\_\_TISEL\_\_)\ ((((\_\_TISEL\_\_)\ \&\ 0xF0F0F0F0U)\ ==\ 0x00000000U))}}
+\DoxyCodeLine{00322\ }
+\DoxyCodeLine{00326\ \textcolor{comment}{/*\ End\ of\ private\ macro\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{00327\ }
+\DoxyCodeLine{00328\ \textcolor{comment}{/*\ Exported\ functions\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{00332\ }
+\DoxyCodeLine{00337\ \textcolor{comment}{/*\ \ Timer\ Hall\ Sensor\ functions\ \ **********************************************/}}
+\DoxyCodeLine{00338\ \doxymbox{\hyperlink{stm32g0xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_TIMEx\_HallSensor\_Init(\doxymbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\_HandleTypeDef}}\ *htim,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{struct_t_i_m___hall_sensor___init_type_def}{TIM\_HallSensor\_InitTypeDef}}\ *sConfig);}
+\DoxyCodeLine{00339\ \doxymbox{\hyperlink{stm32g0xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_TIMEx\_HallSensor\_DeInit(\doxymbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\_HandleTypeDef}}\ *htim);}
+\DoxyCodeLine{00340\ }
+\DoxyCodeLine{00341\ \textcolor{keywordtype}{void}\ HAL\_TIMEx\_HallSensor\_MspInit(\doxymbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\_HandleTypeDef}}\ *htim);}
+\DoxyCodeLine{00342\ \textcolor{keywordtype}{void}\ HAL\_TIMEx\_HallSensor\_MspDeInit(\doxymbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\_HandleTypeDef}}\ *htim);}
+\DoxyCodeLine{00343\ }
+\DoxyCodeLine{00344\ \textcolor{comment}{/*\ Blocking\ mode:\ Polling\ */}}
+\DoxyCodeLine{00345\ \doxymbox{\hyperlink{stm32g0xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_TIMEx\_HallSensor\_Start(\doxymbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\_HandleTypeDef}}\ *htim);}
+\DoxyCodeLine{00346\ \doxymbox{\hyperlink{stm32g0xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_TIMEx\_HallSensor\_Stop(\doxymbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\_HandleTypeDef}}\ *htim);}
+\DoxyCodeLine{00347\ \textcolor{comment}{/*\ Non-\/Blocking\ mode:\ Interrupt\ */}}
+\DoxyCodeLine{00348\ \doxymbox{\hyperlink{stm32g0xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_TIMEx\_HallSensor\_Start\_IT(\doxymbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\_HandleTypeDef}}\ *htim);}
+\DoxyCodeLine{00349\ \doxymbox{\hyperlink{stm32g0xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_TIMEx\_HallSensor\_Stop\_IT(\doxymbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\_HandleTypeDef}}\ *htim);}
+\DoxyCodeLine{00350\ \textcolor{comment}{/*\ Non-\/Blocking\ mode:\ DMA\ */}}
+\DoxyCodeLine{00351\ \doxymbox{\hyperlink{stm32g0xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_TIMEx\_HallSensor\_Start\_DMA(\doxymbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\_HandleTypeDef}}\ *htim,\ uint32\_t\ *pData,\ uint16\_t\ Length);}
+\DoxyCodeLine{00352\ \doxymbox{\hyperlink{stm32g0xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_TIMEx\_HallSensor\_Stop\_DMA(\doxymbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\_HandleTypeDef}}\ *htim);}
+\DoxyCodeLine{00356\ }
+\DoxyCodeLine{00361\ \textcolor{comment}{/*\ \ Timer\ Complementary\ Output\ Compare\ functions\ \ *****************************/}}
+\DoxyCodeLine{00362\ \textcolor{comment}{/*\ Blocking\ mode:\ Polling\ */}}
+\DoxyCodeLine{00363\ \doxymbox{\hyperlink{stm32g0xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_TIMEx\_OCN\_Start(\doxymbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\_HandleTypeDef}}\ *htim,\ uint32\_t\ Channel);}
+\DoxyCodeLine{00364\ \doxymbox{\hyperlink{stm32g0xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_TIMEx\_OCN\_Stop(\doxymbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\_HandleTypeDef}}\ *htim,\ uint32\_t\ Channel);}
+\DoxyCodeLine{00365\ }
+\DoxyCodeLine{00366\ \textcolor{comment}{/*\ Non-\/Blocking\ mode:\ Interrupt\ */}}
+\DoxyCodeLine{00367\ \doxymbox{\hyperlink{stm32g0xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_TIMEx\_OCN\_Start\_IT(\doxymbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\_HandleTypeDef}}\ *htim,\ uint32\_t\ Channel);}
+\DoxyCodeLine{00368\ \doxymbox{\hyperlink{stm32g0xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_TIMEx\_OCN\_Stop\_IT(\doxymbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\_HandleTypeDef}}\ *htim,\ uint32\_t\ Channel);}
+\DoxyCodeLine{00369\ }
+\DoxyCodeLine{00370\ \textcolor{comment}{/*\ Non-\/Blocking\ mode:\ DMA\ */}}
+\DoxyCodeLine{00371\ \doxymbox{\hyperlink{stm32g0xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_TIMEx\_OCN\_Start\_DMA(\doxymbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\_HandleTypeDef}}\ *htim,\ uint32\_t\ Channel,\ \textcolor{keyword}{const}\ uint32\_t\ *pData,}
+\DoxyCodeLine{00372\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint16\_t\ Length);}
+\DoxyCodeLine{00373\ \doxymbox{\hyperlink{stm32g0xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_TIMEx\_OCN\_Stop\_DMA(\doxymbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\_HandleTypeDef}}\ *htim,\ uint32\_t\ Channel);}
+\DoxyCodeLine{00377\ }
+\DoxyCodeLine{00382\ \textcolor{comment}{/*\ \ Timer\ Complementary\ PWM\ functions\ \ ****************************************/}}
+\DoxyCodeLine{00383\ \textcolor{comment}{/*\ Blocking\ mode:\ Polling\ */}}
+\DoxyCodeLine{00384\ \doxymbox{\hyperlink{stm32g0xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_TIMEx\_PWMN\_Start(\doxymbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\_HandleTypeDef}}\ *htim,\ uint32\_t\ Channel);}
+\DoxyCodeLine{00385\ \doxymbox{\hyperlink{stm32g0xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_TIMEx\_PWMN\_Stop(\doxymbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\_HandleTypeDef}}\ *htim,\ uint32\_t\ Channel);}
+\DoxyCodeLine{00386\ }
+\DoxyCodeLine{00387\ \textcolor{comment}{/*\ Non-\/Blocking\ mode:\ Interrupt\ */}}
+\DoxyCodeLine{00388\ \doxymbox{\hyperlink{stm32g0xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_TIMEx\_PWMN\_Start\_IT(\doxymbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\_HandleTypeDef}}\ *htim,\ uint32\_t\ Channel);}
+\DoxyCodeLine{00389\ \doxymbox{\hyperlink{stm32g0xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_TIMEx\_PWMN\_Stop\_IT(\doxymbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\_HandleTypeDef}}\ *htim,\ uint32\_t\ Channel);}
+\DoxyCodeLine{00390\ \textcolor{comment}{/*\ Non-\/Blocking\ mode:\ DMA\ */}}
+\DoxyCodeLine{00391\ \doxymbox{\hyperlink{stm32g0xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_TIMEx\_PWMN\_Start\_DMA(\doxymbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\_HandleTypeDef}}\ *htim,\ uint32\_t\ Channel,\ \textcolor{keyword}{const}\ uint32\_t\ *pData,}
+\DoxyCodeLine{00392\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint16\_t\ Length);}
+\DoxyCodeLine{00393\ \doxymbox{\hyperlink{stm32g0xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_TIMEx\_PWMN\_Stop\_DMA(\doxymbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\_HandleTypeDef}}\ *htim,\ uint32\_t\ Channel);}
+\DoxyCodeLine{00397\ }
+\DoxyCodeLine{00402\ \textcolor{comment}{/*\ \ Timer\ Complementary\ One\ Pulse\ functions\ \ **********************************/}}
+\DoxyCodeLine{00403\ \textcolor{comment}{/*\ Blocking\ mode:\ Polling\ */}}
+\DoxyCodeLine{00404\ \doxymbox{\hyperlink{stm32g0xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_TIMEx\_OnePulseN\_Start(\doxymbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\_HandleTypeDef}}\ *htim,\ uint32\_t\ OutputChannel);}
+\DoxyCodeLine{00405\ \doxymbox{\hyperlink{stm32g0xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_TIMEx\_OnePulseN\_Stop(\doxymbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\_HandleTypeDef}}\ *htim,\ uint32\_t\ OutputChannel);}
+\DoxyCodeLine{00406\ }
+\DoxyCodeLine{00407\ \textcolor{comment}{/*\ Non-\/Blocking\ mode:\ Interrupt\ */}}
+\DoxyCodeLine{00408\ \doxymbox{\hyperlink{stm32g0xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_TIMEx\_OnePulseN\_Start\_IT(\doxymbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\_HandleTypeDef}}\ *htim,\ uint32\_t\ OutputChannel);}
+\DoxyCodeLine{00409\ \doxymbox{\hyperlink{stm32g0xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_TIMEx\_OnePulseN\_Stop\_IT(\doxymbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\_HandleTypeDef}}\ *htim,\ uint32\_t\ OutputChannel);}
+\DoxyCodeLine{00413\ }
+\DoxyCodeLine{00418\ \textcolor{comment}{/*\ Extended\ Control\ functions\ \ ************************************************/}}
+\DoxyCodeLine{00419\ \doxymbox{\hyperlink{stm32g0xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_TIMEx\_ConfigCommutEvent(\doxymbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\_HandleTypeDef}}\ *htim,\ uint32\_t\ \ InputTrigger,}
+\DoxyCodeLine{00420\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ \ CommutationSource);}
+\DoxyCodeLine{00421\ \doxymbox{\hyperlink{stm32g0xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_TIMEx\_ConfigCommutEvent\_IT(\doxymbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\_HandleTypeDef}}\ *htim,\ uint32\_t\ \ InputTrigger,}
+\DoxyCodeLine{00422\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ \ CommutationSource);}
+\DoxyCodeLine{00423\ \doxymbox{\hyperlink{stm32g0xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_TIMEx\_ConfigCommutEvent\_DMA(\doxymbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\_HandleTypeDef}}\ *htim,\ uint32\_t\ \ InputTrigger,}
+\DoxyCodeLine{00424\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ \ CommutationSource);}
+\DoxyCodeLine{00425\ \doxymbox{\hyperlink{stm32g0xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_TIMEx\_MasterConfigSynchronization(\doxymbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\_HandleTypeDef}}\ *htim,}
+\DoxyCodeLine{00426\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{struct_t_i_m___master_config_type_def}{TIM\_MasterConfigTypeDef}}\ *sMasterConfig);}
+\DoxyCodeLine{00427\ \doxymbox{\hyperlink{stm32g0xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_TIMEx\_ConfigBreakDeadTime(\doxymbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\_HandleTypeDef}}\ *htim,}
+\DoxyCodeLine{00428\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{struct_t_i_m___break_dead_time_config_type_def}{TIM\_BreakDeadTimeConfigTypeDef}}\ *sBreakDeadTimeConfig);}
+\DoxyCodeLine{00429\ \doxymbox{\hyperlink{stm32g0xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_TIMEx\_ConfigBreakInput(\doxymbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\_HandleTypeDef}}\ *htim,\ uint32\_t\ BreakInput,}
+\DoxyCodeLine{00430\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{struct_t_i_m_ex___break_input_config_type_def}{TIMEx\_BreakInputConfigTypeDef}}\ *sBreakInputConfig);}
+\DoxyCodeLine{00431\ \doxymbox{\hyperlink{stm32g0xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_TIMEx\_GroupChannel5(\doxymbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\_HandleTypeDef}}\ *htim,\ uint32\_t\ Channels);}
+\DoxyCodeLine{00432\ \doxymbox{\hyperlink{stm32g0xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_TIMEx\_RemapConfig(\doxymbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\_HandleTypeDef}}\ *htim,\ uint32\_t\ Remap);}
+\DoxyCodeLine{00433\ \doxymbox{\hyperlink{stm32g0xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ \ HAL\_TIMEx\_TISelection(\doxymbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\_HandleTypeDef}}\ *htim,\ uint32\_t\ TISelection,\ uint32\_t\ Channel);}
+\DoxyCodeLine{00434\ }
+\DoxyCodeLine{00435\ \doxymbox{\hyperlink{stm32g0xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_TIMEx\_DisarmBreakInput(\doxymbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\_HandleTypeDef}}\ *htim,\ uint32\_t\ BreakInput);}
+\DoxyCodeLine{00436\ \doxymbox{\hyperlink{stm32g0xx__hal__def_8h_a63c0679d1cb8b8c684fbb0632743478f}{HAL\_StatusTypeDef}}\ HAL\_TIMEx\_ReArmBreakInput(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\_HandleTypeDef}}\ *htim,\ uint32\_t\ BreakInput);}
+\DoxyCodeLine{00440\ }
+\DoxyCodeLine{00445\ \textcolor{comment}{/*\ Extended\ Callback\ **********************************************************/}}
+\DoxyCodeLine{00446\ \textcolor{keywordtype}{void}\ HAL\_TIMEx\_CommutCallback(\doxymbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\_HandleTypeDef}}\ *htim);}
+\DoxyCodeLine{00447\ \textcolor{keywordtype}{void}\ HAL\_TIMEx\_CommutHalfCpltCallback(\doxymbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\_HandleTypeDef}}\ *htim);}
+\DoxyCodeLine{00448\ \textcolor{keywordtype}{void}\ HAL\_TIMEx\_BreakCallback(\doxymbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\_HandleTypeDef}}\ *htim);}
+\DoxyCodeLine{00449\ \textcolor{keywordtype}{void}\ HAL\_TIMEx\_Break2Callback(\doxymbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\_HandleTypeDef}}\ *htim);}
+\DoxyCodeLine{00453\ }
+\DoxyCodeLine{00458\ \textcolor{comment}{/*\ Extended\ Peripheral\ State\ functions\ \ ***************************************/}}
+\DoxyCodeLine{00459\ \doxymbox{\hyperlink{group___t_i_m___exported___types_gae0994cf5970e56ca4903e9151f40010c}{HAL\_TIM\_StateTypeDef}}\ HAL\_TIMEx\_HallSensor\_GetState(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\_HandleTypeDef}}\ *htim);}
+\DoxyCodeLine{00460\ \doxymbox{\hyperlink{group___t_i_m___exported___types_ga1a70fcbe9952e18af5c890e216a15f34}{HAL\_TIM\_ChannelStateTypeDef}}\ HAL\_TIMEx\_GetChannelNState(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{struct_t_i_m___handle_type_def}{TIM\_HandleTypeDef}}\ *htim,\ \ uint32\_t\ ChannelN);}
+\DoxyCodeLine{00464\ }
+\DoxyCodeLine{00468\ \textcolor{comment}{/*\ End\ of\ exported\ functions\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{00469\ }
+\DoxyCodeLine{00470\ \textcolor{comment}{/*\ Private\ functions-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{00474\ \textcolor{keywordtype}{void}\ TIMEx\_DMACommutationCplt(\doxymbox{\hyperlink{group___d_m_a___exported___types_ga41b754a906b86bce54dc79938970138b}{DMA\_HandleTypeDef}}\ *hdma);}
+\DoxyCodeLine{00475\ \textcolor{keywordtype}{void}\ TIMEx\_DMACommutationHalfCplt(\doxymbox{\hyperlink{group___d_m_a___exported___types_ga41b754a906b86bce54dc79938970138b}{DMA\_HandleTypeDef}}\ *hdma);}
+\DoxyCodeLine{00479\ \textcolor{comment}{/*\ End\ of\ private\ functions\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{00480\ }
+\DoxyCodeLine{00484\ }
+\DoxyCodeLine{00488\ }
+\DoxyCodeLine{00489\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00490\ \}}
+\DoxyCodeLine{00491\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00492\ }
+\DoxyCodeLine{00493\ }
+\DoxyCodeLine{00494\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ STM32G0xx\_HAL\_TIM\_EX\_H\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

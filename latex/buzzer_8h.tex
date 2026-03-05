@@ -1,0 +1,218 @@
+\doxysection{Core/\+\+Inc/\+actuators/\+buzzer.h File Reference}
+\hypertarget{buzzer_8h}{}\label{buzzer_8h}\index{Core/Inc/actuators/buzzer.h@{Core/Inc/actuators/buzzer.h}}
+
+
+Header file for the buzzer actuator driver.  
+
+
+{\ttfamily \+\#include $<$stdint.\+h$>$}\newline
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \doxymbox{\hyperlink{structbuzzer__setting__t}{buzzer\+\_\+setting\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Configuration parameters for a specific buzzer state. \end{DoxyCompactList}\item 
+struct \doxymbox{\hyperlink{structbuzzer__io__t}{buzzer\+\_\+io\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Hardware IO mapping structure for the buzzer. \end{DoxyCompactList}\item 
+struct \doxymbox{\hyperlink{structbuzzer__t}{buzzer\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Buzzer instance structure (Handle). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{buzzer_8h_aee1782f76214c7fd3f7a70a6840efa7b}\label{buzzer_8h_aee1782f76214c7fd3f7a70a6840efa7b} 
+\+\#define {\bfseries BUZZER\+\_\+\+OFF\+\_\+\+FREQ}~0U
+\item 
+\Hypertarget{buzzer_8h_ae26031734e1e55fef7d7902aebf99055}\label{buzzer_8h_ae26031734e1e55fef7d7902aebf99055} 
+\+\#define {\bfseries BUZZER\+\_\+\+OFF\+\_\+\+STEP}~0U
+\item 
+\Hypertarget{buzzer_8h_a74e4b342bc09d06aa13d213e3e3d21bb}\label{buzzer_8h_a74e4b342bc09d06aa13d213e3e3d21bb} 
+\+\#define {\bfseries BUZZER\+\_\+\+OFF\+\_\+\+SPEED}~0U
+\item 
+\Hypertarget{buzzer_8h_a6853d7b2ccbbf7c6220143991bb19c78}\label{buzzer_8h_a6853d7b2ccbbf7c6220143991bb19c78} 
+\+\#define {\bfseries BUZZER\+\_\+\+ON\+\_\+\+FREQ}~2000U
+\item 
+\Hypertarget{buzzer_8h_a8d2e47c42720a388580b3773b4fe8825}\label{buzzer_8h_a8d2e47c42720a388580b3773b4fe8825} 
+\+\#define {\bfseries BUZZER\+\_\+\+ON\+\_\+\+STEP}~0U
+\item 
+\Hypertarget{buzzer_8h_a2ebbcb2694b335a30250a92096252a1e}\label{buzzer_8h_a2ebbcb2694b335a30250a92096252a1e} 
+\+\#define {\bfseries BUZZER\+\_\+\+ON\+\_\+\+SPEED}~0U
+\item 
+\Hypertarget{buzzer_8h_aebff856c8e39bd17505f620eac09e498}\label{buzzer_8h_aebff856c8e39bd17505f620eac09e498} 
+\+\#define {\bfseries BUZER\+\_\+\+BEEP\+\_\+\+STEP}~0U
+\item 
+\Hypertarget{buzzer_8h_ad9ce5370b8e237f086a62df5e28d823c}\label{buzzer_8h_ad9ce5370b8e237f086a62df5e28d823c} 
+\+\#define {\bfseries BUZZER\+\_\+\+BEEP\+\_\+\+SPEED}~0U
+\item 
+\Hypertarget{buzzer_8h_ad3ea59532e2c186b717b346e74b84bef}\label{buzzer_8h_ad3ea59532e2c186b717b346e74b84bef} 
+\+\#define {\bfseries BUZZER\+\_\+\+BEEP\+\_\+\+TIME}~200U
+\item 
+\Hypertarget{buzzer_8h_ad437ef0821fe7629a8c5d789826728bc}\label{buzzer_8h_ad437ef0821fe7629a8c5d789826728bc} 
+\+\#define {\bfseries WARN\+\_\+\+ALARM\+\_\+\+MIN\+\_\+\+FREQ}~500U
+\item 
+\Hypertarget{buzzer_8h_a130ea90bf9d3b809be194cdccf2a23c0}\label{buzzer_8h_a130ea90bf9d3b809be194cdccf2a23c0} 
+\+\#define {\bfseries WARN\+\_\+\+ALARM\+\_\+\+MAX\+\_\+\+FREQ}~1000U
+\item 
+\Hypertarget{buzzer_8h_a8c1f990399e71073bad841469ff49fba}\label{buzzer_8h_a8c1f990399e71073bad841469ff49fba} 
+\+\#define {\bfseries WARN\+\_\+\+ALARM\+\_\+\+STEP}~20U
+\item 
+\Hypertarget{buzzer_8h_a6740456965f380ff2aacedcd9d53499d}\label{buzzer_8h_a6740456965f380ff2aacedcd9d53499d} 
+\+\#define {\bfseries WARN\+\_\+\+ALARM\+\_\+\+SPEED\+\_\+\+MS}~50U
+\item 
+\Hypertarget{buzzer_8h_ab24669f0511b4e976b20e58db9bd6ea8}\label{buzzer_8h_ab24669f0511b4e976b20e58db9bd6ea8} 
+\+\#define {\bfseries DANGER\+\_\+\+ALARM\+\_\+\+MIN\+\_\+\+FREQ}~1000U
+\item 
+\Hypertarget{buzzer_8h_a61d86d14b879832afc3725af9f77e3d9}\label{buzzer_8h_a61d86d14b879832afc3725af9f77e3d9} 
+\+\#define {\bfseries DANGER\+\_\+\+ALARM\+\_\+\+MAX\+\_\+\+FREQ}~2000U
+\item 
+\Hypertarget{buzzer_8h_a45fed3aed4ad6c559d88e8390163f2be}\label{buzzer_8h_a45fed3aed4ad6c559d88e8390163f2be} 
+\+\#define {\bfseries DANGER\+\_\+\+ALARM\+\_\+\+STEP}~100U
+\item 
+\Hypertarget{buzzer_8h_aa5a233af2fd66356e9703f768eb79231}\label{buzzer_8h_aa5a233af2fd66356e9703f768eb79231} 
+\+\#define {\bfseries DANGER\+\_\+\+ALARM\+\_\+\+SPEED\+\_\+\+MS}~10U
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{buzzer_8h_a85aad826a656f73e8051bc9cda2d7848}\label{buzzer_8h_a85aad826a656f73e8051bc9cda2d7848} 
+typedef void(\texorpdfstring{$\ast$}{*} {\bfseries bsp\+\_\+buzzer\+\_\+set\+\_\+freq\+\_\+fn}) (uint16\+\_\+t freq\+\_\+hz)
+\item 
+\Hypertarget{buzzer_8h_a3a007e6b33e792607c122ef4b0bf44fc}\label{buzzer_8h_a3a007e6b33e792607c122ef4b0bf44fc} 
+typedef void(\texorpdfstring{$\ast$}{*} {\bfseries bsp\+\_\+buzzer\+\_\+stop\+\_\+fn}) (void)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{buzzer_8h_ac85d21c664070e78022ec7bca54f9f5b}\label{buzzer_8h_ac85d21c664070e78022ec7bca54f9f5b} 
+enum \doxymbox{\hyperlink{buzzer_8h_ac85d21c664070e78022ec7bca54f9f5b}{buzzer\+\_\+state\+\_\+e}} \{ \newline
+{\bfseries BUZZER\+\_\+\+OFF}
+, {\bfseries BUZZER\+\_\+\+ON}
+, {\bfseries BUZZER\+\_\+\+BEEP}
+, {\bfseries BUZZER\+\_\+\+WARN\+\_\+\+ALARM}
+, \newline
+{\bfseries BUZZER\+\_\+\+DANGER\+\_\+\+ALARM}
+ \}
+\begin{DoxyCompactList}\small\item\em Buzzer operational states. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{buzzer_8h_a1205dc3a8b97f24037f6cda26bcb85be}{buzzer\+\_\+init}} (\doxymbox{\hyperlink{structbuzzer__t}{buzzer\+\_\+t}} \texorpdfstring{$\ast$}{*}handle, \doxymbox{\hyperlink{structbuzzer__io__t}{buzzer\+\_\+io\+\_\+t}} hw\+\_\+buzz\+\_\+bsp)
+\begin{DoxyCompactList}\small\item\em Initializes the buzzer instance and links hardware IO. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{buzzer_8h_a22f70e61d5499ef9125afdddb3b85bca}{buzzer\+\_\+set\+\_\+state}} (\doxymbox{\hyperlink{structbuzzer__t}{buzzer\+\_\+t}} \texorpdfstring{$\ast$}{*}handle, \doxymbox{\hyperlink{buzzer_8h_ac85d21c664070e78022ec7bca54f9f5b}{buzzer\+\_\+state\+\_\+e}} state)
+\begin{DoxyCompactList}\small\item\em Changes the active state of the buzzer. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{buzzer_8h_a5d69c98086e88c6e6d03057fcb5529bb}{buzzer\+\_\+process}} (\doxymbox{\hyperlink{structbuzzer__t}{buzzer\+\_\+t}} \texorpdfstring{$\ast$}{*}handle, uint32\+\_\+t current\+\_\+time\+\_\+ms)
+\begin{DoxyCompactList}\small\item\em Processes buzzer sweep logic and beep timeouts. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{buzzer_8h_a96f3111c8b1d2e823fd24a8beef6284f}{buzzer\+\_\+beep}} (\doxymbox{\hyperlink{structbuzzer__t}{buzzer\+\_\+t}} \texorpdfstring{$\ast$}{*}handle)
+\begin{DoxyCompactList}\small\item\em Triggers a single short beep (ignored during active alarms). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Header file for the buzzer actuator driver. 
+
+\begin{DoxyAuthor}{Author}
+vkusnuiplov
+\end{DoxyAuthor}
+Contains configuration macros, state definitions, and the public API for controlling the buzzer with frequency sweeping capabilities 
+
+\label{doc-func-members}
+\Hypertarget{buzzer_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{buzzer_8h_a96f3111c8b1d2e823fd24a8beef6284f}\index{buzzer.h@{buzzer.h}!buzzer\_beep@{buzzer\_beep}}
+\index{buzzer\_beep@{buzzer\_beep}!buzzer.h@{buzzer.h}}
+\doxysubsubsection{\texorpdfstring{buzzer\_beep()}{buzzer\_beep()}}
+{\footnotesize\ttfamily \label{buzzer_8h_a96f3111c8b1d2e823fd24a8beef6284f} 
+void buzzer\+\_\+beep (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{structbuzzer__t}{buzzer\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{handle}{}\end{DoxyParamCaption})}
+
+
+
+Triggers a single short beep (ignored during active alarms). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em handle} & Pointer to the buzzer instance\\
+\hline
+\end{DoxyParams}
+Triggers a single short beep (ignored during active alarms).
+
+\begin{DoxyNote}{Note}
+This action is ignored if the buzzer is currently in an active alarm state 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em handle} & Pointer to the buzzer instance \\
+\hline
+\end{DoxyParams}
+\Hypertarget{buzzer_8h_a1205dc3a8b97f24037f6cda26bcb85be}\index{buzzer.h@{buzzer.h}!buzzer\_init@{buzzer\_init}}
+\index{buzzer\_init@{buzzer\_init}!buzzer.h@{buzzer.h}}
+\doxysubsubsection{\texorpdfstring{buzzer\_init()}{buzzer\_init()}}
+{\footnotesize\ttfamily \label{buzzer_8h_a1205dc3a8b97f24037f6cda26bcb85be} 
+void buzzer\+\_\+init (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{structbuzzer__t}{buzzer\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{handle}{, }\item[{\doxymbox{\hyperlink{structbuzzer__io__t}{buzzer\+\_\+io\+\_\+t}}}]{hw\+\_\+io}{}\end{DoxyParamCaption})}
+
+
+
+Initializes the buzzer instance and links hardware IO. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em handle} & Pointer to the buzzer instance \\
+\hline
+{\em hw\+\_\+buzz\+\_\+bsp} & Hardware IO mapping structure\\
+\hline
+\end{DoxyParams}
+Initializes the buzzer instance and links hardware IO.
+
+
+\begin{DoxyParams}{Parameters}
+{\em handle} & Pointer to the buzzer instance \\
+\hline
+{\em hw\+\_\+io} & Structure containing hardware IO function pointers \\
+\hline
+\end{DoxyParams}
+\Hypertarget{buzzer_8h_a5d69c98086e88c6e6d03057fcb5529bb}\index{buzzer.h@{buzzer.h}!buzzer\_process@{buzzer\_process}}
+\index{buzzer\_process@{buzzer\_process}!buzzer.h@{buzzer.h}}
+\doxysubsubsection{\texorpdfstring{buzzer\_process()}{buzzer\_process()}}
+{\footnotesize\ttfamily \label{buzzer_8h_a5d69c98086e88c6e6d03057fcb5529bb} 
+void buzzer\+\_\+process (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{structbuzzer__t}{buzzer\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{handle}{, }\item[{uint32\+\_\+t}]{current\+\_\+time\+\_\+ms}{}\end{DoxyParamCaption})}
+
+
+
+Processes buzzer sweep logic and beep timeouts. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em handle} & Pointer to the buzzer instance \\
+\hline
+{\em current\+\_\+time\+\_\+ms} & Current system time in milliseconds\\
+\hline
+\end{DoxyParams}
+Processes buzzer sweep logic and beep timeouts.
+
+\begin{DoxyNote}{Note}
+Must be called continuously in the main application loop 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em handle} & Pointer to the buzzer instance \\
+\hline
+{\em current\+\_\+time\+\_\+ms} & Current system time in milliseconds \\
+\hline
+\end{DoxyParams}
+\Hypertarget{buzzer_8h_a22f70e61d5499ef9125afdddb3b85bca}\index{buzzer.h@{buzzer.h}!buzzer\_set\_state@{buzzer\_set\_state}}
+\index{buzzer\_set\_state@{buzzer\_set\_state}!buzzer.h@{buzzer.h}}
+\doxysubsubsection{\texorpdfstring{buzzer\_set\_state()}{buzzer\_set\_state()}}
+{\footnotesize\ttfamily \label{buzzer_8h_a22f70e61d5499ef9125afdddb3b85bca} 
+void buzzer\+\_\+set\+\_\+state (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{structbuzzer__t}{buzzer\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{handle}{, }\item[{\doxymbox{\hyperlink{buzzer_8h_ac85d21c664070e78022ec7bca54f9f5b}{buzzer\+\_\+state\+\_\+e}}}]{state}{}\end{DoxyParamCaption})}
+
+
+
+Changes the active state of the buzzer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em handle} & Pointer to the buzzer instance \\
+\hline
+{\em state} & The desired buzzer state\\
+\hline
+{\em handle} & Pointer to the buzzer instance \\
+\hline
+{\em state} & The new state to apply (e.\+g., BUZZER\+\_\+\+OFF, BUZZER\+\_\+\+WARN\+\_\+\+ALARM) \\
+\hline
+\end{DoxyParams}

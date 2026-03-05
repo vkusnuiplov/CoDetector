@@ -2,10 +2,11 @@
   ******************************************************************************
   * @file    application.c
   * @author  vkusnuiplov
-  * @brief   Реалізація бізнес логіки
+  * @brief   Implementation of the high-level application business logic
+  * @details Coordinates sensor FSM, actuators (LEDs, Buzzer), and manages
+  * system states (Warmup, Default, Warning, Alarm, Error)
   ******************************************************************************
   */
-
 #include "application.h"
 #include "bsp.h"
 
@@ -15,6 +16,9 @@ static mq7_t h_sensor;
 static buzzer_t h_buzzer;
 
 //-------------------------------------------------------------------------
+/**
+ * @brief Lookup table mapping application states to actuator behaviors
+ */
 static const indication_cfg_t indication_table[] = {
     [APP_STATE_WARMUP] =   {LED_BLINK_SLOW,      LED_OFF,        BUZZER_OFF},
     [APP_STATE_DEFAULT] =  {LED_BLINK_HEARTBEAT, LED_OFF,        BUZZER_OFF},
@@ -22,7 +26,12 @@ static const indication_cfg_t indication_table[] = {
     [APP_STATE_ALARM] =    {LED_OFF,             LED_BLINK_FAST, BUZZER_DANGER_ALARM},
     [APP_STATE_ERROR] =    {LED_OFF,             LED_BLINK_SLOW, BUZZER_OFF},
 };
+
 //-------------------------------------------------------------------------
+/**
+ * @brief  Applies the corresponding visual and audio indication for the current state
+ * @param  app Pointer to the application instance
+ */
 static void _app_update_indication(application_t *app) {
     const indication_cfg_t *cfg = &indication_table [app->state];
 
@@ -30,7 +39,14 @@ static void _app_update_indication(application_t *app) {
     led_set_mode(app->led_red,   cfg->red_mode);
     buzzer_set_state(app->buzzer, cfg->buzzer_state);
 }
+
 //-------------------------------------------------------------------------
+/**
+ * @brief  Checks gas concentration levels and manages state transitions
+ * @note   Implements hysteresis for PPM thresholds and handles emergency
+ * hardware-level alerts during the cooling phase
+ * @param  app Pointer to the application instance
+ */
 static void _app_check_levels(application_t *app) {
     app_state_t old_state = app->state;
 
@@ -70,6 +86,10 @@ static void _app_check_levels(application_t *app) {
 }
 
 //-------------------------------------------------------------------------
+/**
+ * @brief  Initializes the application, peripheral drivers, and BSP layer
+ * @param  app Pointer to the application instance
+ */
 void app_init(application_t *app) {
     BSP_Init();
     mq7_io_t mq_io = {
@@ -97,7 +117,13 @@ void app_init(application_t *app) {
     _app_update_indication(app);
     buzzer_beep(app->buzzer);
 }
+
 //-------------------------------------------------------------------------
+/**
+ * @brief  Main application task. Must be called periodically in the main loop
+ * @param  app Pointer to the application instance
+ * @param  now Current system time in milliseconds
+ */
 void app_process(application_t *app, uint32_t now) {
 
     if (app == NULL) return;
