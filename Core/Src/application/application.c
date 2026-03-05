@@ -4,62 +4,6 @@
   * @author  vkusnuiplov
   * @brief   Реалізація бізнес логіки
   ******************************************************************************
-
- 	@section Application Architecture
-
-	Архітектура базується на циклічному опитуванні (Polling) та подієвій моделі:
-
-	1. Initialization (app_init)
-		Ініціалізація BSP
-		Зв'язування абстрактних драйверів з функціями BSP.
-		Встановлення початкового стану APP_STATE_WARMUP.
-
-	2. Processing Loop (app_process)
-		Оновлення таймерів драйверів
-		Перевірка умов переходу FSM
-
-  ******************************************************************************
-	@section FSM States & Indication Logic
-
-	Поведінка пристрою визначається таблицею індикації
-
-	1. APP_STATE_WARMUP
-		Indication: Green SLOW Blink | Red OFF | Silent
-		Старт системи. Очікування виходу сенсора на робочий режим (MEASURE)
-
-	2. APP_STATE_DEFAULT
-		Indication: Green HEARTBEAT | Red OFF | Silent
-		Рівень CO в межах норми < DEFAULT_LEVEL_PPM
-
-	3. APP_STATE_WARNING
-		Indication: Green OFF | Red FAST Blink | Silent
-		Рівень CO підвищений > DEFAULT_LEVEL_PPM, але не критичний
-
-	4. APP_STATE_ALARM
-		Indication: Green OFF | Red FAST Blink | Siren Sound
-		Критичний рівень CO > WARNING_LEVEL_PPM або аварійний стрибок поза фазою вимірювання
-
-	5. APP_STATE_ERROR
-		Indication: Green OFF | Red ON | Silent
-		Виявлено обрив сенсора або некоректні дані АЦП < Min Threshold
-
-  ******************************************************************************
-	@section Safety & Hysteresis Logic
-
-	Алгоритм запобігання хибним спрацьовуванням та мерехтіння станів:
-
-		Emergency Check: Під час фази Low Heating (1.4V) перевіряється сире
-	  	значення АЦП. Якщо воно перевищує критичний поріг -> миттєва тривога
-	    ALARM, ігноруючи розрахунок PPM
-
-	    PPM Measurement: Під час фази Measure аналізується розрахований PPM.
-	    Переходи між станами Default <-> Warning <-> Alarm мають гістерезис
-	    у вигляді власного діапазону станів, для стабільності роботи
-
-		Реалізовано механізм швидкого скидання тривоги Alarm -> Default,
-	  	якщо концентрація газу різко впала, минаючи проміжні стани
-
-  ******************************************************************************
   */
 
 #include "application.h"
@@ -90,15 +34,7 @@ static void _app_update_indication(application_t *app) {
 static void _app_check_levels(application_t *app) {
     app_state_t old_state = app->state;
 
-    if (app->sensor->raw_adc_value < ADC_ERROR_VALUE) {
-        app->state = APP_STATE_ERROR;
-    }
-
-    else if (app->state == APP_STATE_ERROR) {
-        app->state = APP_STATE_WARMUP;
-    }
-
-    else if (app->sensor->state == MQ7_STATE_HEATING_LOW) {
+    if (app->sensor->state == MQ7_STATE_HEATING_LOW) {
         if (app->sensor->raw_adc_value > SENSOR_EMERGENCY_RAW_ADC_THRESHOLD) {
             if (app->state != APP_STATE_ALARM) {
                 app->state = APP_STATE_ALARM;
@@ -107,7 +43,7 @@ static void _app_check_levels(application_t *app) {
     }
 
     else if (app->sensor->state == MQ7_STATE_MEASURE) {
-        float current_ppm = app->sensor->current_ppm;
+        uint16_t current_ppm = app->sensor->current_ppm;
 
         switch (app->state) {
             case APP_STATE_DEFAULT:
@@ -157,28 +93,59 @@ void app_init(application_t *app) {
     app->buzzer = &h_buzzer;
 
     app->state = APP_STATE_WARMUP;
+    app->warmup_beep_done = false;
     _app_update_indication(app);
     buzzer_beep(app->buzzer);
 }
 //-------------------------------------------------------------------------
 void app_process(application_t *app, uint32_t now) {
-    mq7_process(app->sensor, now);
+
+    if (app == NULL) return;
+
+    mq7_status_e sensor_status = mq7_process (app->sensor, now);
     led_process(app->led_green, now);
     led_process(app->led_red, now);
     buzzer_process(app->buzzer, now);
 
+    bool is_hardware_error = (sensor_status != MQ7_OK) || (app->sensor->raw_adc_value < ADC_ERROR_VALUE);
+
+    if (is_hardware_error) {
+        if (app->state != APP_STATE_ERROR) {
+            app->state = APP_STATE_ERROR;
+            _app_update_indication(app);
+        }
+        return;
+    }
+
+    if (app->state == APP_STATE_ERROR && !is_hardware_error) {
+        app->state = APP_STATE_DEFAULT;
+        _app_update_indication(app);
+        return;
+    }
+
     switch(app->state) {
         case APP_STATE_WARMUP:
-            if(app->sensor->state == MQ7_STATE_MEASURE) {
-                app->state = APP_STATE_DEFAULT;
-                _app_update_indication(app);
+            if(app->sensor->state == MQ7_STATE_HEATING_HIGH && app->warmup_beep_done == false) {
                 buzzer_beep(app->buzzer);
-            }
+                app->warmup_beep_done = true;
+        }
+
+        if(app->sensor->state == MQ7_STATE_MEASURE) {
+            app->state = APP_STATE_DEFAULT;
+            _app_update_indication(app);
+        }
+
+        break;
+
+        case APP_STATE_DEFAULT:
+        case APP_STATE_WARNING:
+        case APP_STATE_ALARM:
+            _app_check_levels(app);
             break;
 
         default:
-            _app_check_levels(app);
-        break;
+            break;
     }
 }
+
 //-------------------------------------------------------------------------

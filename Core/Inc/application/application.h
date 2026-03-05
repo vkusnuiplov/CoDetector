@@ -12,9 +12,10 @@
 #include "mq7.h"
 #include "led.h"
 #include "buzzer.h"
+#include <stdbool.h>
 
-#define DEFAULT_LEVEL_PPM   30.0f
-#define WARNING_LEVEL_PPM   60.0f
+#define DEFAULT_LEVEL_PPM   30U
+#define WARNING_LEVEL_PPM   60U
 
 #define APP_WARMUP_TIME_MS  SENSOR_INITIAL_CLEANING_TIME
 
@@ -33,6 +34,7 @@ typedef struct {
     buzzer_t* buzzer;
 
     app_state_t state;
+    bool warmup_beep_done;
 
 } application_t;
 
